@@ -9,11 +9,13 @@ redirect_from:
 
 {% include base_path %}
 
+CV in pdf format is available [here](https://zhengtxecon.github.io/files/tianxiang_cv.pdf). 
+
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* PhD in Economics, UCL, 2028 (expected)
+* MSc in Economics, LSE, 2022
+* BSc Hons in International Economics and Trade, University of Nottingham Ningbo China, 2020
 
 Work experience
 ======
