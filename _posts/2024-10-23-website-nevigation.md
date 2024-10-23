@@ -6,7 +6,7 @@ tags:
   - website construction
 ---
 
-## Add a New Nevigation Choice
+#### Add a New Nevigation Choice
 To create a new collection and display it under the navigation panel, follow these steps:
 
 1. **Define the collection**: Edit `_config.yml` under the root directory of the website. Add a new collection definition. For example:
