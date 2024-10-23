@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-Hello! I am an MPhil/PhD in Economics at UCL.
+Hello! I am a 3rd-year PhD in Economics at UCL.
 
 My research interests lie in labour and development economics. I am particularly interested in how technology innovation and adoption shape organizational structures and individual decision-making processes, and their consequences in developing countries.
 In addition to my primary interests, I explore topics such as urban economics and the pervasive impact of behavioral heuristics and social norms on inequality and biases within society.
