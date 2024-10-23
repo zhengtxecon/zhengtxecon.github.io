@@ -1,0 +1,41 @@
+---
+title: "Teaching experience 1"
+collection: teaching
+type: "Undergraduate course"
+permalink: /teaching/2014-spring-teaching-1
+venue: "University 1, Department"
+date: 2014-01-01
+location: "City, Country"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Example</title>
+    <style>
+        iframe {
+            width: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="myIframe" src="https://outlook.office365.com/owa/calendar/TianxiangZhengOfficeHour@live.ucl.ac.uk/bookings/" scrolling="no"></iframe>
+
+    <script>
+        function resizeIframe() {
+            var iframe = document.getElementById('myIframe');
+            iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+        }
+
+        window.addEventListener('load', function() {
+            var iframe = document.getElementById('myIframe');
+            iframe.onload = resizeIframe;
+        });
+    </script>
+</body>
+</html>
+
+<iframe src='https://outlook.office365.com/owa/calendar/TianxiangZhengOfficeHour@live.ucl.ac.uk/bookings/' width='100%' height='100%' scrolling='yes' style='border:0'></iframe>
