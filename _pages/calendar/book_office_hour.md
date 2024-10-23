@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 {% include base_path %}
-I hold 1-to-1 office hours for students to discuss their questions feedbacks through Zoom. Each slot is 15 minutes long. Please book a slot below.
+I hold one-to-one office hours for students to discuss their questions feedbacks through Zoom. Each slot is 15 minutes long. Please book a slot below.
 * Length: 15 minutes per slot on Monday 9:00-10:00 am.
 * Zoom Link: [https://ucl.zoom.us/j/6331955142](https://ucl.zoom.us/j/6331955142).
 
