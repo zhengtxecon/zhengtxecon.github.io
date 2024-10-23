@@ -8,4 +8,4 @@ date: 2014-01-01
 location: "City, Country"
 ---
 2000
-<iframe src='https://outlook.office365.com/owa/calendar/TianxiangZhengOfficeHour@live.ucl.ac.uk/bookings/' width='70%' height='1900px' style='border:0'></iframe>
+<iframe src='https://outlook.office365.com/owa/calendar/TianxiangZhengOfficeHour@live.ucl.ac.uk/bookings/' width='65%' height='1950px' style='border:0'></iframe>
