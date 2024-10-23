@@ -10,28 +10,29 @@ tags:
 To create a new collection and display it under the navigation panel, follow these steps:
 
 1. **Define the collection**: Edit `_config.yml` under the root directory of the website. Add a new collection definition. For example:
+
   ```yaml
-  collections:
-    new_collection:
-    output: true
-    permalink: /:collection/:path/
+    collections:
+      new_collection:
+      output: true
+      permalink: /:collection/:path/
   ```
 1. **Update the Settings**: Still in `_config.yml`, define how pages and collections are included in the site by defult. For example:
+
   ```yaml
-  defaults:
-    # _posts
-    - scope:
-        path: ""
-        type: posts
-      values:
-        layout: single
-        author_profile: true
-        read_time: true
-        comments: true
-        share: true
-        related: true
+    defaults:
+      # _posts
+      - scope:
+          path: ""
+          type: posts
+        values:
+          layout: single
+          author_profile: true
+          read_time: true
+          comments: true
+          share: true
+          related: true
   ```
 1. **Create the collection folder**: Inside the root directory, create a folder named `_new_collection`. Add your markdown files for the collection inside this folder.
 1. **Edit the Navigation Display**: Edit `navigation.yml` under `_data`. Edit to display the new collection in the navigation bar.
-1. **Add content to the collection**: Create markdown files inside the `_my_collection` folder. Each file should have front matter at the top, like this:
-
+1. **Add content to the collection**: Create markdown files inside the `_my_collection` folder.
