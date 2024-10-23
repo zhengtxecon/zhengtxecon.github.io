@@ -3,7 +3,7 @@ title: "The Numbers Game: Effects of Listing and Counteroffer Pricing Format in 
 collection: research
 category: wp
 permalink: /research/rounding
-excerpt: 'Abstract'
+excerpt: 'abstract'
 date: 2024-10-23
 venue: 'SSRN'
 paperurl: 'http://academicpages.github.io/files/paper3.pdf'
