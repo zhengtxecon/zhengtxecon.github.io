@@ -43,7 +43,6 @@
         {% elsif post.collection == 'research' %}
           {% if post.category == 'wp'}
             <p>Available on <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
-          {% endif %}
           {% elseif post.category == 'journal'}
             <p>Published in <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
           {% endif %}
