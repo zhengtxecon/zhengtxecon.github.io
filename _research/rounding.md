@@ -1,7 +1,7 @@
 ---
 title: "The Numbers Game: Effects of Listing and Counteroffer Pricing Format in Housing Bargaining"
 collection: research
-category: no
+category: wp
 permalink: /research/rounding
 excerpt: 'abstract'
 date: 2024-10-23
