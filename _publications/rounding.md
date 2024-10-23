@@ -1,7 +1,7 @@
 ---
 title: "Paper Title Number 4"
 collection: research
-category: working paper
+category: wp
 permalink: /research/rounding
 excerpt: 'Abstract'
 date: 2024-10-23

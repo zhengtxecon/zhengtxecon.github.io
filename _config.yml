@@ -74,13 +74,15 @@ author:
   zhihu            : "https://www.zhihu.com/people/zheng-mz"
 
 # Publication Category - The following the list of publication categories and their headings
-publication_category:
-  books:
+research_category:
+  book:
     title: 'Books'
-  manuscripts:
+  journal:
     title: 'Journal Articles'    
-  conferences:
-    title: 'Conference Papers'
+  wp:
+    title: 'Working Papers'
+  wip:
+    title: 'Work in Progress'
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
