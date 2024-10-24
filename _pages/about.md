@@ -8,16 +8,6 @@ redirect_from:
   - /home/
 ---
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FFX0QFX4LN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-FFX0QFX4LN');
-</script>
-
 Hello! I am Tianxiang Zheng（郑天翔）, currently a 3rd-year PhD in Economics at UCL.
 
 My research interests lie in labour and development economics. I am particularly interested in how technology innovation and adoption shape organizational structures and individual decision-making processes, and their consequences in developing countries.
