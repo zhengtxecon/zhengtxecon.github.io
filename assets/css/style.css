@@ -1,18 +1,16 @@
 /* Base styles */
 :root {
-    /* Updated color scheme with #756aff purple and complementary colors */
-    --primary-color: #121212; /* Near black for backgrounds */
-    --secondary-color: #756aff; /* Main purple */
-    --accent-color: #69a1fa; /* Blue accent color */
-    --highlight-color: #4b45a1; /* Darker purple/blue */
-    --text-primary: #ffffff; /* White text */
-    --text-secondary: #b0b0b0; /* Light gray text */
-    --light-color: #1e1e1e; /* Slightly lighter black for sections */
-    --surface-color: #2d2d2d; /* Surface elements */
-    --error-color: #ff6b6b; /* Error state */
+    --primary-color: #121212;
+    --secondary-color: #756aff;
+    --accent-color: #69a1fa;
+    --highlight-color: #4b45a1;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --light-color: #1e1e1e;
+    --surface-color: #2d2d2d;
+    --error-color: #ff6b6b;
     --max-width: 1200px;
     
-    /* Gradients */
     --gradient-primary: linear-gradient(135deg, #121212, #4b45a1, #756aff);
     --gradient-secondary: linear-gradient(135deg, #756aff, #69a1fa);
     --gradient-accent: linear-gradient(135deg, #121212, #4b45a1);
@@ -30,7 +28,6 @@ body {
     color: var(--text-primary);
     background-color: var(--primary-color);
     overflow-x: hidden;
-    /* Add padding-top to account for fixed header */
     padding-top: 70px;
 }
 
@@ -293,11 +290,11 @@ input[type="submit"]:hover {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Increased z-index to ensure it's above all content */
+    z-index: 1000;
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
-    height: 70px; /* Explicitly set height */
+    height: 70px;
 }
 
 .site-header .container {
@@ -364,7 +361,7 @@ input[type="submit"]:hover {
 
 /* Page headers */
 .page-header {
-    padding: 150px 0 80px; /* Additional top padding to prevent overlap */
+    padding: 150px 0 80px;
     text-align: center;
     background: linear-gradient(135deg, var(--primary-color), var(--highlight-color));
     margin-bottom: 60px;
@@ -437,7 +434,7 @@ footer .container {
 /* Responsive styles */
 @media (max-width: 992px) {
     body {
-        padding-top: 60px; /* Adjust for smaller header on tablets */
+        padding-top: 60px;
     }
     
     .nav-links {
@@ -468,7 +465,7 @@ footer .container {
 
 @media (max-width: 768px) {
     body {
-        padding-top: 60px; /* Keep consistent on mobile */
+        padding-top: 60px;
     }
     
     h1 {
@@ -480,7 +477,7 @@ footer .container {
     }
     
     .page-header {
-        padding: 130px 0 60px; /* Adjust padding for mobile */
+        padding: 130px 0 60px;
     }
     
     .page-header h1 {
