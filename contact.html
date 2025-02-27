@@ -150,8 +150,6 @@
                             <div class="info-icon">
                                 <i class="fas fa-envelope"></i>
                             </div>
-                            <h3>Email Me</h3>
-                            <p>tianxiang.zheng.22@ucl.ac.uk</p>
                             <p>marxzheng@outlook.com</p>
                         </div>
                         
@@ -343,6 +341,54 @@
             
             document.querySelectorAll('.info-card, .social-media-card, .accordion-item')
                 .forEach(item => observer.observe(item));
+                
+            // Optional: Dynamic message placeholders based on selected purpose
+            const purposeSelect = document.getElementById('contact-purpose');
+            const messageTextarea = document.getElementById('message');
+            
+            if (purposeSelect && messageTextarea) {
+                purposeSelect.addEventListener('change', function() {
+                    const value = this.value;
+                    let placeholder = '';
+                    
+                    switch(value) {
+                        case 'Research Collaboration':
+                            placeholder = 'Please describe your research interests, potential collaboration ideas, and any specific projects you have in mind...';
+                            break;
+                        case 'Speaking/Conference Invitation':
+                            placeholder = 'Please provide details about the event, target audience, date, location, and the topic you would like me to address...';
+                            break;
+                        case 'Academic Discussion':
+                            placeholder = 'Please describe the academic topic you would like to discuss and any specific questions you have...';
+                            break;
+                        case 'Student Inquiry':
+                            placeholder = 'Please let me know what program you are in, your research interests, and how I might help with your academic journey...';
+                            break;
+                        case 'Other':
+                            placeholder = 'Please provide details about how I can assist you...';
+                            break;
+                        default:
+                            placeholder = 'Please describe your proposal, research interests, or how we might collaborate...';
+                    }
+                    
+                    messageTextarea.placeholder = placeholder;
+                });
+            }
+            
+            // Form submission animation
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function() {
+                    const submitBtn = this.querySelector('.submit-btn');
+                    const btnText = submitBtn.querySelector('.btn-text');
+                    const btnIcon = submitBtn.querySelector('i');
+                    
+                    // Update button appearance during submission
+                    btnText.textContent = 'Sending...';
+                    btnIcon.className = 'fas fa-spinner fa-spin';
+                    submitBtn.disabled = true;
+                });
+            }
         });
     </script>
 </body>
