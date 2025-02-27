@@ -16,7 +16,7 @@
     margin-top: -70px; /* Offset for the body padding-top */
 }
 
-/* Enhanced breadcrumb styles */
+/* Enhanced breadcrumb styles - Updated for more fluid design */
 .breadcrumbs {
     margin: 20px 0;
     font-size: 1.1rem;
@@ -34,40 +34,71 @@
     display: flex;
     align-items: center;
     transition: all 0.3s ease;
-    padding: 5px 10px;
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 15px 5px 0;
+    background: transparent;
+    position: relative;
 }
 
 .breadcrumbs a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     color: #fff;
+    transform: translateY(-2px);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .breadcrumbs a i {
-    margin-right: 5px;
+    margin-right: 8px;
     font-size: 0.9em;
+    background: rgba(255, 255, 255, 0.15);
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.breadcrumbs a:hover i {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.1);
 }
 
 .breadcrumb-separator {
-    margin: 0 10px;
+    margin: 0 8px;
     color: rgba(255, 255, 255, 0.6);
     display: flex;
     align-items: center;
 }
 
 .breadcrumb-separator i {
-    font-size: 0.8em;
+    font-size: 0.7em;
 }
 
 .breadcrumbs .current-page {
     color: var(--accent-color);
     font-weight: 600;
-    padding: 5px 10px;
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.15);
+    padding: 5px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumbs .current-page::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-color);
+    transform: scaleX(0.7);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.breadcrumbs .current-page:hover::before {
+    transform: scaleX(1);
+    opacity: 1;
 }
 
 @media (max-width: 768px) {
