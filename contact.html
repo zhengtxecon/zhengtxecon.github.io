@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/contact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="assets/js/main.js" defer></script>
-    <script src="assets/js/contact-form.js" defer></script>
+    <!-- Removed contact-form.js as it might interfere with the form submission -->
 </head>
 <body>
     <!-- Include header using JavaScript -->
@@ -77,14 +77,13 @@
                 <p class="section-description">I'm open to research collaborations, speaking engagements, and academic discussions. If you have a proposal or would like to connect, please share your details below.</p>
                 
                 <div class="contact-form-wrapper">
-                    <!-- Custom form with FormSubmit.co integration -->
-                    <form id="contact-form" class="animated-form" action="https://formsubmit.co/tianxiang.zheng.22@ucl.ac.uk" method="POST">
+                    <!-- Simplified basic form without extra elements -->
+                    <form action="https://formsubmit.co/tianxiang.zheng.22@ucl.ac.uk" method="POST">
                         <!-- FormSubmit.co configuration -->
                         <input type="hidden" name="_subject" value="New Website Contact: Collaboration Request">
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_next" value="https://zhengtxecon.github.io/thank-you.html">
-                        <!-- Add honeypot field for spam prevention -->
                         <input type="text" name="_honey" style="display:none">
                         
                         <div class="form-group">
@@ -307,7 +306,7 @@
                 });
             });
             
-            // Form animation
+            // Form animation - simplified
             const formInputs = document.querySelectorAll('.input-wrapper input, .input-wrapper textarea, .input-wrapper select');
             
             formInputs.forEach(input => {
@@ -320,11 +319,6 @@
                         input.parentElement.classList.remove('focused');
                     }
                 });
-                
-                // Check initial state (for browsers that auto-fill)
-                if (input.value.trim()) {
-                    input.parentElement.classList.add('focused');
-                }
             });
             
             // Add animation class to elements when scrolled into view
@@ -342,7 +336,7 @@
             document.querySelectorAll('.info-card, .social-media-card, .accordion-item')
                 .forEach(item => observer.observe(item));
                 
-            // Optional: Dynamic message placeholders based on selected purpose
+            // Dynamic message placeholders - simplified
             const purposeSelect = document.getElementById('contact-purpose');
             const messageTextarea = document.getElementById('message');
             
@@ -375,20 +369,7 @@
                 });
             }
             
-            // Form submission animation
-            const contactForm = document.getElementById('contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function() {
-                    const submitBtn = this.querySelector('.submit-btn');
-                    const btnText = submitBtn.querySelector('.btn-text');
-                    const btnIcon = submitBtn.querySelector('i');
-                    
-                    // Update button appearance during submission
-                    btnText.textContent = 'Sending...';
-                    btnIcon.className = 'fas fa-spinner fa-spin';
-                    submitBtn.disabled = true;
-                });
-            }
+            // Removed form submission handling completely to avoid any interference
         });
     </script>
 </body>
