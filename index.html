@@ -13,15 +13,12 @@
     <script src="assets/js/homepage.js" defer></script>
 </head>
 <body>
-    <!-- Include header using JavaScript -->
     <div id="header-placeholder"></div>
     
-    <!-- Hero section -->
     <section class="hero">
         <div id="particles-js"></div>
         <div class="hero-content">
             <div class="container">
-                <!-- Add the hero photo here -->
                 <div class="hero-photo">
                     <img src="assets/images/profile.jpg" alt="Tianxiang Zheng">
                 </div>
@@ -30,7 +27,6 @@
                 <h2 class="subtitle">PhD in Economics, UCL</h2>
                 <p class="tagline">Welcome to this experimental website!</p>
                 
-                <!-- Warning message -->
                 <div class="warning-message">
                     <i class="fas fa-exclamation-triangle"></i>
                     <p>⚠️ Warning: This website is under construction. Much of the information presented here is placeholder content and may not be accurate.</p>
@@ -39,11 +35,9 @@
                 <div class="hero-buttons">
                     <a href="#research" class="btn btn-primary">My Research</a>
                     <a href="cv.html" class="btn btn-secondary">View CV</a>
-                    <a href="portfolio.html" class="btn btn-secondary">Projects</a>
                 </div>
             </div>
         </div>
-        <!-- Move scroll indicator outside hero-content to fix overlap -->
         <div class="scroll-indicator">
             <span>Scroll Down</span>
             <i class="fas fa-chevron-down"></i>
@@ -51,7 +45,6 @@
     </section>
 
     <main>
-        <!-- About summary section -->
         <section class="about-summary section-dark">
             <div class="container">
                 <div class="split-layout">
@@ -86,7 +79,6 @@
             </div>
         </section>
 
-        <!-- Research focus section -->
         <section id="research" class="research-focus">
             <div class="container">
                 <h2 class="section-title">Research Focus</h2>
@@ -131,7 +123,6 @@
                     </div>
                 </div>
                 
-                <!-- Working Papers Section -->
                 <div class="research-papers">
                     <h3>Working Papers</h3>
                     <div class="papers-list">
@@ -150,7 +141,6 @@
                     </div>
                 </div>
                 
-                <!-- Work in Progress Section -->
                 <div class="research-papers">
                     <h3>Work in Progress</h3>
                     <div class="papers-list">
@@ -171,7 +161,6 @@
             </div>
         </section>
 
-        <!-- Featured projects preview -->
         <section class="featured-projects section-dark">
             <div class="container">
                 <h2 class="section-title">Featured Projects</h2>
@@ -217,7 +206,6 @@
             </div>
         </section>
 
-        <!-- Latest blog posts (or publications) -->
         <section class="latest-posts">
             <div class="container">
                 <h2 class="section-title">Latest Insights</h2>
@@ -244,7 +232,6 @@
             </div>
         </section>
 
-        <!-- Contact CTA -->
         <section class="contact-cta">
             <div class="container">
                 <div class="cta-content">
@@ -265,11 +252,9 @@
         </section>
     </main>
     
-    <!-- Include footer using JavaScript -->
     <div id="footer-placeholder"></div>
     
     <script>
-        // Load header and footer
         fetch('includes/header.html')
             .then(response => response.text())
             .then(data => document.getElementById('header-placeholder').innerHTML = data);

@@ -1,6 +1,3 @@
-/* Homepage specific styles */
-
-/* Hero section with particles */
 .hero {
     position: relative;
     min-height: 100vh;
@@ -10,9 +7,9 @@
     color: white;
     overflow: hidden;
     background: linear-gradient(135deg, #121212, #4b45a1, #756aff);
-    padding-bottom: 80px; /* Keep padding at the bottom for scroll indicator */
-    padding-top: 50px; /* Add padding to prevent overlap with fixed header */
-    margin-top: -70px; /* Offset for body padding-top */
+    padding-bottom: 80px;
+    padding-top: 50px;
+    margin-top: -70px;
 }
 
 #particles-js {
@@ -29,7 +26,7 @@
     z-index: 2;
     text-align: center;
     max-width: 1000px;
-    padding: 0 20px 60px; /* Increase bottom padding to prevent overlap with scroll indicator */
+    padding: 0 20px 60px;
 }
 
 .hero h1 {
@@ -54,7 +51,6 @@
     margin-right: auto;
 }
 
-/* Glitch text effect with new colors */
 .glitch {
     position: relative;
     color: white;
@@ -102,9 +98,8 @@
     100% { clip-path: inset(40% 0 60% 0); }
 }
 
-/* Buttons */
 .hero-buttons {
-    margin: 2rem 0 4rem; /* Increase bottom margin to create more space before scroll indicator */
+    margin: 2rem 0 4rem;
 }
 
 .btn {
@@ -154,17 +149,16 @@
     color: white;
 }
 
-/* Scroll indicator */
 .scroll-indicator {
     position: absolute;
-    bottom: 20px; /* Move up slightly from bottom */
-    left: 48%; /* Changed from 50% to 48% to move slightly left */
+    bottom: 20px;
+    left: 48%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
     animation: bounce 2s infinite;
-    z-index: 10; /* Ensure it's above other elements */
+    z-index: 10;
 }
 
 .scroll-indicator span {
@@ -189,7 +183,6 @@
     }
 }
 
-/* About summary section */
 .about-summary {
     padding: 100px 0;
 }
@@ -264,7 +257,6 @@
     opacity: 0.8;
 }
 
-/* Research focus section */
 .research-focus {
     padding: 100px 0;
     background-color: var(--primary-color);
@@ -334,7 +326,6 @@
     color: var(--text-primary);
 }
 
-/* Add more spacing between research paper sections */
 .research-papers + .research-papers {
     margin-top: 40px;
 }
@@ -384,7 +375,6 @@
     font-size: 0.8rem;
 }
 
-/* Add button spacing */
 .research-focus .btn-primary {
     margin-top: 20px;
     display: block;
@@ -393,7 +383,6 @@
     margin-right: auto;
 }
 
-/* Featured projects section */
 .featured-projects {
     padding: 100px 0;
     background-color: var(--light-color);
@@ -501,7 +490,6 @@
     margin-top: 20px;
 }
 
-/* Latest posts section */
 .latest-posts {
     padding: 100px 0;
     background-color: var(--primary-color);
@@ -558,7 +546,6 @@
     transform: translateX(5px);
 }
 
-/* Enhanced Contact CTA Section */
 .contact-cta {
     padding: 80px 0;
     position: relative;
@@ -718,7 +705,6 @@
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* Responsive adjustments */
 @media (max-width: 992px) {
     .contact-cta .container {
         flex-direction: column;
@@ -759,7 +745,6 @@
     }
 }
 
-/* Responsive adjustments */
 @media (max-width: 992px) {
     .hero h1 {
         font-size: 3.5rem;
@@ -794,7 +779,7 @@
     }
 
     .hero {
-        padding-top: 70px; /* Adjust for tablets */
+        padding-top: 70px;
     }
 }
 
@@ -808,7 +793,7 @@
     }
     
     .hero-content {
-        padding: 0 20px 80px; /* Even more padding on mobile */
+        padding: 0 20px 80px;
     }
     
     .btn {
@@ -821,11 +806,11 @@
     }
     
     .hero-buttons {
-        margin: 2rem 0 5rem; /* Increase bottom margin on mobile */
+        margin: 2rem 0 5rem;
     }
     
     .scroll-indicator {
-        bottom: 15px; /* Adjust position on mobile */
+        bottom: 15px;
     }
 
     .hero-photo {
@@ -834,7 +819,7 @@
     }
 
     .hero {
-        padding-top: 60px; /* Adjust for mobile */
+        padding-top: 60px;
     }
 }
 
@@ -851,7 +836,7 @@
         display: flex;
         flex-direction: column;
         gap: 15px;
-        margin-bottom: 5rem; /* Ensure enough space on very small screens */
+        margin-bottom: 5rem;
     }
     
     .stats-container {
@@ -860,7 +845,7 @@
     }
     
     .btn {
-        margin: 0; /* Remove horizontal margins on stacked buttons */
+        margin: 0;
     }
     
     .section-title {
@@ -886,13 +871,12 @@
     letter-spacing: 2px;
 }
 
-/* Added styling for hero photo */
 .hero-photo {
     width: 180px;
     height: 180px;
     border-radius: 50%;
     border: 3px solid var(--secondary-color);
-    margin: 30px auto 20px; /* Increased top margin */
+    margin: 30px auto 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     position: relative;
@@ -905,7 +889,6 @@
     object-fit: cover;
 }
 
-/* Added styling for warning message */
 .warning-message {
     background-color: rgba(255, 200, 0, 0.85);
     border-left: 4px solid #ff8c00;
@@ -934,7 +917,6 @@
     line-height: 1.4;
 }
 
-/* Make warning message responsive */
 @media (max-width: 768px) {
     .warning-message {
         flex-direction: column;
