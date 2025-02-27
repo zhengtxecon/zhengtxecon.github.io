@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Tianxiang Zheng - PhD in Economics at UCL specializing in labour and development economics">
+    <title>About Me | Tianxiang Zheng</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+    <!-- Include header using JavaScript -->
+    <div id="header-placeholder"></div>
+    
+    <main>
+        <section class="about-hero">
+            <div class="container">
+                <h1>About Me</h1>
+                <div class="breadcrumbs">
+                    <a href="index.html">Home</a> &gt; <span>About</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-content">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img src="assets/images/profile.jpg" alt="Tianxiang Zheng">
+                    </div>
+                    <div class="about-text">
+                        <h2>Hello, I am Tianxiang Zheng（郑天翔）</h2>
+                        <p class="lead">Currently a 3rd-year PhD in Economics at University College London (UCL).</p>
+                        
+                        <h3>Research Interests</h3>
+                        <p>My research interests lie in labour and development economics. I am particularly interested in how technology innovation and adoption shape organizational structures and individual decision-making processes, and their consequences in developing countries.</p>
+                        
+                        <p>In addition to my primary interests, I explore topics such as urban economics and the pervasive impact of behavioral heuristics and social norms on inequality and biases within society.</p>
+                        
+                        <h3>Academic Leadership</h3>
+                        <p>I am currently the co-organizer of the Applied Economics Reading Group at UCL. This student-led reading group provides a platform for insightful discussions on cutting-edge research papers, fostering an environment of constructive feedback and intellectual exchange.</p>
+                        
+                        <p>If you share an interest in attending or presenting at our sessions, please feel free to reach out to me directly via email.</p>
+                        
+                        <div class="about-buttons">
+                            <a href="cv.html" class="btn btn-primary">View CV</a>
+                            <a href="contact.html" class="btn btn-secondary">Contact Me</a>
+                        </div>
+                        <div class="about-social-links">
+                            <a href="mailto:tianxiang.zheng.22@ucl.ac.uk" class="social-icon">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="https://scholar.google.com/citations?user=yMayrcEAAAAJ" target="_blank" class="social-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </a>
+                            <a href="https://github.com/zhengtxecon" target="_blank" class="social-icon">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/tianxiang-marx-zheng-187ab0131/" target="_blank" class="social-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="timeline">
+            <div class="container">
+                <h2>Academic Journey</h2>
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>PhD in Economics</h3>
+                            <p class="timeline-date">2021 - Present</p>
+                            <p>University College London (UCL)</p>
+                        </div>
+                    </div>
+                    <!-- Add previous education here -->
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-interests">
+            <div class="container">
+                <h2>Skills & Technical Proficiency</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Quantitative Methods</h3>
+                        <ul>
+                            <li>Econometric Analysis</li>
+                            <li>Causal Inference</li>
+                            <li>Survey Design</li>
+                            <li>Data Visualization</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Programming & Tools</h3>
+                        <ul>
+                            <li>R</li>
+                            <li>Stata</li>
+                            <li>Python</li>
+                            <li>LaTeX</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <ul>
+                            <li>English (Fluent)</li>
+                            <li>Chinese (Native)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Let's Connect</h2>
+                <p>Interested in discussing research ideas, potential collaborations, or the Applied Economics Reading Group?</p>
+                <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Include footer using JavaScript -->
+    <div id="footer-placeholder"></div>
+    
+    <script>
+        // Load header and footer
+        fetch('includes/header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data);
+        
+        fetch('includes/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+    </script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get in touch with Tianxiang Zheng (郑天翔) for collaboration or inquiries">
+    <title>Contact Me - Tianxiang Zheng (郑天翔)</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/contact-form.js" defer></script>
+</head>
+<body>
+    <!-- Include header using JavaScript -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Page header -->
+    <section class="page-header contact-page-header">
+        <div class="container">
+            <div class="contact-header-content">
+                <div class="contact-header-text">
+                    <h1>Get In Touch</h1>
+                    <p class="contact-tagline">Let's connect for collaboration, research opportunities, or just a chat</p>
+                    <div class="breadcrumbs">
+                        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                        <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+                        <span class="current-page">Contact</span>
+                    </div>
+                    <div class="contact-quick-info">
+                        <div class="contact-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>tianxiang.zheng.22@ucl.ac.uk</span>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>London, United Kingdom</span>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-university"></i>
+                            <span>University College London</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-header-image">
+                    <div class="profile-image">
+                        <img src="assets/images/profile.jpg" alt="Tianxiang Zheng">
+                    </div>
+                    <div class="contact-social-links">
+                        <a href="mailto:tianxiang.zheng.22@ucl.ac.uk" class="social-icon">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=yMayrcEAAAAJ" target="_blank" class="social-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </a>
+                        <a href="https://github.com/zhengtxecon" target="_blank" class="social-icon">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/tianxiang-marx-zheng-187ab0131/" target="_blank" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contact-header-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </section>
+
+    <main class="contact-container">
+        <div class="container">
+            <section class="contact-section">
+                <h2 class="section-title"><i class="fas fa-handshake"></i> Let's Collaborate</h2>
+                <p class="section-description">I'm open to research collaborations, speaking engagements, and academic discussions. If you have a proposal or would like to connect, please share your details below.</p>
+                
+                <div class="contact-form-wrapper">
+                    <!-- Custom form with FormSubmit.co integration -->
+                    <form id="contact-form" class="animated-form" action="https://formsubmit.co/tianxiang.zheng.22@ucl.ac.uk" method="POST">
+                        <!-- FormSubmit.co configuration -->
+                        <input type="hidden" name="_subject" value="New Website Contact: Collaboration Request">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="thank-you.html">
+
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="name" name="name" placeholder="Your name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" name="email" placeholder="Your email address" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-purpose">Purpose of Contact</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-tasks"></i>
+                                <select id="contact-purpose" name="purpose" required>
+                                    <option value="" disabled selected>Select a purpose...</option>
+                                    <option value="Research Collaboration">Research Collaboration</option>
+                                    <option value="Speaking/Conference Invitation">Speaking/Conference Invitation</option>
+                                    <option value="Academic Discussion">Academic Discussion</option>
+                                    <option value="Student Inquiry">Student Inquiry</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-tag"></i>
+                                <input type="text" id="subject" name="subject" placeholder="Brief topic description" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Proposal or Message</label>
+                            <div class="input-wrapper textarea-wrapper">
+                                <i class="fas fa-comment-alt"></i>
+                                <textarea id="message" name="message" rows="6" placeholder="Please describe your proposal, research interests, or how we might collaborate..." required></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group form-checkbox">
+                            <input type="checkbox" id="consent" name="consent" value="Yes" required>
+                            <label for="consent">I consent to having my submitted information stored so you can respond to my inquiry.</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary submit-btn">
+                            <span class="btn-text">Send Proposal</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    
+                    <div class="contact-info-panel">
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3>Email Me</h3>
+                            <p>tianxiang.zheng.22@ucl.ac.uk</p>
+                            <p>marxzheng@outlook.com</p>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3>Visit Me</h3>
+                            <p>Department of Economics</p>
+                            <p>University College London</p>
+                            <p>30 Gordon Street, London, WC1H 0AX</p>
+                        </div>
+                        
+                        <div class="social-media-card">
+                            <h3>Follow Me</h3>
+                            <div class="social-grid">
+                                <a href="mailto:tianxiang.zheng.22@ucl.ac.uk" class="social-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>Email</span>
+                                </a>
+                                <a href="https://scholar.google.com/citations?user=yMayrcEAAAAJ" target="_blank" class="social-item">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Scholar</span>
+                                </a>
+                                <a href="https://github.com/zhengtxecon" target="_blank" class="social-item">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="https://www.linkedin.com/in/tianxiang-marx-zheng-187ab0131/" target="_blank" class="social-item">
+                                    <i class="fab fa-linkedin"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Location Map Section -->
+            <section class="map-section">
+                <h2 class="section-title"><i class="fas fa-map-marked-alt"></i> Find Me Here</h2>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.4245916009253!2d-0.1328146!3d51.5245921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b2d06098567%3A0x559d14e3bc7dcc39!2sUCL%20Department%20of%20Economics!5e0!3m2!1sen!2suk!4v1625863420583!5m2!1sen!2suk" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </section>
+            
+            <!-- Office Hours Section -->
+            <section class="office-hours-section">
+                <h2 class="section-title"><i class="fas fa-clock"></i> Office Hours</h2>
+                <div class="office-hours-container simplified">
+                    <div class="note-card primary">
+                        <h3><i class="fas fa-info-circle"></i> Academic Year 2024/2025</h3>
+                        <p>There are no regular office hours scheduled for the academic year 2024/2025 as my teaching assignments have been completed.</p>
+                        <p>However, I'm available for meetings by appointment. Please email me to arrange a suitable time.</p>
+                    </div>
+                    <div class="note-card">
+                        <h3><i class="fas fa-calendar-check"></i> Meeting Request</h3>
+                        <p>Virtual meetings via Zoom or Teams can be arranged upon request.</p>
+                        <p>For appointment requests, please email me at least 48 hours in advance with your:</p>
+                        <ul class="meeting-requirements">
+                            <li>Name and affiliation</li>
+                            <li>Brief description of the topic to discuss</li>
+                            <li>Preferred dates and times</li>
+                        </ul>
+                        <a href="mailto:tianxiang.zheng.22@ucl.ac.uk" class="btn btn-secondary btn-sm">
+                            <i class="fas fa-envelope"></i> Request Meeting
+                        </a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h2 class="section-title"><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            How quickly do you respond to emails?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>I typically respond to emails within 48 hours during weekdays. For urgent matters, please include "Urgent" in the subject line.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Can I collaborate on research projects?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>I'm always open to research collaborations, especially in my areas of interest. Please send me a brief proposal including your research interests and how they might align with my work.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Do you supervise graduate students?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Yes, I supervise MSc and occasionally PhD students working in areas related to my research. Please contact me with your research proposal and we can discuss potential supervision.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            How do I join the Applied Economics Reading Group?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>The Applied Economics Reading Group is open to all interested students and faculty. Please email me to be added to the mailing list for upcoming meetings and paper discussions.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Include footer using JavaScript -->
+    <div id="footer-placeholder"></div>
+    
+    <script>
+        // Load header and footer
+        fetch('includes/header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data);
+        
+        fetch('includes/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+            
+        // Accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionItems = document.querySelectorAll('.accordion-item');
+            
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                const content = item.querySelector('.accordion-content');
+                
+                header.addEventListener('click', () => {
+                    // Toggle active class
+                    item.classList.toggle('active');
+                    
+                    // Toggle visibility
+                    if (item.classList.contains('active')) {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    } else {
+                        content.style.maxHeight = '0';
+                    }
+                });
+            });
+            
+            // Form animation
+            const formInputs = document.querySelectorAll('.input-wrapper input, .input-wrapper textarea, .input-wrapper select');
+            
+            formInputs.forEach(input => {
+                input.addEventListener('focus', () => {
+                    input.parentElement.classList.add('focused');
+                });
+                
+                input.addEventListener('blur', () => {
+                    if (!input.value.trim()) {
+                        input.parentElement.classList.remove('focused');
+                    }
+                });
+                
+                // Check initial state (for browsers that auto-fill)
+                if (input.value.trim()) {
+                    input.parentElement.classList.add('focused');
+                }
+            });
+            
+            // Add animation class to elements when scrolled into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.contact-section, .map-section, .office-hours-section, .faq-section')
+                .forEach(section => observer.observe(section));
+            
+            document.querySelectorAll('.info-card, .social-media-card, .accordion-item')
+                .forEach(item => observer.observe(item));
+        });
+    </script>
+</body>
+</html>

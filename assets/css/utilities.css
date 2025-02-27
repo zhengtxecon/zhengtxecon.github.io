@@ -1,0 +1,95 @@
+/* Combined utilities CSS - includes cursor fixes and color variables */
+
+/* COLOR SYSTEM
+-------------------------------------------------- */
+:root {
+    /* Color scheme with #756aff purple and complementary colors */
+    --primary-color: #121212; /* Near black for backgrounds */
+    --secondary-color: #756aff; /* Main purple */
+    --accent-color: #69a1fa; /* New blue accent color */
+    --highlight-color: #4b45a1; /* Darker purple/blue */
+    --text-primary: #ffffff; /* White text */
+    --text-secondary: #b0b0b0; /* Light gray text */
+    --light-color: #1e1e1e; /* Slightly lighter black for sections */
+    --surface-color: #2d2d2d; /* Surface elements */
+    --error-color: #ff6b6b; /* Error state */
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #121212, #4b45a1, #756aff);
+    --gradient-secondary: linear-gradient(135deg, #756aff, #69a1fa);
+    --gradient-accent: linear-gradient(135deg, #121212, #4b45a1);
+}
+
+/* Additional color utility classes */
+.bg-primary {
+    background-color: var(--primary-color);
+}
+
+.bg-secondary {
+    background-color: var(--secondary-color);
+}
+
+.bg-accent {
+    background-color: var(--accent-color);
+}
+
+.text-primary {
+    color: var(--text-primary);
+}
+
+.text-secondary {
+    color: var(--text-secondary);
+}
+
+.text-accent {
+    color: var(--accent-color);
+}
+
+.text-highlight {
+    color: var(--highlight-color);
+}
+
+.bg-gradient-primary {
+    background: var(--gradient-primary);
+}
+
+.bg-gradient-secondary {
+    background: var(--gradient-secondary);
+}
+
+.bg-gradient-accent {
+    background: var(--gradient-accent);
+}
+
+/* CURSOR FIXES 
+-------------------------------------------------- */
+/* Base cursor styles */
+body, a, button, input, textarea, select {
+    cursor: default !important;
+}
+
+a, button, input[type="submit"], 
+input[type="button"], input[type="reset"],
+.clickable, .btn, select {
+    cursor: pointer !important;
+}
+
+input[type="text"], input[type="email"], 
+input[type="password"], textarea, 
+select, p, h1, h2, h3, h4, h5, h6, li, td, th, blockquote, code, pre {
+    cursor: text !important;
+}
+
+.link, [role="link"] {
+    cursor: pointer !important;
+}
+
+/* Custom cursor styles for enhanced visual feedback */
+a:hover, button:hover, .btn:hover {
+    cursor: pointer !important;
+}
+
+/* Remove any potential canvas overlay */
+canvas#fluid {
+    display: none !important;
+}
