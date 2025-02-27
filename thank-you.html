@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Thank you for your message - Tianxiang Zheng (郑天翔)">
+    <meta name="description" content="Thank you for contacting Tianxiang Zheng (郑天翔)">
     <title>Thank You - Tianxiang Zheng (郑天翔)</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/contact.css">
@@ -11,81 +11,60 @@
     <script src="assets/js/main.js" defer></script>
     <style>
         .thank-you-container {
-            min-height: 70vh;
+            text-align: center;
+            padding: 80px 20px;
+            min-height: 60vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            text-align: center;
-            padding: 50px 20px;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .thank-you-icon {
             font-size: 5rem;
-            color: var(--secondary-color);
-            margin-bottom: 30px;
-            animation: scaleIn 0.6s ease-out forwards;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            animation: bounce 1.5s ease infinite;
         }
         
-        .thank-you-heading {
+        .thank-you-title {
             font-size: 2.5rem;
             margin-bottom: 20px;
-            color: var(--text-primary);
-            animation: fadeUp 0.8s ease-out forwards;
+            color: var(--color-text-dark);
         }
         
         .thank-you-message {
             font-size: 1.2rem;
+            line-height: 1.8;
             margin-bottom: 30px;
-            color: var(--text-secondary);
-            max-width: 600px;
-            animation: fadeUp 1s 0.2s ease-out forwards;
-            opacity: 0;
+            color: var(--color-text);
         }
         
-        .action-buttons {
+        .thank-you-actions {
             display: flex;
-            gap: 20px;
-            animation: fadeUp 1.2s 0.4s ease-out forwards;
-            opacity: 0;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
         }
         
-        .btn {
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
+        .thank-you-actions .btn {
+            min-width: 180px;
         }
         
-        .btn-primary {
-            background: var(--secondary-color);
-            color: white;
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
         }
         
-        .btn-outline {
-            border: 2px solid var(--secondary-color);
-            color: var(--secondary-color);
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        @keyframes scaleIn {
-            from { transform: scale(0.5); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-        
-        @keyframes fadeUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        @media (max-width: 576px) {
-            .thank-you-heading {
+        @media (max-width: 768px) {
+            .thank-you-title {
                 font-size: 2rem;
             }
             
@@ -93,8 +72,8 @@
                 font-size: 1rem;
             }
             
-            .action-buttons {
-                flex-direction: column;
+            .thank-you-actions .btn {
+                min-width: 140px;
             }
         }
     </style>
@@ -107,11 +86,13 @@
         <div class="thank-you-icon">
             <i class="fas fa-check-circle"></i>
         </div>
-        <h1 class="thank-you-heading">Message Sent Successfully!</h1>
-        <p class="thank-you-message">Thank you for reaching out. I appreciate your message and will get back to you as soon as possible. Usually, I respond within 48 hours during weekdays.</p>
-        <div class="action-buttons">
-            <a href="index.html" class="btn btn-outline">
-                <i class="fas fa-home"></i> Return to Home
+        <h1 class="thank-you-title">Thank You for Your Message!</h1>
+        <p class="thank-you-message">
+            I appreciate you taking the time to get in touch. Your message has been successfully submitted, and I will review it soon. You can expect a response within 48 hours during weekdays.
+        </p>
+        <div class="thank-you-actions">
+            <a href="index.html" class="btn btn-secondary">
+                <i class="fas fa-home"></i> Return to Homepage
             </a>
             <a href="research.html" class="btn btn-primary">
                 <i class="fas fa-flask"></i> Explore My Research

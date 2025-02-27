@@ -80,3 +80,48 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+/**
+ * Contact form handling for FormSubmit.co integration
+ */
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contact-form');
+    
+    if (contactForm) {
+        // Add loading state to button on submit
+        contactForm.addEventListener('submit', function(e) {
+            // Don't prevent default - let the form submit naturally to FormSubmit.co
+            const submitBtn = contactForm.querySelector('.submit-btn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnIcon = submitBtn.querySelector('i');
+            
+            // Show loading state
+            btnText.textContent = 'Sending...';
+            btnIcon.className = 'fas fa-spinner fa-spin';
+            submitBtn.disabled = true;
+            
+            // No need to prevent default or handle AJAX - let FormSubmit handle it
+            // The form will redirect to the thank-you page as specified in _next
+        });
+    }
+    
+    // Form field animations (keep existing functionality)
+    const formInputs = document.querySelectorAll('.input-wrapper input, .input-wrapper textarea, .input-wrapper select');
+    
+    formInputs.forEach(input => {
+        input.addEventListener('focus', () => {
+            input.parentElement.classList.add('focused');
+        });
+        
+        input.addEventListener('blur', () => {
+            if (!input.value.trim()) {
+                input.parentElement.classList.remove('focused');
+            }
+        });
+        
+        // Check initial state (for browsers that auto-fill)
+        if (input.value.trim()) {
+            input.parentElement.classList.add('focused');
+        }
+    });
+});
