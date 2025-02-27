@@ -10,7 +10,9 @@
     color: white;
     overflow: hidden;
     background: linear-gradient(135deg, #121212, #4b45a1, #756aff);
-    padding-bottom: 80px; /* Add padding at the bottom to make space for scroll indicator */
+    padding-bottom: 80px; /* Keep padding at the bottom for scroll indicator */
+    padding-top: 50px; /* Add padding to prevent overlap with fixed header */
+    margin-top: -70px; /* Offset for body padding-top */
 }
 
 #particles-js {
@@ -790,6 +792,10 @@
         width: 160px;
         height: 160px;
     }
+
+    .hero {
+        padding-top: 70px; /* Adjust for tablets */
+    }
 }
 
 @media (max-width: 768px) {
@@ -825,6 +831,10 @@
     .hero-photo {
         width: 140px;
         height: 140px;
+    }
+
+    .hero {
+        padding-top: 60px; /* Adjust for mobile */
     }
 }
 
@@ -882,7 +892,7 @@
     height: 180px;
     border-radius: 50%;
     border: 3px solid var(--secondary-color);
-    margin: 0 auto 20px;
+    margin: 30px auto 20px; /* Increased top margin */
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     position: relative;

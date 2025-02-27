@@ -162,4 +162,33 @@ document.addEventListener('DOMContentLoaded', () => {
             fadeObserver.observe(element);
         });
     }
+    
+    // Get header height and adjust page content
+    function adjustForHeader() {
+        const header = document.querySelector('.site-header');
+        const headerHeight = header ? header.offsetHeight : 70;
+        
+        // Set body padding-top to match header height
+        document.body.style.paddingTop = headerHeight + 'px';
+        
+        // Fix page headers
+        const pageHeaders = document.querySelectorAll('.page-header, .cv-page-header, .contact-page-header');
+        pageHeaders.forEach(header => {
+            header.style.marginTop = -headerHeight + 'px';
+            header.style.paddingTop = (parseInt(getComputedStyle(header).paddingTop) + headerHeight) + 'px';
+        });
+        
+        // Fix hero section if present
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            hero.style.marginTop = -headerHeight + 'px';
+            hero.style.paddingTop = (parseInt(getComputedStyle(hero).paddingTop) + headerHeight) + 'px';
+        }
+    }
+    
+    // Run on load
+    adjustForHeader();
+    
+    // Run on window resize
+    window.addEventListener('resize', adjustForHeader);
 });

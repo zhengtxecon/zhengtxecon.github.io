@@ -8,17 +8,18 @@
 /* Modern Contact Header Styles - Matching CV header style */
 .contact-page-header {
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color) 60%, var(--secondary-color));
-    padding: 100px 0 70px;
+    padding: 160px 0 70px; /* Increased top padding */
     position: relative;
     overflow: hidden;
     color: #fff;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin-top: -70px; /* Offset for body padding-top */
 }
 
 .contact-header-content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start; /* Changed to prevent overlap */
     position: relative;
     z-index: 2;
     backdrop-filter: blur(5px);
@@ -95,6 +96,7 @@
     align-items: center;
     animation: fadeZoomIn 1s ease-out forwards;
     position: relative;
+    margin-top: 20px; /* Add space to avoid overlap */
 }
 
 .profile-image {
@@ -871,7 +873,11 @@
     
     .contact-header-text {
         padding-right: 0;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+    }
+    
+    .contact-header-image {
+        margin-top: 10px; /* Less margin in stacked layout */
     }
     
     .contact-quick-info {
@@ -898,7 +904,7 @@
     }
     
     .contact-page-header {
-        padding: 130px 0 50px;
+        padding: 130px 0 50px; /* Adjust padding for mobile */
     }
     
     .contact-header-text h1 {

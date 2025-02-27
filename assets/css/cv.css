@@ -5,16 +5,15 @@
     background-color: var(--primary-color);
 }
 
-/* Add these new styles for the CV page header */
-
 /* Modern CV Header Styles - Enhanced */
 .cv-page-header {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color) 60%, var(--accent-color));
-    padding: 100px 0 70px;
+    padding: 160px 0 70px; /* Increased top padding to prevent header overlap */
     position: relative;
     overflow: hidden;
     color: #fff;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin-top: -70px; /* Offset for the body padding-top */
 }
 
 /* Enhanced breadcrumb styles */
@@ -86,7 +85,7 @@
 .cv-header-content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start; /* Changed from center to prevent overlap issues */
     position: relative;
     z-index: 2;
     backdrop-filter: blur(5px);
@@ -212,6 +211,7 @@
     align-items: center;
     animation: fadeZoomIn 1s ease-out forwards;
     position: relative;
+    margin-top: 20px; /* Add space to prevent overlap with header */
 }
 
 @keyframes fadeZoomIn {
@@ -728,6 +728,24 @@
 
 /* Responsive adjustments */
 @media (max-width: 992px) {
+    .cv-page-header {
+        padding: 140px 0 50px; /* Adjust padding for tablets */
+    }
+    
+    .cv-header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .cv-header-text {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .cv-header-image {
+        margin-top: 10px; /* Less margin needed in stacked layout */
+    }
+    
     .skills-container {
         flex-direction: column;
         gap: 20px;
@@ -754,6 +772,10 @@
 }
 
 @media (max-width: 768px) {
+    .cv-page-header {
+        padding: 120px 0 40px; /* Further adjust padding for mobile */
+    }
+    
     .cv-section {
         padding: 20px;
     }
