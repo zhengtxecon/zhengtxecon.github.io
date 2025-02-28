@@ -927,3 +927,103 @@
         border-radius: 8px;
     }
 }
+
+/* Academic Profiles Section Styling */
+.profiles-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.profile-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--surface-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.profile-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    background-color: rgba(117, 106, 255, 0.1);
+}
+
+.profile-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-right: 20px;
+    color: white;
+    font-size: 1.8rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.profile-icon.orcid {
+    background: #A6CE39;
+    color: #ffffff;
+}
+
+.profile-item:hover .profile-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-info h3 {
+    margin: 0 0 5px 0;
+    color: var(--text-primary);
+    font-size: 1.3rem;
+}
+
+.profile-info p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.profile-arrow {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    margin-left: 15px;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.profile-item:hover .profile-arrow {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+    .profile-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 15px;
+    }
+    
+    .profile-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .profile-info {
+        margin-bottom: 15px;
+    }
+    
+    .profile-arrow {
+        margin-left: 0;
+    }
+}
