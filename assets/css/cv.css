@@ -394,32 +394,6 @@
     margin-bottom: 30px;
 }
 
-.summary-stats {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-top: 30px;
-}
-
-.stat-item {
-    text-align: center;
-    padding: 0 20px;
-}
-
-.stat-number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--accent-color);
-    margin-bottom: 5px;
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    white-space: nowrap;
-}
-
 /* CV download button */
 .cv-container .cv-download {
     display: none;
@@ -849,19 +823,10 @@
     /* Text sizing */
     .cv-header-text h1 { font-size: 2.8rem; }
     .cv-tagline { font-size: 1.3rem; }
-    .stat-number { font-size: 2rem; }
     
     .profile-image {
         width: 180px;
         height: 180px;
-    }
-    
-    .summary-stats {
-        gap: 20px;
-    }
-    
-    .stat-item {
-        padding: 0 15px;
     }
 
     .header-download {
@@ -927,17 +892,6 @@
     .profile-image {
         width: 150px;
         height: 150px;
-    }
-    
-    .summary-stats {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .stat-item {
-        padding: 10px;
-        background-color: var(--surface-color);
-        border-radius: 8px;
     }
     
     .profile-item {
