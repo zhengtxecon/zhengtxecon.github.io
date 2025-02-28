@@ -288,27 +288,25 @@
     z-index: 1;
 }
 
-/* Stats */
-.stats-container {
-    display: flex;
-    gap: 30px;
-    margin: 40px 0;
-}
-
-.stat-item {
+/* Section Title - used by multiple sections */
+.section-title {
     text-align: center;
-}
-
-.stat-number {
+    margin-bottom: 50px;
     font-size: 2.5rem;
-    font-weight: 700;
-    color: var (--accent-color);
-    display: block;
+    position: relative;
+    padding-bottom: 15px;
+    color: var(--text-primary);
 }
 
-.stat-label {
-    font-size: 1rem;
-    opacity: 0.8;
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--secondary-color);
 }
 
 /* Featured Projects */
@@ -650,8 +648,6 @@
     }
     
     .split-layout, 
-    .research-areas, 
-    .papers-list,
     .contact-cta .container {
         flex-direction: column;
     }
@@ -694,10 +690,6 @@
     .btn {
         padding: 10px 20px;
         font-size: 0.9rem;
-    }
-    
-    .stat-number {
-        font-size: 2rem;
     }
     
     .hero-buttons {
@@ -757,11 +749,6 @@
         margin-bottom: 5rem;
     }
     
-    .stats-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
     .btn {
         margin: 0;
     }
@@ -770,8 +757,6 @@
         font-size: 2rem;
     }
     
-    .research-card, 
-    .paper, 
     .post-card {
         padding: 20px;
     }
