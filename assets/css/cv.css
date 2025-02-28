@@ -1,11 +1,12 @@
 /* CV page specific styles */
 
+/* Base layout */
 .cv-container {
-    padding: 60px 0 60px 0;
+    padding: 60px 0;
     background-color: var(--primary-color);
 }
 
-/* Modern CV Header Styles - Enhanced */
+/* Modern CV Header */
 .cv-page-header {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color) 60%, var(--accent-color));
     padding: 160px 0 70px;
@@ -19,7 +20,13 @@
     background-size: cover;
 }
 
-/* Enhanced breadcrumb styles - Updated for more fluid design */
+/* Common flex patterns */
+.flex-center {
+    display: flex;
+    align-items: center;
+}
+
+/* Enhanced breadcrumb styles */
 .breadcrumbs {
     margin: 20px 0;
     font-size: 1.1rem;
@@ -104,7 +111,7 @@
     opacity: 1;
 }
 
-/* Animations */
+/* Optimized animations */
 @keyframes fadeSlideIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -116,21 +123,18 @@
 }
 
 @keyframes float {
-    0% { transform: translateY(0) rotate(0deg); filter: hue-rotate(0deg); }
+    0%, 100% { transform: translateY(0) rotate(0deg); filter: hue-rotate(0deg); }
     50% { transform: translateY(-30px) rotate(10deg); filter: hue-rotate(30deg); }
-    100% { transform: translateY(10px) rotate(-5deg); filter: hue-rotate(0deg); }
 }
 
 @keyframes morph {
-    0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
     50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
 }
 
 @keyframes particleFloat {
     0% { transform: translateY(0) translateX(0); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
+    10%, 90% { opacity: 1; }
     100% { transform: translateY(-500px) translateX(100px) rotate(360deg); opacity: 0; }
 }
 
@@ -165,13 +169,13 @@
 .cv-tagline {
     font-size: 1.7rem;
     margin-bottom: 25px;
-    opacity: 0.9;
     font-weight: 300;
     text-shadow: 0 2px 8px rgba(0,0,0,0.2);
     animation: fadeSlideIn 1s ease-out 0.2s forwards;
     opacity: 0;
 }
 
+/* Quick info section */
 .cv-quick-info {
     margin: 30px 0;
     animation: fadeSlideIn 1.2s ease-out 0.4s forwards;
@@ -203,12 +207,18 @@
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-/* Header download buttons */
+/* Header download buttons - using common transition properties */
 .header-download {
     animation: fadeSlideIn 1.4s ease-out 0.6s forwards;
     opacity: 0;
     display: flex;
     gap: 15px;
+}
+
+.btn-transition {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
 }
 
 .header-download .btn {
@@ -277,10 +287,7 @@
 .profile-image::before {
     content: '';
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+    inset: 0; /* Shorthand for top: 0; right: 0; bottom: 0; left: 0; */
     background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), transparent);
     z-index: 2;
 }
@@ -362,10 +369,7 @@
 /* Ambient particles */
 .particles {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     overflow: hidden;
 }
 
@@ -378,7 +382,11 @@
     animation: particleFloat 20s infinite linear;
 }
 
-/* Particle positions */
+/* Optimized particle positions with will-change for better performance */
+.particle {
+    will-change: transform, opacity;
+}
+
 .particle:nth-child(1) { left: 10%; top: 80%; animation-delay: 0s; animation-duration: 15s; }
 .particle:nth-child(2) { left: 20%; top: 40%; animation-delay: 1s; animation-duration: 18s; }
 .particle:nth-child(3) { left: 30%; top: 90%; animation-delay: 2s; animation-duration: 20s; }
@@ -390,7 +398,7 @@
 .particle:nth-child(9) { left: 90%; top: 80%; animation-delay: 0s; animation-duration: 15s; }
 .particle:nth-child(10) { left: 5%; top: 50%; animation-delay: 5s; animation-duration: 22s; }
 
-/* Profile Summary Section - Enhanced */
+/* Profile Summary Section */
 .cv-profile-summary {
     background-color: var(--light-color);
     padding: 60px 0;
@@ -464,7 +472,7 @@
 
 /* CV download button */
 .cv-container .cv-download {
-    display: none; /* Hide redundant download button */
+    display: none;
 }
 
 .cv-download {
@@ -486,7 +494,7 @@
     margin-right: 10px;
 }
 
-/* Section styling */
+/* Common section styling */
 .cv-section {
     margin-bottom: 60px;
     background-color: var(--light-color);
@@ -560,11 +568,16 @@
     display: inline-block;
 }
 
-.timeline-content {
+/* Common content box styling */
+.content-box {
     background-color: var(--surface-color);
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-content {
+    composes: content-box;
 }
 
 .timeline-content h3 {
@@ -627,7 +640,7 @@
     font-size: 0.9rem;
     color: var(--text-secondary);
     display: inline-block;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skill-tag:hover {
@@ -645,10 +658,7 @@
 }
 
 .publication {
-    padding: 20px;
-    background-color: var(--surface-color);
-    border-radius: 5px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    composes: content-box;
 }
 
 .publication h3 {
@@ -667,7 +677,7 @@
 .publication p:not(.publication-meta) {
     margin-bottom: 15px;
     line-height: 1.6;
-    color: var (--text-secondary);
+    color: var(--text-secondary);
 }
 
 .publication-links {
@@ -707,7 +717,7 @@
     background-color: var(--surface-color);
     border-radius: 5px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .award-item:hover {
@@ -742,7 +752,7 @@
     margin-left: 15px;
 }
 
-/* Academic Profiles Section Styling */
+/* Academic Profiles Section */
 .profiles-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -750,6 +760,7 @@
     margin-top: 20px;
 }
 
+/* Common profile styles */
 .profile-item {
     display: flex;
     align-items: center;
@@ -757,7 +768,7 @@
     padding: 18px 20px;
     border-radius: 16px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     text-decoration: none;
     color: var(--text-primary);
     border: 1px solid rgba(0, 0, 0, 0.05);
@@ -768,10 +779,7 @@
 .profile-item::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
     z-index: 0;
 }
@@ -795,28 +803,16 @@
     color: white;
     font-size: 1.5rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     z-index: 1;
 }
 
-/* Profile icon variants */
-.profile-icon.orcid {
-    background: linear-gradient(135deg, #A6CE39, #86a82e);
-}
-
-.profile-icon.researchgate {
-    background: linear-gradient(135deg, #00CCBB, #009e91);
-}
-
-.profile-icon.ucl {
-    background: linear-gradient(135deg, #1e191a, #1e191a);
-    padding: 10px;
-}
-
-.profile-icon.linkedin {
-    background: linear-gradient(135deg, #0077b5, #005582);
-}
+/* Profile icon variants - consolidated */
+.profile-icon.orcid { background: linear-gradient(135deg, #A6CE39, #86a82e); }
+.profile-icon.researchgate { background: linear-gradient(135deg, #00CCBB, #009e91); }
+.profile-icon.ucl { background: linear-gradient(135deg, #1e191a, #1e191a); padding: 10px; }
+.profile-icon.linkedin { background: linear-gradient(135deg, #0077b5, #005582); }
 
 .profile-icon-image {
     width: 65%;
@@ -844,7 +840,7 @@
     font-size: 1.1rem;
     line-height: 1.4;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .profile-info p {
@@ -859,7 +855,7 @@
     font-size: 1.2rem;
     margin-left: 15px;
     opacity: 0.7;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
     position: relative;
     z-index: 1;
 }
@@ -873,7 +869,7 @@
     color: var(--accent-color);
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments - consolidated media queries */
 @media (max-width: 992px) {
     .cv-page-header {
         padding: 140px 0 50px;
@@ -893,13 +889,9 @@
         margin-top: 10px;
     }
     
-    .cv-quick-info {
+    .cv-quick-info, .cv-info-item {
         justify-content: center;
         align-items: center;
-    }
-    
-    .cv-info-item {
-        justify-content: center;
     }
     
     .skills-container {
@@ -961,13 +953,10 @@
         margin-top: 10px;
     }
     
-    .cv-header-text h1 {
-        font-size: 2.8rem;
-    }
-    
-    .cv-tagline {
-        font-size: 1.3rem;
-    }
+    /* Text sizing */
+    .cv-header-text h1 { font-size: 2.8rem; }
+    .cv-tagline { font-size: 1.3rem; }
+    .stat-number { font-size: 2rem; }
     
     .profile-image {
         width: 180px;
@@ -980,10 +969,6 @@
     
     .stat-item {
         padding: 0 15px;
-    }
-    
-    .stat-number {
-        font-size: 2rem;
     }
 
     .header-download {
