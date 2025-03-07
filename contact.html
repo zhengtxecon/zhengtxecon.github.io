@@ -223,49 +223,6 @@
                     </div>
                 </div>
             </section>
-            
-            <!-- FAQ Section -->
-            <section class="faq-section">
-                <h2 class="section-title"><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
-                <div class="accordion">
-                    <div class="accordion-item">
-                        <div class="accordion-header">
-                            How quickly do you respond to emails?
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="accordion-content">
-                            <p>I typically respond to emails within 48 hours during weekdays. For urgent matters, please include "Urgent" in the subject line.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <div class="accordion-header">
-                            Can I collaborate on research projects?
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="accordion-content">
-                            <p>I'm always open to research collaborations, especially in my areas of interest. Please send me a brief proposal including your research interests and how they might align with my work.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <div class="accordion-header">
-                            Do you supervise graduate students?
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="accordion-content">
-                            <p>Yes, I supervise MSc and occasionally PhD students working in areas related to my research. Please contact me with your research proposal and we can discuss potential supervision.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <div class="accordion-header">
-                            How do I join the Applied Economics Reading Group?
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="accordion-content">
-                            <p>The Applied Economics Reading Group is open to all interested students and faculty. Please email me to be added to the mailing list for upcoming meetings and paper discussions.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </div>
     </main>
     
@@ -282,27 +239,7 @@
             .then(response => response.text())
             .then(data => document.getElementById('footer-placeholder').innerHTML = data);
             
-        // Accordion functionality
         document.addEventListener('DOMContentLoaded', function() {
-            const accordionItems = document.querySelectorAll('.accordion-item');
-            
-            accordionItems.forEach(item => {
-                const header = item.querySelector('.accordion-header');
-                const content = item.querySelector('.accordion-content');
-                
-                header.addEventListener('click', () => {
-                    // Toggle active class
-                    item.classList.toggle('active');
-                    
-                    // Toggle visibility
-                    if (item.classList.contains('active')) {
-                        content.style.maxHeight = content.scrollHeight + 'px';
-                    } else {
-                        content.style.maxHeight = '0';
-                    }
-                });
-            });
-            
             // Form animation - simplified
             const formInputs = document.querySelectorAll('.input-wrapper input, .input-wrapper textarea, .input-wrapper select');
             
@@ -327,10 +264,10 @@
                 });
             }, { threshold: 0.1 });
             
-            document.querySelectorAll('.contact-section, .map-section, .office-hours-section, .faq-section')
+            document.querySelectorAll('.contact-section, .map-section, .office-hours-section')
                 .forEach(section => observer.observe(section));
             
-            document.querySelectorAll('.info-card, .social-media-card, .accordion-item')
+            document.querySelectorAll('.info-card, .social-media-card')
                 .forEach(item => observer.observe(item));
                 
             // Dynamic message placeholders - simplified

@@ -231,8 +231,7 @@
 /* Contact page content styles */
 .contact-section,
 .map-section,
-.office-hours-section,
-.faq-section {
+.office-hours-section {
     margin-bottom: 60px;
     background-color: var(--light-color);
     border-radius: 12px;
@@ -245,8 +244,7 @@
 
 .contact-section.animate,
 .map-section.animate,
-.office-hours-section.animate,
-.faq-section.animate {
+.office-hours-section.animate {
     opacity: 1;
     transform: translateY(0);
 }
@@ -692,66 +690,6 @@
     margin-bottom: 0;
 }
 
-/* FAQ Section Styling */
-.accordion {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.accordion-item {
-    background: var(--surface-color);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease;
-}
-
-.accordion-item.animate {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.accordion-header {
-    padding: 20px;
-    font-weight: 600;
-    color: var(--text-primary);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.3s ease;
-}
-
-.accordion-header i {
-    transition: transform 0.3s ease;
-    color: var(--secondary-color);
-}
-
-.accordion-item.active .accordion-header {
-    background: rgba(117, 106, 255, 0.1);
-}
-
-.accordion-item.active .accordion-header i {
-    transform: rotate(180deg);
-}
-
-.accordion-content {
-    padding: 0 20px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-}
-
-.accordion-content p {
-    margin-bottom: 20px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    font-size: 0.95rem;
-}
-
 /* Animations for page elements */
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
@@ -984,8 +922,7 @@
     
     .contact-section,
     .map-section,
-    .office-hours-section,
-    .faq-section {
+    .office-hours-section {
         padding: 25px 20px;
     }
     
@@ -1058,8 +995,7 @@
     }
     
     .contact-section,
-    .office-hours-section,
-    .faq-section {
+    .office-hours-section {
         background: white !important;
         box-shadow: none !important;
         border: 1px solid #ddd !important;
@@ -1110,8 +1046,7 @@
 /* Custom animation for section entry */
 .contact-section.animate,
 .map-section.animate,
-.office-hours-section.animate,
-.faq-section.animate {
+.office-hours-section.animate {
     animation: sectionEntry 0.8s ease-out forwards;
 }
 
