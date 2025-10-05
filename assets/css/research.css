@@ -1,40 +1,32 @@
 /* Research Page Styles */
 
 /* Page Header */
-.page-header {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
-    padding: 80px 0 40px;
-    text-align: center;
+.research-page-header {
+    --page-hero-gradient: radial-gradient(125% 150% at 20% 18%, color-mix(in srgb, var(--color-brand) 26%, transparent) 0%, transparent 62%),
+        linear-gradient(140deg, color-mix(in srgb, var(--color-brand-soft) 45%, transparent), var(--color-background));
+    --page-hero-overlay: radial-gradient(160% 135% at 88% -12%, color-mix(in srgb, var(--color-brand-soft) 30%, transparent) 0%, transparent 70%);
+    --page-hero-heading-color: var(--color-neutral-900);
+    --page-hero-body-color: var(--color-text);
+    --page-hero-muted-color: var(--color-text-muted);
 }
 
-.page-header h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    font-weight: 700;
-}
-
-.breadcrumbs {
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
-
-.breadcrumbs a {
-    color: white;
-    text-decoration: none;
-}
-
-.breadcrumbs a:hover {
-    text-decoration: underline;
+[data-theme="dark"] .research-page-header {
+    --page-hero-gradient: radial-gradient(150% 150% at 22% 15%, color-mix(in srgb, var(--color-brand) 40%, transparent) 0%, transparent 60%),
+        linear-gradient(145deg, color-mix(in srgb, var(--color-brand-strong) 30%, transparent), var(--color-surface));
+    --page-hero-overlay: radial-gradient(175% 140% at 90% -18%, color-mix(in srgb, var(--color-brand-strong) 38%, transparent) 0%, transparent 74%);
+    --page-hero-heading-color: rgba(240, 244, 255, 0.96);
+    --page-hero-body-color: rgba(224, 232, 255, 0.9);
+    --page-hero-muted-color: rgba(190, 205, 245, 0.75);
 }
 
 /* Research Overview */
 .research-page {
-    background-color: var(--background-color);
+    background-color: var(--color-background);
 }
 
 .research-overview {
     padding: 80px 0;
+    background: var(--color-background);
 }
 
 .research-intro {
@@ -45,14 +37,14 @@
 .research-intro h2 {
     font-size: 2.2rem;
     margin-bottom: 20px;
-    color: var(--text-primary);
+    color: var(--color-text);
     text-align: center;
 }
 
 .research-intro p {
     font-size: 1.1rem;
     line-height: 1.7;
-    color: var(--text-secondary);
+    color: var(--color-text-muted);
     text-align: center;
     margin-bottom: 50px;
 }
@@ -67,11 +59,12 @@
 
 .research-card {
     flex: 1;
-    background: var(--surface-color);
+    background: var(--color-surface);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: var(--color-text);
 }
 
 .research-card:hover {
@@ -81,7 +74,7 @@
 
 .research-icon {
     font-size: 2.5rem;
-    color: var(--secondary-color);
+    color: var(--color-brand-strong);
     margin-bottom: 20px;
     text-align: center;
 }
@@ -89,14 +82,14 @@
 .research-card h3 {
     margin-bottom: 15px;
     font-size: 1.5rem;
-    color: var(--text-primary);
+    color: var(--color-text);
     text-align: center;
 }
 
 /* Publications Section */
 .publications {
     padding: 80px 0;
-    background-color: var(--light-background);
+    background-color: var(--color-surface);
 }
 
 .section-title {
@@ -105,7 +98,7 @@
     font-size: 2.5rem;
     position: relative;
     padding-bottom: 15px;
-    color: var(--text-primary);
+    color: var(--color-text);
 }
 
 .section-title::after {
@@ -116,13 +109,13 @@
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: var(--secondary-color);
+    background: var(--color-brand-strong);
 }
 
 .section-subtitle {
     text-align: center;
     font-size: 1.2rem;
-    color: var(--text-secondary);
+    color: var(--color-text-muted);
     margin-top: -30px;
     margin-bottom: 50px;
 }
@@ -135,7 +128,7 @@
 .papers-category h3 {
     font-size: 1.8rem;
     margin-bottom: 30px;
-    color: var(--text-primary);
+    color: var(--color-text);
     text-align: center;
 }
 
@@ -149,11 +142,12 @@
 
 /* Paper Card */
 .paper {
-    background: var(--surface-color);
+    background: var(--color-surface);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: var(--color-text);
 }
 
 .paper:hover {
@@ -164,11 +158,11 @@
 .paper h4 {
     margin-bottom: 10px;
     font-size: 1.4rem;
-    color: var(--text-primary);
+    color: var(--color-text);
 }
 
 .paper-journal {
-    color: var(--secondary-color);
+    color: var(--color-brand-strong);
     font-style: italic;
     margin-bottom: 15px;
     font-size: 0.95rem;
@@ -185,7 +179,7 @@
 
 .paper-authors {
     font-size: 0.95rem;
-    color: var(--text-secondary);
+    color: var(--color-text-muted);
 }
 
 .paper-tags {
@@ -195,16 +189,16 @@
 }
 
 .paper-tags span {
-    background: rgba(var(--secondary-color-rgb), 0.1);
-    color: var(--secondary-color);
+    background: color-mix(in srgb, var(--color-brand-soft) 60%, transparent);
+    color: var(--color-brand-strong);
     border-radius: 15px;
     padding: 3px 10px;
     font-size: 0.8rem;
 }
 
 .paper-status {
-    background: rgba(var(--accent-color-rgb), 0.1);
-    color: var(--accent-color);
+    background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+    color: var(--color-accent);
     border-radius: 15px;
     padding: 3px 10px;
     font-size: 0.8rem;
@@ -212,7 +206,7 @@
 
 .paper-abstract {
     margin-bottom: 20px;
-    color: var(--text-secondary);
+    color: var(--color-text-muted);
     line-height: 1.6;
 }
 
@@ -225,7 +219,7 @@
 .paper-link {
     display: inline-flex;
     align-items: center;
-    color: var(--accent-color);
+    color: var(--color-accent);
     font-weight: 600;
     text-decoration: none;
     transition: color 0.2s ease;
@@ -236,7 +230,7 @@
 }
 
 .paper-link:hover {
-    color: var(--secondary-color);
+    color: var(--color-brand-strong);
 }
 
 /* Paper Abstract Styling */
@@ -245,14 +239,14 @@
 }
 
 .short-abstract {
-    color: var(--text-secondary);
+    color: var(--color-text-muted);
     line-height: 1.6;
     display: block;
     margin-bottom: 5px;
 }
 
 .full-abstract {
-    color: var(--text-secondary);
+    color: var(--color-text-muted);
     line-height: 1.6;
     display: none;
     padding-top: 5px;
@@ -261,7 +255,7 @@
 }
 
 .expand-abstract {
-    color: var(--accent-color);
+    color: var(--color-accent);
     background: none;
     border: none;
     padding: 5px 0;
@@ -275,7 +269,7 @@
 }
 
 .expand-abstract:hover {
-    color: var(--secondary-color);
+    color: var(--color-brand-strong);
 }
 
 .expand-abstract i {
@@ -285,7 +279,7 @@
 /* Collaborators */
 .research-collaborators {
     padding: 80px 0;
-    background-color: var(--background-color);
+    background-color: var(--color-background);
 }
 
 .collaborators-grid {
@@ -305,7 +299,7 @@
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto 15px;
-    border: 3px solid var(--secondary-color);
+    border: 3px solid var(--color-brand-strong);
 }
 
 .collaborator-image img {
@@ -317,11 +311,11 @@
 .collaborator h4 {
     margin-bottom: 5px;
     font-size: 1.1rem;
-    color: var(--text-primary);
+    color: var(--color-text);
 }
 
 .collaborator p {
-    color: var(--text-secondary);
+    color: var(--color-text-muted);
     font-size: 0.9rem;
 }
 
@@ -329,8 +323,8 @@
 .cta-section {
     padding: 80px 0;
     text-align: center;
-    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
-    color: white;
+    background: linear-gradient(135deg, var(--color-brand-strong), var(--color-accent));
+    color: var(--color-white);
 }
 
 .cta-section h2 {
@@ -348,8 +342,8 @@
 
 .cta-section .btn {
     margin-top: 10px;
-    background: white;
-    color: var(--secondary-color);
+    background: var(--color-white);
+    color: var(--color-brand-strong);
     border: none;
 }
 
@@ -358,69 +352,393 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Media Queries */
-@media (max-width: 992px) {
-    .research-areas {
-        flex-direction: column;
+/* New Research Styles */
+.research-page-header {
+    padding-bottom: clamp(4rem, 6vw, 5rem);
+}
+
+.research-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 27rem);
+    gap: clamp(2.5rem, 6vw, 3.5rem);
+    align-items: start;
+}
+
+.research-header-copy {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.research-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem;
+}
+
+.research-meta-item {
+    display: grid;
+    gap: 0.35rem;
+    padding: 1.2rem;
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, var(--color-brand-soft) 50%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-brand) 15%, transparent);
+}
+
+.meta-label {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    color: color-mix(in srgb, var(--color-brand-strong) 70%, var(--color-text) 30%);
+}
+
+.meta-value {
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.research-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.research-badges span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.95rem;
+    border-radius: 999px;
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.research-badges i {
+    color: var(--color-brand-strong);
+}
+
+.research-header-card {
+    display: grid;
+    gap: 1.2rem;
+}
+
+.research-header-card ul {
+    list-style: none;
+    margin: 0;
+    display: grid;
+    gap: 0.85rem;
+    padding: 0;
+}
+
+.research-header-card li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.75rem;
+    align-items: start;
+    color: var(--color-text-muted);
+}
+
+.research-header-card li i {
+    color: var(--color-brand-strong);
+    margin-top: 0.2rem;
+}
+
+.research-main {
+    display: grid;
+    gap: clamp(3.5rem, 6vw, 4.5rem);
+}
+
+.research-overview-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 3rem);
+}
+
+.research-summary-points {
+    display: grid;
+    gap: 0.85rem;
+    margin-top: 1.5rem;
+}
+
+.research-summary-points p {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0;
+    color: var(--color-text);
+}
+
+.research-summary-points i {
+    color: var(--color-brand-strong);
+    font-size: 1rem;
+}
+
+.research-questions ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+.research-questions li {
+    line-height: 1.5;
+}
+
+.research-section-heading {
+    max-width: 720px;
+    display: grid;
+    gap: 1rem;
+    margin-bottom: clamp(2.5rem, 5vw, 3.25rem);
+}
+
+.research-agenda .section-label,
+.research-publications .section-label,
+.research-partnership .section-label {
+    justify-self: start;
+}
+
+.agenda-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.5rem, 4vw, 2.75rem);
+}
+
+.agenda-card {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.agenda-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    background: color-mix(in srgb, var(--color-brand-soft) 65%, transparent);
+    color: var(--color-brand-strong);
+}
+
+.tag-alt {
+    background: color-mix(in srgb, var(--color-accent) 20%, transparent);
+    color: color-mix(in srgb, var(--color-brand-strong) 55%, var(--color-text) 45%);
+}
+
+.agenda-card ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.6rem;
+    color: var(--color-text-muted);
+}
+
+.agenda-link {
+    margin-top: auto;
+    font-weight: 600;
+    color: var(--color-brand-strong);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.agenda-link i {
+    transition: transform var(--transition-base);
+}
+
+.agenda-link:hover i,
+.agenda-link:focus-visible i {
+    transform: translateX(4px);
+}
+
+.research-featured {
+    padding-block: 0;
+}
+
+.feature-grid {
+    display: grid;
+    gap: clamp(1.5rem, 3.5vw, 2.5rem);
+}
+
+.feature-card {
+    display: grid;
+    gap: 1.1rem;
+}
+
+.feature-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+.feature-card .tag {
+    background: color-mix(in srgb, var(--color-brand-soft) 80%, transparent);
+}
+
+.feature-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.research-publications {
+    padding-top: 0;
+}
+
+.publication-groups {
+    display: grid;
+    gap: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.publication-group {
+    display: grid;
+    gap: 1.75rem;
+}
+
+.publication-group-header h3 {
+    margin-bottom: 0.35rem;
+}
+
+.publication-list {
+    display: grid;
+    gap: 1.4rem;
+}
+
+.publication {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.publication-meta {
+    display: flex;
+    gap: 0.65rem;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+.publication-meta .tag {
+    background: color-mix(in srgb, var(--color-brand-soft) 70%, transparent);
+}
+
+.publication-meta .year {
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.publication-summary {
+    margin: 0;
+    color: var(--color-text-muted);
+}
+
+.publication-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.research-partnership {
+    padding-top: 0;
+}
+
+.partnership-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 2.75rem);
+}
+
+.partnership-copy {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.partnership-copy ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.6rem;
+    color: var(--color-text-muted);
+}
+
+.partnership-actions {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.partnership-card {
+    background: var(--color-surface-alt);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    padding: clamp(1.5rem, 3vw, 2rem);
+    box-shadow: var(--shadow-sm);
+    display: grid;
+    gap: 0.9rem;
+}
+
+.partnership-card p {
+    margin: 0;
+}
+
+@media (max-width: 1100px) {
+    .research-header {
+        grid-template-columns: minmax(0, 1fr);
     }
-    
-    .papers-list {
-        grid-template-columns: 1fr;
+
+    .research-meta-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    
-    .page-header h1 {
-        font-size: 2.5rem;
+
+    .research-header-card {
+        order: -1;
     }
 }
 
-@media (max-width: 768px) {
-    .research-overview,
-    .publications,
-    .research-collaborators,
-    .cta-section {
-        padding: 60px 0;
+@media (max-width: 920px) {
+    .research-overview-grid,
+    .partnership-grid {
+        grid-template-columns: minmax(0, 1fr);
     }
-    
-    .section-title {
-        font-size: 2rem;
+
+    .agenda-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    
-    .papers-category h3 {
-        font-size: 1.5rem;
-    }
-    
-    .collaborators-grid {
-        grid-template-columns: repeat(2, 1fr);
+
+    .research-meta-grid {
+        grid-template-columns: minmax(0, 1fr);
     }
 }
 
-@media (max-width: 576px) {
-    .paper {
-        padding: 20px;
+@media (max-width: 720px) {
+    .agenda-grid {
+        grid-template-columns: minmax(0, 1fr);
     }
-    
-    .paper h4 {
-        font-size: 1.2rem;
-    }
-    
-    .paper-meta {
+
+    .feature-card-meta {
         flex-direction: column;
         align-items: flex-start;
+        gap: 0.35rem;
     }
-    
-    .collaborators-grid {
-        grid-template-columns: 1fr;
+}
+
+@media (max-width: 540px) {
+    .research-badges span {
+        width: 100%;
     }
-    
-    .page-header {
-        padding: 60px 0 30px;
-    }
-    
-    .page-header h1 {
-        font-size: 2rem;
-    }
-    
-    .cta-section h2 {
-        font-size: 1.8rem;
+
+    .feature-actions,
+    .publication-links {
+        flex-direction: column;
+        align-items: stretch;
     }
 }

@@ -1,22 +1,44 @@
-<header class="site-header">
-    <div class="container">
-        <div class="logo">
-            <a href="index.html">Tianxiang Zheng</a>
-        </div>
-        <nav class="main-nav">
-            <button class="mobile-menu-toggle" aria-label="Toggle Menu">
-                <span></span>
-                <span></span>
-                <span></span>
+<header class="site-header" data-component="header">
+    <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Tianxiang Zheng home">
+            <span class="brand-initials" aria-hidden="true">TZ</span>
+            <span class="brand-text">
+                <span class="brand-name">Tianxiang Zheng</span>
+                <span class="brand-role">Economist · Researcher · Educator</span>
+            </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary">
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="sr-only">Menu</span>
             </button>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="cv.html">CV</a></li>
-                <li><a href="research.html">Research</a></li>
-                   <li><a href="teaching.html">Teaching</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
+
+            <ul id="primary-navigation" class="nav-links">
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li><a class="nav-link" href="cv.html">CV</a></li>
+                <li><a class="nav-link" href="research.html">Research</a></li>
+                <li><a class="nav-link" href="teaching.html">Teaching</a></li>
+                <li><a class="nav-link" href="blog.html">Blog</a></li>
+                <li><a class="nav-link" href="contact.html">Contact</a></li>
             </ul>
         </nav>
+
+        <div class="header-actions">
+            <button class="theme-toggle" type="button" data-theme-state="light" aria-pressed="false" aria-label="Switch to dark mode">
+                <span class="theme-toggle-track" aria-hidden="true">
+                    <span class="theme-toggle-thumb"></span>
+                    <i class="fas fa-sun theme-icon theme-icon-sun" aria-hidden="true"></i>
+                    <i class="fas fa-moon theme-icon theme-icon-moon" aria-hidden="true"></i>
+                </span>
+                <span class="theme-toggle-label" aria-hidden="true">
+                    <span class="theme-toggle-state theme-toggle-state-light">Light</span>
+                    <span class="theme-toggle-state theme-toggle-state-dark">Dark</span>
+                </span>
+            </button>
+            <a class="header-cta" href="contact.html">Let's Collaborate</a>
+        </div>
     </div>
 </header>

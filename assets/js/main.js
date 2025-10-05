@@ -1,194 +1,309 @@
+﻿// Core site interactions
+const HEADER_FALLBACK = `
+<header class="site-header" data-component="header">
+    <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Tianxiang Zheng home">
+            <span class="brand-initials" aria-hidden="true">TZ</span>
+            <span class="brand-text">
+                <span class="brand-name">Tianxiang Zheng</span>
+                <span class="brand-role">Economist · Researcher · Educator</span>
+            </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary">
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="sr-only">Menu</span>
+            </button>
+
+            <ul id="primary-navigation" class="nav-links">
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li><a class="nav-link" href="cv.html">CV</a></li>
+                <li><a class="nav-link" href="research.html">Research</a></li>
+                <li><a class="nav-link" href="teaching.html">Teaching</a></li>
+                <li><a class="nav-link" href="blog.html">Blog</a></li>
+                <li><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <button class="theme-toggle" type="button" data-theme-state="light" aria-pressed="false" aria-label="Switch to dark mode">
+                <span class="theme-toggle-track" aria-hidden="true">
+                    <span class="theme-toggle-thumb"></span>
+                    <i class="fas fa-sun theme-icon theme-icon-sun" aria-hidden="true"></i>
+                    <i class="fas fa-moon theme-icon theme-icon-moon" aria-hidden="true"></i>
+                </span>
+                <span class="theme-toggle-label" aria-hidden="true">
+                    <span class="theme-toggle-state theme-toggle-state-light">Light</span>
+                    <span class="theme-toggle-state theme-toggle-state-dark">Dark</span>
+                </span>
+            </button>
+            <a class="header-cta" href="contact.html">Let's Collaborate</a>
+        </div>
+    </div>
+</header>
+`;
+
+const FOOTER_FALLBACK = `
+<footer class="site-footer" data-component="footer">
+    <div class="container footer-inner">
+        <div class="footer-brand">
+            <span class="footer-initials" aria-hidden="true">TZ</span>
+            <div>
+                <p class="footer-name">Tianxiang Zheng (郑天翔)</p>
+                <p class="footer-tagline">Economist · Researcher · Educator</p>
+            </div>
+        </div>
+
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>Stay in touch</h3>
+                <ul class="footer-links">
+                    <li><a href="mailto:tianxiang.zheng.22@ucl.ac.uk"><i class="fas fa-envelope"></i> tianxiang.zheng.22@ucl.ac.uk</a></li>
+                    <li><a href="mailto:marxzheng@outlook.com"><i class="fas fa-paper-plane"></i> marxzheng@outlook.com</a></li>
+                    <li><a href="contact.html"><i class="fas fa-handshake"></i> Request a meeting</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Explore</h3>
+                <ul class="footer-links">
+                    <li><a href="cv.html">Curriculum Vitae</a></li>
+                    <li><a href="research.html">Research Portfolio</a></li>
+                    <li><a href="teaching.html">Teaching Resources</a></li>
+                    <li><a href="blog.html">Insights & Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect</h3>
+                <div class="footer-social">
+                    <a href="https://scholar.google.com/citations?user=yMayrcEAAAAJ" target="_blank" rel="noopener"><i class="fas fa-graduation-cap"></i> Scholar</a>
+                    <a href="https://github.com/zhengtxecon" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/tianxiang-marx-zheng-187ab0131/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+            <p>&copy; <span data-year></span> Tianxiang Zheng. Crafted for clarity and collaboration.</p>
+            <button class="to-top" type="button" aria-label="Back to top">
+                <i class="fas fa-arrow-up"></i>
+            </button>
+        </div>
+    </div>
+</footer>
+`;
+
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Website loaded successfully');
-    
-    // Ensure cursor is visible by removing any potential canvas overlays
-    // that might have been added by the splash cursor
-    const fluidCanvas = document.getElementById('fluid');
-    if (fluidCanvas) {
-        fluidCanvas.remove();
-    }
-    
-    // Reset cursor style on body and all elements
-    document.body.style.cursor = 'default';
-    
-    // Mobile menu toggle
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (mobileMenuToggle) {
-        mobileMenuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            mobileMenuToggle.classList.toggle('active');
-        });
-    }
-    
-    // Handle header background on scroll
-    const header = document.querySelector('.site-header');
-    let lastScrollY = window.scrollY;
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-        
-        // Hide/show header on scroll direction
-        if (window.scrollY > lastScrollY) {
-            header.classList.add('header-hidden');
-        } else {
-            header.classList.remove('header-hidden');
-        }
-        
-        lastScrollY = window.scrollY;
+    hydratePartials().then(() => {
+        initNavigation();
+        initHeaderScroll();
+        initThemeToggle();
+        initScrollAnimations();
+        highlightActivePage();
+        initScrollToTop();
+        updateFooterYear();
     });
-    
-    // Add scroll to top button
-    const scrollTopBtn = document.createElement('div');
-    scrollTopBtn.className = 'scroll-to-top';
-    scrollTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    document.body.appendChild(scrollTopBtn);
-    
-    // Show/hide scroll to top button
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 500) {
-            scrollTopBtn.classList.add('active');
-        } else {
-            scrollTopBtn.classList.remove('active');
-        }
-    });
-    
-    // Scroll to top when button is clicked
-    scrollTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-    
-    // Contact form handling
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            // Simple form validation
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            if (name && email && message) {
-                // In a real application, you would send this data to a server
-                console.log('Form submitted:', { name, email, message });
-                alert('Thank you for your message! I will get back to you soon.');
-                contactForm.reset();
-            } else {
-                alert('Please fill out all fields.');
-            }
-        });
-    }
-    
-    // Contact form purpose-specific guidance
-    const purposeSelect = document.getElementById('contact-purpose');
-    const messageTextarea = document.getElementById('message');
-    
-    if (purposeSelect && messageTextarea) {
-        purposeSelect.addEventListener('change', function() {
-            const value = this.value;
-            let placeholder = '';
-            
-            switch(value) {
-                case 'research':
-                    placeholder = 'Please describe your research interests, potential collaboration ideas, and any specific projects you have in mind...';
-                    break;
-                case 'speaking':
-                    placeholder = 'Please provide details about the event, target audience, date, location, and the topic you would like me to address...';
-                    break;
-                case 'academic':
-                    placeholder = 'Please describe the academic topic you would like to discuss and any specific questions you have...';
-                    break;
-                case 'student':
-                    placeholder = 'Please let me know what program you are in, your research interests, and how I might help with your academic journey...';
-                    break;
-                case 'other':
-                    placeholder = 'Please provide details about how I can assist you...';
-                    break;
-                default:
-                    placeholder = 'Please describe your proposal, research interests, or how we might collaborate...';
-            }
-            
-            messageTextarea.placeholder = placeholder;
-        });
-    }
-    
-    // Project filter functionality (for portfolio page)
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    if (filterButtons.length) {
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const category = button.getAttribute('data-filter');
-                const projects = document.querySelectorAll('.project');
-                
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                button.classList.add('active');
-                
-                projects.forEach(project => {
-                    if (category === 'all' || project.classList.contains(category)) {
-                        project.style.display = 'block';
-                    } else {
-                        project.style.display = 'none';
-                    }
-                });
-            });
-        });
-    }
-    
-    // Add fade-in animation to elements when they come into view
-    const fadeElements = document.querySelectorAll('.fade-element');
-    
-    if (fadeElements.length > 0 && 'IntersectionObserver' in window) {
-        const fadeObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                    fadeObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
-        
-        fadeElements.forEach(element => {
-            fadeObserver.observe(element);
-        });
-    }
-    
-    // Get header height and adjust page content
-    function adjustForHeader() {
-        const header = document.querySelector('.site-header');
-        const headerHeight = header ? header.offsetHeight : 70;
-        
-        // Set body padding-top to match header height
-        document.body.style.paddingTop = headerHeight + 'px';
-        
-        // Fix page headers
-        const pageHeaders = document.querySelectorAll('.page-header, .cv-page-header, .contact-page-header');
-        pageHeaders.forEach(header => {
-            header.style.marginTop = -headerHeight + 'px';
-            header.style.paddingTop = (parseInt(getComputedStyle(header).paddingTop) + headerHeight) + 'px';
-        });
-        
-        // Fix hero section if present
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            hero.style.marginTop = -headerHeight + 'px';
-            hero.style.paddingTop = (parseInt(getComputedStyle(hero).paddingTop) + headerHeight) + 'px';
-        }
-    }
-    
-    // Run on load
-    adjustForHeader();
-    
-    // Run on window resize
-    window.addEventListener('resize', adjustForHeader);
 });
+
+function hydratePartials() {
+    const headerTarget = document.getElementById('header-placeholder');
+    const footerTarget = document.getElementById('footer-placeholder');
+
+    const requests = [];
+
+    if (headerTarget && !headerTarget.dataset.loaded) {
+        requests.push(loadPartial(headerTarget, 'includes/header.html', HEADER_FALLBACK));
+    }
+
+    if (footerTarget && !footerTarget.dataset.loaded) {
+        requests.push(loadPartial(footerTarget, 'includes/footer.html', FOOTER_FALLBACK));
+    }
+
+    return Promise.all(requests);
+}
+
+function loadPartial(target, url, fallbackHtml) {
+    return fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to fetch ${url}: ${response.status}`);
+            }
+            return response.text();
+        })
+        .catch(error => {
+            console.warn(`[tz-site] ${error.message}. Falling back to embedded markup.`);
+            return fallbackHtml;
+        })
+        .then(html => {
+            if (html) {
+                target.innerHTML = html;
+                target.dataset.loaded = 'true';
+            }
+        });
+}
+
+function initNavigation() {
+    const header = document.querySelector('[data-component="header"]');
+    if (!header) return;
+
+    const toggle = header.querySelector('.nav-toggle');
+    const navList = header.querySelector('.nav-links');
+
+    if (toggle && navList) {
+        toggle.addEventListener('click', () => {
+            const expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!expanded));
+            header.classList.toggle('nav-open', !expanded);
+        });
+
+        navList.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                toggle.setAttribute('aria-expanded', 'false');
+                header.classList.remove('nav-open');
+            });
+        });
+    }
+}
+
+function initHeaderScroll() {
+    const header = document.querySelector('[data-component="header"]');
+    if (!header) return;
+
+    const observer = new IntersectionObserver(
+        ([entry]) => {
+            header.classList.toggle('is-stuck', !entry.isIntersecting);
+        },
+        { threshold: [1], rootMargin: '-1px 0px 0px 0px' }
+    );
+
+    const sentinel = document.createElement('div');
+    sentinel.className = 'header-sentinel';
+    header.before(sentinel);
+    observer.observe(sentinel);
+}
+
+function initThemeToggle() {
+    const toggle = document.querySelector('.theme-toggle');
+    if (!toggle) return;
+
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const storedTheme = localStorage.getItem('tz-theme');
+    const initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
+
+    applyTheme(initialTheme, { toggle, persist: Boolean(storedTheme) });
+
+    toggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(nextTheme, { toggle });
+    });
+
+    const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+    const systemPreferenceHandler = event => {
+        if (localStorage.getItem('tz-theme')) return;
+        applyTheme(event.matches ? 'dark' : 'light', { toggle, persist: false });
+    };
+
+    if (systemPreference.addEventListener) {
+        systemPreference.addEventListener('change', systemPreferenceHandler);
+    } else if (systemPreference.addListener) {
+        systemPreference.addListener(systemPreferenceHandler);
+    }
+}
+
+function applyTheme(theme, { toggle, persist = true } = {}) {
+    document.documentElement.setAttribute('data-theme', theme);
+    if (toggle) {
+        toggle.dataset.themeState = theme;
+        toggle.setAttribute('aria-pressed', String(theme === 'dark'));
+        toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+    if (persist) {
+        localStorage.setItem('tz-theme', theme);
+    }
+}
+
+function initScrollAnimations() {
+    const main = document.querySelector('main');
+    if (!main) return;
+
+    main.querySelectorAll('section:not([data-animate])').forEach(section => {
+        section.dataset.animate = 'fade-up';
+    });
+
+    document.querySelectorAll('.surface:not([data-animate])').forEach((card, index) => {
+        card.dataset.animate = 'scale-in';
+        card.style.setProperty('--reveal-delay', `${(index % 4) * 80}ms`);
+    });
+
+    const animated = Array.from(document.querySelectorAll('[data-animate]'));
+    if (!animated.length) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        animated.forEach(el => el.classList.add('is-visible'));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                obs.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.18,
+        rootMargin: '0px 0px -10% 0px'
+    });
+
+    animated.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const inView = rect.top <= window.innerHeight * 0.9 && rect.bottom >= 0;
+        if (inView) {
+            el.classList.add('is-visible');
+        } else {
+            observer.observe(el);
+        }
+    });
+}
+
+function highlightActivePage() {
+    const page = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === page || (page === '' && href === 'index.html')) {
+            link.classList.add('is-active');
+            link.setAttribute('aria-current', 'page');
+        } else {
+            link.classList.remove('is-active');
+            link.removeAttribute('aria-current');
+        }
+    });
+}
+
+function initScrollToTop() {
+    const toTop = document.querySelector('.to-top');
+    if (!toTop) return;
+
+    const toggleVisibility = () => {
+        toTop.classList.toggle('is-visible', window.scrollY > 600);
+    };
+
+    toggleVisibility();
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
+
+    toTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+function updateFooterYear() {
+    const yearEl = document.querySelector('[data-year]');
+    if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+    }
+}
