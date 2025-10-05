@@ -1,0 +1,126 @@
+/* Teaching Page Styles */
+
+.page-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 80px 0 40px;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.breadcrumbs {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.breadcrumbs a {
+    color: white;
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.teaching-page {
+    background-color: var(--background-color);
+}
+
+.teaching-overview {
+    padding: 80px 0;
+}
+
+.teaching-intro {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.teaching-intro h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.teaching-intro p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.courses-taught {
+    padding: 60px 0;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.courses-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.course {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    padding: 30px 24px;
+    max-width: 350px;
+    flex: 1 1 300px;
+}
+
+.course h4 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.course-details {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.course ul {
+    padding-left: 18px;
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.98rem;
+}
+
+.teaching-awards {
+    background: #f8f9fa;
+    padding: 50px 0;
+}
+
+.awards-list {
+    max-width: 600px;
+    margin: 0 auto;
+    padding-left: 20px;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+}
+
+.cta-section {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.cta-section .btn {
+    margin-top: 20px;
+}

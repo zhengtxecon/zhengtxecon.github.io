@@ -27,7 +27,7 @@
             <div class="container">
                 <div class="research-intro">
                     <h2>Research Focus</h2>
-                    <p>My research focuses on technology adoption, development economics, and labor markets in emerging economies. I use a mix of empirical methods, field experiments, and computational techniques to study how technological change impacts economic outcomes.</p>
+                    <p>My research focuses on technology adoption, development economics, and labor markets in emerging economies. I use a mix of structural modelling, empirical methods, and computational techniques to study how technological change impacts economic outcomes, firm dynamics, and labour market.</p>
                     
                     <div class="research-areas">
                         <div class="research-card">
@@ -35,14 +35,14 @@
                                 <i class="fas fa-laptop"></i>
                             </div>
                             <h3>Technology & Work</h3>
-                            <p>Investigating how technology innovation and adoption reshape organizational structures and impact labor markets in developing economies.</p>
+                            <p>Investigating how technology innovation and adoption reshape organizational structures and impact labor markets.</p>
                         </div>
                         <div class="research-card">
                             <div class="research-icon">
                                 <i class="fas fa-chart-line"></i>
                             </div>
                             <h3>Development Economics</h3>
-                            <p>Studying individual decision-making processes and the implications of technological change in developing country contexts.</p>
+                            <p>Studying the implications of technological change in developing country contexts.</p>
                         </div>
                         <div class="research-card">
                             <div class="research-icon">
@@ -82,20 +82,18 @@
                         </div>
                         
                         <div class="paper">
-                            <h4>Algorithmic Market Design: Efficiency and Fairness</h4>
-                            <p class="paper-journal">American Economic Review, 2022</p>
+                            <h4>Coming Soon</h4>
+                            <p class="paper-journal">Under Review</p>
                             <div class="paper-meta">
-                                <span class="paper-authors">Johnson, R., Zheng, T., & Williams, A.</span>
+                                <span class="paper-authors">Zheng, T., et al.</span>
                                 <span class="paper-tags">
-                                    <span>Market Design</span>
-                                    <span>Algorithms</span>
+                                    <span>Economics</span>
+                                    <span>Technology</span>
                                 </span>
                             </div>
-                            <p class="paper-abstract">Exploring how algorithm design impacts market outcomes and participant welfare, with applications to matching markets and resource allocation.</p>
+                            <p class="paper-abstract">New research forthcoming. Details will be updated upon publication.</p>
                             <div class="paper-links">
-                                <a href="#" class="paper-link"><i class="fas fa-file-pdf"></i> PDF</a>
-                                <a href="#" class="paper-link"><i class="fas fa-code"></i> Code</a>
-                                <a href="#" class="paper-link"><i class="fas fa-link"></i> DOI</a>
+                                <a href="#" class="paper-link"><i class="fas fa-hourglass-half"></i> Forthcoming</a>
                             </div>
                         </div>
                     </div>
@@ -122,8 +120,8 @@
                         </div>
                         
                         <div class="paper">
-                            <h4>Spatial Spillovers of Technology Adoption in Urban Settings</h4>
-                            <p class="paper-journal">Working Paper, 2023</p>
+                            <h4>The Numbers Game: Effects of Listing and Counteroffer Pricing Format in Housing Bargaining</h4>
+                            <p class="paper-journal">Working Paper, 2025</p>
                             <div class="paper-meta">
                                 <span class="paper-authors">Zheng, T., & Garcia, M.</span>
                                 <span class="paper-tags">
@@ -131,7 +129,11 @@
                                     <span>Urban Development</span>
                                 </span>
                             </div>
-                            <p class="paper-abstract">Analyzing how technological innovations diffuse across urban environments and their economic impact, using geospatial data and network analysis.</p>
+                            <div class="abstract-container">
+                                <p class="short-abstract">Using confidential offer-level data from the US housing market, this paper analyzes the impact of various listing and counteroffer pricing strategies on the housing bilateral bargaining process...</p>
+                                <p class="full-abstract">Using confidential offer-level data from the US housing market, this paper analyzes the impact of various listing and counteroffer pricing strategies on the housing bilateral bargaining process. We observe that sellers tend to cluster their listing prices around "charm" numbers (e.g. 349,999) while buyers' counteroffers mainly cluster around round numbers (i.e., 350,000). Through the repeated sales approach, we explore the benefits and costs of these pricing strategies. Compared to listings with precise prices, listings with special prices (i.e., either round prices or charm prices) tend to sell faster but at lower prices than those with more precise prices. Although this indicates "cheap talk" signaling benefits, charm prices systematically dominate round prices. Charm listing prices typically lead to a higher likelihood of sale, achieving higher sales prices, and quicker transactions compared to round listing prices. With respect to the effects of buyer counteroffer pricing strategies, our analysis reveals that round counteroffer prices frequently result in lower sales prices and faster deals, albeit at an increased risk of negotiation breakdown. Furthermore, we identify a "mimicry effect": buyers mirroring the precision level of sellers' charm or precise listing prices significantly lower the risk of impasse, even though it may lead to higher sales prices and longer negotiation periods. Overall, our findings offer novel insights into the strategic effectiveness of different pricing formats in the housing market bargaining process.</p>
+                                <button class="expand-abstract"><i class="fas fa-chevron-down"></i> Read more</button>
+                            </div>
                             <div class="paper-links">
                                 <a href="#" class="paper-link"><i class="fas fa-file-pdf"></i> PDF</a>
                                 <a href="#" class="paper-link"><i class="fas fa-code"></i> Code</a>
@@ -224,6 +226,28 @@
         fetch('includes/footer.html')
             .then(response => response.text())
             .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+            
+        document.addEventListener('DOMContentLoaded', function() {
+            const expandButtons = document.querySelectorAll('.expand-abstract');
+            
+            expandButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const abstractContainer = this.closest('.paper').querySelector('.abstract-container');
+                    const shortAbstract = abstractContainer.querySelector('.short-abstract');
+                    const fullAbstract = abstractContainer.querySelector('.full-abstract');
+                    
+                    if (fullAbstract.style.display === 'none' || !fullAbstract.style.display) {
+                        fullAbstract.style.display = 'block';
+                        shortAbstract.style.display = 'none';
+                        this.innerHTML = '<i class="fas fa-chevron-up"></i> Show less';
+                    } else {
+                        fullAbstract.style.display = 'none';
+                        shortAbstract.style.display = 'block';
+                        this.innerHTML = '<i class="fas fa-chevron-down"></i> Show more';
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>

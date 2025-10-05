@@ -239,6 +239,49 @@
     color: var(--secondary-color);
 }
 
+/* Paper Abstract Styling */
+.abstract-container {
+    margin-bottom: 20px;
+}
+
+.short-abstract {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.full-abstract {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    display: none;
+    padding-top: 5px;
+    border-top: 1px dashed rgba(0,0,0,0.1);
+    margin-top: 5px;
+}
+
+.expand-abstract {
+    color: var(--accent-color);
+    background: none;
+    border: none;
+    padding: 5px 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.expand-abstract:hover {
+    color: var(--secondary-color);
+}
+
+.expand-abstract i {
+    font-size: 0.8rem;
+}
+
 /* Collaborators */
 .research-collaborators {
     padding: 80px 0;

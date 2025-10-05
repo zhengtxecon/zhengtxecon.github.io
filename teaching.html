@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tianxiang Zheng (郑天翔) - Teaching in Economics, Technology, and Development">
+    <title>Teaching | Tianxiang Zheng (郑天翔)</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/teaching.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    
+    <section class="page-header">
+        <div class="container">
+            <h1>Teaching</h1>
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a> / <span>Teaching</span>
+            </div>
+        </div>
+    </section>
+    
+    <main class="teaching-page">
+        <section class="teaching-overview">
+            <div class="container">
+                <div class="teaching-intro">
+                    <h2>Teaching Philosophy</h2>
+                    <p>I am passionate about making economics and data science accessible and engaging. My teaching emphasizes real-world applications, critical thinking, and hands-on learning. I strive to create an inclusive classroom environment that encourages curiosity and collaboration.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="courses-taught">
+            <div class="container">
+                <h2 class="section-title">Courses Taught</h2>
+                <div class="courses-list">
+                    <div class="course">
+                        <h4>Introduction to Econometrics</h4>
+                        <p class="course-details">Undergraduate | University College London | 2023–2025</p>
+                        <ul>
+                            <li>Topics: Regression analysis, causal inference, panel data, and time series.</li>
+                            <li>Developed interactive coding labs and real-world data projects.</li>
+                        </ul>
+                    </div>
+                    <div class="course">
+                        <h4>Data Science for Social Good</h4>
+                        <p class="course-details">Graduate | UCL | 2024</p>
+                        <ul>
+                            <li>Topics: Data wrangling, machine learning, and impact evaluation.</li>
+                            <li>Guided students through hands-on projects using Python and R.</li>
+                        </ul>
+                    </div>
+                    <div class="course">
+                        <h4>Development Economics</h4>
+                        <p class="course-details">Undergraduate | UCL | 2022–2024</p>
+                        <ul>
+                            <li>Topics: Poverty, inequality, institutions, and policy evaluation.</li>
+                            <li>Incorporated field experiments and case studies into coursework.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="teaching-awards">
+            <div class="container">
+                <h2 class="section-title">Teaching Awards & Recognition</h2>
+                <ul class="awards-list">
+                    <li>UCL Economics Department Teaching Prize, 2024</li>
+                    <li>Student Choice Award for Innovative Assessment, 2023</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <div class="container">
+                <h2>Interested in Learning More?</h2>
+                <p>Feel free to reach out if you have questions about my courses, teaching materials, or would like to collaborate on educational projects.</p>
+                <a href="contact.html" class="btn btn-primary">Contact Me</a>
+            </div>
+        </section>
+    </main>
+    
+    <div id="footer-placeholder"></div>
+    
+    <script>
+        fetch('includes/header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data);
+        
+        fetch('includes/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+    </script>
+</body>
+</html>
