@@ -154,16 +154,20 @@ function initNavigation() {
     const navList = header.querySelector('.nav-links');
 
     if (toggle && navList) {
+        const setNavState = open => {
+            toggle.setAttribute('aria-expanded', String(open));
+            header.classList.toggle('nav-open', open);
+            document.body.classList.toggle('nav-open', open);
+        };
+
         toggle.addEventListener('click', () => {
             const expanded = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', String(!expanded));
-            header.classList.toggle('nav-open', !expanded);
+            setNavState(!expanded);
         });
 
         navList.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                toggle.setAttribute('aria-expanded', 'false');
-                header.classList.remove('nav-open');
+                setNavState(false);
             });
         });
     }

@@ -875,12 +875,25 @@ textarea {
 
 /* Media queries */
 @media (max-width: 920px) {
+    :root {
+        --header-height: 78px;
+        --gutter: clamp(1.1rem, 6vw, 1.75rem);
+    }
+
+    body.nav-open {
+        overflow: hidden;
+    }
+
     .nav-toggle {
         display: flex;
     }
 
     .site-header {
         padding-block: 0.75rem;
+    }
+
+    .header-inner {
+        min-height: var(--header-height);
     }
 
     .nav-links {
@@ -890,16 +903,22 @@ textarea {
         flex-direction: column;
         align-items: flex-start;
         gap: 0;
-        padding: 1rem var(--gutter) 2rem;
+        padding: 1.1rem var(--gutter) 2.4rem;
         background: var(--color-background);
         border-bottom: 1px solid var(--color-border);
-        transform: translateY(-110%);
-        transition: transform var(--transition-base);
+        height: calc(100vh - var(--header-height));
+        overflow-y: auto;
+        transform: translateY(calc(-100% - var(--header-height)));
+        transition: transform var(--transition-base), visibility var(--transition-fast);
+        visibility: hidden;
+        pointer-events: none;
         box-shadow: var(--shadow-sm);
     }
 
     .site-header.nav-open .nav-links {
         transform: translateY(0);
+        visibility: visible;
+        pointer-events: auto;
     }
 
     .nav-link {
@@ -934,6 +953,69 @@ textarea {
     .footer-bottom-inner {
         flex-direction: column;
         align-items: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 15px;
+    }
+
+    main {
+        padding: clamp(3.2rem, 10vw, 4.5rem) 0;
+    }
+
+    section {
+        padding: clamp(2.6rem, 8vw, 3.5rem) 0;
+    }
+
+    h1 {
+        font-size: clamp(1.9rem, 7.2vw, 2.4rem);
+    }
+
+    h2 {
+        font-size: clamp(1.6rem, 6.6vw, 2rem);
+    }
+
+    h3 {
+        font-size: clamp(1.32rem, 5.8vw, 1.7rem);
+    }
+
+    p,
+    li {
+        font-size: 1.02rem;
+        line-height: 1.55;
+        max-width: 100%;
+    }
+
+    .brand-name {
+        font-size: 1.02rem;
+    }
+
+    .nav-link {
+        font-size: 1.05rem;
+        padding: 0.8rem 0;
+    }
+}
+
+@media (max-width: 420px) {
+    html {
+        font-size: 14px;
+    }
+
+    .brand {
+        gap: 0.75rem;
+    }
+
+    .brand-initials {
+        width: 2.6rem;
+        height: 2.6rem;
+        border-radius: 0.8rem;
+        font-size: 1.05rem;
+    }
+
+    .header-inner {
+        gap: 0.6rem;
     }
 }
 
