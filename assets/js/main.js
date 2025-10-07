@@ -278,14 +278,20 @@ function initScrollAnimations() {
 }
 
 function highlightActivePage() {
-    const page = window.location.pathname.split('/').pop() || 'index.html';
+    const normalizePath = value => {
+        if (!value) return '';
+        return value.split(/[?#]/)[0];
+    };
+
+    const rawPage = window.location.pathname.split('/').pop();
+    const page = normalizePath(rawPage) || 'index.html';
     const pageContext = (document.body && document.body.dataset.page) || '';
     const blogContexts = new Set(['blog', 'blog-post', 'blog-category', 'blog-series']);
 
     document.querySelectorAll('.nav-link').forEach(link => {
         const href = link.getAttribute('href');
-        const isHome = page === '' && href === 'index.html';
-        const matchesCurrent = href === page || isHome;
+        const normalizedHref = normalizePath(href) || (href === '' ? 'index.html' : href);
+        const matchesCurrent = normalizedHref === page;
         const matchesBlogContext = blogContexts.has(pageContext) && href === 'blog.html';
 
         if (matchesCurrent || matchesBlogContext) {
