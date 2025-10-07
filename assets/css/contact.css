@@ -210,9 +210,14 @@
     color: var(--color-brand-strong);
 }
 
+[data-theme="dark"] .contact-quick-links a,
+[data-theme="dark"] .contact-quick-links i {
+    color: var(--color-brand-contrast);
+}
+
 [data-theme="dark"] .contact-social a {
-    color: rgba(239, 244, 255, 0.92);
-    background: color-mix(in srgb, var(--color-brand) 35%, transparent);
+    color: var(--color-brand-contrast);
+    background: color-mix(in srgb, var(--color-brand) 32%, var(--color-surface-alt) 68%);
     border-color: color-mix(in srgb, var(--color-brand) 45%, transparent);
 }
 
@@ -226,14 +231,14 @@
 }
 
 [data-theme="dark"] .contact-badges span {
-    background: color-mix(in srgb, var(--color-brand) 28%, transparent);
-    border-color: color-mix(in srgb, var(--color-brand) 42%, transparent);
-    color: rgba(232, 238, 255, 0.9);
+    background: color-mix(in srgb, var(--color-brand) 24%, var(--color-surface-alt) 76%);
+    border-color: color-mix(in srgb, var(--color-brand) 40%, transparent);
+    color: var(--color-brand-contrast);
 }
 
 [data-theme="dark"] .contact-header-card .contact-social a {
-    color: rgba(239, 244, 255, 0.92);
-    background: color-mix(in srgb, var(--color-brand) 35%, transparent);
+    color: var(--color-brand-contrast);
+    background: color-mix(in srgb, var(--color-brand) 32%, var(--color-surface-alt) 68%);
     border-color: color-mix(in srgb, var(--color-brand) 45%, transparent);
 }
 

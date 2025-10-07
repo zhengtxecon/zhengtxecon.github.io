@@ -181,6 +181,31 @@
     color: color-mix(in srgb, var(--color-brand-strong) 40%, var(--color-text) 60%);
 }
 
+[data-theme="dark"] .teaching-meta-item {
+    background: color-mix(in srgb, var(--color-brand) 20%, var(--color-surface-alt) 80%);
+    border-color: color-mix(in srgb, var(--color-brand) 36%, transparent);
+}
+
+[data-theme="dark"] .teaching-badges i,
+[data-theme="dark"] .teaching-header-card li i {
+    color: var(--color-brand-contrast);
+}
+
+[data-theme="dark"] .teaching-format i {
+    background: color-mix(in srgb, var(--color-brand) 30%, var(--color-surface-alt) 70%);
+    color: var(--color-brand-contrast);
+}
+
+[data-theme="dark"] .tag {
+    background: color-mix(in srgb, var(--color-brand) 26%, var(--color-surface-alt) 74%);
+    color: var(--color-brand-contrast);
+}
+
+[data-theme="dark"] .tag-alt {
+    background: color-mix(in srgb, var(--color-accent) 26%, var(--color-surface-alt) 74%);
+    color: var(--color-accent-contrast);
+}
+
 .teaching-course-context {
     margin: 0;
     color: var(--color-text-muted);

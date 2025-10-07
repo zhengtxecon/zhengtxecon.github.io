@@ -136,6 +136,17 @@
     color: var(--color-brand-strong);
 }
 
+[data-theme="dark"] .hero-reading-group {
+    background: color-mix(in srgb, var(--color-brand) 24%, var(--color-surface-alt) 76%);
+    border-color: color-mix(in srgb, var(--color-brand) 42%, transparent);
+}
+
+[data-theme="dark"] .hero-reading-group i,
+[data-theme="dark"] .badge-link,
+[data-theme="dark"] .metric-value {
+    color: var(--color-brand-contrast);
+}
+
 .hero-visual {
     display: grid;
     gap: 1.5rem;

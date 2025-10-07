@@ -199,6 +199,33 @@
     border-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
 }
 
+[data-theme="dark"] .category-chip {
+    background: color-mix(in srgb, var(--color-brand) 18%, var(--color-surface-alt) 82%);
+    border-color: color-mix(in srgb, var(--color-brand) 35%, transparent);
+}
+
+[data-theme="dark"] .category-chip .chip-icon {
+    background: color-mix(in srgb, var(--color-brand) 38%, transparent);
+    color: var(--color-brand-contrast);
+}
+
+[data-theme="dark"] .meta-pill {
+    background: color-mix(in srgb, var(--color-brand) 26%, var(--color-surface-alt) 74%);
+    color: var(--color-brand-contrast);
+}
+
+[data-theme="dark"] .tag-brand {
+    background: color-mix(in srgb, var(--color-brand) 28%, var(--color-surface-alt) 72%);
+    color: var(--color-brand-contrast);
+    border-color: color-mix(in srgb, var(--color-brand) 42%, transparent);
+}
+
+[data-theme="dark"] .tag-accent {
+    background: color-mix(in srgb, var(--color-accent) 26%, var(--color-surface-alt) 74%);
+    color: var(--color-accent-contrast);
+    border-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+}
+
 .tag-muted {
     background: color-mix(in srgb, var(--color-surface) 80%, transparent);
     color: color-mix(in srgb, var(--color-text) 70%, var(--color-text-muted) 30%);
