@@ -6,7 +6,18 @@
     <atom:link href="https://zhengtxecon.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Thoughts, updates, and tools from Tianxiang Zheng on automation, teaching, and collaborative research.</description>
     <language>en-GB</language>
-    <lastBuildDate>Tue, 07 Oct 2025 08:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 Oct 2025 08:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>How I Switched from GitHub Copilot to ChatGPT Pro + Codex</title>
+      <link>https://zhengtxecon.github.io/how-i-switched-from-github-copilot-to-chatgpt-pro-codex.html</link>
+      <guid isPermaLink="true">https://zhengtxecon.github.io/how-i-switched-from-github-copilot-to-chatgpt-pro-codex.html</guid>
+      <pubDate>Thu, 09 Oct 2025 08:00:00 +0000</pubDate>
+      <category>Tools</category>
+      <category>Developer productivity</category>
+      <category>How I (Almost) AI Everything</category>
+      <description><![CDATA[Why I replaced GitHub Copilot with Codex, how AGENTS.md and TODO.md guide the agent, and what vibe coding looks like with GitHub sync.]]></description>
+    </item>
 
     <item>
       <title>How I Built an AI Calendar Generator</title>

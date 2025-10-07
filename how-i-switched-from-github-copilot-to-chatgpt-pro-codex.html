@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Why I moved from GitHub Copilot to ChatGPT Pro + Codex, what AGENTS.md unlocks, and how TODO.md keeps the agent on track in my AI-first coding stack.">
+    <meta name="author" content="Tianxiang Zheng (郑天�?)">
+    <title>How I Switched from GitHub Copilot to ChatGPT Pro + Codex · How I (Almost) AI Everything · Tianxiang Zheng (郑天�?)</title>
+    <link rel="canonical" href="https://zhengtxecon.github.io/how-i-switched-from-github-copilot-to-chatgpt-pro-codex.html">
+    <meta property="og:title" content="How I Switched from GitHub Copilot to ChatGPT Pro + Codex">
+    <meta property="og:description" content="Documenting the move to ChatGPT Pro + Codex, GitHub sync, vibe coding, and the agent rituals that keep work aligned.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://zhengtxecon.github.io/how-i-switched-from-github-copilot-to-chatgpt-pro-codex.html">
+    <meta property="og:image" content="https://zhengtxecon.github.io/assets/images/profile.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How I Switched from GitHub Copilot to ChatGPT Pro + Codex">
+    <meta name="twitter:description" content="A behind-the-scenes view of why Codex became my primary AI coding partner and how I operationalise it.">
+    <meta name="twitter:image" content="https://zhengtxecon.github.io/assets/images/profile.jpg">
+    <link rel="alternate" type="application/rss+xml" title="Tianxiang Zheng · Blog feed" href="feed.xml">
+    <link rel="sitemap" type="application/xml" href="sitemap.xml">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/blog.css">
+    <link rel="stylesheet" href="assets/css/blog-post.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="assets/js/main.js" defer></script>
+</head>
+<body data-page="blog-post" data-category="tools" data-series="how-i-almost-ai-everything">
+    <div id="header-placeholder"></div>
+
+    <main class="blog-post-main">
+        <article class="blog-post" itemscope itemtype="https://schema.org/BlogPosting">
+            <header class="blog-post-hero">
+                <div class="container blog-post-hero-inner">
+                    <div class="hero-copy">
+                        <div class="breadcrumbs" aria-label="Breadcrumb">
+                            <a href="index.html">Home</a>
+                            <span aria-hidden="true">/</span>
+                            <a href="blog.html">Blog</a>
+                            <span aria-hidden="true">/</span>
+                            <a href="blog-tools.html">Tools</a>
+                            <span aria-hidden="true">/</span>
+                            <a href="series-how-i-almost-ai-everything.html">How I (Almost) AI Everything</a>
+                            <span aria-hidden="true">/</span>
+                            <span class="current" aria-current="page">How I Switched from GitHub Copilot to ChatGPT Pro + Codex</span>
+                        </div>
+
+                        <span class="section-label"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i> Tools · Series</span>
+                        <h1 itemprop="headline">How I Switched from GitHub Copilot to ChatGPT Pro + Codex</h1>
+                        <p class="hero-subtitle" itemprop="description">Moving my AI coding workflow from passive suggestions to agentic collaboration—GitHub sync, AGENTS.md rituals, and why TODO.md now drives the backlog.</p>
+
+                        <dl class="hero-meta" aria-label="Post highlights">
+                            <div class="meta-item">
+                                <dt><i class="fas fa-calendar-day" aria-hidden="true"></i> Published</dt>
+                                <dd><time itemprop="datePublished" datetime="2025-10-09">9 October 2025</time></dd>
+                            </div>
+                            <div class="meta-item">
+                                <dt><i class="fas fa-clock" aria-hidden="true"></i> Updated</dt>
+                                <dd><time itemprop="dateModified" datetime="2025-10-09">9 October 2025</time></dd>
+                            </div>
+                            <div class="meta-item">
+                                <dt><i class="fas fa-stopwatch" aria-hidden="true"></i> Reading time</dt>
+                                <dd>9 minutes</dd>
+                            </div>
+                            <div class="meta-item">
+                                <dt><i class="fas fa-tags" aria-hidden="true"></i> Tags</dt>
+                                <dd>
+                                    <ul class="hero-tags" role="list">
+                                        <li><span class="tag tag-brand" itemprop="keywords">AI workflow</span></li>
+                                        <li><span class="tag tag-accent" itemprop="keywords">Developer productivity</span></li>
+                                        <li><span class="tag tag-muted" itemprop="keywords">Agents</span></li>
+                                    </ul>
+                                </dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </header>
+
+            <section class="blog-post-body">
+                <div class="container blog-post-body-grid">
+                    <div class="blog-post-content" itemprop="articleBody">
+                        <p><strong>Why this note exists:</strong> For two years GitHub Copilot was the background hum in my editor. The shift to ChatGPT Pro + Codex turned that hum into an actual collaborator—one that reads context docs, syncs with GitHub, and can keep a roadmap moving when I'm away from my desk.</p>
+
+                        <h2>Why I moved beyond Copilot</h2>
+                        <p>Copilot is brilliant at inline autocompletion, but it rarely absorbed my broader intent. Codex, plugged into ChatGPT Pro, brings a deliberate planning layer. It reads the repo, cross-references series guidelines, and suggests tests before I even ask. The biggest gain is that architectural conversations, code edits, and documentation updates now happen in the same thread.</p>
+
+                        <h2>Direct GitHub sync keeps the agent accountable</h2>
+                        <p>The Codex CLI's tight GitHub integration eliminates the export-and-paste dance that slowed Copilot handoffs. I can pair an instruction with a target branch, have the agent open pull requests, and review the diff like I would a teammate's work. It also means I can ship from devices that never ran my full dev stack.</p>
+                        <ul>
+                            <li><strong>Traceability:</strong> Every automated change points back to a conversation, so I can audit reasoning when regressions appear.</li>
+                            <li><strong>Repo awareness:</strong> Codex respects CODEOWNERS, lint configs, and changelog formats without nudging.</li>
+                            <li><strong>Faster reviews:</strong> Suggested commits arrive as cohesive stories, not a scatter of inline edits.</li>
+                        </ul>
+
+                        <h2>Learning what “vibe coding” really means</h2>
+                        <p>The first week I kept hearing people say Codex enables <em>vibe coding</em>—shaping software through conversation rather than specs. In practice, it's structured improvisation: I sketch goal posts, let the agent propose an approach, and then we iterate on the diff. Existing tools let me do this piecemeal; Codex makes it sustainable because it remembers house style, naming conventions, and the jobs-to-be-done for each component.</p>
+                        <blockquote>I still write the guardrails, but Codex keeps nudging the work back toward the “vibe” we documented—predictable, testable, easy to explain to collaborators.</blockquote>
+
+                        <h2>AGENTS.md is the operations manual</h2>
+                        <p>The secret to stability is <code>AGENTS.md</code>. It's a living handbook that tells Codex how to behave: escalation rules, coding standards, testing philosophy, even how to talk about stakeholder trade-offs. Because the file lives in the repo, every session inherits the same ground truth. Updating AGENTS.md is the equivalent of running a company-wide training—one edit, immediate behaviour shift.</p>
+                        <p>Right now my AGENTS.md covers:</p>
+                        <ul>
+                            <li>Language preferences for docs and commit messages.</li>
+                            <li>Required checks before touching regulated datasets.</li>
+                            <li>Escalation paths: what to do when permissions or tooling get in the way.</li>
+                        </ul>
+                        <p>Copilot never really had a place to store this playbook. Codex reads it at session start, so I can trust long-lived conventions.</p>
+
+                        <h2>Codex logic vs. other assistants</h2>
+                        <p>Most co-pilots optimise for predictive text. Codex optimises for <em>goal completion</em>. Under the hood, it runs a deliberate loop—plan, execute, verify—rather than streaming guesses. That means it can decline sloppy instructions, ask clarifying questions, or decide to open an ADR instead of spamming edits. The win for me is fewer silent failures: either the agent ships something testable, or it tells me what blocked it.</p>
+
+                        <h2>Shipping updates from my phone</h2>
+                        <p>I can start a voice note on the Tube, ask Codex to draft a feature, and by the time I unlock my laptop the pull request is ready for review. The mobile ChatGPT app pipes instructions into the same workspace, so ideas don’t die in my notes app. This is especially useful for documentation: I dictate structure, Codex drafts the Markdown, and a quick review on desktop wraps the loop.</p>
+
+                        <h2>How TODO.md keeps the agent honest</h2>
+                        <p>The other backbone file is <code>TODO.md</code>. Codex treats it as the single source of truth for near-term tasks. Every time I log an observation, the agent updates TODO.md, reorders priorities, and cross-links to the relevant files. When I resume a session, Codex checks the list first before proposing new work, so nothing falls through the cracks.</p>
+                        <ul>
+                            <li><strong>Context digestion:</strong> TODO items store investigation notes, so Codex doesn’t re-run the same discovery.</li>
+                            <li><strong>Status signals:</strong> Completed items move to a changelog section automatically, which makes weekly summaries trivial.</li>
+                            <li><strong>Team handover:</strong> Collaborators can skim TODO.md and pick up where the agent left off.</li>
+                        </ul>
+
+                        <h2>What sticks after the switch</h2>
+                        <p>Swapping Copilot for ChatGPT Pro + Codex wasn’t about better autocomplete—it was about aligning the agent with my workflows. With AGENTS.md and TODO.md anchoring behaviour, vibe coding becomes a reliable operating mode instead of a novelty. The next experiment is extending this setup to teaching assistants so classroom tooling benefits from the same guardrails.</p>
+
+                        <p>If you're curious about replicating the stack, start by drafting an honest AGENTS.md, migrate your active TODO.md, and let Codex handle the first low-risk pull request. The difference shows up fastest in how calm your backlog feels.</p>
+                    </div>
+
+                    <aside class="blog-post-sidebar" aria-label="Post metadata">
+                        <section class="sidebar-card surface">
+                            <h3>Quick facts</h3>
+                            <ul>
+                                <li><i class="fas fa-layer-group" aria-hidden="true"></i> Category: <a href="blog-tools.html">Tools</a></li>
+                                <li><i class="fas fa-list-ul" aria-hidden="true"></i> Series: <a href="series-how-i-almost-ai-everything.html">How I (Almost) AI Everything</a></li>
+                                <li><i class="fas fa-user-edit" aria-hidden="true"></i> Author: <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Tianxiang Zheng</span></span></li>
+                                <li><i class="fas fa-microchip" aria-hidden="true"></i> Stack focus: ChatGPT Pro + Codex CLI</li>
+                                <li><i class="fas fa-rss" aria-hidden="true"></i> Subscribe via <a href="feed.xml">RSS</a></li>
+                            </ul>
+                        </section>
+
+                        <section class="sidebar-card surface">
+                            <h3>Next steps</h3>
+                            <p>Draft playbooks for pairing Codex with student labs, and pilot a mobile-only feature request workflow to stress-test TODO.md conventions.</p>
+                        </section>
+                    </aside>
+                </div>
+            </section>
+
+            <section class="series-navigation" aria-label="Series navigation">
+                <div class="container series-navigation-inner surface">
+                    <div class="series-badge">
+                        <span class="tag tag-brand">Series</span>
+                        <a href="series-how-i-almost-ai-everything.html">How I (Almost) AI Everything</a>
+                    </div>
+                    <div class="series-links">
+                        <div class="series-link prev">
+                            <span class="series-link-label">Previous entry</span>
+                            <a class="series-link-title" href="how-i-built-an-ai-calendar-generator.html">How I Built an AI Calendar Generator</a>
+                        </div>
+                        <div class="series-link next">
+                            <span class="series-link-label">Up next</span>
+                            <span class="series-link-title">AI-first meeting notes assistant (placeholder)</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "How I Switched from GitHub Copilot to ChatGPT Pro + Codex",
+        "description": "Why I moved from GitHub Copilot to ChatGPT Pro + Codex, what AGENTS.md unlocks, and how TODO.md keeps the agent on track.",
+        "image": "https://zhengtxecon.github.io/assets/images/profile.jpg",
+        "author": {
+            "@type": "Person",
+            "name": "Tianxiang Zheng"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Tianxiang Zheng"
+        },
+        "datePublished": "2025-10-09",
+        "dateModified": "2025-10-09",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://zhengtxecon.github.io/how-i-switched-from-github-copilot-to-chatgpt-pro-codex.html"
+        },
+        "articleSection": "Tools",
+        "keywords": ["AI workflow", "Developer productivity", "Agents"]
+    }
+    </script>
+</body>
+</html>
