@@ -217,6 +217,17 @@
     color: color-mix(in srgb, var(--color-brand-strong) 85%, var(--color-brand) 15%);
 }
 
+[data-theme="dark"] .collection-filter-pill,
+[data-theme="dark"] .tag-cloud .topic-pill {
+    background: color-mix(in srgb, var(--color-brand) 24%, var(--color-surface-alt) 76%);
+    color: var(--color-brand-contrast);
+}
+
+[data-theme="dark"] .tag-cloud .topic-pill:hover,
+[data-theme="dark"] .tag-cloud .topic-pill:focus-visible {
+    color: var(--color-brand-contrast);
+}
+
 @media (max-width: 780px) {
     .collection-meta li {
         width: 100%;

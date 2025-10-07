@@ -42,6 +42,8 @@
     --color-border: rgba(17, 26, 47, 0.12);
     --color-border-strong: rgba(17, 26, 47, 0.24);
     --color-overlay: rgba(15, 23, 42, 0.78);
+    --color-brand-contrast: color-mix(in srgb, var(--color-brand-strong) 35%, #ffffff 65%);
+    --color-accent-contrast: color-mix(in srgb, var(--color-accent) 35%, #ffffff 65%);
 
     --primary-color: var(--color-brand);
     --secondary-color: var(--color-brand-strong);
@@ -65,9 +67,14 @@
     --color-surface-alt: #0e162b;
     --color-text: rgba(240, 244, 255, 0.98);
     --color-text-muted: rgba(218, 226, 247, 0.86);
-    --color-border: rgba(100, 125, 190, 0.28);
-    --color-border-strong: rgba(132, 152, 215, 0.44);
-    --color-brand-soft: rgba(70, 94, 240, 0.32);
+    --color-border: rgba(118, 142, 205, 0.36);
+    --color-border-strong: rgba(150, 170, 225, 0.48);
+    --color-brand: #4559ff;
+    --color-brand-strong: #6c7aff;
+    --color-brand-soft: rgba(120, 138, 255, 0.38);
+    --color-accent: #ff8658;
+    --color-brand-contrast: color-mix(in srgb, var(--color-brand-strong) 40%, #ffffff 60%);
+    --color-accent-contrast: color-mix(in srgb, var(--color-accent) 38%, #ffffff 62%);
     --shadow-sm: 0 18px 34px rgba(5, 10, 24, 0.55);
     --shadow-md: 0 34px 70px rgba(4, 10, 28, 0.58);
     --shadow-lg: 0 56px 120px rgba(2, 6, 22, 0.65);
@@ -76,7 +83,7 @@
     --light-color: var(--color-surface-alt);
     --text-primary: var(--color-text);
     --text-secondary: var(--color-text-muted);
-    --secondary-color-rgb: 35, 55, 234;
+    --secondary-color-rgb: 69, 89, 255;
     --page-hero-gradient: radial-gradient(150% 140% at 15% 8%, color-mix(in srgb, var(--color-brand) 40%, transparent) 0%, transparent 62%),
         linear-gradient(145deg, color-mix(in srgb, var(--color-brand-strong) 32%, transparent), var(--color-surface));
     --page-hero-overlay: radial-gradient(160% 130% at 80% -15%, color-mix(in srgb, var(--color-brand-strong) 40%, transparent) 0%, transparent 72%);
@@ -723,14 +730,14 @@ button {
 }
 
 [data-theme="dark"] .btn-secondary {
-    background: rgba(103, 128, 255, 0.24);
-    color: rgba(240, 244, 255, 0.96);
-    border-color: rgba(132, 150, 255, 0.45);
+    background: color-mix(in srgb, var(--color-brand) 32%, transparent);
+    color: var(--color-brand-contrast);
+    border-color: color-mix(in srgb, var(--color-brand) 46%, transparent);
 }
 
 [data-theme="dark"] .btn-ghost {
-    color: rgba(210, 220, 255, 0.92);
-    border-color: rgba(132, 150, 255, 0.32);
+    color: var(--color-brand-contrast);
+    border-color: color-mix(in srgb, var(--color-brand) 36%, transparent);
 }
 
 /* Page hero */
