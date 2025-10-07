@@ -78,6 +78,9 @@
     padding: 0;
     margin: 0;
 }
+.hero-tags li + li {
+    margin-top: 0;
+}
 
 .hero-aside {
     display: grid;
