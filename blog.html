@@ -3,7 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Insights and commentary from Tianxiang Zheng (郑天翔) on automation, labour markets, development economics, and teaching.">
+    <meta name="description" content="Documenting thoughts, research updates, teaching reflections, and the useful tools Tianxiang Zheng (郑天翔) is building along the way.">
+    <meta property="og:title" content="Insights &amp; Blog · Tianxiang Zheng">
+    <meta property="og:description" content="Documenting thoughts, updates, and interesting tools across research, teaching, and AI workflows.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zhengtxecon.github.io/blog.html">
+    <meta property="og:image" content="https://zhengtxecon.github.io/assets/images/profile.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Insights &amp; Blog · Tianxiang Zheng">
+    <meta name="twitter:description" content="Documenting thoughts, research updates, teaching reflections, and AI tooling experiments.">
+    <meta name="twitter:image" content="https://zhengtxecon.github.io/assets/images/profile.jpg">
+    <link rel="alternate" type="application/rss+xml" title="Tianxiang Zheng · Blog feed" href="feed.xml">
+    <link rel="sitemap" type="application/xml" href="sitemap.xml">
     <title>Insights &amp; Blog · Tianxiang Zheng (郑天翔)</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/blog.css">
@@ -18,7 +29,31 @@
             <div class="blog-header-copy">
                 <span class="section-label"><i class="fas fa-pen-nib" aria-hidden="true"></i> Insights &amp; commentary</span>
                 <h1>Ideas on the future of work</h1>
-                <p>Perspectives on automation, labour market design, and equitable development—plus reflections on teaching, mentoring, and collaborative research. Each piece aims to translate evidence into tools for policy makers, practitioners, and students.</p>
+                <p>This blog documents the thoughts, updates, and interesting tools that shape my research and teaching practice—turning field notes, classroom experiments, and AI workflows into resources for collaborators.</p>
+
+                <nav class="blog-category-nav" aria-label="Blog categories">
+                    <a class="category-chip surface" href="blog-research.html">
+                        <span class="chip-icon" aria-hidden="true"><i class="fas fa-flask"></i></span>
+                        <span class="chip-content">
+                            <span class="chip-title">Research Updates</span>
+                            <span class="chip-meta">Project milestones &amp; evidence</span>
+                        </span>
+                    </a>
+                    <a class="category-chip surface" href="blog-teaching.html">
+                        <span class="chip-icon" aria-hidden="true"><i class="fas fa-chalkboard-teacher"></i></span>
+                        <span class="chip-content">
+                            <span class="chip-title">Teaching Updates</span>
+                            <span class="chip-meta">Course design &amp; learning labs</span>
+                        </span>
+                    </a>
+                    <a class="category-chip surface" href="blog-tools.html">
+                        <span class="chip-icon" aria-hidden="true"><i class="fas fa-screwdriver-wrench"></i></span>
+                        <span class="chip-content">
+                            <span class="chip-title">Tools</span>
+                            <span class="chip-meta">How I (Almost) AI everything</span>
+                        </span>
+                    </a>
+                </nav>
 
                 <div class="breadcrumbs" aria-label="Breadcrumb">
                     <a href="index.html">Home</a>
@@ -93,20 +128,42 @@
 
         <section class="blog-topics">
             <div class="container blog-topics-inner">
-                <h2>Topics I'm writing about</h2>
+                <h2>Tag library</h2>
+                <p>Jump straight to the collections that match what you need—each tag links to a category hub or series.</p>
                 <div class="topic-pills" role="list">
-                    <span class="topic-pill" role="listitem"><i class="fas fa-robot" aria-hidden="true"></i> Automation strategy</span>
-                    <span class="topic-pill" role="listitem"><i class="fas fa-people-group" aria-hidden="true"></i> Worker trajectories</span>
-                    <span class="topic-pill" role="listitem"><i class="fas fa-city" aria-hidden="true"></i> Urban development</span>
-                    <span class="topic-pill" role="listitem"><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i> Teaching &amp; mentoring</span>
-                    <span class="topic-pill" role="listitem"><i class="fas fa-database" aria-hidden="true"></i> Data infrastructure</span>
-                    <span class="topic-pill" role="listitem"><i class="fas fa-earth-asia" aria-hidden="true"></i> Emerging economies</span>
+                    <a class="topic-pill" id="tag-automation" role="listitem" href="blog-research.html"><i class="fas fa-robot" aria-hidden="true"></i> Automation strategy</a>
+                    <a class="topic-pill" id="tag-worker-trajectories" role="listitem" href="blog-research.html"><i class="fas fa-people-group" aria-hidden="true"></i> Worker trajectories</a>
+                    <a class="topic-pill" id="tag-urban" role="listitem" href="blog-research.html"><i class="fas fa-city" aria-hidden="true"></i> Urban development</a>
+                    <a class="topic-pill" id="tag-data-infra" role="listitem" href="blog-research.html"><i class="fas fa-database" aria-hidden="true"></i> Data infrastructure</a>
+                    <a class="topic-pill" id="tag-policy" role="listitem" href="blog-research.html"><i class="fas fa-scale-balanced" aria-hidden="true"></i> Policy design</a>
+                    <a class="topic-pill" id="tag-reproducibility" role="listitem" href="blog-teaching.html"><i class="fas fa-code" aria-hidden="true"></i> Reproducibility</a>
+                    <a class="topic-pill" id="tag-mentoring" role="listitem" href="blog-teaching.html"><i class="fas fa-user-friends" aria-hidden="true"></i> Mentoring</a>
+                    <a class="topic-pill" id="tag-ai-classroom" role="listitem" href="blog-teaching.html"><i class="fas fa-robot" aria-hidden="true"></i> AI in the classroom</a>
+                    <a class="topic-pill" id="tag-assessment" role="listitem" href="blog-teaching.html"><i class="fas fa-clipboard-check" aria-hidden="true"></i> Authentic assessment</a>
+                    <a class="topic-pill" id="tag-ai-workflow" role="listitem" href="blog-tools.html"><i class="fas fa-sitemap" aria-hidden="true"></i> AI workflow</a>
+                    <a class="topic-pill" id="tag-productivity" role="listitem" href="blog-tools.html"><i class="fas fa-stopwatch" aria-hidden="true"></i> Productivity tooling</a>
+                    <a class="topic-pill" id="tag-change-management" role="listitem" href="blog-tools.html"><i class="fas fa-people-arrows" aria-hidden="true"></i> Change management</a>
+                    <a class="topic-pill" id="tag-integrations" role="listitem" href="blog-tools.html"><i class="fas fa-plug" aria-hidden="true"></i> Integrations</a>
                 </div>
             </div>
         </section>
 
         <section class="blog-feed">
             <div class="container blog-feed-grid">
+                <article class="surface blog-post-card">
+                    <div class="blog-post-meta">
+                        <span class="tag tag-brand">Tools</span>
+                        <span class="tag tag-muted">8 min read</span>
+                        <span class="tag tag-accent">Series</span>
+                    </div>
+                    <h3>How I Built an AI Calendar Generator</h3>
+                    <p>First entry in the How I (Almost) AI Everything series—mapping the workflow for an AI-assisted scheduling assistant that keeps fieldwork aligned.</p>
+                    <div class="blog-post-footer">
+                        <span class="post-date">October 7, 2025</span>
+                        <a class="card-link" href="how-i-built-an-ai-calendar-generator.html">Read the post <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+
                 <article class="surface blog-post-card">
                     <div class="blog-post-meta">
                         <span class="tag tag-brand">Policy playbook</span>

@@ -72,6 +72,8 @@ const FOOTER_FALLBACK = `
                     <li><a href="cv.html">Curriculum Vitae</a></li>
                     <li><a href="research.html">Research Portfolio</a></li>
                     <li><a href="teaching.html">Teaching Resources</a></li>
+                    <li><a href="blog.html#tags">Blog Categories</a></li>
+                    <li><a href="series-how-i-almost-ai-everything.html">How I (Almost) AI Everything</a></li>
                     <li><a href="blog.html">Insights & Blog</a></li>
                 </ul>
             </div>
@@ -277,9 +279,16 @@ function initScrollAnimations() {
 
 function highlightActivePage() {
     const page = window.location.pathname.split('/').pop() || 'index.html';
+    const pageContext = (document.body && document.body.dataset.page) || '';
+    const blogContexts = new Set(['blog', 'blog-post', 'blog-category', 'blog-series']);
+
     document.querySelectorAll('.nav-link').forEach(link => {
         const href = link.getAttribute('href');
-        if (href === page || (page === '' && href === 'index.html')) {
+        const isHome = page === '' && href === 'index.html';
+        const matchesCurrent = href === page || isHome;
+        const matchesBlogContext = blogContexts.has(pageContext) && href === 'blog.html';
+
+        if (matchesCurrent || matchesBlogContext) {
             link.classList.add('is-active');
             link.setAttribute('aria-current', 'page');
         } else {

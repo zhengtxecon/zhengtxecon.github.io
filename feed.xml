@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tianxiang Zheng · Blog & Updates</title>
+    <link>https://zhengtxecon.github.io/</link>
+    <atom:link href="https://zhengtxecon.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Thoughts, updates, and tools from Tianxiang Zheng on automation, teaching, and collaborative research.</description>
+    <language>en-GB</language>
+    <lastBuildDate>Tue, 07 Oct 2025 08:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>How I Built an AI Calendar Generator</title>
+      <link>https://zhengtxecon.github.io/how-i-built-an-ai-calendar-generator.html</link>
+      <guid isPermaLink="true">https://zhengtxecon.github.io/how-i-built-an-ai-calendar-generator.html</guid>
+      <pubDate>Tue, 07 Oct 2025 08:00:00 +0000</pubDate>
+      <category>Tools</category>
+      <category>AI workflow</category>
+      <category>How I (Almost) AI Everything</category>
+      <description><![CDATA[First entry in the How I (Almost) AI Everything series, mapping the workflow for an AI-assisted scheduling assistant that keeps fieldwork aligned.]]></description>
+    </item>
+
+    <item>
+      <title>Designing labour transitions for inclusive automation</title>
+      <link>https://zhengtxecon.github.io/research.html#automation</link>
+      <guid isPermaLink="false">research-updates-automation</guid>
+      <pubDate>Wed, 08 Jan 2025 09:00:00 +0000</pubDate>
+      <category>Research Updates</category>
+      <category>Automation policy</category>
+      <description><![CDATA[An extended brief on the policy design principles guiding automation transition programmes in São Paulo and Ho Chi Minh City.]]></description>
+    </item>
+
+    <item>
+      <title>Reproducible econometrics sprints</title>
+      <link>https://zhengtxecon.github.io/teaching.html#resources</link>
+      <guid isPermaLink="false">teaching-updates-sprint</guid>
+      <pubDate>Sun, 03 Nov 2024 09:00:00 +0000</pubDate>
+      <category>Teaching Updates</category>
+      <category>Reproducibility</category>
+      <description><![CDATA[A teaching lab note on bringing software-engineering rituals to student research projects with manageable guardrails.]]></description>
+    </item>
+
+    <item>
+      <title>Municipal automation dashboard playbook</title>
+      <link>https://zhengtxecon.github.io/research.html#working-papers</link>
+      <guid isPermaLink="false">research-dashboard-playbook</guid>
+      <pubDate>Thu, 12 Dec 2024 09:00:00 +0000</pubDate>
+      <category>Research Updates</category>
+      <category>Data infrastructure</category>
+      <description><![CDATA[Documentation and governance checklist for the automation exposure dashboards developed with labour ministries.]]></description>
+    </item>
+  </channel>
+</rss>
