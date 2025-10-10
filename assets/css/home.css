@@ -241,14 +241,14 @@
 /* ===== News hub ===== */
 .news-grid {
     display: grid;
-    gap: clamp(1.5rem, 4vw, 2.5rem);
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(1rem, 3vw, 1.8rem);
+    grid-template-columns: minmax(0, 1fr);
 }
 
 .news-card {
     display: grid;
-    gap: 0.9rem;
-    padding: clamp(1.5rem, 3vw, 2.1rem);
+    gap: clamp(0.6rem, 2vw, 1rem);
+    padding: clamp(1.2rem, 2.3vw, 1.7rem);
     background: var(--color-surface-alt);
     border-radius: var(--radius-md);
     border: 1px solid var(--color-border);
@@ -264,8 +264,10 @@
 }
 
 .news-card__date {
+    display: inline-flex;
+    align-items: center;
     margin: 0;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -289,9 +291,9 @@
 
 .news-card__meta {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem 1rem;
     align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .news-card__tag {
@@ -321,22 +323,6 @@
     color: var(--color-neutral-700);
 }
 
-.news-card__link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    font-weight: 600;
-    color: var(--color-brand-strong);
-}
-
-.news-card__link i {
-    font-size: 0.85rem;
-}
-
-.news-card__link:hover,
-.news-card__link:focus {
-    color: var(--color-brand);
-}
 
 .focus-grid,
 .output-grid,
