@@ -230,6 +230,114 @@
     margin: 0;
 }
 
+.hero-metrics__note {
+    grid-column: 1 / -1;
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    text-align: right;
+}
+
+/* ===== News hub ===== */
+.news-grid {
+    display: grid;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.news-card {
+    display: grid;
+    gap: 0.9rem;
+    padding: clamp(1.5rem, 3vw, 2.1rem);
+    background: var(--color-surface-alt);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.news-card:hover,
+.news-card:focus-within {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+    border-color: color-mix(in srgb, var(--color-brand) 22%, transparent);
+}
+
+.news-card__date {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.news-card h3 {
+    margin: 0;
+    font-size: clamp(1.2rem, 2vw, 1.35rem);
+}
+
+.news-card h3 a {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.news-card h3 a:hover,
+.news-card h3 a:focus {
+    color: var(--color-brand-strong);
+}
+
+.news-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1rem;
+    align-items: center;
+}
+
+.news-card__tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: color-mix(in srgb, var(--color-brand-soft) 35%, transparent);
+    color: var(--color-brand-strong);
+}
+
+.news-card__tag::before {
+    content: '•';
+    font-size: 1rem;
+}
+
+.news-card__tag--teaching {
+    background: color-mix(in srgb, var(--color-accent) 22%, transparent);
+    color: var(--color-accent);
+}
+
+.news-card__tag--event {
+    background: color-mix(in srgb, var(--color-neutral-200) 55%, transparent);
+    color: var(--color-neutral-700);
+}
+
+.news-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-weight: 600;
+    color: var(--color-brand-strong);
+}
+
+.news-card__link i {
+    font-size: 0.85rem;
+}
+
+.news-card__link:hover,
+.news-card__link:focus {
+    color: var(--color-brand);
+}
+
 .focus-grid,
 .output-grid,
 .teaching-grid,
