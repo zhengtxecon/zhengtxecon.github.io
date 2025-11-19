@@ -6,7 +6,18 @@
     <atom:link href="https://zhengtxecon.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Thoughts, updates, and tools from Tianxiang Zheng on automation, teaching, and collaborative research.</description>
     <language>en-GB</language>
-    <lastBuildDate>Thu, 09 Oct 2025 08:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Oct 2025 08:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Auto Calendar: Converting Emails into Outlook Schedules</title>
+      <link>https://zhengtxecon.github.io/auto-calendar-email-to-outlook.html</link>
+      <guid isPermaLink="true">https://zhengtxecon.github.io/auto-calendar-email-to-outlook.html</guid>
+      <pubDate>Fri, 10 Oct 2025 08:00:00 +0000</pubDate>
+      <category>Tools</category>
+      <category>AI workflow</category>
+      <category>Integrations</category>
+      <description><![CDATA[Workflow notes on chaining Azure Logic Apps, GPT-4o-mini classification, and Microsoft Graph so project emails become a trusted Outlook calendar.]]></description>
+    </item>
 
     <item>
       <title>How I Switched from GitHub Copilot to ChatGPT Pro + Codex</title>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Step-by-step notes on converting recurring project update emails into structured Outlook calendars using lightweight automation and human review.">
+    <meta name="author" content="Tianxiang Zheng (郑天翔)">
+    <title>Auto Calendar: Converting Emails into Outlook Schedules · How I (Almost) AI Everything · Tianxiang Zheng</title>
+    <link rel="canonical" href="https://zhengtxecon.github.io/auto-calendar-email-to-outlook.html">
+    <meta property="og:title" content="Auto Calendar: Converting Emails into Outlook Schedules">
+    <meta property="og:description" content="How I turn weekly project update emails into ready-to-share Outlook calendars using prompt-classified summaries, Microsoft Graph, and human-in-the-loop checks.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://zhengtxecon.github.io/auto-calendar-email-to-outlook.html">
+    <meta property="og:image" content="https://zhengtxecon.github.io/assets/images/profile.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Auto Calendar: Converting Emails into Outlook Schedules">
+    <meta name="twitter:description" content="Workflow notes on chaining Azure Functions, prompt routing, and Microsoft Graph to keep collaborators aligned without forwarding email threads.">
+    <meta name="twitter:image" content="https://zhengtxecon.github.io/assets/images/profile.jpg">
+    <link rel="alternate" type="application/rss+xml" title="Tianxiang Zheng · Blog feed" href="feed.xml">
+    <link rel="sitemap" type="application/xml" href="sitemap.xml">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/blog.css">
+    <link rel="stylesheet" href="assets/css/blog-post.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="assets/js/main.js" defer></script>
+</head>
+<body data-page="blog-post" data-category="tools" data-series="how-i-almost-ai-everything">
+    <div id="header-placeholder"></div>
+
+    <main class="blog-post-main">
+        <article class="blog-post" itemscope itemtype="https://schema.org/BlogPosting">
+            <header class="blog-post-hero">
+                <div class="container blog-post-hero-inner">
+                    <div class="hero-copy">
+                        <div class="breadcrumbs" aria-label="Breadcrumb">
+                            <a href="index.html">Home</a>
+                            <span aria-hidden="true">/</span>
+                            <a href="blog.html">Blog</a>
+                            <span aria-hidden="true">/</span>
+                            <a href="blog-tools.html">Tools</a>
+                            <span aria-hidden="true">/</span>
+                            <a href="series-how-i-almost-ai-everything.html">How I (Almost) AI Everything</a>
+                            <span aria-hidden="true">/</span>
+                            <span class="current" aria-current="page">Auto Calendar: Converting Emails into Outlook Schedules</span>
+                        </div>
+
+                        <span class="section-label"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i> Tools · Series</span>
+                        <h1 itemprop="headline">Auto Calendar: Converting Emails into Outlook Schedules</h1>
+                        <p class="hero-subtitle" itemprop="description">Field notes on the workflow that parses weekly update emails, classifies agenda items, and ships them into a clean Outlook calendar my collaborators can subscribe to.</p>
+
+                        <dl class="hero-meta" aria-label="Post highlights">
+                            <div class="meta-item">
+                                <dt><i class="fas fa-calendar-day" aria-hidden="true"></i> Published</dt>
+                                <dd><time itemprop="datePublished" datetime="2025-10-10">10 October 2025</time></dd>
+                            </div>
+                            <div class="meta-item">
+                                <dt><i class="fas fa-clock" aria-hidden="true"></i> Updated</dt>
+                                <dd><time itemprop="dateModified" datetime="2025-10-10">10 October 2025</time></dd>
+                            </div>
+                            <div class="meta-item">
+                                <dt><i class="fas fa-stopwatch" aria-hidden="true"></i> Reading time</dt>
+                                <dd>7 minutes</dd>
+                            </div>
+                            <div class="meta-item">
+                                <dt><i class="fas fa-tags" aria-hidden="true"></i> Tags</dt>
+                                <dd>
+                                    <ul class="hero-tags" role="list">
+                                        <li><span class="tag tag-brand" itemprop="keywords">AI workflow</span></li>
+                                        <li><span class="tag tag-accent" itemprop="keywords">Integrations</span></li>
+                                        <li><span class="tag tag-muted" itemprop="keywords">Productivity tooling</span></li>
+                                    </ul>
+                                </dd>
+                            </div>
+                        </dl>
+                    </div>
+
+                    <aside class="hero-aside surface" aria-label="Series summary">
+                        <h2>How I (Almost) AI Everything</h2>
+                        <p>Pragmatic automation experiments that keep teaching, research, and policy collaborations moving while staying human-centered.</p>
+                        <ul class="series-key-points">
+                            <li><i class="fas fa-diagram-project" aria-hidden="true"></i> Workflow diagrams you can adapt</li>
+                            <li><i class="fas fa-robot" aria-hidden="true"></i> Prompt scaffolds and evaluation prompts</li>
+                            <li><i class="fas fa-shield-heart" aria-hidden="true"></i> Safeguards for privacy &amp; consent</li>
+                        </ul>
+                        <a class="btn btn-secondary" href="series-how-i-almost-ai-everything.html">Browse the series</a>
+                    </aside>
+                </div>
+            </header>
+
+            <section class="blog-post-body">
+                <div class="container blog-post-body-grid">
+                    <div class="blog-post-content" itemprop="articleBody">
+                        <p>Every Friday my partners send dense recap emails—action items, field visit schedules, and a cascade of “please confirm” threads. Even with labels, the real planning lived in my head. This iterative build logs how I translate those messages into an Outlook calendar that updates itself overnight.</p>
+
+                        <h2>Why email-to-calendar mattered</h2>
+                        <p>We coordinate interviews across three time zones, with staff cycling in and out of the thread. Outlook calendars already power our resource planning, but only after I manually retyped each agreed slot. I needed an automation that could:</p>
+                        <ul>
+                            <li>Parse unstructured email bullets and inline tables without assuming a single template.</li>
+                            <li>Respect privacy—no scraping attachments or personal notes without explicit consent.</li>
+                            <li>Keep a human review step so accidental double bookings never propagate to dozens of people.</li>
+                        </ul>
+
+                        <h2>Architecture at a glance</h2>
+                        <p>The flow relies on components my team already trusts, stitched together with deliberate checkpoints:</p>
+                        <ol>
+                            <li><strong>Azure Logic App listener:</strong> Watches a filtered mailbox folder and forwards the email body (minus signatures) to an Azure Function.</li>
+                            <li><strong>Prompt-classifier:</strong> A temperature-stable GPT-4o-mini call that identifies agenda lines, time expressions, and participants, returning structured JSON.</li>
+                            <li><strong>Validation layer:</strong> Simple Python checks ensure date formats, time zones, and participant identifiers align with our staff directory. Misfits trigger a Teams alert instead of touching the calendar.</li>
+                            <li><strong>Microsoft Graph writer:</strong> Confirmed events are inserted into a dedicated Outlook calendar, tagged by project and workstream.</li>
+                            <li><strong>Digest email:</strong> A final HTML summary—generated from the same JSON feed—lands in my inbox for a one-click “approve” before the Graph call runs.</li>
+                        </ol>
+                        <p>This design keeps the base infrastructure low-code but adds enough frictionless oversight to trust the output.</p>
+
+                        <h2>Prompt shape &amp; evaluation</h2>
+                        <p>The classifier prompt instructs the model to only return fields the downstream validator expects. A trimmed example:</p>
+                        <pre><code>{
+"context": "Identify meetings or deadlines suitable for calendar events.",
+"fields": ["title", "summary", "start_time", "end_time", "timezone", "location", "participants"],
+"constraints": [
+  "Use ISO 8601 datetime with explicit offsets",
+  "Infer timezone from city names when explicit times are missing",
+  "Flag uncertain entries with `requires_review: true`"
+]
+}</code></pre>
+                        <p>I evaluate each run with a small set of regression tests: messy bullet lists, bilingual notes, and emails that intentionally lack times. Anything flagged for review stops the automation, forcing me to decide whether the item deserves a manual slot.</p>
+
+                        <h2>Rollout checklist</h2>
+                        <p>To move from prototype to team-ready, I tick through three safeguards:</p>
+                        <ul>
+                            <li><strong>Consent log:</strong> Recipients confirm (via a simple Microsoft Form) that the automation can process their emails.</li>
+                            <li><strong>Change log:</strong> Every calendar insertion includes a link back to the original email stored in a SharePoint folder, making audits painless.</li>
+                            <li><strong>Fallback mode:</strong> A Power Automate button pauses the pipeline and sends daily digests instead of committing events if something looks off.</li>
+                        </ul>
+
+                        <p>The result is a calendar link I can hand to collaborators who prefer subscribing over refreshing their inbox. It is still human-in-the-loop, but the repetitive parsing is gone, and the energy now goes into negotiating the actual fieldwork.</p>
+
+                        <p>If you want a deeper teardown—or have tooling suggestions—reply to the newsletter or leave a note via the contact page. I plan to release the prompt pack and validation scripts once we finish longer-term testing.</p>
+                    </div>
+
+                    <aside class="blog-post-sidebar" aria-label="Post metadata">
+                        <section class="sidebar-card surface">
+                            <h3>Quick facts</h3>
+                            <ul>
+                                <li><i class="fas fa-layer-group" aria-hidden="true"></i> Category: <a href="blog-tools.html">Tools</a></li>
+                                <li><i class="fas fa-list-ul" aria-hidden="true"></i> Series: <a href="series-how-i-almost-ai-everything.html">How I (Almost) AI Everything</a></li>
+                                <li><i class="fas fa-plug" aria-hidden="true"></i> Stack: Azure Logic Apps, Azure Functions, GPT-4o-mini, Microsoft Graph</li>
+                                <li><i class="fas fa-user-edit" aria-hidden="true"></i> Author: <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Tianxiang Zheng</span></span></li>
+                                <li><i class="fas fa-location-dot" aria-hidden="true"></i> Location: London</li>
+                                <li><i class="fas fa-rss" aria-hidden="true"></i> Subscribe via <a href="feed.xml">RSS</a></li>
+                            </ul>
+                        </section>
+
+                        <section class="sidebar-card surface">
+                            <h3>In the backlog</h3>
+                            <p>Next iteration: surface a Teams adaptive card so colleagues can edit event summaries before they sync to Outlook.</p>
+                        </section>
+                    </aside>
+                </div>
+            </section>
+
+            <section class="series-navigation" aria-label="Series navigation">
+                <div class="container series-navigation-inner surface">
+                    <div class="series-badge">
+                        <span class="tag tag-brand">Series</span>
+                        <a href="series-how-i-almost-ai-everything.html">How I (Almost) AI Everything</a>
+                    </div>
+                    <div class="series-links">
+                        <div class="series-link prev">
+                            <span class="series-link-label">Previous entry</span>
+                            <a class="series-link-title" href="how-i-switched-from-github-copilot-to-chatgpt-pro-codex.html">How I Switched from GitHub Copilot to ChatGPT Pro + Codex</a>
+                        </div>
+                        <div class="series-link next">
+                            <span class="series-link-label">Up next</span>
+                            <span class="series-link-title">AI-first meeting notes assistant (placeholder)</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Auto Calendar: Converting Emails into Outlook Schedules",
+        "description": "Step-by-step notes on converting recurring project update emails into structured Outlook calendars using lightweight automation and human review.",
+        "image": "https://zhengtxecon.github.io/assets/images/profile.jpg",
+        "author": {
+            "@type": "Person",
+            "name": "Tianxiang Zheng"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Tianxiang Zheng"
+        },
+        "datePublished": "2025-10-10",
+        "dateModified": "2025-10-10",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://zhengtxecon.github.io/auto-calendar-email-to-outlook.html"
+        },
+        "articleSection": "Tools",
+        "keywords": ["AI workflow", "Integrations", "Productivity tooling"]
+    }
+    </script>
+</body>
+</html>
