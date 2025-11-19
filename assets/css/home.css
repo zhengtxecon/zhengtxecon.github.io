@@ -12,14 +12,28 @@ main.home {
 
 .home-hero {
     position: relative;
-    padding: clamp(1.75rem, 4vw, 3.5rem) 0 clamp(2.5rem, 5.5vw, 4.5rem);
-    background: radial-gradient(120% 120% at 5% 10%, color-mix(in srgb, var(--color-brand) 32%, transparent) 0%, transparent 55%),
-                linear-gradient(135deg, color-mix(in srgb, var(--color-brand-soft) 30%, transparent), transparent 70%);
+    padding: clamp(2rem, 5vw, 4rem) 0 clamp(3rem, 6vw, 5rem);
+    background: var(--page-hero-gradient);
+    overflow: hidden;
 }
 
-[data-theme="dark"] .home-hero {
-    background: radial-gradient(140% 130% at 6% 5%, color-mix(in srgb, var(--color-brand) 38%, transparent) 0%, transparent 60%),
-                linear-gradient(135deg, color-mix(in srgb, var(--color-brand-strong) 35%, transparent), transparent 80%);
+.home-hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 60%;
+    height: 80%;
+    background: radial-gradient(circle, var(--color-brand-soft) 0%, transparent 70%);
+    opacity: 0.6;
+    filter: blur(60px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+[data-theme="dark"] .home-hero::before {
+    opacity: 0.15;
+    background: radial-gradient(circle, var(--color-brand) 0%, transparent 70%);
 }
 
 .hero-grid {
@@ -91,11 +105,18 @@ main.home {
 }
 
 .metric {
-    padding: 1.1rem;
+    padding: 1.25rem;
     background: var(--color-surface-alt);
     border-radius: var(--radius-md);
     border: 1px solid var(--color-border);
     box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.metric:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: color-mix(in srgb, var(--color-brand) 30%, transparent);
 }
 
 .metric-value {
@@ -160,13 +181,26 @@ main.home {
 
 .hero-image {
     position: relative;
-    width: min(320px, 85vw);
+    width: min(340px, 85vw);
     aspect-ratio: 4 / 5;
-    border-radius: clamp(2rem, 6vw, 2.8rem);
+    border-radius: clamp(2rem, 6vw, 3rem);
     overflow: hidden;
-    border: 2px solid color-mix(in srgb, var(--color-brand) 25%, transparent);
-    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-lg);
     isolation: isolate;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
 }
 
 .hero-image img {
@@ -257,14 +291,29 @@ main.home {
 
 .news-card {
     display: grid;
-    gap: clamp(0.45rem, 1.5vw, 0.75rem);
-    padding: clamp(0.9rem, 1.8vw, 1.3rem);
+    gap: clamp(0.5rem, 1.5vw, 0.85rem);
+    padding: clamp(1.2rem, 2vw, 1.5rem);
     background: var(--color-surface-alt);
     border-radius: var(--radius-md);
     border: 1px solid var(--color-border);
     box-shadow: var(--shadow-sm);
-    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+    transition: all var(--transition-base);
     align-content: start;
+    position: relative;
+    overflow: hidden;
+}
+
+.news-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.news-card:hover::after {
+    transform: translateX(100%);
 }
 
 .news-card:hover,
@@ -354,14 +403,14 @@ main.home {
 }
 
 .focus-card {
-    padding: clamp(1.5rem, 3vw, 2rem);
+    padding: clamp(1.75rem, 3vw, 2.25rem);
     background: var(--color-surface-alt);
     border-radius: var(--radius-md);
     border: 1px solid var(--color-border);
     box-shadow: var(--shadow-sm);
     display: grid;
-    gap: 0.8rem;
-    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+    gap: 1rem;
+    transition: all var(--transition-base);
 }
 
 .focus-card h3 {
