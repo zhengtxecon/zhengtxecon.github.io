@@ -8,9 +8,9 @@
     --text-main: #f5f7fb;
     --text-muted: #a8b3c2;
 
-    --accent-primary: #67e8f9;
-    --accent-secondary: #84c5ff;
-    --accent-glow: rgba(103, 232, 249, 0.42);
+    --accent-primary: #5fc4ff;
+    --accent-secondary: #8bb3ff;
+    --accent-glow: rgba(95, 196, 255, 0.42);
 
     --font-main: 'Inter', sans-serif;
     --font-display: 'Outfit', sans-serif;
@@ -127,7 +127,7 @@ a {
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: linear-gradient(135deg, rgba(103, 232, 249, 0.12), rgba(5, 7, 12, 0.95) 38%, rgba(132, 197, 255, 0.14));
+    background: linear-gradient(135deg, rgba(95, 196, 255, 0.12), rgba(5, 7, 12, 0.95) 38%, rgba(139, 179, 255, 0.14));
 }
 
 .hero-bg::before {
@@ -135,8 +135,8 @@ a {
     position: absolute;
     inset: -14%;
     background:
-        linear-gradient(120deg, rgba(103, 232, 249, 0.18) 0%, transparent 38%),
-        linear-gradient(245deg, rgba(132, 197, 255, 0.16) 10%, transparent 44%),
+        linear-gradient(120deg, rgba(95, 196, 255, 0.18) 0%, transparent 38%),
+        linear-gradient(245deg, rgba(139, 179, 255, 0.16) 10%, transparent 44%),
         linear-gradient(60deg, rgba(255, 255, 255, 0.06) 12%, transparent 32%);
     background-size: 200% 160%;
     background-position: 0% 0%, 40% 20%, 80% 60%;
@@ -150,7 +150,7 @@ a {
     content: '';
     position: absolute;
     inset: -20%;
-    background: linear-gradient(120deg, transparent 40%, rgba(103, 232, 249, 0.28) 52%, transparent 64%);
+    background: linear-gradient(120deg, transparent 40%, rgba(95, 196, 255, 0.28) 52%, transparent 64%);
     filter: blur(48px);
     opacity: 0.8;
     background-size: 180% 180%;
@@ -207,7 +207,7 @@ a {
 }
 
 .text-gradient {
-    background: linear-gradient(135deg, #67e8f9, #84c5ff);
+    background: linear-gradient(135deg, #5fc4ff, #8bb3ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -280,7 +280,7 @@ a {
     left: -100%;
     width: 50%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(103, 232, 249, 0.4), transparent);
+    background: linear-gradient(90deg, transparent, rgba(95, 196, 255, 0.4), transparent);
     transform: skewX(-20deg);
     transition: left 0.5s;
 }
@@ -326,7 +326,7 @@ a {
     left: var(--mouse-x, -50%);
     width: 300px;
     height: 300px;
-    background: linear-gradient(135deg, rgba(103, 232, 249, 0.18), transparent 65%);
+    background: linear-gradient(135deg, rgba(95, 196, 255, 0.18), transparent 65%);
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 0.3s;
