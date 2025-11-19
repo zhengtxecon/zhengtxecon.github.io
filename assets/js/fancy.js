@@ -52,21 +52,47 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.bento-card, .hero-text, .hero-actions').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-        observer.observe(el);
-    });
-
-    // Add visible class styles dynamically
+    // Add reveal class styles dynamically (keeps tilt transforms intact)
     const style = document.createElement('style');
     style.textContent = `
-        .visible {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: transform, opacity;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     `;
     document.head.appendChild(style);
+
+    const revealTargets = document.querySelectorAll('.bento-card, .hero-text, .hero-actions');
+
+    revealTargets.forEach(el => {
+        el.classList.add('reveal');
+        observer.observe(el);
+    });
+
+    // Hero pointer tracking for interactive background accents
+    const heroSection = document.querySelector('.hero-section');
+    if (heroSection) {
+        const updateHeroPointer = (event) => {
+            const rect = heroSection.getBoundingClientRect();
+            const x = ((event.clientX - rect.left) / rect.width) * 100;
+            const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+            heroSection.style.setProperty('--pointer-x', `${x}%`);
+            heroSection.style.setProperty('--pointer-y', `${y}%`);
+        };
+
+        heroSection.addEventListener('mousemove', updateHeroPointer);
+        heroSection.addEventListener('mouseleave', () => {
+            heroSection.style.setProperty('--pointer-x', '50%');
+            heroSection.style.setProperty('--pointer-y', '50%');
+        });
+    }
 
 });
