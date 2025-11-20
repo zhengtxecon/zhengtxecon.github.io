@@ -118,12 +118,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (heroSection && particleCanvas && particleCanvas.getContext) {
         const ctx = particleCanvas.getContext('2d');
         const particles = [];
-        const MAX_TARGETS = 7800;
+        const MAX_TARGETS = 2750; // slightly denser (about +25% particles)
+        const SAMPLE_GAP = 3; // bigger gap reduces point count for performance
+        const GRID_SIZE = 40; // spatial hash cell size for nearby lookup
+        const MAX_INFLUENCED = 480; // cap how many points react per frame
         let width = 0;
         let height = 0;
         let deviceScale = window.devicePixelRatio || 1;
         let textTargets = [];
+        const spatialHash = new Map();
+        const nearbyBuffer = [];
+        let targetFrame = new Uint32Array(1);
+        let frameMarker = 1;
         const textLabel = 'Tianxiang Zheng';
+
+        const getCellKey = (cx, cy) => `${cx},${cy}`;
 
         const resizeCanvas = () => {
             const rect = heroSection.getBoundingClientRect();
@@ -141,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         let startTime = performance.now();
+        let tickCount = 0;
 
         const buildTextTargets = () => {
             const offscreen = document.createElement('canvas');
@@ -159,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
             octx.fillText(textLabel, offW / 2, offH / 2 + fontSize * 0.04);
 
             const data = octx.getImageData(0, 0, offW, offH).data;
-            const gap = 1;
+            const gap = SAMPLE_GAP;
             const points = [];
             for (let y = 0; y < offH; y += gap) {
                 for (let x = 0; x < offW; x += gap) {
@@ -186,6 +196,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 x: point.x + offsetX,
                 y: point.y + offsetY
             }));
+
+            spatialHash.clear();
+            for (let i = 0; i < textTargets.length; i += 1) {
+                const t = textTargets[i];
+                const cx = Math.floor(t.x / GRID_SIZE);
+                const cy = Math.floor(t.y / GRID_SIZE);
+                const key = getCellKey(cx, cy);
+                if (!spatialHash.has(key)) spatialHash.set(key, []);
+                spatialHash.get(key).push(i);
+            }
+            targetFrame = new Uint32Array(Math.max(1, textTargets.length));
         };
 
         const initParticles = () => {
@@ -197,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     y: height / 2 + (Math.random() - 0.5) * 100,
                     tx: width / 2,
                     ty: height / 2,
-                    size: 0.5 + Math.random() * 0.7,
+                    size: 1 + Math.random() * 1.4,
                     jitter: Math.random() * Math.PI * 2
                 });
             }
@@ -213,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         y: height / 2 + (Math.random() - 0.5) * 100,
                         tx: width / 2,
                         ty: height / 2,
-                        size: 0.5 + Math.random() * 0.7,
+                        size: 1 + Math.random() * 1.4,
                         jitter: Math.random() * Math.PI * 2
                     });
                 }
@@ -225,6 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const target = textTargets[idx % textTargets.length];
                 p.tx = target.x;
                 p.ty = target.y;
+                p.targetIndex = idx % textTargets.length;
             });
         };
 
@@ -237,12 +259,44 @@ document.addEventListener('DOMContentLoaded', () => {
             const basePointerInfluence = pointerVector.strength * (0.92 - settle * 0.35);
             const influenceRadius = Math.max(110, Math.min(220, width * 0.18));
             const maxDistSq = influenceRadius * influenceRadius;
+            let currentFrameMark = 0;
+
+            if (basePointerInfluence > 0.001) {
+                nearbyBuffer.length = 0;
+                const cx = Math.floor(pointerVector.x / GRID_SIZE);
+                const cy = Math.floor(pointerVector.y / GRID_SIZE);
+                for (let iy = -1; iy <= 1; iy += 1) {
+                    for (let ix = -1; ix <= 1; ix += 1) {
+                        const bucket = spatialHash.get(getCellKey(cx + ix, cy + iy));
+                        if (bucket && bucket.length) {
+                            nearbyBuffer.push(...bucket);
+                        }
+                    }
+                }
+                if (nearbyBuffer.length > MAX_INFLUENCED) {
+                    const step = Math.ceil(nearbyBuffer.length / MAX_INFLUENCED);
+                    const trimmed = [];
+                    for (let i = 0; i < nearbyBuffer.length && trimmed.length < MAX_INFLUENCED; i += step) {
+                        trimmed.push(nearbyBuffer[i]);
+                    }
+                    nearbyBuffer.length = 0;
+                    nearbyBuffer.push(...trimmed);
+                }
+                frameMarker = (frameMarker + 1) >>> 0 || 1;
+                currentFrameMark = frameMarker;
+                for (let i = 0; i < nearbyBuffer.length; i += 1) {
+                    const idx = nearbyBuffer[i];
+                    if (idx < targetFrame.length) {
+                        targetFrame[idx] = currentFrameMark;
+                    }
+                }
+            }
 
             particles.forEach(p => {
                 let targetX = p.tx;
                 let targetY = p.ty;
 
-                if (basePointerInfluence > 0.001) {
+                if (basePointerInfluence > 0.001 && p.targetIndex < targetFrame.length && targetFrame[p.targetIndex] === currentFrameMark) {
                     const dx = p.tx - pointerVector.x;
                     const dy = p.ty - pointerVector.y;
                     const distSq = dx * dx + dy * dy;
@@ -261,9 +315,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 p.x += (targetX - p.x) * 0.16;
                 p.y += (targetY - p.y) * 0.16;
 
-                p.jitter += 0.028;
-                p.x += Math.cos(p.jitter) * 0.16 * jitterScale;
-                p.y += Math.sin(p.jitter) * 0.16 * jitterScale;
+                if ((tickCount & 1) === 0) {
+                    p.jitter += 0.028;
+                    const jitterMag = 0.12 * jitterScale;
+                    p.x += Math.cos(p.jitter) * jitterMag;
+                    p.y += Math.sin(p.jitter) * jitterMag;
+                }
             });
         };
 
@@ -294,6 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
             assignTargets();
 
             const tick = () => {
+                tickCount += 1;
                 updateParticles();
                 renderParticles();
                 requestAnimationFrame(tick);
