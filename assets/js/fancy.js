@@ -79,6 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hero pointer tracking for interactive background accents and particles
     const heroSection = document.querySelector('.hero-section');
     const pointerState = { x: 0.5, y: 0.5 };
+    const pointerVector = { x: 0, y: 0, strength: 0 };
+    let pointerTargetStrength = 0;
 
     if (heroSection) {
         const updateHeroPointer = (event) => {
@@ -90,6 +92,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             pointerState.x = normX;
             pointerState.y = normY;
+            pointerVector.x = normX * rect.width;
+            pointerVector.y = normY * rect.height;
+            pointerTargetStrength = 1;
 
             heroSection.style.setProperty('--pointer-x', `${x}%`);
             heroSection.style.setProperty('--pointer-y', `${y}%`);
@@ -97,8 +102,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         heroSection.addEventListener('mousemove', updateHeroPointer);
         heroSection.addEventListener('mouseleave', () => {
+            const rect = heroSection.getBoundingClientRect();
             pointerState.x = 0.5;
             pointerState.y = 0.5;
+            pointerVector.x = rect.width * 0.5;
+            pointerVector.y = rect.height * 0.5;
+            pointerTargetStrength = 0;
             heroSection.style.setProperty('--pointer-x', '50%');
             heroSection.style.setProperty('--pointer-y', '50%');
         });
@@ -127,6 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
             particleCanvas.style.height = `${rect.height}px`;
             ctx.setTransform(1, 0, 0, 1, 0, 0);
             ctx.scale(deviceScale, deviceScale);
+            pointerVector.x = width * pointerState.x;
+            pointerVector.y = height * pointerState.y;
         };
 
         let startTime = performance.now();
@@ -222,15 +233,33 @@ document.addEventListener('DOMContentLoaded', () => {
             const settleRaw = Math.min(1, (now - startTime) / 1400);
             const settle = settleRaw * settleRaw * (3 - 2 * settleRaw);
             const jitterScale = 1 - settle * 0.65;
-            const pointerInfluence = 1 - settle * 0.5;
-            const pointerOffsetX = (pointerState.x - 0.5) * 18 * pointerInfluence;
-            const pointerOffsetY = (pointerState.y - 0.5) * 10 * pointerInfluence;
+            pointerVector.strength += (pointerTargetStrength - pointerVector.strength) * 0.12;
+            const basePointerInfluence = pointerVector.strength * (0.92 - settle * 0.35);
+            const influenceRadius = Math.max(110, Math.min(220, width * 0.18));
+            const maxDistSq = influenceRadius * influenceRadius;
 
             particles.forEach(p => {
-                const targetX = p.tx + pointerOffsetX;
-                const targetY = p.ty + pointerOffsetY;
-                p.x += (targetX - p.x) * 0.14;
-                p.y += (targetY - p.y) * 0.14;
+                let targetX = p.tx;
+                let targetY = p.ty;
+
+                if (basePointerInfluence > 0.001) {
+                    const dx = p.tx - pointerVector.x;
+                    const dy = p.ty - pointerVector.y;
+                    const distSq = dx * dx + dy * dy;
+
+                    if (distSq < maxDistSq) {
+                        const dist = Math.sqrt(distSq) || 1;
+                        const falloff = 1 - dist / influenceRadius;
+                        const push = basePointerInfluence * falloff * 12;
+                        const swirl = basePointerInfluence * falloff * 4;
+
+                        targetX += (dx / dist) * push - (dy / dist) * swirl;
+                        targetY += (dy / dist) * push + (dx / dist) * swirl;
+                    }
+                }
+
+                p.x += (targetX - p.x) * 0.16;
+                p.y += (targetY - p.y) * 0.16;
 
                 p.jitter += 0.028;
                 p.x += Math.cos(p.jitter) * 0.16 * jitterScale;
