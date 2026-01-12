@@ -6,7 +6,18 @@
     <atom:link href="https://zhengtxecon.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Thoughts, updates, and tools from Tianxiang Zheng on automation, teaching, and collaborative research.</description>
     <language>en-GB</language>
-    <lastBuildDate>Fri, 10 Oct 2025 08:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 Jan 2026 08:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Beyond the Usage Bar: Estimating Codex Tokens with ccusage</title>
+      <link>https://zhengtxecon.github.io/estimating-codex-tokens-with-ccusage.html</link>
+      <guid isPermaLink="true">https://zhengtxecon.github.io/estimating-codex-tokens-with-ccusage.html</guid>
+      <pubDate>Sun, 11 Jan 2026 08:00:00 +0000</pubDate>
+      <category>Tools</category>
+      <category>AI workflow</category>
+      <category>Developer productivity</category>
+      <description><![CDATA[When OpenAI only shows a percentage bar, here's a practical CLI setup to approximate daily and monthly Codex usage and spend with ccusage.]]></description>
+    </item>
 
     <item>
       <title>Auto Calendar: Converting Emails into Outlook Schedules</title>

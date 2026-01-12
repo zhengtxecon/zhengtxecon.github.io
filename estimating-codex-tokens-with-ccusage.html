@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OpenAI's subscription dashboard only shows remaining percentage—no token counts or spend. Here's how I use ccusage to estimate daily and monthly Codex usage.">
+    <meta name="author" content="Tianxiang Zheng (郑天翔)">
+    <title>Beyond the Usage Bar: Estimating Codex Tokens with ccusage · How I (Almost) AI Everything · Tianxiang Zheng</title>
+    <link rel="canonical" href="https://zhengtxecon.github.io/estimating-codex-tokens-with-ccusage.html">
+    <meta property="og:title" content="Beyond the Usage Bar: Estimating Codex Tokens with ccusage">
+    <meta property="og:description" content="When OpenAI only shows a percentage bar, here's a practical way to approximate Codex tokens and spend with ccusage CLI.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://zhengtxecon.github.io/estimating-codex-tokens-with-ccusage.html">
+    <meta property="og:image" content="https://zhengtxecon.github.io/assets/images/profile.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Beyond the Usage Bar: Estimating Codex Tokens with ccusage">
+    <meta name="twitter:description" content="A quick setup guide to track Codex usage and approximate spend when the subscription dashboard won't give you numbers.">
+    <meta name="twitter:image" content="https://zhengtxecon.github.io/assets/images/profile.jpg">
+    <link rel="alternate" type="application/rss+xml" title="Tianxiang Zheng · Blog feed" href="feed.xml">
+    <link rel="sitemap" type="application/xml" href="sitemap.xml">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/blog.css">
+    <link rel="stylesheet" href="assets/css/blog-post.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="assets/js/main.js" defer></script>
+</head>
+<body data-page="blog-post" data-category="tools" data-series="how-i-almost-ai-everything">
+    <div id="header-placeholder"></div>
+
+    <main class="blog-post-main">
+        <article class="blog-post" itemscope itemtype="https://schema.org/BlogPosting">
+            <header class="blog-post-hero">
+                <div class="container blog-post-hero-inner">
+                    <div class="hero-copy">
+                        <div class="breadcrumbs" aria-label="Breadcrumb">
+                            <a href="index.html">Home</a>
+                            <span aria-hidden="true">/</span>
+                            <a href="blog.html">Blog</a>
+                            <span aria-hidden="true">/</span>
+                            <a href="blog-tools.html">Tools</a>
+                            <span aria-hidden="true">/</span>
+                            <a href="series-how-i-almost-ai-everything.html">How I (Almost) AI Everything</a>
+                            <span aria-hidden="true">/</span>
+                            <span class="current" aria-current="page">Beyond the Usage Bar: Estimating Codex Tokens with ccusage</span>
+                        </div>
+
+                        <span class="section-label"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i> Tools · Series</span>
+                        <h1 itemprop="headline">Beyond the Usage Bar: Estimating Codex Tokens with ccusage</h1>
+                        <p class="hero-subtitle" itemprop="description">OpenAI's subscription dashboard only shows a percentage bar—no token counts or spend. Here's a practical setup to approximate daily and monthly usage with ccusage.</p>
+
+                        <dl class="hero-meta" aria-label="Post highlights">
+                            <div class="meta-item">
+                                <dt><i class="fas fa-calendar-day" aria-hidden="true"></i> Published</dt>
+                                <dd><time itemprop="datePublished" datetime="2026-01-11">11 January 2026</time></dd>
+                            </div>
+                            <div class="meta-item">
+                                <dt><i class="fas fa-clock" aria-hidden="true"></i> Updated</dt>
+                                <dd><time itemprop="dateModified" datetime="2026-01-11">11 January 2026</time></dd>
+                            </div>
+                            <div class="meta-item">
+                                <dt><i class="fas fa-stopwatch" aria-hidden="true"></i> Reading time</dt>
+                                <dd>6 minutes</dd>
+                            </div>
+                            <div class="meta-item">
+                                <dt><i class="fas fa-tags" aria-hidden="true"></i> Tags</dt>
+                                <dd>
+                                    <ul class="hero-tags" role="list">
+                                        <li><span class="tag tag-brand" itemprop="keywords">AI workflow</span></li>
+                                        <li><span class="tag tag-accent" itemprop="keywords">Developer productivity</span></li>
+                                        <li><span class="tag tag-muted" itemprop="keywords">Productivity tooling</span></li>
+                                    </ul>
+                                </dd>
+                            </div>
+                        </dl>
+                    </div>
+
+                    <aside class="hero-aside surface" aria-label="Series summary">
+                        <h2>How I (Almost) AI Everything</h2>
+                        <p>Pragmatic automation experiments that keep teaching, research, and policy collaborations moving while staying human-centered.</p>
+                        <ul class="series-key-points">
+                            <li><i class="fas fa-diagram-project" aria-hidden="true"></i> Workflow diagrams you can adapt</li>
+                            <li><i class="fas fa-robot" aria-hidden="true"></i> Prompt scaffolds and evaluation prompts</li>
+                            <li><i class="fas fa-shield-heart" aria-hidden="true"></i> Safeguards for privacy &amp; consent</li>
+                        </ul>
+                        <a class="btn btn-secondary" href="series-how-i-almost-ai-everything.html">Browse the series</a>
+                    </aside>
+                </div>
+            </header>
+
+            <section class="blog-post-body">
+                <div class="container blog-post-body-grid">
+                    <div class="blog-post-content" itemprop="articleBody">
+                        <p>OpenAI's subscription dashboard shows a tidy usage bar with a percentage—but it won't tell you how many tokens you actually sent, or what that translates to in spend. For anyone running Codex-heavy sessions day after day, that's a visibility gap. This note walks through the setup I use to get approximate daily and monthly numbers with ccusage.</p>
+
+                        <h2>Why I needed more than the percentage bar</h2>
+                        <p>The dashboard is reassuring when you just want to know you haven't burned through your allowance, but it doesn't help with:</p>
+                        <ul>
+                            <li>Budgeting and forecasting: knowing whether this month looks heavier than last month.</li>
+                            <li>Per-project breakdowns: seeing which repositories or tasks drive most usage.</li>
+                            <li>Understanding patterns: spotting which days are Codex-heavy versus manual-heavy.</li>
+                        </ul>
+                        <p>I wanted a CLI that could read my local logs and surface basic analytics without uploading data anywhere. That's where ccusage fits in.</p>
+
+                        <h2>What ccusage actually does</h2>
+                        <p>ccusage is a privacy-focused CLI that reads JSONL logs and turns them into tables or JSON output. It's not an official billing tool, so the cost numbers are estimates based on model pricing—close enough for planning, but not a substitute for your actual invoice.</p>
+                        <p>The package I use is <code>@ccusage/codex</code>, which is tailored for Codex logs. It runs locally, nothing leaves your machine.</p>
+
+                        <h2>Installation on WSL</h2>
+                        <p>My setup lives in WSL, so the steps are straightforward:</p>
+                        <ol>
+                            <li><strong>Start WSL</strong> and confirm you're in the right shell.</li>
+                            <li><strong>Check Node version</strong> with <code>node -v</code>—anything reasonably recent works.</li>
+                            <li><strong>Install globally</strong> with <code>npm i -g @ccusage/codex</code>.</li>
+                        </ol>
+                        <p>After that, the <code>ccusage-codex</code> command is available anywhere.</p>
+
+                        <h2>Daily and monthly views</h2>
+                        <p>For day-to-day checks, I run:</p>
+                        <pre><code>ccusage-codex daily</code></pre>
+                        <p>This shows a clean table with token counts, cache reads, reasoning tokens, and an estimated cost for the current day.</p>
+                        <p>For the month, I use the latest via npx to avoid worrying about version drift:</p>
+                        <pre><code>npx @ccusage/codex@latest monthly</code></pre>
+
+                        <h2>Sample output</h2>
+                        <p>Here's what the monthly view looks like across a few months:</p>
+                        <pre><code>┌──────────┬──────────────────────────────────────────────────────────────────────────────┬──────────────┬─────────────┬─────────────┬────────────────┬────────────────┬─────────────┐
+│ Month    │ Models                                                                       │        Input │      Output │   Reasoning │     Cache Read │   Total Tokens │  Cost (USD) │
+├──────────┼──────────────────────────────────────────────────────────────────────────────┼──────────────┼─────────────┼─────────────┼────────────────┼────────────────┼─────────────┤
+│ Nov 2025 │ - gpt-5 (fallback)                                                           │   42,481,412 │   6,513,939 │   3,721,112 │    599,235,584 │    648,230,935 │     $193.15 │
+│          │ - gpt-5-codex                                                                │              │             │             │                │                │             │
+│          │ - gpt-5.1                                                                    │              │             │             │                │                │             │
+│          │ - gpt-5.1-codex                                                              │              │             │             │                │                │             │
+│          │ - gpt-5.1-codex-max                                                          │              │             │             │                │                │             │
+├──────────┼──────────────────────────────────────────────────────────────────────────────┼──────────────┼─────────────┼─────────────┼────────────────┼────────────────┼─────────────┤
+│ Dec 2025 │ - gpt-5 (fallback)                                                           │   80,588,823 │  17,188,254 │  12,464,088 │  1,268,957,056 │  1,366,734,133 │     $563.02 │
+│          │ - gpt-5.1-codex                                                              │              │             │             │                │                │             │
+│          │ - gpt-5.1-codex-max                                                          │              │             │             │                │                │             │
+│          │ - gpt-5.2                                                                    │              │             │             │                │                │             │
+│          │ - gpt-5.2-codex                                                              │              │             │             │                │                │             │
+├──────────┼──────────────────────────────────────────────────────────────────────────────┼──────────────┼─────────────┼─────────────┼────────────────┼────────────────┼─────────────┤
+│ Jan 2026 │ - gpt-5 (fallback)                                                           │   24,301,712 │   6,781,770 │   5,006,316 │    484,759,936 │    515,843,418 │     $185.55 │
+│          │ - gpt-5.1-codex-max                                                          │              │             │             │                │                │             │
+│          │ - gpt-5.2                                                                    │              │             │             │                │                │             │
+│          │ - gpt-5.2-codex                                                              │              │             │                │                │             │
+├──────────┼──────────────────────────────────────────────────────────────────────────────┼──────────────┼─────────────┼─────────────┼────────────────┼────────────────┼─────────────┤
+│ Total    │                                                                              │  147,371,947 │  30,483,963 │  21,191,516 │  2,352,952,576 │  2,530,808,486 │     $941.71 │
+└──────────┴──────────────────────────────────────────────────────────────────────────────┴──────────────┴─────────────┴─────────────┴────────────────┴────────────────┴─────────────┘</code></pre>
+
+                        <h2>How I use the numbers</h2>
+                        <p>Most days I glance at the daily view to check whether current work is drifting toward a heavier pattern. Monthly runs help me:</p>
+                        <ul>
+                            <li><strong>Validate pacing:</strong> See if the current week is on track versus previous months.</li>
+                            <li><strong>Flag outliers:</strong> Spot months with reasoning or cache read spikes that might indicate repeated refinements or re-runs.</li>
+                            <li><strong>Rough budgeting:</strong> Get a sense of what a “typical” month costs before seeing the actual bill.</li>
+                        </ul>
+
+                        <h2>Limitations to keep in mind</h2>
+                        <p>These numbers are useful for planning, but they have caveats:</p>
+                        <ul>
+                            <li><strong>Not official:</strong> The cost column is an estimate based on model pricing. Your actual invoice may differ.</li>
+                            <li><strong>Local only:</strong> If you use Codex from multiple machines or sessions, each one needs its own run.</li>
+                            <li><strong>Subscription-specific:</strong> Pricing tiers change, so ccusage estimates are tied to the current rate card.</li>
+                        </ul>
+
+                        <h2>Wrap-up</h2>
+                        <p>Having a quick way to turn vague percentage bars into concrete token counts and rough cost estimates helps me stay intentional about when I lean on Codex. It's not a replacement for the official dashboard, but it fills the visibility gap that the percentage bar leaves open. If you're in the same boat—seeing the bar move but not knowing what it means—ccusage is a lightweight, privacy-preserving step toward clarity.</p>
+
+                        <p>If you've got your own setup for tracking usage, or if you spot a better alternative, I'd like to hear about it. Drop a note via the contact page or share a link in the repo issues.</p>
+                    </div>
+
+                    <aside class="blog-post-sidebar" aria-label="Post metadata">
+                        <section class="sidebar-card surface">
+                            <h3>Quick facts</h3>
+                            <ul>
+                                <li><i class="fas fa-layer-group" aria-hidden="true"></i> Category: <a href="blog-tools.html">Tools</a></li>
+                                <li><i class="fas fa-list-ul" aria-hidden="true"></i> Series: <a href="series-how-i-almost-ai-everything.html">How I (Almost) AI Everything</a></li>
+                                <li><i class="fas fa-chart-line" aria-hidden="true"></i> Focus: Usage estimation + ccusage</li>
+                                <li><i class="fas fa-user-edit" aria-hidden="true"></i> Author: <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Tianxiang Zheng</span></span></li>
+                                <li><i class="fas fa-rss" aria-hidden="true"></i> Subscribe via <a href="feed.xml">RSS</a></li>
+                            </ul>
+                        </section>
+
+                        <section class="sidebar-card surface">
+                            <h3>Further reading</h3>
+                            <p>For more on Codex workflows, see the previous entry on switching from Copilot to Codex, and the calendar automation notes.</p>
+                        </section>
+                    </aside>
+                </div>
+            </section>
+
+            <section class="series-navigation" aria-label="Series navigation">
+                <div class="container series-navigation-inner surface">
+                    <div class="series-badge">
+                        <span class="tag tag-brand">Series</span>
+                        <a href="series-how-i-almost-ai-everything.html">How I (Almost) AI Everything</a>
+                    </div>
+                    <div class="series-links">
+                        <div class="series-link prev">
+                            <span class="series-link-label">Previous entry</span>
+                            <a class="series-link-title" href="auto-calendar-email-to-outlook.html">Auto Calendar: Converting Emails into Outlook Schedules</a>
+                        </div>
+                        <div class="series-link next">
+                            <span class="series-link-label">Up next</span>
+                            <span class="series-link-title">AI-first meeting notes assistant (placeholder)</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Beyond the Usage Bar: Estimating Codex Tokens with ccusage",
+        "description": "When OpenAI only shows a percentage bar, here's a practical way to approximate Codex tokens and spend with ccusage CLI.",
+        "image": "https://zhengtxecon.github.io/assets/images/profile.jpg",
+        "author": {
+            "@type": "Person",
+            "name": "Tianxiang Zheng"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Tianxiang Zheng"
+        },
+        "datePublished": "2026-01-11",
+        "dateModified": "2026-01-11",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "id": "https://zhengtxecon.github.io/estimating-codex-tokens-with-ccusage.html"
+        },
+        "articleSection": "Tools",
+        "keywords": ["AI workflow", "Developer productivity", "Productivity tooling"]
+    }
+    </script>
+</body>
+</html>

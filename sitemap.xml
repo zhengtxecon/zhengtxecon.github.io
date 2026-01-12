@@ -32,15 +32,21 @@
   </url>
   <url>
     <loc>https://zhengtxecon.github.io/blog-tools.html</loc>
-    <lastmod>2025-10-10</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://zhengtxecon.github.io/series-how-i-almost-ai-everything.html</loc>
-    <lastmod>2025-10-10</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://zhengtxecon.github.io/blog.html</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://zhengtxecon.github.io/how-i-built-an-ai-calendar-generator.html</loc>
@@ -51,6 +57,12 @@
   <url>
     <loc>https://zhengtxecon.github.io/how-i-switched-from-github-copilot-to-chatgpt-pro-codex.html</loc>
     <lastmod>2025-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://zhengtxecon.github.io/estimating-codex-tokens-with-ccusage.html</loc>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
