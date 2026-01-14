@@ -1054,9 +1054,67 @@ textarea {
         font-size: 1.05rem;
         padding: 0.8rem 0;
     }
-}
 
-@media (max-width: 420px) {
+    /* Code blocks */
+    pre {
+        background: var(--color-neutral-100);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-sm);
+        padding: 1.25rem;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    pre code {
+        font-family: var(--font-mono);
+        background: transparent;
+        padding: 0;
+        font-size: inherit;
+        color: var(--color-neutral-700);
+    }
+
+    /* Terminal output styling */
+    pre.terminal {
+        background: var(--color-neutral-900);
+        border: 1px solid var(--color-neutral-700);
+        color: var(--color-neutral-200);
+        white-space: pre;
+    }
+
+    pre.terminal code {
+        color: var(--color-neutral-200);
+        white-space: pre;
+    }
+
+    [data-theme="dark"] pre {
+        background: var(--color-neutral-800);
+        border-color: var(--color-neutral-600);
+    }
+
+    [data-theme="dark"] pre code {
+        color: var(--color-neutral-200);
+    }
+
+    [data-theme="dark"] pre.terminal {
+        background: #0a0a0a;
+        border-color: #333;
+    }
+
+    /* Mobile code blocks */
+    @media (max-width: 768px) {
+        pre {
+            padding: 0.8rem;
+            font-size: 0.75rem;
+        }
+
+        pre.terminal {
+            padding: 0.6rem;
+        }
+    }
+
+    @media (max-width: 420px) {
     html {
         font-size: 14px;
     }

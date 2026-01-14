@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Technical log for Codex configuration changes—tracking the tweaks that enhance agentic coding capabilities.">
+    <title>Codex Configuration Log · How I (Almost) AI Everything · Tianxiang Zheng (郑天翔)</title>
+    <link rel="canonical" href="https://zhengtxecon.github.io/codex-configuration.html">
+    <meta property="og:title" content="Codex Configuration Log">
+    <meta property="og:description"
+        content="Technical log for Codex configuration changes—tracking the tweaks that enhance agentic coding capabilities.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://zhengtxecon.github.io/codex-configuration.html">
+    <meta property="og:image" content="https://zhengtxecon.github.io/assets/images/profile.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Codex Configuration Log">
+    <meta name="twitter:description" content="Technical log for Codex configuration changes.">
+    <meta name="twitter:image" content="https://zhengtxecon.github.io/assets/images/profile.jpg">
+    <link rel="alternate" type="application/rss+xml" title="Tianxiang Zheng · Blog feed" href="feed.xml">
+    <link rel="sitemap" type="application/xml" href="sitemap.xml">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/blog.css">
+    <link rel="stylesheet" href="assets/css/blog-post.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="assets/js/main.js" defer></script>
+</head>
+
+<body data-page="blog-post" data-category="tools" data-series="how-i-almost-ai-everything">
+    <div id="header-placeholder"></div>
+
+    <main class="blog-post-main">
+        <article class="blog-post" itemscope itemtype="https://schema.org/BlogPosting">
+            <header class="blog-post-hero">
+                <div class="container blog-post-hero-inner">
+                    <div class="hero-copy">
+                        <div class="breadcrumbs" aria-label="Breadcrumb">
+                            <a href="index.html">Home</a>
+                            <span aria-hidden="true">/</span>
+                            <a href="blog.html">Blog</a>
+                            <span aria-hidden="true">/</span>
+                            <a href="blog-tools.html">Tools</a>
+                            <span aria-hidden="true">/</span>
+                            <a href="series-how-i-almost-ai-everything.html">How I (Almost) AI Everything</a>
+                            <span aria-hidden="true">/</span>
+                            <a href="codex-experience.html">Codex Experience</a>
+                            <span aria-hidden="true">/</span>
+                            <span class="current" aria-current="page">Configuration Log</span>
+                        </div>
+
+                        <span class="section-label"><i class="fas fa-cog" aria-hidden="true"></i> Tools ·
+                            Documentation</span>
+                        <h1 itemprop="headline">Codex Configuration Log</h1>
+                        <p class="hero-subtitle" itemprop="description">A running list of configuration changes and
+                            tweaks used to optimise my Codex setup for agentic research and coding tasks.</p>
+
+                        <dl class="hero-meta" aria-label="Post highlights">
+                            <div class="meta-item">
+                                <dt><i class="fas fa-calendar-day" aria-hidden="true"></i> Updated</dt>
+                                <dd><time itemprop="dateModified" datetime="2026-01-14">14 January 2026</time></dd>
+                            </div>
+                            <div class="meta-item">
+                                <dt><i class="fas fa-tools" aria-hidden="true"></i> Focus</dt>
+                                <dd>System Settings & Tooling</dd>
+                            </div>
+                        </dl>
+                    </div>
+
+                    <aside class="hero-aside surface" aria-label="Quick Links">
+                        <h2>Navigation</h2>
+                        <ul class="series-key-points">
+                            <li><i class="fas fa-arrow-left" aria-hidden="true"></i> <a
+                                    href="codex-experience.html">Back to Codex Experience</a></li>
+                            <li><i class="fas fa-chart-line" aria-hidden="true"></i> <a
+                                    href="estimating-codex-tokens-with-ccusage.html">Monitoring Usage</a></li>
+                        </ul>
+                    </aside>
+                </div>
+            </header>
+
+            <section class="blog-post-body">
+                <div class="container blog-post-body-grid">
+                    <div class="blog-post-content" itemprop="articleBody">
+                        <p>This page documents the technical configurations and environment choices that power my
+                            agentic coding workflow. Instead of a chronological log, settings are grouped by category to
+                            help track the evolution of the system.</p>
+
+                        <h2 id="capabilities">Agent Capabilities & Features</h2>
+                        <div class="config-entry">
+                            <h3>Web Search Tooling <span class="badge-date">Adopted: 2026-01-14</span></h3>
+                            <p>Enabling the <code>web_search_request</code> feature allows the agent to call the
+                                <code>web_search</code> tool. This is essential for verifying up-to-date documentation
+                                and fetching real-time data during research tasks.</p>
+
+                            <p><strong>Configuration change:</strong></p>
+                            <p>File: <code>~/.codex/config.toml</code></p>
+                            <pre><code>[features]
+web_search_request = true</code></pre>
+
+                            <p><strong>Rationale:</strong> Reduces hallucinations by allowing the agent to verify facts
+                                against live web data rather than relying solely on training data.</p>
+                        </div>
+
+                        <hr />
+
+                        <h2 id="environments">Execution Environments</h2>
+                        <div class="config-entry">
+                            <h3>VS Code + WSL (Remote Integration) <span class="badge-date">Adopted: 2026-01-14</span>
+                            </h3>
+                            <p>Testing Codex performance when running within Windows Subsystem for Linux (WSL) via VS
+                                Code remote sessions. Focus areas include:</p>
+                            <ul>
+                                <li><strong>Responsiveness:</strong> Evaluating latency and "feel" compared to native
+                                    Windows execution.</li>
+                                <li><strong>IDE Integration:</strong> Leveraging VS Code's native UI (file explorer,
+                                    integrated terminal) as a steering layer for complex agentic tasks.</li>
+                            </ul>
+                        </div>
+
+                        <hr />
+
+                        <h2>Future Roadmap</h2>
+                        <p>Planned entries for <code>AGENTS.md</code> system prompt refinements, <code>TODO.md</code>
+                            task orchestration patterns, and token budget management.</p>
+                    </div>
+
+                    <aside class="blog-post-sidebar" aria-label="Post metadata">
+                        <section class="sidebar-card surface">
+                            <h3>Infrastructure</h3>
+                            <ul>
+                                <li><i class="fas fa-file-code" aria-hidden="true"></i> Setup: <code>config.toml</code>
+                                </li>
+                                <li><i class="fas fa-terminal" aria-hidden="true"></i> CLI: <code>codex</code></li>
+                                <li><i class="fas fa-plug" aria-hidden="true"></i> Environment: WSL / VS Code</li>
+                            </ul>
+                        </section>
+                    </aside>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Codex Configuration Log",
+        "description": "Technical log for Codex configuration changes.",
+        "image": "https://zhengtxecon.github.io/assets/images/profile.jpg",
+        "author": {
+            "@type": "Person",
+            "name": "Tianxiang Zheng"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Tianxiang Zheng"
+        },
+        "datePublished": "2026-01-14",
+        "dateModified": "2026-01-14",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "id": "https://zhengtxecon.github.io/codex-configuration.html"
+        },
+        "articleSection": "Tools"
+    }
+    </script>
+</body>
+
+</html>
