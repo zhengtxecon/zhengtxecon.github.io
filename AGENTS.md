@@ -33,10 +33,12 @@
 ```
 /
 ├── index.html                          # Homepage
+├── home_fancy.html                     # AI-Style Fancy Homepage
 ├── cv.html, research.html, teaching.html, blog.html, contact.html
 ├── blog-research.html, blog-teaching.html, blog-tools.html  # Blog categories
-├── series-how-i-almost-ai-everything.html    # Blog series hub
-├── [blog-post].html                   # Individual blog posts
+├── blog/                               # Blog posts & Series
+│   ├── [blog-post].html               # Individual blog posts
+│   └── series-how-i-almost-ai-everything.html
 ├── includes/
 │   ├── header.html                     # Navigation (JS-hydrated)
 │   └── footer.html                     # Footer (JS-hydrated)
@@ -45,15 +47,14 @@
 │   │   ├── style.css                   # Core styles + CSS variables
 │   │   ├── [page].css                 # Page-specific styles
 │   │   ├── blog-post.css, blog-collections.css
-│   │   └── fancy.css
+│   │   └── fancy.css                  # AI-Style page styles
 │   ├── js/
 │   │   ├── main.js                    # Core interactions + component loading
 │   │   ├── homepage.js                # Homepage-specific
-│   │   └── fancy.js                  # Fancy page animations
+│   │   └── fancy.js                   # AI-Style page animations
 │   ├── images/
 │   └── files/
 ├── feed.xml, sitemap.xml              # RSS/SEO
-├── package.json                       # [TODO: Verify or remove]
 ├── README.md, TODO.md
 ├── AGENTS.md                         # This file
 └── docs/                              # Documentation (new structure)

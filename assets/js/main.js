@@ -114,21 +114,22 @@ document.addEventListener('DOMContentLoaded', () => {
 function hydratePartials() {
     const headerTarget = document.getElementById('header-placeholder');
     const footerTarget = document.getElementById('footer-placeholder');
+    const root = document.body.dataset.root || '';
 
     const requests = [];
 
     if (headerTarget && !headerTarget.dataset.loaded) {
-        requests.push(loadPartial(headerTarget, 'includes/header.html', HEADER_FALLBACK));
+        requests.push(loadPartial(headerTarget, `${root}includes/header.html`, HEADER_FALLBACK, root));
     }
 
     if (footerTarget && !footerTarget.dataset.loaded) {
-        requests.push(loadPartial(footerTarget, 'includes/footer.html', FOOTER_FALLBACK));
+        requests.push(loadPartial(footerTarget, `${root}includes/footer.html`, FOOTER_FALLBACK, root));
     }
 
     return Promise.all(requests);
 }
 
-function loadPartial(target, url, fallbackHtml) {
+function loadPartial(target, url, fallbackHtml, root = '') {
     return fetch(url)
         .then(response => {
             if (!response.ok) {
@@ -142,6 +143,13 @@ function loadPartial(target, url, fallbackHtml) {
         })
         .then(html => {
             if (html) {
+                if (root) {
+                    // Rewrite relative links that don't start with http, //, #, or /
+                    // This regex matches href="value" or src="value"
+                    html = html.replace(/(href|src)=["']((?![a-z]+:|#|\/)[^"']+)["']/gi, (match, attr, value) => {
+                        return `${attr}="${root}${value}"`;
+                    });
+                }
                 target.innerHTML = html;
                 target.dataset.loaded = 'true';
             }

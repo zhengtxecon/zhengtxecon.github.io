@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Step-by-step notes on converting recurring project update emails into structured Outlook calendars using lightweight automation and human review.">
-    <meta name="author" content="Tianxiang Zheng (郑天翔)">
+    <meta name="author" content="Tianxiang Zheng (郑天�?">
     <title>Auto Calendar: Converting Emails into Outlook Schedules · How I (Almost) AI Everything · Tianxiang Zheng</title>
     <link rel="canonical" href="https://zhengtxecon.github.io/auto-calendar-email-to-outlook.html">
     <meta property="og:title" content="Auto Calendar: Converting Emails into Outlook Schedules">
@@ -18,11 +18,11 @@
     <meta name="twitter:image" content="https://zhengtxecon.github.io/assets/images/profile.jpg">
     <link rel="alternate" type="application/rss+xml" title="Tianxiang Zheng · Blog feed" href="feed.xml">
     <link rel="sitemap" type="application/xml" href="sitemap.xml">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/blog.css">
-    <link rel="stylesheet" href="assets/css/blog-post.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/blog.css">
+    <link rel="stylesheet" href="../assets/css/blog-post.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="assets/js/main.js" defer></script>
+    <script src="../assets/js/main.js" defer></script>
 </head>
 <body data-page="blog-post" data-category="tools" data-series="how-i-almost-ai-everything">
     <div id="header-placeholder"></div>
@@ -90,7 +90,7 @@
             <section class="blog-post-body">
                 <div class="container blog-post-body-grid">
                     <div class="blog-post-content" itemprop="articleBody">
-                        <p>Every Friday my partners send dense recap emails—action items, field visit schedules, and a cascade of “please confirm” threads. Even with labels, the real planning lived in my head. This iterative build logs how I translate those messages into an Outlook calendar that updates itself overnight.</p>
+                        <p>Every Friday my partners send dense recap emails—action items, field visit schedules, and a cascade of “please confirm�?threads. Even with labels, the real planning lived in my head. This iterative build logs how I translate those messages into an Outlook calendar that updates itself overnight.</p>
 
                         <h2>Why email-to-calendar mattered</h2>
                         <p>We coordinate interviews across three time zones, with staff cycling in and out of the thread. Outlook calendars already power our resource planning, but only after I manually retyped each agreed slot. I needed an automation that could:</p>
@@ -107,7 +107,7 @@
                             <li><strong>Prompt-classifier:</strong> A temperature-stable GPT-4o-mini call that identifies agenda lines, time expressions, and participants, returning structured JSON.</li>
                             <li><strong>Validation layer:</strong> Simple Python checks ensure date formats, time zones, and participant identifiers align with our staff directory. Misfits trigger a Teams alert instead of touching the calendar.</li>
                             <li><strong>Microsoft Graph writer:</strong> Confirmed events are inserted into a dedicated Outlook calendar, tagged by project and workstream.</li>
-                            <li><strong>Digest email:</strong> A final HTML summary—generated from the same JSON feed—lands in my inbox for a one-click “approve” before the Graph call runs.</li>
+                            <li><strong>Digest email:</strong> A final HTML summary—generated from the same JSON feed—lands in my inbox for a one-click “approve�?before the Graph call runs.</li>
                         </ol>
                         <p>This design keeps the base infrastructure low-code but adds enough frictionless oversight to trust the output.</p>
 
