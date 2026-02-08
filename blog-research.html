@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Research updates from Tianxiang Zheng covering automation, labour markets, and equitable development.">
-    <title>Research Updates · Blog · Tianxiang Zheng (郑天�?</title>
+    <title>Research Updates · Blog · Tianxiang Zheng</title>
     <link rel="canonical" href="https://zhengtxecon.github.io/blog-research.html">
     <meta property="og:title" content="Research Updates · Tianxiang Zheng">
     <meta property="og:description" content="Field notes, dashboards, and evidence summaries from ongoing research collaborations.">
@@ -17,133 +17,286 @@
     <meta name="twitter:image" content="https://zhengtxecon.github.io/assets/images/profile.jpg">
     <link rel="alternate" type="application/rss+xml" title="Tianxiang Zheng · Blog feed" href="feed.xml">
     <link rel="sitemap" type="application/xml" href="sitemap.xml">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/blog.css">
-    <link rel="stylesheet" href="assets/css/blog-collections.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="assets/js/main.js" defer></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" />
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'forest': {
+                            50: '#eff6ff', 100: '#dbeafe', 300: '#93c5fd', 400: '#60a5fa',
+                            500: '#3b82f6', 800: '#1d4ed8', 900: '#1e40af', 950: '#0b1f3a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-dm-sans { font-family: 'DM Sans', sans-serif; }
+        .reveal { opacity: 0; transform: translateY(30px) scale(0.98); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); filter: blur(10px); }
+        .reveal.active { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #020408; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+        .hero-grid {
+            background-image:
+                linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+                linear-gradient(rgba(37, 99, 235, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.025) 1px, transparent 1px);
+            background-size: 50px 50px, 50px 50px, 250px 250px, 250px 250px;
+            mask-image: radial-gradient(circle at 50% 0%, black, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at 50% 0%, black, transparent 80%);
+        }
+        #main-nav { transition: background-color 250ms ease, border-color 250ms ease, box-shadow 250ms ease; }
+        #main-nav.nav-scrolled {
+            background-color: rgba(11, 31, 58, 0.75);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        }
+        #main-nav.nav-scrolled .nav-brand { color: rgba(255,255,255,0.95) !important; }
+        #main-nav.nav-scrolled .nav-link { color: rgba(226,232,240,0.78) !important; }
+        #main-nav.nav-scrolled .nav-link:hover { color: rgba(255,255,255,0.98) !important; }
+        #main-nav.nav-scrolled .nav-link.is-active { color: rgba(255,255,255,0.98) !important; }
+        #main-nav.nav-scrolled .nav-btn {
+            color: rgba(255,255,255,0.95) !important; border-color: rgba(226,232,240,0.25) !important;
+            background-color: rgba(255,255,255,0.08) !important;
+        }
+        #main-nav.nav-scrolled .nav-btn:hover {
+            background-color: rgba(255,255,255,0.14) !important; border-color: rgba(147,197,253,0.55) !important;
+        }
+    </style>
 </head>
-<body data-page="blog-category" data-category="research">
-    <div id="header-placeholder"></div>
+<body class="bg-forest-50 text-slate-800 antialiased selection:bg-blue-600/30 selection:text-white overflow-x-hidden relative">
 
-    <section class="collection-hero">
-        <div class="container collection-hero-inner">
-            <div class="collection-hero-copy">
-                <div class="breadcrumbs" aria-label="Breadcrumb">
-                    <a href="index.html">Home</a>
-                    <span aria-hidden="true">/</span>
-                    <a href="blog.html">Blog</a>
-                    <span aria-hidden="true">/</span>
-                    <span class="current" aria-current="page">Research Updates</span>
+<!-- Background -->
+<div class="fixed inset-0 w-full h-full -z-10 pointer-events-none overflow-hidden">
+    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/0dd9b13b-ea30-4e17-8a26-53d1f9d1c6d3_3840w.webp" alt="" class="absolute inset-0 w-full h-full object-cover blur-md brightness-[0.52] saturate-[1.15] contrast-[1.05] scale-110" />
+    <div class="absolute inset-0 hero-grid"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-forest-100/90 via-forest-50/50 to-forest-100/55"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-forest-50/80 via-transparent to-forest-950/70"></div>
+</div>
+
+<!-- Navigation -->
+<nav id="main-nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-150">
+    <div class="relative">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between relative">
+            <a href="index.html" class="flex items-center gap-3">
+                <span class="nav-brand text-sm font-semibold tracking-tight text-slate-900 transition-colors duration-300">Tianxiang Zheng</span>
+            </a>
+            <div class="hidden md:flex items-center gap-12 text-xs font-semibold tracking-[0.2em] uppercase">
+                <a href="research.html" class="nav-link text-slate-700 hover:text-slate-900 transition-colors duration-300">Research</a>
+                <a href="cv.html" class="nav-link text-slate-700 hover:text-slate-900 transition-colors duration-300">CV</a>
+                <a href="blog/" class="nav-link is-active text-slate-900 transition-colors duration-300">Blog</a>
+            </div>
+            <div class="flex items-center gap-6">
+                <button onclick="window.location.href='contact.html'" class="nav-btn px-5 py-2 text-xs font-semibold tracking-[0.2em] uppercase text-slate-900 border border-slate-300/70 rounded-full bg-white/40 hover:bg-white/60 transition-colors duration-300">Contact</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Header -->
+<header class="pt-40 pb-16 relative">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div class="lg:col-span-8">
+                <div class="reveal flex items-center gap-2 mb-4">
+                    <a href="blog.html" class="text-[10px] font-mono tracking-[0.2em] uppercase text-slate-500 hover:text-slate-700 transition-colors">Blog</a>
+                    <span class="text-slate-400">/</span>
+                    <span class="text-[10px] font-mono tracking-[0.2em] uppercase text-blue-600">Research Updates</span>
                 </div>
-                <span class="section-label"><i class="fas fa-flask" aria-hidden="true"></i> Research Updates</span>
-                <h1>Research updates and field notes</h1>
-                <p>Project memos, dataset releases, and reflections on how automation reshapes labour markets. These entries extend the research portfolio with context, collaborators, and work-in-progress learnings.</p>
-
-                <ul class="collection-meta" role="list">
-                    <li><i class="fas fa-map-location-dot" aria-hidden="true"></i> Regions: Latin America, Southeast Asia, UK</li>
-                    <li><i class="fas fa-calendar-week" aria-hidden="true"></i> Updated quarterly</li>
-                    <li><i class="fas fa-tag" aria-hidden="true"></i> Tags: automation, labour transitions, data infrastructure</li>
-                    <li><i class="fas fa-rss" aria-hidden="true"></i> Follow via <a href="feed.xml#research">RSS</a></li>
-                </ul>
-
-                <div class="collection-actions">
-                    <a class="btn btn-primary" href="#research-stories">Browse latest updates</a>
-                    <a class="btn btn-secondary" href="research.html">View research portfolio</a>
+                <h1 class="reveal delay-100 font-dm-sans text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-6">
+                    <span class="bg-gradient-to-r from-slate-900 via-blue-800 to-blue-600 bg-clip-text text-transparent pr-1">Research updates</span><br>
+                    <span class="bg-gradient-to-r from-blue-600 via-blue-500 to-slate-700 bg-clip-text text-transparent pr-1">and field notes</span>
+                </h1>
+                <p class="reveal delay-200 text-sm md:text-base text-slate-700 font-light leading-relaxed max-w-2xl mb-8 border-l border-slate-600/20 pl-6">
+                    Project memos, dataset releases, and reflections on how automation reshapes labour markets. These entries extend the research portfolio with context, collaborators, and work-in-progress learnings.
+                </p>
+                <div class="reveal delay-300 flex flex-wrap gap-3 mb-8">
+                    <span class="px-3 py-1.5 text-[10px] font-mono uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200/50 rounded-full">Latin America · Southeast Asia · UK</span>
+                    <span class="px-3 py-1.5 text-[10px] font-mono uppercase tracking-wider text-cyan-700 bg-cyan-50 border border-cyan-200/50 rounded-full">Updated quarterly</span>
+                </div>
+                <div class="reveal delay-300 flex flex-wrap gap-3">
+                    <a href="#research-stories" class="group relative px-6 py-3 bg-white/50 backdrop-blur-md text-slate-700 text-xs font-semibold rounded-full border border-slate-400/30 overflow-hidden transition-all hover:border-blue-300/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] hover:text-slate-900">
+                        <div class="absolute inset-0 bg-gradient-to-t from-blue-100/40 to-transparent opacity-50"></div>
+                        <span class="relative z-10">Browse latest updates</span>
+                    </a>
+                    <a href="research.html" class="px-6 py-3 bg-white/30 backdrop-blur-md text-slate-600 text-xs font-semibold rounded-full border border-slate-300/30 hover:border-blue-300/30 hover:text-slate-800 transition-all">
+                        View research portfolio
+                    </a>
                 </div>
             </div>
 
-            <aside class="collection-hero-card surface" aria-label="Research focus">
-                <h2>Focus areas</h2>
-                <ul>
-                    <li><i class="fas fa-industry" aria-hidden="true"></i> Automation resilience in emerging economies</li>
-                    <li><i class="fas fa-chart-area" aria-hidden="true"></i> Labour transition dashboards</li>
-                    <li><i class="fas fa-people-arrows" aria-hidden="true"></i> Worker protection policies</li>
-                    <li><i class="fas fa-database" aria-hidden="true"></i> Open data infrastructure</li>
-                </ul>
+            <aside class="reveal delay-200 lg:col-span-4">
+                <div class="bg-white/60 backdrop-blur-2xl rounded-2xl p-6 border border-slate-200/60 shadow-lg shadow-blue-900/10">
+                    <h3 class="text-sm font-semibold text-slate-900 mb-4 uppercase tracking-wider">Focus areas</h3>
+                    <div class="space-y-3 text-sm text-slate-700 font-light">
+                        <div class="flex items-start gap-3">
+                            <iconify-icon icon="lucide:factory" class="text-blue-600 mt-0.5 shrink-0" width="16"></iconify-icon>
+                            <span>Automation resilience in emerging economies</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <iconify-icon icon="lucide:bar-chart-3" class="text-cyan-600 mt-0.5 shrink-0" width="16"></iconify-icon>
+                            <span>Labour transition dashboards</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <iconify-icon icon="lucide:users" class="text-blue-500 mt-0.5 shrink-0" width="16"></iconify-icon>
+                            <span>Worker protection policies</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <iconify-icon icon="lucide:database" class="text-cyan-500 mt-0.5 shrink-0" width="16"></iconify-icon>
+                            <span>Open data infrastructure</span>
+                        </div>
+                    </div>
+                </div>
             </aside>
         </div>
-    </section>
+    </div>
+</header>
 
-    <main class="collection-main">
-        <section id="research-stories" class="collection-section">
-            <div class="container collection-section-header">
+<!-- Research Stories -->
+<main id="research-stories" class="pb-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="reveal mb-10">
+            <span class="text-[10px] font-mono tracking-[0.2em] uppercase text-slate-500 block mb-2">Latest stories</span>
+            <h2 class="text-2xl md:text-3xl font-light tracking-tight text-slate-900">Research stories &amp; field notes</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <article class="reveal delay-100 group rounded-2xl bg-white/50 backdrop-blur-sm border border-slate-200/60 p-6 flex flex-col justify-between hover:bg-white/80 hover:border-blue-200/60 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-500">
                 <div>
-                    <h2>Latest research stories</h2>
-                    <p>Snapshot briefs with links to datasets, technical documentation, and policy-ready narratives.</p>
+                    <div class="flex flex-wrap items-center gap-2 mb-4">
+                        <span class="px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded-full bg-blue-100 text-blue-700">Research update</span>
+                        <span class="px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider rounded-full bg-slate-100 text-slate-500">10 min</span>
+                    </div>
+                    <h3 class="font-dm-sans text-lg font-semibold text-slate-900 mb-2 leading-snug group-hover:text-blue-800 transition-colors duration-300">Designing labour transitions for inclusive automation</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed font-light mb-4">A deeper dive into the policy design principles summarised on the research page, with collaborator credits and implementation roadmap.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-[10px] text-slate-500"><iconify-icon icon="lucide:map-pin" width="12" class="mr-1"></iconify-icon>S&atilde;o Paulo &amp; Ho Chi Minh City</span>
+                    </div>
                 </div>
-                <div class="collection-filter-pill">
-                    <i class="fas fa-flask" aria-hidden="true"></i>
-                    <span>Automation &amp; labour</span>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                    <span class="text-xs text-slate-400 font-medium">January 8, 2025</span>
+                    <a href="research.html#automation" class="text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-1.5 group/link">
+                        Read overview <iconify-icon icon="lucide:arrow-right" width="13" class="group-hover/link:translate-x-0.5 transition-transform"></iconify-icon>
+                    </a>
                 </div>
-            </div>
+            </article>
 
-            <div class="container collection-grid">
-                <article class="collection-card surface">
-                    <div class="collection-card-meta">
-                        <span class="tag tag-brand">Research update</span>
-                        <span class="tag tag-muted">10 min read</span>
-                    </div>
-                    <h3><a href="research.html#automation">Designing labour transitions for inclusive automation</a></h3>
-                    <p>A deeper dive into the policy design principles summarised on the research page, with collaborator credits and implementation roadmap.</p>
-                    <ul class="collection-card-facts" role="list">
-                        <li><i class="fas fa-calendar-day" aria-hidden="true"></i> Published 8 Jan 2025</li>
-                        <li><i class="fas fa-location-dot" aria-hidden="true"></i> São Paulo &amp; Ho Chi Minh City</li>
-                        <li><i class="fas fa-tag" aria-hidden="true"></i> Tags: labour transitions, automation policy</li>
-                    </ul>
-                    <a class="card-link" href="research.html#automation">Read the overview <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                </article>
-
-                <article class="collection-card surface">
-                    <div class="collection-card-meta">
-                        <span class="tag tag-brand">Dashboard release</span>
-                        <span class="tag tag-muted">7 min read</span>
-                    </div>
-                    <h3><a href="research.html#working-papers">Municipal automation dashboard playbook</a></h3>
-                    <p>Documentation of the design sprints that shaped the automation exposure dashboards, including governance checklist and UX metrics.</p>
-                    <ul class="collection-card-facts" role="list">
-                        <li><i class="fas fa-calendar-day" aria-hidden="true"></i> Published 12 Dec 2024</li>
-                        <li><i class="fas fa-code-branch" aria-hidden="true"></i> Repo &amp; dataset links</li>
-                        <li><i class="fas fa-tag" aria-hidden="true"></i> Tags: data infrastructure, policy tooling</li>
-                    </ul>
-                    <a class="card-link" href="research.html#working-papers">Read summary <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                </article>
-
-                <article class="collection-card surface">
-                    <div class="collection-card-meta">
-                        <span class="tag tag-brand">Field notes</span>
-                        <span class="tag tag-muted">8 min read</span>
-                    </div>
-                    <h3><a href="research.html#development">Collaborative automation in garment factories</a></h3>
-                    <p>Ethnographic reflections that supplement the development note—capturing worker-led process redesign lessons from Vietnam.</p>
-                    <ul class="collection-card-facts" role="list">
-                        <li><i class="fas fa-calendar-day" aria-hidden="true"></i> Published 21 Oct 2024</li>
-                        <li><i class="fas fa-map-pin" aria-hidden="true"></i> Ho Chi Minh City</li>
-                        <li><i class="fas fa-tag" aria-hidden="true"></i> Tags: worker trajectories, collaborative automation</li>
-                    </ul>
-                    <a class="card-link" href="research.html#development">Explore case study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                </article>
-            </div>
-        </section>
-
-        <section class="collection-section">
-            <div class="container collection-section-header">
+            <article class="reveal delay-200 group rounded-2xl bg-white/50 backdrop-blur-sm border border-slate-200/60 p-6 flex flex-col justify-between hover:bg-white/80 hover:border-blue-200/60 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-500">
                 <div>
-                    <h2>Research tag library</h2>
-                    <p>Use these tags to hop between themes. Tag pages roll up related content across categories.</p>
+                    <div class="flex flex-wrap items-center gap-2 mb-4">
+                        <span class="px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded-full bg-blue-100 text-blue-700">Dashboard release</span>
+                        <span class="px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider rounded-full bg-slate-100 text-slate-500">7 min</span>
+                    </div>
+                    <h3 class="font-dm-sans text-lg font-semibold text-slate-900 mb-2 leading-snug group-hover:text-blue-800 transition-colors duration-300">Municipal automation dashboard playbook</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed font-light mb-4">Documentation of the design sprints that shaped the automation exposure dashboards, including governance checklist and UX metrics.</p>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                    <span class="text-xs text-slate-400 font-medium">December 12, 2024</span>
+                    <a href="research.html#working-papers" class="text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-1.5 group/link">
+                        Read summary <iconify-icon icon="lucide:arrow-right" width="13" class="group-hover/link:translate-x-0.5 transition-transform"></iconify-icon>
+                    </a>
+                </div>
+            </article>
+
+            <article class="reveal delay-300 group rounded-2xl bg-white/50 backdrop-blur-sm border border-slate-200/60 p-6 flex flex-col justify-between hover:bg-white/80 hover:border-blue-200/60 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-500">
+                <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-4">
+                        <span class="px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded-full bg-rose-100 text-rose-700">Field notes</span>
+                        <span class="px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider rounded-full bg-slate-100 text-slate-500">8 min</span>
+                    </div>
+                    <h3 class="font-dm-sans text-lg font-semibold text-slate-900 mb-2 leading-snug group-hover:text-blue-800 transition-colors duration-300">Collaborative automation in garment factories</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed font-light mb-4">Ethnographic reflections that supplement the development note -- capturing worker-led process redesign lessons from Vietnam.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-[10px] text-slate-500"><iconify-icon icon="lucide:map-pin" width="12" class="mr-1"></iconify-icon>Ho Chi Minh City</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                    <span class="text-xs text-slate-400 font-medium">October 21, 2024</span>
+                    <a href="research.html#development" class="text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-1.5 group/link">
+                        Explore case study <iconify-icon icon="lucide:arrow-right" width="13" class="group-hover/link:translate-x-0.5 transition-transform"></iconify-icon>
+                    </a>
+                </div>
+            </article>
+        </div>
+
+        <!-- Tag Library -->
+        <div class="reveal mt-16">
+            <h3 class="text-lg font-medium text-slate-900 mb-4 tracking-tight">Research tag library</h3>
+            <p class="text-sm text-slate-600 font-light mb-6">Use these tags to hop between themes.</p>
+            <div class="flex flex-wrap gap-3">
+                <a href="blog.html#tag-automation" class="px-4 py-2 text-xs font-medium text-slate-700 bg-white/60 backdrop-blur-sm border border-slate-200/60 rounded-full hover:border-blue-300/50 hover:text-blue-700 transition-all">Automation strategy</a>
+                <a href="blog.html#tag-worker-trajectories" class="px-4 py-2 text-xs font-medium text-slate-700 bg-white/60 backdrop-blur-sm border border-slate-200/60 rounded-full hover:border-blue-300/50 hover:text-blue-700 transition-all">Worker trajectories</a>
+                <a href="blog.html#tag-data-infra" class="px-4 py-2 text-xs font-medium text-slate-700 bg-white/60 backdrop-blur-sm border border-slate-200/60 rounded-full hover:border-blue-300/50 hover:text-blue-700 transition-all">Data infrastructure</a>
+                <a href="blog.html#tag-urban" class="px-4 py-2 text-xs font-medium text-slate-700 bg-white/60 backdrop-blur-sm border border-slate-200/60 rounded-full hover:border-blue-300/50 hover:text-blue-700 transition-all">Urban development</a>
+                <a href="blog.html#tag-policy" class="px-4 py-2 text-xs font-medium text-slate-700 bg-white/60 backdrop-blur-sm border border-slate-200/60 rounded-full hover:border-blue-300/50 hover:text-blue-700 transition-all">Policy design</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="border-t border-white/[0.06] bg-white/30 pt-20 pb-10 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-2 h-2 rounded-full bg-blue-600"></div>
+                    <span class="text-base font-semibold tracking-tight text-slate-900 uppercase">Tianxiang Zheng</span>
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed font-light">Economist designing inclusive labour markets in the age of automation.</p>
+                <div class="mt-3 flex flex-col gap-1 text-sm text-slate-700 font-medium">
+                    <a href="mailto:tianxiang.zheng.22@ucl.ac.uk" class="hover:text-slate-900 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:mail" width="14"></iconify-icon>tianxiang.zheng.22@ucl.ac.uk</a>
+                    <a href="mailto:marxzheng@outlook.com" class="hover:text-slate-900 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:mail" width="14"></iconify-icon>marxzheng@outlook.com</a>
                 </div>
             </div>
-
-            <div class="container tag-cloud">
-                <a class="topic-pill" href="blog.html#tag-automation">Automation strategy</a>
-                <a class="topic-pill" href="blog.html#tag-worker-trajectories">Worker trajectories</a>
-                <a class="topic-pill" href="blog.html#tag-data-infra">Data infrastructure</a>
-                <a class="topic-pill" href="blog.html#tag-urban">Urban development</a>
-                <a class="topic-pill" href="blog.html#tag-policy">Policy design</a>
+            <div class="flex gap-8 text-xs font-medium text-slate-600">
+                <a href="research.html" class="hover:text-slate-900 transition-colors">Research</a>
+                <a href="cv.html" class="hover:text-slate-900 transition-colors">CV</a>
+                <a href="contact.html" class="hover:text-slate-900 transition-colors">Contact</a>
             </div>
-        </section>
-    </main>
+        </div>
+        <div class="border-t border-white/[0.06] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-[10px] text-slate-600 uppercase tracking-wider">&copy; 2026 Tianxiang Zheng.</p>
+            <div class="flex gap-6">
+                <a href="https://github.com/zhengtxecon" class="text-slate-600 hover:text-slate-900 transition-colors"><iconify-icon icon="lucide:github" width="16"></iconify-icon></a>
+                <a href="https://scholar.google.com/citations?user=yMayrcEAAAAJ" class="text-slate-600 hover:text-slate-900 transition-colors"><iconify-icon icon="lucide:graduation-cap" width="16"></iconify-icon></a>
+            </div>
+        </div>
+    </div>
+</footer>
 
-    <div id="footer-placeholder"></div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            reveals.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) reveal.classList.add('active');
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+        const nav = document.getElementById('main-nav');
+        const handleNavScroll = () => {
+            if (!nav) return;
+            nav.classList.toggle('nav-scrolled', window.scrollY > 10);
+        };
+        window.addEventListener('scroll', handleNavScroll);
+        handleNavScroll();
+    });
+</script>
 </body>
 </html>

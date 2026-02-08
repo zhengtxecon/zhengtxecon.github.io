@@ -1,256 +1,390 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Tools updates from Tianxiang Zheng, exploring AI-enhanced workflows and automation for research and teaching.">
-    <title>Tools · Blog · Tianxiang Zheng (郑天�?</title>
+    <meta name="description" content="Tools updates from Tianxiang Zheng, exploring AI-enhanced workflows and automation for research and teaching.">
+    <title>Tools · Blog · Tianxiang Zheng</title>
     <link rel="canonical" href="https://zhengtxecon.github.io/blog-tools.html">
     <meta property="og:title" content="Tools · Tianxiang Zheng">
-    <meta property="og:description"
-        content="Follow the How I (Almost) AI Everything series and other tooling experiments for collaborative research and teaching.">
+    <meta property="og:description" content="Follow the How I (Almost) AI Everything series and other tooling experiments for collaborative research and teaching.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://zhengtxecon.github.io/blog-tools.html">
     <meta property="og:image" content="https://zhengtxecon.github.io/assets/images/profile.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Tools · Tianxiang Zheng">
-    <meta name="twitter:description"
-        content="Follow the How I (Almost) AI Everything series and other tooling experiments for collaborative research and teaching.">
+    <meta name="twitter:description" content="Follow the How I (Almost) AI Everything series and other tooling experiments for collaborative research and teaching.">
     <meta name="twitter:image" content="https://zhengtxecon.github.io/assets/images/profile.jpg">
     <link rel="alternate" type="application/rss+xml" title="Tianxiang Zheng · Blog feed" href="feed.xml">
     <link rel="sitemap" type="application/xml" href="sitemap.xml">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/blog.css">
-    <link rel="stylesheet" href="assets/css/blog-collections.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="assets/js/main.js" defer></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" />
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'forest': {
+                            50: '#eff6ff', 100: '#dbeafe', 300: '#93c5fd', 400: '#60a5fa',
+                            500: '#3b82f6', 800: '#1d4ed8', 900: '#1e40af', 950: '#0b1f3a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-dm-sans { font-family: 'DM Sans', sans-serif; }
+        .reveal { opacity: 0; transform: translateY(30px) scale(0.98); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); filter: blur(10px); }
+        .reveal.active { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #020408; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+        .hero-grid {
+            background-image:
+                linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+                linear-gradient(rgba(37, 99, 235, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.025) 1px, transparent 1px);
+            background-size: 50px 50px, 50px 50px, 250px 250px, 250px 250px;
+            mask-image: radial-gradient(circle at 50% 0%, black, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at 50% 0%, black, transparent 80%);
+        }
+        #main-nav { transition: background-color 250ms ease, border-color 250ms ease, box-shadow 250ms ease; }
+        #main-nav.nav-scrolled {
+            background-color: rgba(11, 31, 58, 0.75);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        }
+        #main-nav.nav-scrolled .nav-brand { color: rgba(255,255,255,0.95) !important; }
+        #main-nav.nav-scrolled .nav-link { color: rgba(226,232,240,0.78) !important; }
+        #main-nav.nav-scrolled .nav-link:hover { color: rgba(255,255,255,0.98) !important; }
+        #main-nav.nav-scrolled .nav-link.is-active { color: rgba(255,255,255,0.98) !important; }
+        #main-nav.nav-scrolled .nav-btn {
+            color: rgba(255,255,255,0.95) !important; border-color: rgba(226,232,240,0.25) !important;
+            background-color: rgba(255,255,255,0.08) !important;
+        }
+        #main-nav.nav-scrolled .nav-btn:hover {
+            background-color: rgba(255,255,255,0.14) !important; border-color: rgba(147,197,253,0.55) !important;
+        }
+    </style>
 </head>
+<body class="bg-forest-50 text-slate-800 antialiased selection:bg-blue-600/30 selection:text-white overflow-x-hidden relative">
 
-<body data-page="blog-category" data-category="tools">
-    <div id="header-placeholder"></div>
+<!-- Background -->
+<div class="fixed inset-0 w-full h-full -z-10 pointer-events-none overflow-hidden">
+    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/0dd9b13b-ea30-4e17-8a26-53d1f9d1c6d3_3840w.webp" alt="" class="absolute inset-0 w-full h-full object-cover blur-md brightness-[0.52] saturate-[1.15] contrast-[1.05] scale-110" />
+    <div class="absolute inset-0 hero-grid"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-forest-100/90 via-forest-50/50 to-forest-100/55"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-forest-50/80 via-transparent to-forest-950/70"></div>
+</div>
 
-    <section class="collection-hero">
-        <div class="container collection-hero-inner">
-            <div class="collection-hero-copy">
-                <div class="breadcrumbs" aria-label="Breadcrumb">
-                    <a href="index.html">Home</a>
-                    <span aria-hidden="true">/</span>
-                    <a href="blog.html">Blog</a>
-                    <span aria-hidden="true">/</span>
-                    <span class="current" aria-current="page">Tools</span>
+<!-- Navigation -->
+<nav id="main-nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-150">
+    <div class="relative">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between relative">
+            <a href="index.html" class="flex items-center gap-3">
+                <span class="nav-brand text-sm font-semibold tracking-tight text-slate-900 transition-colors duration-300">Tianxiang Zheng</span>
+            </a>
+            <div class="hidden md:flex items-center gap-12 text-xs font-semibold tracking-[0.2em] uppercase">
+                <a href="research.html" class="nav-link text-slate-700 hover:text-slate-900 transition-colors duration-300">Research</a>
+                <a href="cv.html" class="nav-link text-slate-700 hover:text-slate-900 transition-colors duration-300">CV</a>
+                <a href="blog/" class="nav-link is-active text-slate-900 transition-colors duration-300">Blog</a>
+            </div>
+            <div class="flex items-center gap-6">
+                <button onclick="window.location.href='contact.html'" class="nav-btn px-5 py-2 text-xs font-semibold tracking-[0.2em] uppercase text-slate-900 border border-slate-300/70 rounded-full bg-white/40 hover:bg-white/60 transition-colors duration-300">Contact</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Header -->
+<header class="pt-40 pb-16 relative">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div class="lg:col-span-8">
+                <div class="reveal flex items-center gap-2 mb-4">
+                    <a href="blog.html" class="text-[10px] font-mono tracking-[0.2em] uppercase text-slate-500 hover:text-slate-700 transition-colors">Blog</a>
+                    <span class="text-slate-400">/</span>
+                    <span class="text-[10px] font-mono tracking-[0.2em] uppercase text-amber-600">Tools</span>
                 </div>
-                <span class="section-label"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i> Tools</span>
-                <h1>Tools &amp; automation experiments</h1>
-                <p>Hands-on documentation of AI-assisted tooling that supports research coordination, classroom
-                    delivery, and programme management—without losing human oversight.</p>
-
-                <ul class="collection-meta" role="list">
-                    <li><i class="fas fa-robot" aria-hidden="true"></i> Themes: AI workflows, low-code automation,
-                        productivity</li>
-                    <li><i class="fas fa-calendar-week" aria-hidden="true"></i> Updated monthly</li>
-                    <li><i class="fas fa-list-ul" aria-hidden="true"></i> Series: How I (Almost) AI Everything</li>
-                    <li><i class="fas fa-rss" aria-hidden="true"></i> Follow via <a href="feed.xml#tools">RSS</a></li>
-                </ul>
-
-                <div class="collection-actions">
-                    <a class="btn btn-primary" href="#tools-series">Explore the series</a>
-                    <a class="btn btn-secondary" href="blog/series-how-i-almost-ai-everything.html">Series hub</a>
+                <h1 class="reveal delay-100 font-dm-sans text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-6">
+                    <span class="bg-gradient-to-r from-slate-900 via-blue-800 to-blue-600 bg-clip-text text-transparent pr-1">Tools &amp; automation</span><br>
+                    <span class="bg-gradient-to-r from-blue-600 via-blue-500 to-slate-700 bg-clip-text text-transparent pr-1">experiments</span>
+                </h1>
+                <p class="reveal delay-200 text-sm md:text-base text-slate-700 font-light leading-relaxed max-w-2xl mb-8 border-l border-slate-600/20 pl-6">
+                    Hands-on documentation of AI-assisted tooling that supports research coordination, classroom delivery, and programme management -- without losing human oversight.
+                </p>
+                <div class="reveal delay-300 flex flex-wrap gap-3 mb-8">
+                    <span class="px-3 py-1.5 text-[10px] font-mono uppercase tracking-wider text-amber-700 bg-amber-50 border border-amber-200/50 rounded-full">AI workflows · Low-code automation</span>
+                    <span class="px-3 py-1.5 text-[10px] font-mono uppercase tracking-wider text-purple-700 bg-purple-50 border border-purple-200/50 rounded-full">Series: How I (Almost) AI Everything</span>
+                </div>
+                <div class="reveal delay-300 flex flex-wrap gap-3">
+                    <a href="#tools-series" class="group relative px-6 py-3 bg-white/50 backdrop-blur-md text-slate-700 text-xs font-semibold rounded-full border border-slate-400/30 overflow-hidden transition-all hover:border-blue-300/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] hover:text-slate-900">
+                        <div class="absolute inset-0 bg-gradient-to-t from-blue-100/40 to-transparent opacity-50"></div>
+                        <span class="relative z-10">Explore the series</span>
+                    </a>
+                    <a href="blog/series-how-i-almost-ai-everything.html" class="px-6 py-3 bg-white/30 backdrop-blur-md text-slate-600 text-xs font-semibold rounded-full border border-slate-300/30 hover:border-blue-300/30 hover:text-slate-800 transition-all">
+                        Series hub
+                    </a>
                 </div>
             </div>
 
-            <aside class="collection-hero-card surface" aria-label="Series overview">
-                <h2>How I (Almost) AI Everything</h2>
-                <ul>
-                    <li><i class="fas fa-lightbulb" aria-hidden="true"></i> Pragmatic experiments for real teams</li>
-                    <li><i class="fas fa-diagram-project" aria-hidden="true"></i> System diagrams &amp; prompt scaffolds
-                    </li>
-                    <li><i class="fas fa-shield-alt" aria-hidden="true"></i> Safety guardrails &amp; evaluation rituals
-                    </li>
-                    <li><i class="fas fa-circle-nodes" aria-hidden="true"></i> Integrations with existing infrastructure
-                    </li>
-                </ul>
+            <aside class="reveal delay-200 lg:col-span-4">
+                <div class="bg-white/60 backdrop-blur-2xl rounded-2xl p-6 border border-slate-200/60 shadow-lg shadow-blue-900/10">
+                    <h3 class="text-sm font-semibold text-slate-900 mb-4 uppercase tracking-wider">How I (Almost) AI Everything</h3>
+                    <div class="space-y-3 text-sm text-slate-700 font-light">
+                        <div class="flex items-start gap-3">
+                            <iconify-icon icon="lucide:lightbulb" class="text-amber-600 mt-0.5 shrink-0" width="16"></iconify-icon>
+                            <span>Pragmatic experiments for real teams</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <iconify-icon icon="lucide:git-branch" class="text-blue-600 mt-0.5 shrink-0" width="16"></iconify-icon>
+                            <span>System diagrams &amp; prompt scaffolds</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <iconify-icon icon="lucide:shield" class="text-cyan-600 mt-0.5 shrink-0" width="16"></iconify-icon>
+                            <span>Safety guardrails &amp; evaluation rituals</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <iconify-icon icon="lucide:plug" class="text-amber-500 mt-0.5 shrink-0" width="16"></iconify-icon>
+                            <span>Integrations with existing infrastructure</span>
+                        </div>
+                    </div>
+                </div>
             </aside>
         </div>
-    </section>
+    </div>
+</header>
 
-    <main class="collection-main">
-        <section id="tools-series" class="collection-section">
-            <div class="container collection-section-header">
+<!-- Tools Series -->
+<main id="tools-series" class="pb-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="reveal mb-10">
+            <span class="text-[10px] font-mono tracking-[0.2em] uppercase text-slate-500 block mb-2">Series entries</span>
+            <h2 class="text-2xl md:text-3xl font-light tracking-tight text-slate-900">How I (Almost) AI Everything</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <article class="reveal delay-100 group rounded-2xl bg-white/50 backdrop-blur-sm border border-slate-200/60 p-6 flex flex-col justify-between hover:bg-white/80 hover:border-blue-200/60 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-500">
                 <div>
-                    <h2>How I (Almost) AI Everything</h2>
-                    <p>Follow along as I document the workflows, prompts, and decision frameworks behind each automation
-                        experiment.</p>
+                    <div class="flex flex-wrap items-center gap-2 mb-4">
+                        <span class="px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded-full bg-amber-100 text-amber-700">Tools</span>
+                        <span class="px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider rounded-full bg-slate-100 text-slate-500">5 min</span>
+                        <span class="px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded-full bg-blue-100 text-blue-700">New</span>
+                    </div>
+                    <h3 class="font-dm-sans text-lg font-semibold text-slate-900 mb-2 leading-snug group-hover:text-blue-800 transition-colors duration-300">The Codex Experience</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed font-light mb-4">A living record of my agentic coding journey -- configurations, experiments, and lessons learned while automating research workflows.</p>
                 </div>
-                <div class="collection-filter-pill">
-                    <i class="fas fa-screwdriver-wrench" aria-hidden="true"></i>
-                    <span>Series entries</span>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                    <span class="text-xs text-slate-400 font-medium">January 14, 2026</span>
+                    <a href="blog/codex-experience.html" class="text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-1.5 group/link">
+                        Read the hub <iconify-icon icon="lucide:arrow-right" width="13" class="group-hover/link:translate-x-0.5 transition-transform"></iconify-icon>
+                    </a>
                 </div>
-            </div>
+            </article>
 
-            <div class="container blog-feed-grid">
-                <article class="surface blog-post-card">
-                    <div class="blog-post-meta">
-                        <span class="tag tag-brand">Tools</span>
-                        <span class="tag tag-muted">5 min read</span>
-                        <span class="tag tag-accent">New</span>
-                    </div>
-                    <h3>The Codex Experience</h3>
-                    <p>A living record of my agentic coding journey—configurations, experiments, and lessons learned
-                        while automating research workflows.</p>
-                    <div class="blog-post-footer">
-                        <span class="post-date">January 14, 2026</span>
-                        <a class="card-link" href="blog/codex-experience.html">Read the hub <i class="fas fa-arrow-right"
-                                aria-hidden="true"></i></a>
-                    </div>
-                </article>
-
-                <article class="surface blog-post-card">
-                    <div class="blog-post-meta">
-                        <span class="tag tag-brand">Tools</span>
-                        <span class="tag tag-muted">3 min read</span>
-                        <span class="tag tag-accent">Update</span>
-                    </div>
-                    <h3>Codex Configuration Log</h3>
-                    <p>Tracking specific tweaks in config.toml, including enabling web search and managing agent
-                        features.</p>
-                    <div class="blog-post-footer">
-                        <span class="post-date">January 14, 2026</span>
-                        <a class="card-link" href="blog/codex-configuration.html">View log <i class="fas fa-arrow-right"
-                                aria-hidden="true"></i></a>
-                    </div>
-                </article>
-                <article class="collection-card surface">
-                    <div class="collection-card-meta">
-                        <span class="tag tag-brand">Series</span>
-                        <span class="tag tag-muted">6 min read</span>
-                        <span class="tag tag-accent">New</span>
-                    </div>
-                    <h3><a href="blog/estimating-codex-tokens-with-ccusage.html">Beyond the Usage Bar: Estimating Codex
-                            Tokens with ccusage</a></h3>
-                    <p>When OpenAI's subscription dashboard only shows a percentage, here's a practical CLI setup to
-                        approximate daily and monthly tokens and cost.</p>
-                    <ul class="collection-card-facts" role="list">
-                        <li><i class="fas fa-calendar-day" aria-hidden="true"></i> Published 11 Jan 2026</li>
-                        <li><i class="fas fa-chart-line" aria-hidden="true"></i> Focus: Usage estimation + ccusage</li>
-                        <li><i class="fas fa-terminal" aria-hidden="true"></i> Tool: ccusage CLI</li>
-                    </ul>
-                    <a class="card-link" href="blog/estimating-codex-tokens-with-ccusage.html">Read the post <i
-                            class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                </article>
-
-                <article class="collection-card surface">
-                    <div class="collection-card-meta">
-                        <span class="tag tag-brand">Series</span>
-                        <span class="tag tag-muted">7 min read</span>
-                    </div>
-                    <h3><a href="blog/auto-calendar-email-to-outlook.html">Auto Calendar: Converting Emails into Outlook
-                            Schedules</a></h3>
-                    <p>Turning weekly status emails into structured Outlook calendars with prompt-classified summaries,
-                        validation scripts, and Microsoft Graph safeguards.</p>
-                    <ul class="collection-card-facts" role="list">
-                        <li><i class="fas fa-calendar-day" aria-hidden="true"></i> Published 10 Oct 2025</li>
-                        <li><i class="fas fa-diagram-project" aria-hidden="true"></i> Focus: Email-to-calendar
-                            orchestration</li>
-                        <li><i class="fas fa-plug" aria-hidden="true"></i> Stack: Azure Logic Apps + Graph API</li>
-                    </ul>
-                    <a class="card-link" href="blog/auto-calendar-email-to-outlook.html">Read the post <i
-                            class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                </article>
-
-                <article class="collection-card surface">
-                    <div class="collection-card-meta">
-                        <span class="tag tag-brand">Series</span>
-                        <span class="tag tag-muted">9 min read</span>
-                        <span class="tag tag-accent">Series</span>
-                    </div>
-                    <h3><a href="blog/how-i-switched-from-github-copilot-to-chatgpt-pro-codex.html">How I Switched from
-                            GitHub Copilot to ChatGPT Pro + Codex</a></h3>
-                    <p>Documenting the jump to Codex, with GitHub sync, AGENTS.md rituals, and TODO.md governance
-                        turning vibe coding into a dependable workflow.</p>
-                    <ul class="collection-card-facts" role="list">
-                        <li><i class="fas fa-calendar-day" aria-hidden="true"></i> Published 9 Oct 2025</li>
-                        <li><i class="fas fa-microchip" aria-hidden="true"></i> Stack: ChatGPT Pro + Codex CLI</li>
-                        <li><i class="fas fa-tag" aria-hidden="true"></i> Tags: AI workflow, agents, developer
-                            productivity</li>
-                    </ul>
-                    <a class="card-link" href="blog/how-i-switched-from-github-copilot-to-chatgpt-pro-codex.html">Read the
-                        post <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                </article>
-
-                <article class="collection-card surface">
-                    <div class="collection-card-meta">
-                        <span class="tag tag-brand">Series</span>
-                        <span class="tag tag-muted">8 min read</span>
-                    </div>
-                    <h3><a href="blog/how-i-built-an-ai-calendar-generator.html">How I Built an AI Calendar Generator</a>
-                    </h3>
-                    <p>Prototyping an AI-assisted scheduling assistant with orchestration notes, automation guardrails,
-                        and rollout checklists for field teams.</p>
-                    <ul class="collection-card-facts" role="list">
-                        <li><i class="fas fa-calendar-day" aria-hidden="true"></i> Published 7 Oct 2025</li>
-                        <li><i class="fas fa-microchip" aria-hidden="true"></i> Stack: LLM orchestration + calendar APIs
-                        </li>
-                        <li><i class="fas fa-tag" aria-hidden="true"></i> Tags: AI workflow, productivity tooling</li>
-                    </ul>
-                    <a class="card-link" href="blog/how-i-built-an-ai-calendar-generator.html">Read the post <i
-                            class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                </article>
-
-                <article class="collection-card surface collection-card-placeholder">
-                    <div class="collection-card-meta">
-                        <span class="tag tag-muted">Upcoming</span>
-                    </div>
-                    <h3>AI-first meeting notes assistant</h3>
-                    <p>Placeholder entry signalling the next teardown in the series, focusing on multi-speaker
-                        summarisation and action-tracking.</p>
-                    <span class="collection-status"><i class="fas fa-hourglass-half" aria-hidden="true"></i>
-                        Drafting</span>
-                </article>
-
-                <article class="collection-card surface collection-card-placeholder">
-                    <div class="collection-card-meta">
-                        <span class="tag tag-muted">Upcoming</span>
-                    </div>
-                    <h3>Promptable syllabus designer</h3>
-                    <p>Placeholder entry exploring structured prompts that co-design lesson plans with teaching
-                        assistants.</p>
-                    <span class="collection-status"><i class="fas fa-hourglass-half" aria-hidden="true"></i>
-                        Researching</span>
-                </article>
-            </div>
-        </section>
-
-        <section class="collection-section">
-            <div class="container collection-section-header">
+            <article class="reveal delay-200 group rounded-2xl bg-white/50 backdrop-blur-sm border border-slate-200/60 p-6 flex flex-col justify-between hover:bg-white/80 hover:border-blue-200/60 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-500">
                 <div>
-                    <h2>Tools tag library</h2>
-                    <p>Skim the tags to find adjacent experiments and reusable assets.</p>
+                    <div class="flex flex-wrap items-center gap-2 mb-4">
+                        <span class="px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded-full bg-amber-100 text-amber-700">Tools</span>
+                        <span class="px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider rounded-full bg-slate-100 text-slate-500">3 min</span>
+                    </div>
+                    <h3 class="font-dm-sans text-lg font-semibold text-slate-900 mb-2 leading-snug group-hover:text-blue-800 transition-colors duration-300">Codex Configuration Log</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed font-light mb-4">Tracking specific tweaks in config.toml, including enabling web search and managing agent features.</p>
                 </div>
-            </div>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                    <span class="text-xs text-slate-400 font-medium">January 14, 2026</span>
+                    <a href="blog/codex-configuration.html" class="text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-1.5 group/link">
+                        View log <iconify-icon icon="lucide:arrow-right" width="13" class="group-hover/link:translate-x-0.5 transition-transform"></iconify-icon>
+                    </a>
+                </div>
+            </article>
 
-            <div class="container tag-cloud">
-                <a class="topic-pill" href="blog.html#tag-ai-workflow">AI workflow</a>
-                <a class="topic-pill" href="blog.html#tag-productivity">Productivity tooling</a>
-                <a class="topic-pill" href="blog.html#tag-change-management">Change management</a>
-                <a class="topic-pill" href="blog.html#tag-integrations">Integrations</a>
-            </div>
-        </section>
-
-        <section class="collection-section">
-            <div class="container collection-section-header">
+            <article class="reveal delay-300 group rounded-2xl bg-white/50 backdrop-blur-sm border border-slate-200/60 p-6 flex flex-col justify-between hover:bg-white/80 hover:border-blue-200/60 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-500">
                 <div>
-                    <h2>Series archives</h2>
-                    <p>Need a recap? Visit the full series page for summaries, artifacts, and related resources.</p>
+                    <div class="flex flex-wrap items-center gap-2 mb-4">
+                        <span class="px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded-full bg-amber-100 text-amber-700">Tools</span>
+                        <span class="px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider rounded-full bg-slate-100 text-slate-500">6 min</span>
+                        <span class="px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded-full bg-blue-100 text-blue-700">New</span>
+                    </div>
+                    <h3 class="font-dm-sans text-lg font-semibold text-slate-900 mb-2 leading-snug group-hover:text-blue-800 transition-colors duration-300">Beyond the Usage Bar: Estimating Codex Tokens with ccusage</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed font-light mb-4">When OpenAI's subscription dashboard only shows a percentage, here's a practical CLI setup to approximate daily and monthly tokens and cost.</p>
                 </div>
-                <a class="card-link" href="blog/series-how-i-almost-ai-everything.html">Open series hub <i
-                        class="fas fa-arrow-right" aria-hidden="true"></i></a>
-            </div>
-        </section>
-    </main>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                    <span class="text-xs text-slate-400 font-medium">January 11, 2026</span>
+                    <a href="blog/estimating-codex-tokens-with-ccusage.html" class="text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-1.5 group/link">
+                        Read the post <iconify-icon icon="lucide:arrow-right" width="13" class="group-hover/link:translate-x-0.5 transition-transform"></iconify-icon>
+                    </a>
+                </div>
+            </article>
 
-    <div id="footer-placeholder"></div>
+            <article class="reveal group rounded-2xl bg-white/50 backdrop-blur-sm border border-slate-200/60 p-6 flex flex-col justify-between hover:bg-white/80 hover:border-blue-200/60 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-500">
+                <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-4">
+                        <span class="px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded-full bg-amber-100 text-amber-700">Tools</span>
+                        <span class="px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider rounded-full bg-slate-100 text-slate-500">7 min</span>
+                    </div>
+                    <h3 class="font-dm-sans text-lg font-semibold text-slate-900 mb-2 leading-snug group-hover:text-blue-800 transition-colors duration-300">Auto Calendar: Converting Emails into Outlook Schedules</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed font-light mb-4">Turning weekly status emails into structured Outlook calendars with prompt-classified summaries, validation scripts, and Microsoft Graph safeguards.</p>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                    <span class="text-xs text-slate-400 font-medium">October 10, 2025</span>
+                    <a href="blog/auto-calendar-email-to-outlook.html" class="text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-1.5 group/link">
+                        Read the post <iconify-icon icon="lucide:arrow-right" width="13" class="group-hover/link:translate-x-0.5 transition-transform"></iconify-icon>
+                    </a>
+                </div>
+            </article>
+
+            <article class="reveal delay-100 group rounded-2xl bg-white/50 backdrop-blur-sm border border-slate-200/60 p-6 flex flex-col justify-between hover:bg-white/80 hover:border-blue-200/60 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-500">
+                <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-4">
+                        <span class="px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded-full bg-amber-100 text-amber-700">Tools</span>
+                        <span class="px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider rounded-full bg-slate-100 text-slate-500">9 min</span>
+                        <span class="px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded-full bg-purple-100 text-purple-700">Series</span>
+                    </div>
+                    <h3 class="font-dm-sans text-lg font-semibold text-slate-900 mb-2 leading-snug group-hover:text-blue-800 transition-colors duration-300">How I Switched from GitHub Copilot to ChatGPT Pro + Codex</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed font-light mb-4">Documenting the jump to Codex, with GitHub sync, AGENTS.md rituals, and TODO.md governance turning vibe coding into a dependable workflow.</p>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                    <span class="text-xs text-slate-400 font-medium">October 9, 2025</span>
+                    <a href="blog/how-i-switched-from-github-copilot-to-chatgpt-pro-codex.html" class="text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-1.5 group/link">
+                        Read the post <iconify-icon icon="lucide:arrow-right" width="13" class="group-hover/link:translate-x-0.5 transition-transform"></iconify-icon>
+                    </a>
+                </div>
+            </article>
+
+            <article class="reveal delay-200 group rounded-2xl bg-white/50 backdrop-blur-sm border border-slate-200/60 p-6 flex flex-col justify-between hover:bg-white/80 hover:border-blue-200/60 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-500">
+                <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-4">
+                        <span class="px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded-full bg-amber-100 text-amber-700">Tools</span>
+                        <span class="px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider rounded-full bg-slate-100 text-slate-500">8 min</span>
+                        <span class="px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded-full bg-purple-100 text-purple-700">Series</span>
+                    </div>
+                    <h3 class="font-dm-sans text-lg font-semibold text-slate-900 mb-2 leading-snug group-hover:text-blue-800 transition-colors duration-300">How I Built an AI Calendar Generator</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed font-light mb-4">Prototyping an AI-assisted scheduling assistant with orchestration notes, automation guardrails, and rollout checklists for field teams.</p>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                    <span class="text-xs text-slate-400 font-medium">October 7, 2025</span>
+                    <a href="blog/how-i-built-an-ai-calendar-generator.html" class="text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-1.5 group/link">
+                        Read the post <iconify-icon icon="lucide:arrow-right" width="13" class="group-hover/link:translate-x-0.5 transition-transform"></iconify-icon>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Upcoming placeholders -->
+            <article class="reveal group rounded-2xl bg-white/30 backdrop-blur-sm border border-slate-200/40 border-dashed p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-4">
+                        <span class="px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider rounded-full bg-slate-100 text-slate-500">Upcoming</span>
+                    </div>
+                    <h3 class="font-dm-sans text-lg font-semibold text-slate-500 mb-2 leading-snug">AI-first meeting notes assistant</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed font-light mb-4">Placeholder entry signalling the next teardown in the series, focusing on multi-speaker summarisation and action-tracking.</p>
+                </div>
+                <div class="pt-4 border-t border-slate-100">
+                    <span class="text-xs text-slate-400 font-medium flex items-center gap-1.5"><iconify-icon icon="lucide:hourglass" width="12"></iconify-icon> Drafting</span>
+                </div>
+            </article>
+
+            <article class="reveal delay-100 group rounded-2xl bg-white/30 backdrop-blur-sm border border-slate-200/40 border-dashed p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-4">
+                        <span class="px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider rounded-full bg-slate-100 text-slate-500">Upcoming</span>
+                    </div>
+                    <h3 class="font-dm-sans text-lg font-semibold text-slate-500 mb-2 leading-snug">Promptable syllabus designer</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed font-light mb-4">Placeholder entry exploring structured prompts that co-design lesson plans with teaching assistants.</p>
+                </div>
+                <div class="pt-4 border-t border-slate-100">
+                    <span class="text-xs text-slate-400 font-medium flex items-center gap-1.5"><iconify-icon icon="lucide:hourglass" width="12"></iconify-icon> Researching</span>
+                </div>
+            </article>
+        </div>
+
+        <!-- Tag Library -->
+        <div class="reveal mt-16">
+            <h3 class="text-lg font-medium text-slate-900 mb-4 tracking-tight">Tools tag library</h3>
+            <p class="text-sm text-slate-600 font-light mb-6">Skim the tags to find adjacent experiments and reusable assets.</p>
+            <div class="flex flex-wrap gap-3">
+                <a href="blog.html#tag-ai-workflow" class="px-4 py-2 text-xs font-medium text-slate-700 bg-white/60 backdrop-blur-sm border border-slate-200/60 rounded-full hover:border-blue-300/50 hover:text-blue-700 transition-all">AI workflow</a>
+                <a href="blog.html#tag-productivity" class="px-4 py-2 text-xs font-medium text-slate-700 bg-white/60 backdrop-blur-sm border border-slate-200/60 rounded-full hover:border-blue-300/50 hover:text-blue-700 transition-all">Productivity tooling</a>
+                <a href="blog.html#tag-change-management" class="px-4 py-2 text-xs font-medium text-slate-700 bg-white/60 backdrop-blur-sm border border-slate-200/60 rounded-full hover:border-blue-300/50 hover:text-blue-700 transition-all">Change management</a>
+                <a href="blog.html#tag-integrations" class="px-4 py-2 text-xs font-medium text-slate-700 bg-white/60 backdrop-blur-sm border border-slate-200/60 rounded-full hover:border-blue-300/50 hover:text-blue-700 transition-all">Integrations</a>
+            </div>
+        </div>
+
+        <!-- Series Archive Link -->
+        <div class="reveal mt-12 bg-white/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-200/60">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div>
+                    <h3 class="text-lg font-medium text-slate-900 tracking-tight mb-1">Series archives</h3>
+                    <p class="text-sm text-slate-600 font-light">Need a recap? Visit the full series page for summaries, artifacts, and related resources.</p>
+                </div>
+                <a href="blog/series-how-i-almost-ai-everything.html" class="text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-1.5 shrink-0 group/link">
+                    Open series hub <iconify-icon icon="lucide:arrow-right" width="13" class="group-hover/link:translate-x-0.5 transition-transform"></iconify-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="border-t border-white/[0.06] bg-white/30 pt-20 pb-10 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-2 h-2 rounded-full bg-blue-600"></div>
+                    <span class="text-base font-semibold tracking-tight text-slate-900 uppercase">Tianxiang Zheng</span>
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed font-light">Economist designing inclusive labour markets in the age of automation.</p>
+                <div class="mt-3 flex flex-col gap-1 text-sm text-slate-700 font-medium">
+                    <a href="mailto:tianxiang.zheng.22@ucl.ac.uk" class="hover:text-slate-900 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:mail" width="14"></iconify-icon>tianxiang.zheng.22@ucl.ac.uk</a>
+                    <a href="mailto:marxzheng@outlook.com" class="hover:text-slate-900 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:mail" width="14"></iconify-icon>marxzheng@outlook.com</a>
+                </div>
+            </div>
+            <div class="flex gap-8 text-xs font-medium text-slate-600">
+                <a href="research.html" class="hover:text-slate-900 transition-colors">Research</a>
+                <a href="cv.html" class="hover:text-slate-900 transition-colors">CV</a>
+                <a href="contact.html" class="hover:text-slate-900 transition-colors">Contact</a>
+            </div>
+        </div>
+        <div class="border-t border-white/[0.06] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-[10px] text-slate-600 uppercase tracking-wider">&copy; 2026 Tianxiang Zheng.</p>
+            <div class="flex gap-6">
+                <a href="https://github.com/zhengtxecon" class="text-slate-600 hover:text-slate-900 transition-colors"><iconify-icon icon="lucide:github" width="16"></iconify-icon></a>
+                <a href="https://scholar.google.com/citations?user=yMayrcEAAAAJ" class="text-slate-600 hover:text-slate-900 transition-colors"><iconify-icon icon="lucide:graduation-cap" width="16"></iconify-icon></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            reveals.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) reveal.classList.add('active');
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+        const nav = document.getElementById('main-nav');
+        const handleNavScroll = () => {
+            if (!nav) return;
+            nav.classList.toggle('nav-scrolled', window.scrollY > 10);
+        };
+        window.addEventListener('scroll', handleNavScroll);
+        handleNavScroll();
+    });
+</script>
 </body>
-
 </html>

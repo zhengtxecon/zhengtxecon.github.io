@@ -1,204 +1,465 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tianxiang Zheng (郑天�? is an economist researching automation, labour markets, and development. Discover research, teaching, and collaboration opportunities.">
-    <title>Tianxiang Zheng (郑天�? · Economist & Researcher</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/home.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="assets/js/main.js" defer></script>
+    <meta name="description" content="Tianxiang Zheng (郑天翔) is an economist researching automation, labour markets, and development. Discover research, teaching, and collaboration opportunities.">
+    <title>Tianxiang Zheng (郑天翔) · Economist & Researcher</title>
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" />
+    
+    <!-- Iconify -->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'forest': {
+                            50:  '#eff6ff',  // Soft blue tint
+                            100: '#dbeafe',  // Light blue
+                            300: '#93c5fd',  // Light blue
+                            400: '#60a5fa',  // Blue
+                            500: '#3b82f6',  // Primary blue
+                            800: '#1d4ed8',  // Deep blue
+                            900: '#1e40af',  // Darker blue
+                            950: '#0b1f3a',  // Very dark blue
+                        },
+                        'mint': {
+                            300: '#9cdcdc',
+                            400: '#82d2e1',
+                            500: '#64c8dc',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-dm-sans {
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        /* Smooth Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: blur(10px);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        
+        /* Canvas removed - using Spectra */
+        
+        /* Grid Background */
+        .hero-grid {
+            background-image:
+                linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+                linear-gradient(rgba(37, 99, 235, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.025) 1px, transparent 1px);
+            background-size: 50px 50px, 50px 50px, 250px 250px, 250px 250px;
+            mask-image: radial-gradient(circle at 50% 0%, black, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at 50% 0%, black, transparent 80%);
+        }
+        
+        /* Light bar removed */
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #020408; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+        /* Nav scroll (match across pages) */
+        #main-nav {
+            transition: background-color 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
+        }
+        #main-nav.nav-scrolled {
+            background-color: rgba(11, 31, 58, 0.75);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        #main-nav.nav-scrolled .nav-brand { color: rgba(255,255,255,0.95) !important; }
+        #main-nav.nav-scrolled .nav-link { color: rgba(226,232,240,0.78) !important; }
+        #main-nav.nav-scrolled .nav-link:hover { color: rgba(255,255,255,0.98) !important; }
+        #main-nav.nav-scrolled .nav-link.is-active { color: rgba(255,255,255,0.98) !important; }
+        #main-nav.nav-scrolled .nav-btn {
+            color: rgba(255,255,255,0.95) !important;
+            border-color: rgba(226,232,240,0.25) !important;
+            background-color: rgba(255,255,255,0.08) !important;
+        }
+        #main-nav.nav-scrolled .nav-btn:hover {
+            background-color: rgba(255,255,255,0.14) !important;
+            border-color: rgba(147,197,253,0.55) !important;
+        }
+    </style>
 </head>
-<body>
-    <div id="header-placeholder"></div>
-    
-    <main class="home">
-        <section class="home-hero">
-            <div class="container hero-grid">
-                <div class="hero-copy">
-                    <span class="section-label"><i class="fas fa-graduation-cap"></i> PhD Candidate · UCL Economics</span>
-                    <div class="hero-title-group">
-                        <span class="hero-kicker">Hello, I'm</span>
-                        <h1 class="hero-name">Tianxiang Zheng <span class="hero-name-native">(郑天�?</span></h1>
-                    </div>
-                    <p class="hero-subtitle">Economist designing inclusive labour markets in the age of automation.</p>
-                    <p class="hero-summary">I study how technological change reshapes firms, workers, and policy in emerging economies. My work bridges computational social science, labour economics, and development to help decision-makers build resilient labour markets.</p>
 
-                    <div class="hero-actions">
-                        <a href="research.html" class="btn btn-primary"><i class="fas fa-chart-line"></i> Discover the research</a>
-                        <a href="cv.html" class="btn btn-ghost"><i class="fas fa-file-download"></i> Download CV</a>
-                    </div>
+<body class="bg-forest-50 text-slate-800 antialiased selection:bg-blue-600/30 selection:text-white overflow-x-hidden relative">
 
-                    <div class="hero-metrics">
-                        <div class="metric">
-                            <span class="metric-value">2</span>
-                            <span class="metric-label">Working papers</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">6</span>
-                            <span class="metric-label">Google Scholar citations</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">30</span>
-                            <span class="metric-label">CNKI citations (Chinese)</span>
-                        </div>
-                        <p class="hero-metrics__note">Citations last updated 10 Oct 2025.</p>
-                    </div>
+<!-- Spectra Background (Unicorn Studio) -->
+<div class="absolute top-0 left-0 w-full h-screen z-0 pointer-events-none mix-blend-screen" data-alpha-mask="80" style="mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent);">
+  <div class="absolute top-0 w-full h-full">
+    <div data-us-project="n869sLSzeDV4vFdUlTwJ" class="absolute w-full h-full left-0 top-0 -z-10"></div>
+    <script type="text/javascript">
+      !function(){if(!window.UnicornStudio){window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js",i.onload=function(){window.UnicornStudio.isInitialized||(UnicornStudio.init(),window.UnicornStudio.isInitialized=!0)},(document.head || document.body).appendChild(i)}}();
+    </script>
+  </div>
+</div>
 
-                </div>
+<!-- Simple Background -->
+<div class="fixed inset-0 w-full h-full -z-10 pointer-events-none overflow-hidden">
+    <!-- Blurred photo base -->
+    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/0dd9b13b-ea30-4e17-8a26-53d1f9d1c6d3_3840w.webp" alt="" class="absolute inset-0 w-full h-full object-cover blur-md brightness-[0.52] saturate-[1.15] contrast-[1.05] scale-110" />
 
-                <div class="hero-visual">
-                    <div class="hero-image">
-                        <img src="assets/images/profile.jpg" alt="Portrait of Tianxiang Zheng">
-                        <span class="hero-image-glow" aria-hidden="true"></span>
-                    </div>
-                    <div class="hero-card">
-                        <h3>Focus areas</h3>
-                        <ul>
-                            <li><i class="fas fa-robot"></i> Automation & labour market design</li>
-                            <li><i class="fas fa-city"></i> Urban development & inequality</li>
-                            <li><i class="fas fa-database"></i> Computational methods for policy</li>
-                        </ul>
-                    </div>
-                </div>
+    <!-- Subtle grid -->
+    <div class="absolute inset-0 hero-grid"></div>
+
+    <!-- Gradient overlays (blue-forward) -->
+    <div class="absolute inset-0 bg-gradient-to-b from-forest-100/90 via-forest-50/50 to-forest-100/55"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-forest-50/80 via-transparent to-forest-950/70"></div>
+</div>
+
+<!-- Navigation (Header Style) -->
+<nav id="main-nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-150">
+    <div class="relative">
+        <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between relative">
+            <!-- Brand -->
+            <a href="index.html" class="flex items-center gap-3">
+                <span class="nav-brand text-sm font-semibold tracking-tight text-slate-900 transition-colors duration-300">Tianxiang Zheng</span>
+            </a>
+
+            <!-- Links -->
+            <div class="hidden md:flex items-center gap-12 text-xs font-semibold tracking-[0.2em] uppercase">
+                <a href="research.html" class="nav-link text-slate-700 hover:text-slate-900 transition-colors duration-300">Research</a>
+                <a href="cv.html" class="nav-link text-slate-700 hover:text-slate-900 transition-colors duration-300">CV</a>
+                <a href="blog/" class="nav-link text-slate-700 hover:text-slate-900 transition-colors duration-300">Blog</a>
             </div>
-        </section>
 
-        <section class="home-section news-hub" aria-labelledby="home-news-heading">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-label"><i class="fas fa-bullhorn"></i> News</span>
-                    <h2 id="home-news-heading">Recent Updates</h2>
-                </div>
+            <!-- Actions -->
+            <div class="flex items-center gap-6">
+                <button onclick="window.location.href='contact.html'" class="nav-btn group relative px-5 py-2 text-xs font-semibold tracking-[0.2em] uppercase text-slate-700 border border-slate-400/30 rounded-full bg-white/50 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-blue-300/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] hover:text-slate-900">
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-100/40 to-transparent opacity-50"></div>
+                    <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50 group-hover:opacity-100 group-hover:h-[2px] blur-[1px] transition-all duration-500"></div>
+                    <span class="relative z-10">Contact</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
 
-                    <div class="news-grid">
-                        <article class="news-card">
-                            <div class="news-card__meta">
-                                <span class="news-card__date">October 2025</span>
-                                <span class="news-card__tag news-card__tag--teaching">Teaching</span>
+<!-- Hero Section -->
+<header class="relative min-h-screen flex items-center pt-24 pb-10" id="hero-section">
+    <!-- Mouse follower light bar removed -->
+    <div class="max-w-7xl mx-auto px-6 w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Left Content -->
+        <div class="lg:col-span-8 relative overflow-visible">
+            <!-- Status Badge -->
+            <div class="reveal delay-100 flex items-center gap-3 mb-10 pl-1">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+                </span>
+                <span class="text-[10px] font-medium tracking-[0.2em] text-slate-700 uppercase font-mono">PhD Candidate · UCL Economics</span>
+            </div>
+            
+            <!-- Main Title -->
+            <h1 class="reveal delay-200 text-5xl md:text-7xl font-serif-display italic font-medium leading-[1.3] tracking-tight text-slate-900 mb-8 pl-4 md:pl-8">
+                <span class="block text-sm md:text-base font-mono tracking-[0.2em] uppercase text-slate-700 not-italic mb-2">Hello, I'm</span>
+                <span class="block pb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-cyan-700 to-blue-800">Tianxiang</span>
+                <span class="block pb-2 pl-[5rem] md:pl-[8.5rem] text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-cyan-700 to-blue-800">Zheng <span class="text-xl md:text-2xl font-medium text-slate-700 not-italic align-baseline">郑天翔</span></span>
+            </h1>
+            
+            <!-- Subtitle -->
+            <p class="reveal delay-300 text-sm md:text-base text-slate-700 font-light leading-relaxed max-w-xl mb-12 border-l border-slate-600/20 pl-6" style="text-wrap: pretty;">
+                I study how technological change reshapes firms, workers, and policy in emerging economies. My work bridges computational social science, labour economics, and development to help decision-makers build resilient labour&nbsp;markets.
+            </p>
+            
+            <!-- Hero Buttons -->
+            <div class="reveal delay-300 flex flex-wrap items-center gap-5">
+                <!-- Primary Button -->
+                <button onclick="window.location.href='research.html'" class="group relative px-8 py-4 bg-white/50 backdrop-blur-md text-slate-700 rounded-full border border-slate-400/30 overflow-hidden transition-all hover:border-blue-300/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] hover:text-slate-900">
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-100/40 to-transparent opacity-50"></div>
+                    <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50 group-hover:opacity-100 group-hover:h-[2px] blur-[1px] transition-all duration-500"></div>
+                    <span class="relative z-10 text-sm font-medium flex items-center gap-2">
+                        Discover the research
+                    </span>
+                </button>
+
+                <!-- Secondary Button -->
+                <button onclick="window.location.href='cv.html'" class="group relative px-8 py-4 bg-white/50 backdrop-blur-md text-slate-700 rounded-full border border-slate-400/30 overflow-hidden transition-all hover:border-blue-300/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] hover:text-slate-900">
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-100/40 to-transparent opacity-50"></div>
+                    <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50 group-hover:opacity-100 group-hover:h-[2px] blur-[1px] transition-all duration-500"></div>
+                    <span class="relative z-10 text-sm font-medium flex items-center gap-2">
+                        Download CV
+                        <iconify-icon icon="lucide:arrow-right" class="opacity-60" width="16"></iconify-icon>
+                    </span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Right Visual Display (SPECTRA Style) -->
+        <div class="hidden lg:block lg:col-span-4 h-full relative min-h-[500px]">
+            <div class="absolute top-1/2 left-0 -translate-y-1/2 w-full max-w-sm">
+                <!-- Photo Card (System Style) -->
+                <div class="relative bg-white/60 backdrop-blur-2xl rounded-3xl p-4 shadow-2xl shadow-blue-900/15 border border-slate-200/60">
+                    <!-- Status Bar -->
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-lg bg-blue-100/80 flex items-center justify-center">
+                                <iconify-icon icon="lucide:graduation-cap" class="text-blue-600" width="16"></iconify-icon>
                             </div>
-                            <h3><a href="teaching.html#courses">Leading ECON0002 Economics tutorials (2025/26)</a></h3>
-                            <p>Serving as TA for UCL's core undergraduate economics sequence with data-informed tutorials and problem clinics.</p>
-                        </article>
-                        <article class="news-card">
-                            <div class="news-card__meta">
-                                <span class="news-card__date">October 2025</span>
-                                <span class="news-card__tag">Blog</span>
+                            <div class="w-8 h-8 rounded-lg bg-cyan-100/80 flex items-center justify-center">
+                                <iconify-icon icon="lucide:bar-chart-3" class="text-cyan-600" width="16"></iconify-icon>
                             </div>
-                            <h3><a href="blog/how-i-switched-from-github-copilot-to-chatgpt-pro-codex.html">How I switched from GitHub Copilot to ChatGPT Pro + Codex</a></h3>
-                            <p>New blog post on designing an agentic workflow that keeps research, writing, and teaching materials in sync across platforms.</p>
-                        </article>
-                        <article class="news-card">
-                            <div class="news-card__meta">
-                                <span class="news-card__date">October 2025</span>
-                                <span class="news-card__tag">Blog</span>
-                            </div>
-                            <h3><a href="blog/auto-calendar-email-to-outlook.html">Auto calendar: convert project emails into Outlook plans</a></h3>
-                            <p>A walkthrough of the new automation pipeline that transforms weekly status emails into shareable Outlook calendars in minutes.</p>
-                        </article>
-
+                        </div>
+                        <span class="text-[10px] font-mono text-blue-600 tracking-wider uppercase">PhD // UCL Economics</span>
                     </div>
-            </div>
-        </section>
-
-        <section class="home-section research-focus">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-label"><i class="fas fa-lightbulb"></i> Research agenda</span>
-                    <h2>Evidence-Based Insights for the Future of Work</h2>
-                    <p>Each project combines theory, data, and collaboration with institutions across the UK, Southeast Asia, and Latin America. Explore collaborations that quantify the human impact of technological change.</p>
-                </div>
-
-                <div class="focus-grid">
-                    <article class="focus-card">
-                        <div class="card-icon"><i class="fas fa-network-wired"></i></div>
-                        <h3>AI adoption & firm strategy</h3>
-                        <p>Mapping how firms deploy automation and generative AI, and the resulting organisational choices that shape productivity and employment.</p>
-                        <a href="research.html#automation" class="card-link">View projects <i class="fas fa-arrow-right"></i></a>
-                    </article>
-
-                    <article class="focus-card">
-                        <div class="card-icon"><i class="fas fa-globe-asia"></i></div>
-                        <h3>Development under disruption</h3>
-                        <p>Studying inclusive growth pathways as emerging economies adopt new technologies, from manufacturing automation to digital platforms.</p>
-                        <a href="research.html#development" class="card-link">Read summaries <i class="fas fa-arrow-right"></i></a>
-                    </article>
-
-                    <article class="focus-card">
-                        <div class="card-icon"><i class="fas fa-handshake-angle"></i></div>
-                        <h3>Collaborative policy design</h3>
-                        <p>Working with public agencies to prototype data-driven policies that anticipate labour transitions and support workers & students.</p>
-                        <a href="contact.html" class="card-link">Partner with the lab <i class="fas fa-arrow-right"></i></a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="home-section featured-output">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-label"><i class="fas fa-chart-line"></i> Highlights</span>
-                    <h2>Featured Outputs & Current Work</h2>
-                </div>
-
-                <div class="output-grid">
-                    <article class="output-card">
-                        <div class="output-meta">
-                            <span class="tag">Working paper</span>
-                            <span>2025</span>
+                    <!-- Photo -->
+                    <div class="relative rounded-2xl overflow-hidden">
+                        <img src="assets/images/profile.jpg" alt="Portrait of Tianxiang Zheng" class="w-full aspect-[4/5] object-cover">
+                        <!-- Connected Badge -->
+                        <div class="absolute bottom-3 right-3 flex items-center gap-2 px-3 py-1.5 bg-slate-900/60 backdrop-blur-md rounded-full">
+                            <div class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+                            <span class="text-[10px] text-white font-medium uppercase tracking-wider">Open to collaborate</span>
                         </div>
-                        <h3>The Numbers Game: Pricing strategies in housing negotiations</h3>
-                        <p>Evidence from offer-level data shows how precision pricing shapes bargaining outcomes, with implications for consumer protection and agent training.</p>
-                        <div class="output-actions">
-                            <a href="research.html#working-papers" class="btn btn-ghost">Read abstract</a>
-                            <a href="assets/files/data_tech_extended.pdf" class="btn btn-secondary"><i class="fas fa-file-pdf"></i> Extended abstract</a>
-                        </div>
-                    </article>
+                    </div>
+                </div>
+                <!-- Corner Accents -->
+                <div class="absolute -top-6 -right-6 w-28 h-28 bg-blue-300/25 rounded-full blur-2xl"></div>
+                <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-cyan-300/25 rounded-full blur-2xl"></div>
+            </div>
+        </div>
+    </div>
+</header>
 
-                    <article class="output-card">
-                        <div class="output-meta">
-                            <span class="tag">Data product</span>
-                            <span>Partnership ready</span>
+<!-- Info Cards -->
+<section class="relative z-10 -mt-16 pb-16">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between gap-6">
+            <!-- Focus Areas Card -->
+            <a href="research.html" class="reveal delay-100 md:w-1/2 bg-[#0a1628]/70 backdrop-blur-2xl text-white rounded-2xl p-5 md:p-6 flex items-center justify-between shadow-2xl shadow-forest-950/20 border border-white/10 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                <div class="relative z-10">
+                    <h3 class="text-lg font-medium mb-4 tracking-tight font-dm-sans">Focus Areas</h3>
+                    <div class="space-y-2.5">
+                        <div class="flex items-center gap-2.5 text-sm text-white/80 font-light">
+                            <iconify-icon icon="lucide:bot" class="text-blue-400" width="15"></iconify-icon>
+                            <span>Automation & labour market design</span>
                         </div>
-                        <h3>Automation exposure dashboards for policy teams</h3>
-                        <p>Interactive tools translating large language models and administrative data into actionable labour-market monitoring.</p>
-                        <div class="output-actions">
-                            <a href="contact.html" class="btn btn-primary"><i class="fas fa-envelope-open-text"></i> Request a demo</a>
+                        <div class="flex items-center gap-2.5 text-sm text-white/80 font-light">
+                            <iconify-icon icon="lucide:building-2" class="text-cyan-400" width="15"></iconify-icon>
+                            <span>Urban development & inequality</span>
                         </div>
-                    </article>
+                        <div class="flex items-center gap-2.5 text-sm text-white/80 font-light">
+                            <iconify-icon icon="lucide:database" class="text-blue-300" width="15"></iconify-icon>
+                            <span>Computational methods for policy</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-7 h-7 rounded-full border border-white/20 bg-white/5 flex items-center justify-center shrink-0 ml-4 group-hover:bg-blue-500/20 group-hover:border-blue-400/50 transition-colors">
+                    <iconify-icon icon="lucide:arrow-up-right" width="14"></iconify-icon>
+                </div>
+            </a>
 
+            <!-- Citations Card -->
+            <div class="reveal delay-200 md:w-full md:max-w-sm bg-[#0a1628]/70 backdrop-blur-2xl border border-white/10 rounded-2xl p-5 md:p-6 shadow-2xl shadow-forest-950/20 hover:border-blue-500/20 transition-colors duration-300">
+                <h3 class="text-lg font-medium text-white mb-4 tracking-tight font-dm-sans">Citations</h3>
+                <div class="flex justify-between mb-4">
+                    <div>
+                        <span class="text-2xl font-bold text-white">2</span>
+                        <span class="block text-[10px] text-blue-400 uppercase tracking-wider">Working papers</span>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-bold text-white">6</span>
+                        <span class="block text-[10px] text-cyan-400 uppercase tracking-wider">Google Scholar</span>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-bold text-white">30</span>
+                        <span class="block text-[10px] text-blue-300 uppercase tracking-wider">CNKI</span>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <span class="text-[10px] text-white/40 font-mono uppercase tracking-wider">Last updated 10 Oct 2025</span>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
-        <section class="collaboration-banner">
-            <div class="container banner-inner">
-                <div class="banner-copy">
-                    <h2>Seeking Coauthors Who Care About Equitable Technology Adoption.</h2>
-                    <p>I collaborate with economists, data scientists, and development practitioners to turn large datasets into actionable insight. Let's co-design projects that matter for policy and practice.</p>
+<!-- Recent Updates (News) -->
+<section id="updates" class="relative z-10 py-24">
+    <div class="absolute inset-0 bg-forest-950/80"></div>
+    <div class="max-w-7xl mx-auto px-6 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div class="lg:col-span-4">
+                <p class="text-sm text-white/70 leading-relaxed max-w-md font-light">
+                    Updates on teaching, writing, and research—new posts, course support, and ongoing projects.
+                </p>
+            </div>
+
+            <div class="lg:col-span-8">
+                <h2 class="text-4xl md:text-6xl font-light tracking-tight text-white leading-[1.05] text-right">
+                    Recent <span class="text-blue-500">Updates</span>
+                </h2>
+            </div>
+        </div>
+
+        <div class="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-10">
+            <div class="lg:col-span-12">
+                <div class="border-t border-white/10">
+                    <a href="teaching.html#courses" class="group block py-8 border-b border-white/10 transition-colors">
+                        <div class="flex items-start justify-between gap-8">
+                            <div>
+                                <div class="flex flex-wrap items-center gap-3 text-[10px] font-mono uppercase tracking-[0.2em] text-white/50 mb-3">
+                                    <span>October 2025</span>
+                                    <span class="px-2 py-0.5 rounded-full border border-white/10 text-forest-300">Teaching</span>
+                                </div>
+                                <h3 class="text-xl md:text-2xl text-white font-dm-sans font-light tracking-tight leading-snug">
+                                    Leading ECON0002 Economics tutorials (2025/26)
+                                </h3>
+                                <p class="mt-2 text-sm text-white/65 font-light leading-relaxed">
+                                    Serving as TA for UCL's core undergraduate economics sequence with data-informed tutorials and problem clinics.
+                                </p>
+                            </div>
+                            <div class="shrink-0 mt-1 w-10 h-10 rounded-full border border-white/15 bg-white/5 flex items-center justify-center text-white/60 group-hover:text-forest-300 group-hover:border-forest-500/50 group-hover:bg-forest-500/15 transition-colors">
+                                <iconify-icon icon="lucide:plus" width="18" stroke-width="1.5"></iconify-icon>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="blog/how-i-switched-from-github-copilot-to-chatgpt-pro-codex.html" class="group block py-8 border-b border-white/10 transition-colors">
+                        <div class="flex items-start justify-between gap-8">
+                            <div>
+                                <div class="flex flex-wrap items-center gap-3 text-[10px] font-mono uppercase tracking-[0.2em] text-white/50 mb-3">
+                                    <span>October 2025</span>
+                                    <span class="px-2 py-0.5 rounded-full border border-white/10 text-forest-300">Blog</span>
+                                </div>
+                                <h3 class="text-xl md:text-2xl text-white font-dm-sans font-light tracking-tight leading-snug">
+                                    How I switched from GitHub Copilot to ChatGPT Pro + Codex
+                                </h3>
+                                <p class="mt-2 text-sm text-white/65 font-light leading-relaxed">
+                                    Designing an agentic workflow that keeps research, writing, and teaching materials in sync across platforms.
+                                </p>
+                            </div>
+                            <div class="shrink-0 mt-1 w-10 h-10 rounded-full border border-white/15 bg-white/5 flex items-center justify-center text-white/60 group-hover:text-forest-300 group-hover:border-forest-500/50 group-hover:bg-forest-500/15 transition-colors">
+                                <iconify-icon icon="lucide:plus" width="18" stroke-width="1.5"></iconify-icon>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="blog/auto-calendar-email-to-outlook.html" class="group block py-8 border-b border-white/10 transition-colors">
+                        <div class="flex items-start justify-between gap-8">
+                            <div>
+                                <div class="flex flex-wrap items-center gap-3 text-[10px] font-mono uppercase tracking-[0.2em] text-white/50 mb-3">
+                                    <span>October 2025</span>
+                                    <span class="px-2 py-0.5 rounded-full border border-white/10 text-forest-300">Blog</span>
+                                </div>
+                                <h3 class="text-xl md:text-2xl text-white font-dm-sans font-light tracking-tight leading-snug">
+                                    Auto calendar: convert project emails into Outlook plans
+                                </h3>
+                                <p class="mt-2 text-sm text-white/65 font-light leading-relaxed">
+                                    A walkthrough of an automation pipeline that transforms weekly status emails into shareable Outlook calendars in minutes.
+                                </p>
+                            </div>
+                            <div class="shrink-0 mt-1 w-10 h-10 rounded-full border border-white/15 bg-white/5 flex items-center justify-center text-white/60 group-hover:text-forest-300 group-hover:border-forest-500/50 group-hover:bg-forest-500/15 transition-colors">
+                                <iconify-icon icon="lucide:plus" width="18" stroke-width="1.5"></iconify-icon>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="banner-actions">
-                    <a href="research.html#collaboration" class="btn btn-ghost">See collaboration themes</a>
-                    <a href="contact.html" class="btn btn-primary">Start a conversation</a>
+                <div class="mt-8 text-sm text-white/60 font-light">
+                    Looking for older updates? <a href="blog/" class="text-forest-200 hover:text-forest-300 border-b border-white/20 hover:border-forest-300 transition-colors">Browse the blog</a>.
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
-        <section class="home-section final-cta">
-            <div class="container final-cta-inner">
-                <div>
-                    <h2>Let's Build Rigorous, Human-Centred Evidence Together.</h2>
-                    <p>Whether you're a researcher, policymaker, or student, I would love to collaborate on projects that make technology work for people.</p>
+<!-- Footer -->
+<footer class="border-t border-white/[0.06] bg-white/30 pt-20 pb-10 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-2 h-2 rounded-full bg-blue-600"></div>
+                    <span class="text-base font-semibold tracking-tight text-slate-900 uppercase">Tianxiang Zheng</span>
                 </div>
-                <div class="final-cta-actions">
-                    <a href="contact.html" class="btn btn-primary">Contact Tianxiang</a>
-                    <a href="cv.html" class="btn btn-secondary">CV at a glance</a>
+                <p class="text-xs text-slate-600 leading-relaxed font-light">Economist designing inclusive labour markets in the age of automation.</p>
+                <div class="mt-3 flex flex-col gap-1 text-sm text-slate-700 font-medium">
+                    <a href="mailto:tianxiang.zheng.22@ucl.ac.uk" class="hover:text-slate-900 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:mail" width="14"></iconify-icon>tianxiang.zheng.22@ucl.ac.uk</a>
+                    <a href="mailto:marxzheng@outlook.com" class="hover:text-slate-900 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:mail" width="14"></iconify-icon>marxzheng@outlook.com</a>
                 </div>
             </div>
-        </section>
-    </main>
-    
-    <div id="footer-placeholder"></div>
+
+            <div class="flex gap-8 text-xs font-medium text-slate-600">
+                <a href="#" class="hover:text-slate-900 transition-colors">Research</a>
+                <a href="#" class="hover:text-slate-900 transition-colors">CV</a>
+                <a href="#" class="hover:text-slate-900 transition-colors">Contact</a>
+            </div>
+        </div>
+        
+        <div class="border-t border-white/[0.06] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-[10px] text-slate-600 uppercase tracking-wider">© 2026 Tianxiang Zheng.</p>
+            <div class="flex gap-6">
+                <a href="#" class="text-slate-600 hover:text-white transition-colors">
+                    <iconify-icon icon="lucide:github" width="16"></iconify-icon>
+                </a>
+                <a href="#" class="text-slate-600 hover:text-white transition-colors">
+                    <iconify-icon icon="lucide:twitter" width="16"></iconify-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Mouse follower light bar removed
+        
+        // Reveal on Scroll
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 100;
+            reveals.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // Nav scroll effect
+        const nav = document.getElementById('main-nav');
+        const handleNavScroll = () => {
+            if (!nav) return;
+            nav.classList.toggle('nav-scrolled', window.scrollY > 10);
+        };
+        window.addEventListener('scroll', handleNavScroll);
+        handleNavScroll();
+    });
+</script>
+
 </body>
 </html>

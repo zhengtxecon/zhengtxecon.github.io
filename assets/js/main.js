@@ -300,7 +300,7 @@ function highlightActivePage() {
         const href = link.getAttribute('href');
         const normalizedHref = normalizePath(href) || (href === '' ? 'index.html' : href);
         const matchesCurrent = normalizedHref === page;
-        const matchesBlogContext = blogContexts.has(pageContext) && href === 'blog.html';
+        const matchesBlogContext = blogContexts.has(pageContext) && normalizedHref.endsWith('blog.html');
 
         if (matchesCurrent || matchesBlogContext) {
             link.classList.add('is-active');

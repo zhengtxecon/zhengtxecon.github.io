@@ -42,48 +42,14 @@ mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transpa
 </style></head>
 <body class="bg-[#050505] text-slate-300 antialiased selection:bg-blue-500/30 selection:text-blue-200 overflow-x-hidden">
 
-<!-- Background Layer with Fallback -->
-<div id="background-container" class="fixed inset-0 -z-10">
-    <!-- Fallback gradient background (always visible) -->
-    <div class="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent"></div>
-    
-    <!-- Unicorn Studio animated background (loads on top) -->
-    <div id="unicorn-container" class="absolute inset-0 opacity-0 transition-opacity duration-1000" style="mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent);">
-        <div data-us-project="FixNvEwvWwbu3QX9qC3F" class="absolute w-full h-full"></div>
-    </div>
-</div>
+<!-- Background added by Aura -->
+<div class="aura-background-component fixed top-0 w-full h-screen -z-10" data-alpha-mask="80" style="mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)"><div class="aura-background-component top-0 w-full -z-10 absolute h-full">
+  <div data-us-project="FixNvEwvWwbu3QX9qC3F" class="absolute w-full h-full left-0 top-0 -z-10"></div>
+  <script type="text/javascript">
+    !function(){if(!window.UnicornStudio){window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js",i.onload=function(){window.UnicornStudio.isInitialized||(UnicornStudio.init(),window.UnicornStudio.isInitialized=!0)},(document.head || document.body).appendChild(i)}}();
+  </script>
+</div></div>
 
-<!-- Unicorn Studio Script with error handling -->
-<script>
-(function() {
-    // Load Unicorn Studio
-    if (!window.UnicornStudio) {
-        window.UnicornStudio = { isInitialized: false };
-        var script = document.createElement("script");
-        script.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js";
-        script.onload = function() {
-            if (!window.UnicornStudio.isInitialized) {
-                try {
-                    UnicornStudio.init();
-                    window.UnicornStudio.isInitialized = true;
-                    // Fade in Unicorn Studio background after successful load
-                    setTimeout(function() {
-                        document.getElementById('unicorn-container').style.opacity = '1';
-                    }, 500);
-                    console.log('✅ Unicorn Studio loaded successfully');
-                } catch(e) {
-                    console.warn('⚠️ Unicorn Studio init failed:', e);
-                }
-            }
-        };
-        script.onerror = function() {
-            console.warn('⚠️ Unicorn Studio failed to load, using fallback background');
-        };
-        (document.head || document.body).appendChild(script);
-    }
-})();
-</script>
 <!-- Navigation (Pill Style) -->
 <nav class="fixed top-6 inset-x-0 z-50 flex justify-center items-center pointer-events-none">
     <div class="pointer-events-auto flex items-center gap-8 px-2 py-2 pl-6 bg-[#0A0A0A]/80 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl shadow-black/50 transition-all hover:border-white/20 hover:bg-[#0A0A0A]/90">
