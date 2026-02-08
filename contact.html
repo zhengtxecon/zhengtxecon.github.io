@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,380 +30,437 @@
         .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
+        /* Custom scrollbar – hidden by default, visible on hover */
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #020408; }
-        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: transparent; border-radius: 3px; }
+        body:hover::-webkit-scrollbar-thumb { background: rgba(148,163,184,0.35); }
+        body:hover::-webkit-scrollbar-thumb:hover { background: rgba(148,163,184,0.55); }
+        html { scrollbar-width: thin; scrollbar-color: transparent transparent; }
+        body:hover { scrollbar-color: rgba(148,163,184,0.35) transparent; }
+        @media (hover: none) {
+            ::-webkit-scrollbar { display: none; }
+            html { scrollbar-width: none; }
+        }
         .contact-honeypot { display: none !important; }
+
+        .hero-grid {
+            background-image:
+                linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+                linear-gradient(rgba(37, 99, 235, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.025) 1px, transparent 1px);
+            background-size: 50px 50px, 50px 50px, 250px 250px, 250px 250px;
+            mask-image: radial-gradient(circle at 50% 0%, black, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at 50% 0%, black, transparent 80%);
+        }
+
+        #main-nav { transition: background-color 250ms ease, border-color 250ms ease, box-shadow 250ms ease; }
+        #main-nav.nav-scrolled {
+            background-color: rgba(11, 31, 58, 0.75);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        }
+        #main-nav.nav-scrolled .nav-brand { color: rgba(255,255,255,0.95) !important; }
+        #main-nav.nav-scrolled .nav-link { color: rgba(226,232,240,0.78) !important; }
+        #main-nav.nav-scrolled .nav-link:hover { color: rgba(255,255,255,0.98) !important; }
+        #main-nav.nav-scrolled .nav-link.is-active { color: rgba(255,255,255,0.98) !important; }
+        #main-nav.nav-scrolled .nav-btn {
+            color: rgba(255,255,255,0.95) !important; border-color: rgba(226,232,240,0.25) !important;
+            background-color: rgba(255,255,255,0.08) !important;
+        }
+        #main-nav.nav-scrolled .nav-btn:hover {
+            background-color: rgba(255,255,255,0.14) !important; border-color: rgba(147,197,253,0.55) !important;
+        }
+        #main-nav.nav-scrolled #mobile-menu-btn { color: rgba(255,255,255,0.9) !important; }
+        #main-nav.nav-scrolled #mobile-menu {
+            background-color: rgba(11, 31, 58, 0.92) !important;
+            border-color: rgba(255,255,255,0.08) !important;
+        }
+        #main-nav.nav-scrolled #mobile-menu a { color: rgba(226,232,240,0.85) !important; }
+        #main-nav.nav-scrolled #mobile-menu a:hover { color: rgba(255,255,255,1) !important; }
     </style>
 </head>
 <body class="bg-forest-50 text-slate-800 antialiased selection:bg-blue-600/30 selection:text-white overflow-x-hidden relative">
 
-    <!-- Background -->
-    <div class="fixed inset-0 w-full h-full -z-10 pointer-events-none overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-b from-forest-50 via-white to-forest-50"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-forest-950/60"></div>
-    </div>
+<!-- Background -->
+<div class="fixed inset-0 w-full h-full -z-10 pointer-events-none overflow-hidden">
+    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/0dd9b13b-ea30-4e17-8a26-53d1f9d1c6d3_3840w.webp" alt="" class="absolute inset-0 w-full h-full object-cover blur-md brightness-[0.52] saturate-[1.15] contrast-[1.05] scale-110" />
+    <div class="absolute inset-0 hero-grid"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-forest-100/90 via-forest-50/50 to-forest-100/55"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-forest-50/80 via-transparent to-forest-950/70"></div>
+</div>
 
-    <!-- Nav -->
-    <nav id="main-nav" class="fixed top-0 inset-x-0 z-50 bg-slate-900/95 backdrop-blur-xl shadow-lg">
-        <div class="relative">
-            <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between relative">
-                <a href="index.html" class="flex items-center gap-3">
-                    <span class="nav-brand text-sm font-semibold tracking-tight text-white">Tianxiang Zheng</span>
-                </a>
-                <div class="hidden md:flex items-center gap-12 text-xs font-semibold tracking-[0.2em] uppercase">
-                    <a href="research.html" class="nav-link text-slate-300 hover:text-white transition-colors duration-300">Research</a>
-                    <a href="cv.html" class="nav-link text-slate-300 hover:text-white transition-colors duration-300">CV</a>
-                    <a href="blog/" class="nav-link text-slate-300 hover:text-white transition-colors duration-300">Blog</a>
-                </div>
-                <div class="flex items-center gap-6">
-                    <button onclick="window.location.href='contact.html'" class="nav-btn group relative px-5 py-2 text-xs font-semibold tracking-[0.2em] uppercase text-white border border-blue-400/50 rounded-full bg-white/15 overflow-hidden transition-all duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-blue-100/10 to-transparent opacity-50"></div>
-                        <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-80"></div>
-                        <span class="relative z-10">Contact</span>
-                    </button>
-                </div>
+<!-- Navigation -->
+<nav id="main-nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-150">
+    <div class="relative">
+        <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between relative">
+            <a href="index.html" class="flex items-center gap-3">
+                <span class="nav-brand text-sm font-semibold tracking-tight text-slate-900 transition-colors duration-300">Tianxiang Zheng</span>
+            </a>
+            <div class="hidden md:flex items-center gap-12 text-xs font-semibold tracking-[0.2em] uppercase">
+                <a href="research.html" class="nav-link text-slate-700 hover:text-slate-900 transition-colors duration-300">Research</a>
+                <a href="cv.html" class="nav-link text-slate-700 hover:text-slate-900 transition-colors duration-300">CV</a>
+                <a href="blog/" class="nav-link text-slate-700 hover:text-slate-900 transition-colors duration-300">Blog</a>
+            </div>
+            <div class="flex items-center gap-6">
+                <button onclick="window.location.href='contact.html'" class="nav-btn hidden md:inline-flex group relative px-5 py-2 text-xs font-semibold tracking-[0.2em] uppercase text-slate-700 border border-slate-400/30 rounded-full bg-white/50 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-blue-300/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] hover:text-slate-900">
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-100/40 to-transparent opacity-50"></div>
+                    <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50 group-hover:opacity-100 group-hover:h-[2px] blur-[1px] transition-all duration-500"></div>
+                    <span class="relative z-10">Contact</span>
+                </button>
+                <button id="mobile-menu-btn" class="md:hidden w-9 h-9 flex items-center justify-center rounded-lg text-slate-700 hover:text-slate-900 transition-colors" aria-label="Toggle menu">
+                    <iconify-icon icon="lucide:menu" width="20" id="menu-icon-open"></iconify-icon>
+                    <iconify-icon icon="lucide:x" width="20" id="menu-icon-close" class="hidden"></iconify-icon>
+                </button>
             </div>
         </div>
-    </nav>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white/90 backdrop-blur-2xl border-t border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-3">
+            <a href="research.html" class="text-sm font-semibold tracking-[0.1em] uppercase text-slate-700 hover:text-blue-600 py-2 transition-colors">Research</a>
+            <a href="cv.html" class="text-sm font-semibold tracking-[0.1em] uppercase text-slate-700 hover:text-blue-600 py-2 transition-colors">CV</a>
+            <a href="blog/" class="text-sm font-semibold tracking-[0.1em] uppercase text-slate-700 hover:text-blue-600 py-2 transition-colors">Blog</a>
+            <a href="contact.html" class="text-sm font-semibold tracking-[0.1em] uppercase text-slate-700 hover:text-blue-600 py-2 transition-colors">Contact</a>
+        </div>
+    </div>
+</nav>
 
-    <!-- Hero Section -->
-    <section class="pt-32 pb-16 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col lg:flex-row gap-12 items-start">
-                <!-- Header Copy -->
-                <div class="flex-1 reveal">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-8 h-[2px] bg-gradient-to-r from-blue-500 to-blue-300"></div>
-                        <span class="text-xs font-semibold tracking-[0.25em] uppercase text-blue-600">Contact</span>
+<!-- Page Header -->
+<header class="pt-40 pb-16 relative">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col lg:flex-row gap-12 items-start">
+            <div class="flex-1 reveal">
+                <h1 class="font-dm-sans text-5xl md:text-6xl font-light tracking-tight mb-6">
+                    <span class="bg-gradient-to-r from-slate-900 via-blue-900 to-blue-700 bg-clip-text text-transparent">Let's build evidence</span><br>
+                    <span class="bg-gradient-to-r from-blue-700 via-blue-500 to-blue-400 bg-clip-text text-transparent pr-1">together</span>
+                </h1>
+                <p class="text-base text-slate-600 leading-relaxed max-w-xl mb-8 font-light">
+                    I collaborate with researchers, policy teams, and students to turn data into meaningful labour-market insights. Share a short note and I'll follow up within two working days.
+                </p>
+
+                <!-- Contact Meta -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="bg-white/60 backdrop-blur-sm border border-slate-200/60 rounded-xl p-4">
+                        <p class="text-[10px] font-semibold tracking-[0.15em] uppercase text-slate-400 mb-1">Primary email</p>
+                        <a href="mailto:tianxiang.zheng.22@ucl.ac.uk" class="text-sm font-medium text-slate-800 hover:text-blue-600 transition-colors">tianxiang.zheng.22@ucl.ac.uk</a>
                     </div>
-                    <h1 class="font-dm-sans text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.1]">
-                        Let's build evidence<br>
-                        <span class="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">together</span>
-                    </h1>
-                    <p class="text-base text-slate-600 leading-relaxed max-w-xl mb-8 font-light">
-                        I collaborate with researchers, policy teams, and students to turn data into meaningful labour-market insights. Share a short note and I'll follow up within two working days.
-                    </p>
-
-                    <!-- Breadcrumbs -->
-                    <div class="flex items-center gap-2 text-xs text-slate-500 mb-8">
-                        <a href="index.html" class="hover:text-blue-600 transition-colors">Home</a>
-                        <span>/</span>
-                        <span class="text-slate-800 font-medium">Contact</span>
+                    <div class="bg-white/60 backdrop-blur-sm border border-slate-200/60 rounded-xl p-4">
+                        <p class="text-[10px] font-semibold tracking-[0.15em] uppercase text-slate-400 mb-1">Time zone</p>
+                        <p class="text-sm font-medium text-slate-800">London &middot; GMT / BST</p>
                     </div>
-
-                    <!-- Contact Meta -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div class="bg-white/60 backdrop-blur-sm border border-slate-200/60 rounded-xl p-4">
-                            <p class="text-[10px] font-semibold tracking-[0.15em] uppercase text-slate-400 mb-1">Primary email</p>
-                            <a href="mailto:tianxiang.zheng.22@ucl.ac.uk" class="text-sm font-medium text-slate-800 hover:text-blue-600 transition-colors">tianxiang.zheng.22@ucl.ac.uk</a>
-                        </div>
-                        <div class="bg-white/60 backdrop-blur-sm border border-slate-200/60 rounded-xl p-4">
-                            <p class="text-[10px] font-semibold tracking-[0.15em] uppercase text-slate-400 mb-1">Time zone</p>
-                            <p class="text-sm font-medium text-slate-800">London &middot; GMT / BST</p>
-                        </div>
-                        <div class="bg-white/60 backdrop-blur-sm border border-slate-200/60 rounded-xl p-4">
-                            <p class="text-[10px] font-semibold tracking-[0.15em] uppercase text-slate-400 mb-1">Location</p>
-                            <p class="text-sm font-medium text-slate-800">UCL Dept of Economics</p>
-                        </div>
-                    </div>
-
-                    <!-- Badges -->
-                    <div class="flex flex-wrap gap-3 mt-6">
-                        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-xs font-medium text-blue-700">
-                            <iconify-icon icon="lucide:flask-conical" width="14"></iconify-icon> Research collaborations
-                        </span>
-                        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-xs font-medium text-blue-700">
-                            <iconify-icon icon="lucide:message-circle" width="14"></iconify-icon> Policy briefings
-                        </span>
-                        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-xs font-medium text-blue-700">
-                            <iconify-icon icon="lucide:graduation-cap" width="14"></iconify-icon> Student mentoring
-                        </span>
+                    <div class="bg-white/60 backdrop-blur-sm border border-slate-200/60 rounded-xl p-4">
+                        <p class="text-[10px] font-semibold tracking-[0.15em] uppercase text-slate-400 mb-1">Location</p>
+                        <p class="text-sm font-medium text-slate-800">UCL Dept of Economics</p>
                     </div>
                 </div>
 
-                <!-- Profile Sidebar Card -->
-                <aside class="reveal delay-200 w-full lg:w-80 shrink-0">
-                    <div class="bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-2xl p-6 shadow-sm">
-                        <div class="flex flex-col items-center mb-6">
-                            <img src="assets/images/profile.jpg" alt="Portrait of Tianxiang Zheng" class="w-28 h-28 rounded-full object-cover border-4 border-white shadow-lg mb-4">
-                            <div class="flex items-center gap-4">
-                                <a href="mailto:tianxiang.zheng.22@ucl.ac.uk" class="text-slate-500 hover:text-blue-600 transition-colors" aria-label="Email">
-                                    <iconify-icon icon="lucide:mail" width="18"></iconify-icon>
-                                </a>
-                                <a href="https://scholar.google.com/citations?user=yMayrcEAAAAJ" target="_blank" rel="noopener" class="text-slate-500 hover:text-blue-600 transition-colors" aria-label="Google Scholar">
-                                    <iconify-icon icon="lucide:graduation-cap" width="18"></iconify-icon>
-                                </a>
-                                <a href="https://github.com/zhengtxecon" target="_blank" rel="noopener" class="text-slate-500 hover:text-blue-600 transition-colors" aria-label="GitHub">
-                                    <iconify-icon icon="lucide:github" width="18"></iconify-icon>
-                                </a>
-                                <a href="https://www.linkedin.com/in/tianxiang-marx-zheng-187ab0131/" target="_blank" rel="noopener" class="text-slate-500 hover:text-blue-600 transition-colors" aria-label="LinkedIn">
-                                    <iconify-icon icon="lucide:linkedin" width="18"></iconify-icon>
-                                </a>
+                <!-- Badges -->
+                <div class="flex flex-wrap gap-3 mt-6">
+                    <span class="px-3 py-1.5 text-[10px] font-mono uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200/50 rounded-full flex items-center gap-1.5">
+                        <iconify-icon icon="lucide:flask-conical" width="12"></iconify-icon> Research collaborations
+                    </span>
+                    <span class="px-3 py-1.5 text-[10px] font-mono uppercase tracking-wider text-cyan-700 bg-cyan-50 border border-cyan-200/50 rounded-full flex items-center gap-1.5">
+                        <iconify-icon icon="lucide:message-circle" width="12"></iconify-icon> Policy briefings
+                    </span>
+                    <span class="px-3 py-1.5 text-[10px] font-mono uppercase tracking-wider text-slate-600 bg-slate-50 border border-slate-200/50 rounded-full flex items-center gap-1.5">
+                        <iconify-icon icon="lucide:graduation-cap" width="12"></iconify-icon> Student mentoring
+                    </span>
+                </div>
+            </div>
+
+            <!-- Profile Sidebar Card -->
+            <aside class="reveal delay-200 w-full lg:w-80 shrink-0">
+                <div class="bg-white/60 backdrop-blur-2xl border border-slate-200/60 rounded-2xl p-6 shadow-lg shadow-blue-900/10">
+                    <div class="flex flex-col items-center mb-6">
+                        <img src="assets/images/profile.jpg" alt="Portrait of Tianxiang Zheng" class="w-28 h-28 rounded-full object-cover border-4 border-white shadow-lg mb-4">
+                        <div class="flex items-center gap-4">
+                            <a href="mailto:tianxiang.zheng.22@ucl.ac.uk" class="text-slate-500 hover:text-blue-600 transition-colors" aria-label="Email">
+                                <iconify-icon icon="lucide:mail" width="18"></iconify-icon>
+                            </a>
+                            <a href="https://scholar.google.com/citations?user=yMayrcEAAAAJ" target="_blank" rel="noopener" class="text-slate-500 hover:text-blue-600 transition-colors" aria-label="Google Scholar">
+                                <iconify-icon icon="lucide:graduation-cap" width="18"></iconify-icon>
+                            </a>
+                            <a href="https://github.com/zhengtxecon" target="_blank" rel="noopener" class="text-slate-500 hover:text-blue-600 transition-colors" aria-label="GitHub">
+                                <iconify-icon icon="lucide:github" width="18"></iconify-icon>
+                            </a>
+                            <a href="https://www.linkedin.com/in/tianxiang-marx-zheng-187ab0131/" target="_blank" rel="noopener" class="text-slate-500 hover:text-blue-600 transition-colors" aria-label="LinkedIn">
+                                <iconify-icon icon="lucide:linkedin" width="18"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="space-y-4 text-sm text-slate-700 font-light">
+                        <div class="flex items-start gap-3">
+                            <iconify-icon icon="lucide:calendar-check" width="16" class="text-blue-600 mt-0.5 shrink-0"></iconify-icon>
+                            <span>Meetings by appointment &middot; virtual or UCL campus</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <iconify-icon icon="lucide:target" width="16" class="text-cyan-600 mt-0.5 shrink-0"></iconify-icon>
+                            <span>Best for: automation research, policy dashboards, teaching partnerships</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <iconify-icon icon="lucide:clock" width="16" class="text-blue-500 mt-0.5 shrink-0"></iconify-icon>
+                            <span>Typical reply time: within 48 hours</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content: Form + Sidebar -->
+<main class="pb-20 relative z-10">
+    <section class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col lg:flex-row gap-10">
+
+            <!-- Contact Form Card -->
+            <article class="flex-1 reveal">
+                <div class="bg-white/60 backdrop-blur-2xl border border-slate-200/60 rounded-2xl p-8 md:p-10 shadow-lg shadow-blue-900/10">
+                    <h2 class="font-dm-sans text-2xl font-medium text-slate-900 mb-2 tracking-tight">Send a collaboration note</h2>
+                    <p class="text-sm text-slate-500 mb-8 font-light">Share a short overview of your project, dataset, or event. I'll review and follow up with next steps.</p>
+
+                    <form action="https://formsubmit.co/tianxiang.zheng.22@ucl.ac.uk" method="POST" class="space-y-6">
+                        <input type="hidden" name="_subject" value="New Website Contact: Collaboration Request">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://zhengtxecon.github.io/thank-you.html">
+                        <input type="text" name="_honey" class="contact-honeypot" tabindex="-1">
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-xs font-semibold tracking-[0.1em] uppercase text-slate-500 mb-2">Full name</label>
+                                <div class="relative">
+                                    <iconify-icon icon="lucide:user" width="16" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></iconify-icon>
+                                    <input type="text" id="name" name="name" required placeholder="Your name"
+                                        class="w-full pl-11 pr-4 py-3 bg-white/80 border border-slate-200 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-400 transition-all">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-xs font-semibold tracking-[0.1em] uppercase text-slate-500 mb-2">Email address</label>
+                                <div class="relative">
+                                    <iconify-icon icon="lucide:mail" width="16" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></iconify-icon>
+                                    <input type="email" id="email" name="email" required placeholder="you@organisation.com"
+                                        class="w-full pl-11 pr-4 py-3 bg-white/80 border border-slate-200 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-400 transition-all">
+                                </div>
                             </div>
                         </div>
-                        <div class="space-y-4 text-sm text-slate-600">
-                            <div class="flex items-start gap-3">
-                                <iconify-icon icon="lucide:calendar-check" width="16" class="text-blue-500 mt-0.5 shrink-0"></iconify-icon>
-                                <span>Meetings by appointment &middot; virtual or UCL campus</span>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="contact-purpose" class="block text-xs font-semibold tracking-[0.1em] uppercase text-slate-500 mb-2">Purpose</label>
+                                <div class="relative">
+                                    <iconify-icon icon="lucide:list" width="16" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 z-10"></iconify-icon>
+                                    <select id="contact-purpose" name="purpose" required
+                                        class="w-full pl-11 pr-4 py-3 bg-white/80 border border-slate-200 rounded-xl text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-400 transition-all appearance-none cursor-pointer">
+                                        <option value="" disabled selected>Select a purpose</option>
+                                        <option value="Research collaboration">Research collaboration</option>
+                                        <option value="Speaking invitation">Speaking invitation</option>
+                                        <option value="Policy briefing">Policy briefing</option>
+                                        <option value="Student mentoring">Student mentoring</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <iconify-icon icon="lucide:chevron-down" width="14" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"></iconify-icon>
+                                </div>
                             </div>
-                            <div class="flex items-start gap-3">
-                                <iconify-icon icon="lucide:target" width="16" class="text-blue-500 mt-0.5 shrink-0"></iconify-icon>
-                                <span>Best for: automation research, policy dashboards, teaching partnerships</span>
+                            <div>
+                                <label for="subject" class="block text-xs font-semibold tracking-[0.1em] uppercase text-slate-500 mb-2">Subject</label>
+                                <div class="relative">
+                                    <iconify-icon icon="lucide:tag" width="16" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></iconify-icon>
+                                    <input type="text" id="subject" name="subject" required placeholder="Short topic line"
+                                        class="w-full pl-11 pr-4 py-3 bg-white/80 border border-slate-200 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-400 transition-all">
+                                </div>
                             </div>
-                            <div class="flex items-start gap-3">
-                                <iconify-icon icon="lucide:clock" width="16" class="text-blue-500 mt-0.5 shrink-0"></iconify-icon>
-                                <span>Typical reply time: within 48 hours</span>
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-xs font-semibold tracking-[0.1em] uppercase text-slate-500 mb-2">Message</label>
+                            <div class="relative">
+                                <iconify-icon icon="lucide:message-square" width="16" class="absolute left-4 top-4 text-slate-400"></iconify-icon>
+                                <textarea id="message" name="message" rows="6" required placeholder="Tell me about your project goals, data, and timeline."
+                                    class="w-full pl-11 pr-4 py-3 bg-white/80 border border-slate-200 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-400 transition-all resize-y"></textarea>
+                            </div>
+                        </div>
+
+                        <label class="flex items-start gap-3 cursor-pointer group">
+                            <input type="checkbox" name="consent" value="Yes" required
+                                class="mt-1 w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500/40">
+                            <span class="text-xs text-slate-500 leading-relaxed group-hover:text-slate-700 transition-colors">I consent to having my submitted information stored so you can respond.</span>
+                        </label>
+
+                        <button type="submit" class="group relative inline-flex items-center gap-2 px-8 py-3 bg-white/50 backdrop-blur-md text-slate-700 text-sm font-semibold rounded-full border border-slate-400/30 overflow-hidden transition-all hover:border-blue-300/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] hover:text-slate-900">
+                            <div class="absolute inset-0 bg-gradient-to-t from-blue-100/40 to-transparent opacity-50"></div>
+                            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50 group-hover:opacity-100 group-hover:h-[2px] blur-[1px] transition-all duration-500"></div>
+                            <span class="relative z-10">Send message</span>
+                            <iconify-icon icon="lucide:send" width="16" class="relative z-10 group-hover:translate-x-0.5 transition-transform"></iconify-icon>
+                        </button>
+                    </form>
+                </div>
+            </article>
+
+            <!-- Sidebar -->
+            <aside class="w-full lg:w-96 shrink-0 space-y-6 reveal delay-200">
+                <div class="bg-white/60 backdrop-blur-2xl border border-slate-200/60 rounded-2xl p-8 shadow-lg shadow-blue-900/10">
+                    <h3 class="text-sm font-semibold text-slate-900 mb-6 uppercase tracking-wider">How I collaborate</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200/50 flex items-center justify-center shrink-0">
+                                <iconify-icon icon="lucide:users" width="18" class="text-blue-600"></iconify-icon>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-slate-900 mb-1">Research partners</h4>
+                                <p class="text-xs text-slate-600 leading-relaxed font-light">Co-designing projects on automation, labour markets, and development with academics and policy teams.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-cyan-50 border border-cyan-200/50 flex items-center justify-center shrink-0">
+                                <iconify-icon icon="lucide:presentation" width="18" class="text-cyan-600"></iconify-icon>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-slate-900 mb-1">Workshops &amp; guest teaching</h4>
+                                <p class="text-xs text-slate-600 leading-relaxed font-light">Interactive sessions on data workflows, causal inference, and teaching with reproducible code.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200/50 flex items-center justify-center shrink-0">
+                                <iconify-icon icon="lucide:graduation-cap" width="18" class="text-blue-500"></iconify-icon>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-slate-900 mb-1">Student mentoring</h4>
+                                <p class="text-xs text-slate-600 leading-relaxed font-light">Office hours by appointment for thesis scoping, coding feedback, and research design.</p>
                             </div>
                         </div>
                     </div>
-                </aside>
+                </div>
+
+                <div class="bg-white/60 backdrop-blur-2xl border border-slate-200/60 rounded-2xl p-8 shadow-lg shadow-blue-900/10">
+                    <div class="flex items-center gap-2 mb-3">
+                        <iconify-icon icon="lucide:map-pin" width="16" class="text-blue-600"></iconify-icon>
+                        <h4 class="text-sm font-semibold text-slate-900">Campus base</h4>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed font-light mb-4">Department of Economics, University College London<br>30 Gordon Street, London WC1H 0AX</p>
+                    <a href="mailto:tianxiang.zheng.22@ucl.ac.uk" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-blue-600 border border-blue-200/50 rounded-full hover:bg-blue-50 transition-all">
+                        <iconify-icon icon="lucide:mail" width="14"></iconify-icon> Request a meeting
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="max-w-7xl mx-auto px-6 mt-16 reveal">
+        <div class="bg-white/60 backdrop-blur-2xl border border-slate-200/60 rounded-2xl p-8 md:p-10 shadow-lg shadow-blue-900/10">
+            <h2 class="text-lg font-medium text-slate-900 mb-2 tracking-tight">Visit the department</h2>
+            <p class="text-sm text-slate-600 mb-6 font-light">Meetings can take place on the UCL Bloomsbury campus or virtually. Let me know your preference when you reach out.</p>
+            <div class="rounded-xl overflow-hidden border border-slate-200/60">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.4245916009253!2d-0.1328146!3d51.5245921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b2d06098567%3A0x559d14e3bc7dcc39!2sUCL%20Department%20of%20Economics!5e0!3m2!1sen!2suk!4v1625863420583!5m2!1sen!2suk"
+                    class="w-full h-80" loading="lazy" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
 
-    <!-- Main Content: Form + Sidebar -->
-    <main class="pb-20">
-        <section class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col lg:flex-row gap-10">
-
-                <!-- Contact Form Card -->
-                <article class="flex-1 reveal">
-                    <div class="bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-2xl p-8 md:p-10 shadow-sm">
-                        <h2 class="font-dm-sans text-2xl font-bold text-slate-900 mb-2">Send a collaboration note</h2>
-                        <p class="text-sm text-slate-500 mb-8 font-light">Share a short overview of your project, dataset, or event. I'll review and follow up with next steps.</p>
-
-                        <form action="https://formsubmit.co/tianxiang.zheng.22@ucl.ac.uk" method="POST" class="space-y-6">
-                            <!-- Hidden fields -->
-                            <input type="hidden" name="_subject" value="New Website Contact: Collaboration Request">
-                            <input type="hidden" name="_template" value="table">
-                            <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_next" value="https://zhengtxecon.github.io/thank-you.html">
-                            <input type="text" name="_honey" class="contact-honeypot" tabindex="-1">
-
-                            <!-- Name + Email row -->
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label for="name" class="block text-xs font-semibold tracking-[0.1em] uppercase text-slate-500 mb-2">Full name</label>
-                                    <div class="relative">
-                                        <iconify-icon icon="lucide:user" width="16" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></iconify-icon>
-                                        <input type="text" id="name" name="name" required placeholder="Your name"
-                                            class="w-full pl-11 pr-4 py-3 bg-white/80 border border-slate-200 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-400 transition-all">
-                                    </div>
-                                </div>
-                                <div>
-                                    <label for="email" class="block text-xs font-semibold tracking-[0.1em] uppercase text-slate-500 mb-2">Email address</label>
-                                    <div class="relative">
-                                        <iconify-icon icon="lucide:mail" width="16" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></iconify-icon>
-                                        <input type="email" id="email" name="email" required placeholder="you@organisation.com"
-                                            class="w-full pl-11 pr-4 py-3 bg-white/80 border border-slate-200 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-400 transition-all">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Purpose + Subject row -->
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label for="contact-purpose" class="block text-xs font-semibold tracking-[0.1em] uppercase text-slate-500 mb-2">Purpose</label>
-                                    <div class="relative">
-                                        <iconify-icon icon="lucide:list" width="16" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 z-10"></iconify-icon>
-                                        <select id="contact-purpose" name="purpose" required
-                                            class="w-full pl-11 pr-4 py-3 bg-white/80 border border-slate-200 rounded-xl text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-400 transition-all appearance-none cursor-pointer">
-                                            <option value="" disabled selected>Select a purpose</option>
-                                            <option value="Research collaboration">Research collaboration</option>
-                                            <option value="Speaking invitation">Speaking invitation</option>
-                                            <option value="Policy briefing">Policy briefing</option>
-                                            <option value="Student mentoring">Student mentoring</option>
-                                            <option value="Other">Other</option>
-                                        </select>
-                                        <iconify-icon icon="lucide:chevron-down" width="14" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"></iconify-icon>
-                                    </div>
-                                </div>
-                                <div>
-                                    <label for="subject" class="block text-xs font-semibold tracking-[0.1em] uppercase text-slate-500 mb-2">Subject</label>
-                                    <div class="relative">
-                                        <iconify-icon icon="lucide:tag" width="16" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></iconify-icon>
-                                        <input type="text" id="subject" name="subject" required placeholder="Short topic line"
-                                            class="w-full pl-11 pr-4 py-3 bg-white/80 border border-slate-200 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-400 transition-all">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Message -->
-                            <div>
-                                <label for="message" class="block text-xs font-semibold tracking-[0.1em] uppercase text-slate-500 mb-2">Message</label>
-                                <div class="relative">
-                                    <iconify-icon icon="lucide:message-square" width="16" class="absolute left-4 top-4 text-slate-400"></iconify-icon>
-                                    <textarea id="message" name="message" rows="6" required placeholder="Tell me about your project goals, data, and timeline."
-                                        class="w-full pl-11 pr-4 py-3 bg-white/80 border border-slate-200 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-400 transition-all resize-y"></textarea>
-                                </div>
-                            </div>
-
-                            <!-- Consent -->
-                            <label class="flex items-start gap-3 cursor-pointer group">
-                                <input type="checkbox" name="consent" value="Yes" required
-                                    class="mt-1 w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500/40">
-                                <span class="text-xs text-slate-500 leading-relaxed group-hover:text-slate-700 transition-colors">I consent to having my submitted information stored so you can respond.</span>
-                            </label>
-
-                            <!-- Submit -->
-                            <button type="submit" class="group relative inline-flex items-center gap-2 px-8 py-3 text-sm font-semibold tracking-wide text-white bg-gradient-to-r from-blue-600 to-blue-500 rounded-full shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-t from-white/0 to-white/10"></div>
-                                <span class="relative z-10">Send message</span>
-                                <iconify-icon icon="lucide:send" width="16" class="relative z-10 group-hover:translate-x-0.5 transition-transform"></iconify-icon>
-                            </button>
-                        </form>
-                    </div>
-                </article>
-
-                <!-- How I Collaborate Sidebar -->
-                <aside class="w-full lg:w-96 shrink-0 space-y-6 reveal delay-200">
-                    <!-- Collaboration types -->
-                    <div class="bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-2xl p-8 shadow-sm">
-                        <h3 class="font-dm-sans text-lg font-bold text-slate-900 mb-6">How I collaborate</h3>
-                        <div class="space-y-6">
-                            <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
-                                    <iconify-icon icon="lucide:users" width="18" class="text-blue-600"></iconify-icon>
-                                </div>
-                                <div>
-                                    <h4 class="text-sm font-semibold text-slate-900 mb-1">Research partners</h4>
-                                    <p class="text-xs text-slate-500 leading-relaxed">Co-designing projects on automation, labour markets, and development with academics and policy teams.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
-                                    <iconify-icon icon="lucide:presentation" width="18" class="text-blue-600"></iconify-icon>
-                                </div>
-                                <div>
-                                    <h4 class="text-sm font-semibold text-slate-900 mb-1">Workshops &amp; guest teaching</h4>
-                                    <p class="text-xs text-slate-500 leading-relaxed">Interactive sessions on data workflows, causal inference, and teaching with reproducible code.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
-                                    <iconify-icon icon="lucide:graduation-cap" width="18" class="text-blue-600"></iconify-icon>
-                                </div>
-                                <div>
-                                    <h4 class="text-sm font-semibold text-slate-900 mb-1">Student mentoring</h4>
-                                    <p class="text-xs text-slate-500 leading-relaxed">Office hours by appointment for thesis scoping, coding feedback, and research design.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Campus Location -->
-                    <div class="bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-2xl p-8 shadow-sm">
-                        <div class="flex items-center gap-2 mb-3">
-                            <iconify-icon icon="lucide:map-pin" width="16" class="text-blue-600"></iconify-icon>
-                            <h4 class="text-sm font-semibold text-slate-900">Campus base</h4>
-                        </div>
-                        <p class="text-xs text-slate-500 leading-relaxed mb-4">Department of Economics, University College London<br>30 Gordon Street, London WC1H 0AX</p>
-                        <a href="mailto:tianxiang.zheng.22@ucl.ac.uk" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-blue-600 border border-blue-200 rounded-full hover:bg-blue-50 transition-all">
-                            <iconify-icon icon="lucide:mail" width="14"></iconify-icon> Request a meeting
-                        </a>
-                    </div>
-                </aside>
+    <!-- CTA Section -->
+    <section class="max-w-7xl mx-auto px-6 mt-16 reveal">
+        <div class="relative z-10 bg-forest-950/80 backdrop-blur-2xl rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 border border-white/10 overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.15),transparent_60%)]"></div>
+            <div class="relative z-10">
+                <h2 class="text-2xl font-light text-white mb-2 tracking-tight">Prefer email or LinkedIn?</h2>
+                <p class="text-sm text-white/60 font-light max-w-lg">You can also connect through the networks below; I regularly share updates on research, teaching, and collaboration opportunities.</p>
             </div>
-        </section>
-
-        <!-- Map Section -->
-        <section class="max-w-7xl mx-auto px-6 mt-16 reveal">
-            <div class="bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-2xl p-8 md:p-10 shadow-sm">
-                <div class="flex items-center gap-3 mb-2">
-                    <iconify-icon icon="lucide:map" width="20" class="text-blue-600"></iconify-icon>
-                    <h2 class="font-dm-sans text-xl font-bold text-slate-900">Visit the department</h2>
-                </div>
-                <p class="text-sm text-slate-500 mb-6 font-light">Meetings can take place on the UCL Bloomsbury campus or virtually. Let me know your preference when you reach out.</p>
-                <div class="rounded-xl overflow-hidden border border-slate-200/60">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.4245916009253!2d-0.1328146!3d51.5245921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b2d06098567%3A0x559d14e3bc7dcc39!2sUCL%20Department%20of%20Economics!5e0!3m2!1sen!2suk!4v1625863420583!5m2!1sen!2suk"
-                        class="w-full h-80" loading="lazy" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="max-w-7xl mx-auto px-6 mt-16 reveal">
-            <div class="bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
-                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.15),transparent_60%)]"></div>
-                <div class="relative z-10">
-                    <h2 class="font-dm-sans text-2xl font-bold text-white mb-2">Prefer email or LinkedIn?</h2>
-                    <p class="text-sm text-slate-400 font-light max-w-lg">You can also connect through the networks below; I regularly share updates on research, teaching, and collaboration opportunities.</p>
-                </div>
-                <div class="relative z-10 flex flex-wrap gap-4">
-                    <a href="mailto:tianxiang.zheng.22@ucl.ac.uk" class="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-500 rounded-full shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-[1.02] transition-all duration-300">
-                        <iconify-icon icon="lucide:mail" width="16"></iconify-icon> Email Tianxiang
-                    </a>
-                    <a href="https://www.linkedin.com/in/tianxiang-marx-zheng-187ab0131/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white border border-white/20 rounded-full hover:bg-white/10 transition-all duration-300">
-                        <iconify-icon icon="lucide:linkedin" width="16"></iconify-icon> Connect on LinkedIn
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="border-t border-white/[0.06] bg-white/30 pt-20 pb-10 relative z-10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
-                <div>
-                    <div class="flex items-center gap-2 mb-4">
-                        <div class="w-4 h-4 rounded-full bg-blue-500"></div>
-                        <span class="text-base font-semibold tracking-tight text-slate-900 uppercase">Tianxiang Zheng</span>
-                    </div>
-                    <p class="text-xs text-slate-600 leading-relaxed font-light">Economist designing inclusive labour markets in the age of automation.</p>
-                    <div class="mt-3 flex flex-col gap-1 text-sm text-slate-700 font-medium">
-                        <a href="mailto:tianxiang.zheng.22@ucl.ac.uk" class="hover:text-slate-900 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:mail" width="14"></iconify-icon>tianxiang.zheng.22@ucl.ac.uk</a>
-                        <a href="mailto:marxzheng@outlook.com" class="hover:text-slate-900 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:mail" width="14"></iconify-icon>marxzheng@outlook.com</a>
-                    </div>
-                </div>
-                <div class="flex gap-8 text-xs font-medium text-slate-600">
-                    <a href="research.html" class="hover:text-slate-900 transition-colors">Research</a>
-                    <a href="cv.html" class="hover:text-slate-900 transition-colors">CV</a>
-                    <a href="contact.html" class="hover:text-slate-900 transition-colors">Contact</a>
-                </div>
-            </div>
-            <div class="border-t border-white/[0.06] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-                <p class="text-[10px] text-slate-600 uppercase tracking-wider">&copy; 2026 Tianxiang Zheng.</p>
-                <div class="flex gap-6">
-                    <a href="https://github.com/zhengtxecon" class="text-slate-600 hover:text-slate-900 transition-colors"><iconify-icon icon="lucide:github" width="16"></iconify-icon></a>
-                    <a href="https://scholar.google.com/citations?user=yMayrcEAAAAJ" class="text-slate-600 hover:text-slate-900 transition-colors"><iconify-icon icon="lucide:graduation-cap" width="16"></iconify-icon></a>
-                </div>
+            <div class="relative z-10 flex flex-wrap gap-4">
+                <a href="mailto:tianxiang.zheng.22@ucl.ac.uk" class="group relative inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-white/10 border border-white/20 rounded-full overflow-hidden hover:border-blue-400/50 hover:bg-white/15 transition-all duration-300">
+                    <iconify-icon icon="lucide:mail" width="16"></iconify-icon> Email Tianxiang
+                </a>
+                <a href="https://www.linkedin.com/in/tianxiang-marx-zheng-187ab0131/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white/80 border border-white/10 rounded-full hover:bg-white/10 hover:text-white transition-all duration-300">
+                    <iconify-icon icon="lucide:linkedin" width="16"></iconify-icon> Connect on LinkedIn
+                </a>
             </div>
         </div>
-    </footer>
+    </section>
+</main>
 
-    <!-- Scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const reveals = document.querySelectorAll('.reveal');
-            const revealOnScroll = () => {
-                const windowHeight = window.innerHeight;
-                reveals.forEach((reveal) => {
-                    const elementTop = reveal.getBoundingClientRect().top;
-                    if (elementTop < windowHeight - 100) reveal.classList.add('active');
-                });
+<!-- Footer -->
+<footer class="border-t border-white/[0.06] bg-white/30 pt-20 pb-10 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-2 h-2 rounded-full bg-blue-600"></div>
+                    <span class="text-base font-semibold tracking-tight text-slate-900 uppercase">Tianxiang Zheng</span>
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed font-light">Economist designing inclusive labour markets in the age of automation.</p>
+                <div class="mt-3 flex flex-col gap-1 text-sm text-slate-700 font-medium">
+                    <a href="mailto:tianxiang.zheng.22@ucl.ac.uk" class="hover:text-slate-900 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:mail" width="14"></iconify-icon>tianxiang.zheng.22@ucl.ac.uk</a>
+                    <a href="mailto:marxzheng@outlook.com" class="hover:text-slate-900 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:mail" width="14"></iconify-icon>marxzheng@outlook.com</a>
+                </div>
+            </div>
+            <div class="flex gap-8 text-xs font-medium text-slate-600">
+                <a href="research.html" class="hover:text-slate-900 transition-colors">Research</a>
+                <a href="cv.html" class="hover:text-slate-900 transition-colors">CV</a>
+                <a href="contact.html" class="hover:text-slate-900 transition-colors">Contact</a>
+            </div>
+        </div>
+        <div class="border-t border-white/[0.06] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-[10px] text-slate-600 uppercase tracking-wider">&copy; 2026 Tianxiang Zheng.</p>
+            <div class="flex gap-6">
+                <a href="https://github.com/zhengtxecon" class="text-slate-600 hover:text-slate-900 transition-colors"><iconify-icon icon="lucide:github" width="16"></iconify-icon></a>
+                <a href="https://scholar.google.com/citations?user=yMayrcEAAAAJ" class="text-slate-600 hover:text-slate-900 transition-colors"><iconify-icon icon="lucide:graduation-cap" width="16"></iconify-icon></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            reveals.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) reveal.classList.add('active');
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        const nav = document.getElementById('main-nav');
+        const handleNavScroll = () => {
+            if (!nav) return;
+            nav.classList.toggle('nav-scrolled', window.scrollY > 10);
+        };
+        window.addEventListener('scroll', handleNavScroll);
+        handleNavScroll();
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconOpen = document.getElementById('menu-icon-open');
+        const iconClose = document.getElementById('menu-icon-close');
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                iconOpen.classList.toggle('hidden');
+                iconClose.classList.toggle('hidden');
+            });
+        }
+
+        // Purpose-based placeholder
+        const purpose = document.getElementById('contact-purpose');
+        const message = document.getElementById('message');
+        if (purpose && message) {
+            const placeholders = {
+                'Research collaboration': 'Share your project goals, data sources, collaborators, and timelines.',
+                'Speaking invitation': 'Tell me about the event theme, audience, date, and topic.',
+                'Policy briefing': 'Outline the policy question, stakeholders, and decisions the evidence will inform.',
+                'Student mentoring': 'Let me know your programme, research interests, and the kind of support you need.',
+                'Other': 'Describe how I can help and any context that will be useful.'
             };
-            window.addEventListener('scroll', revealOnScroll);
-            revealOnScroll();
-
-            // Purpose-based placeholder
-            const purpose = document.getElementById('contact-purpose');
-            const message = document.getElementById('message');
-            if (purpose && message) {
-                const placeholders = {
-                    'Research collaboration': 'Share your project goals, data sources, collaborators, and timelines.',
-                    'Speaking invitation': 'Tell me about the event theme, audience, date, and topic.',
-                    'Policy briefing': 'Outline the policy question, stakeholders, and decisions the evidence will inform.',
-                    'Student mentoring': 'Let me know your programme, research interests, and the kind of support you need.',
-                    'Other': 'Describe how I can help and any context that will be useful.'
-                };
-                purpose.addEventListener('change', e => {
-                    message.placeholder = placeholders[e.target.value] || 'Tell me about your project goals, data, and timeline.';
-                });
-            }
-        });
-    </script>
+            purpose.addEventListener('change', e => {
+                message.placeholder = placeholders[e.target.value] || 'Tell me about your project goals, data, and timeline.';
+            });
+        }
+    });
+</script>
 </body>
 </html>

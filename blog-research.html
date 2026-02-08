@@ -42,10 +42,18 @@
         .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
+        /* Custom scrollbar – hidden by default, visible on hover */
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #020408; }
-        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: transparent; border-radius: 3px; }
+        body:hover::-webkit-scrollbar-thumb { background: rgba(148,163,184,0.35); }
+        body:hover::-webkit-scrollbar-thumb:hover { background: rgba(148,163,184,0.55); }
+        html { scrollbar-width: thin; scrollbar-color: transparent transparent; }
+        body:hover { scrollbar-color: rgba(148,163,184,0.35) transparent; }
+        @media (hover: none) {
+            ::-webkit-scrollbar { display: none; }
+            html { scrollbar-width: none; }
+        }
         .hero-grid {
             background-image:
                 linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
@@ -74,6 +82,13 @@
         #main-nav.nav-scrolled .nav-btn:hover {
             background-color: rgba(255,255,255,0.14) !important; border-color: rgba(147,197,253,0.55) !important;
         }
+        #main-nav.nav-scrolled #mobile-menu-btn { color: rgba(255,255,255,0.9) !important; }
+        #main-nav.nav-scrolled #mobile-menu {
+            background-color: rgba(11, 31, 58, 0.92) !important;
+            border-color: rgba(255,255,255,0.08) !important;
+        }
+        #main-nav.nav-scrolled #mobile-menu a { color: rgba(226,232,240,0.85) !important; }
+        #main-nav.nav-scrolled #mobile-menu a:hover { color: rgba(255,255,255,1) !important; }
     </style>
 </head>
 <body class="bg-forest-50 text-slate-800 antialiased selection:bg-blue-600/30 selection:text-white overflow-x-hidden relative">
@@ -99,8 +114,20 @@
                 <a href="blog/" class="nav-link is-active text-slate-900 transition-colors duration-300">Blog</a>
             </div>
             <div class="flex items-center gap-6">
-                <button onclick="window.location.href='contact.html'" class="nav-btn px-5 py-2 text-xs font-semibold tracking-[0.2em] uppercase text-slate-900 border border-slate-300/70 rounded-full bg-white/40 hover:bg-white/60 transition-colors duration-300">Contact</button>
+                <button onclick="window.location.href='contact.html'" class="nav-btn hidden md:inline-flex px-5 py-2 text-xs font-semibold tracking-[0.2em] uppercase text-slate-900 border border-slate-300/70 rounded-full bg-white/40 hover:bg-white/60 transition-colors duration-300">Contact</button>
+                <button id="mobile-menu-btn" class="md:hidden w-9 h-9 flex items-center justify-center rounded-lg text-slate-700 hover:text-slate-900 transition-colors" aria-label="Toggle menu">
+                    <iconify-icon icon="lucide:menu" width="20" id="menu-icon-open"></iconify-icon>
+                    <iconify-icon icon="lucide:x" width="20" id="menu-icon-close" class="hidden"></iconify-icon>
+                </button>
             </div>
+        </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white/90 backdrop-blur-2xl border-t border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-3">
+            <a href="research.html" class="text-sm font-semibold tracking-[0.1em] uppercase text-slate-700 hover:text-blue-600 py-2 transition-colors">Research</a>
+            <a href="cv.html" class="text-sm font-semibold tracking-[0.1em] uppercase text-slate-700 hover:text-blue-600 py-2 transition-colors">CV</a>
+            <a href="blog/" class="text-sm font-semibold tracking-[0.1em] uppercase text-slate-700 hover:text-blue-600 py-2 transition-colors">Blog</a>
+            <a href="contact.html" class="text-sm font-semibold tracking-[0.1em] uppercase text-slate-700 hover:text-blue-600 py-2 transition-colors">Contact</a>
         </div>
     </div>
 </nav>
@@ -296,6 +323,19 @@
         };
         window.addEventListener('scroll', handleNavScroll);
         handleNavScroll();
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconOpen = document.getElementById('menu-icon-open');
+        const iconClose = document.getElementById('menu-icon-close');
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                iconOpen.classList.toggle('hidden');
+                iconClose.classList.toggle('hidden');
+            });
+        }
     });
 </script>
 </body>

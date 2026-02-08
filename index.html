@@ -81,11 +81,19 @@
         
         /* Light bar removed */
         
-        /* Custom scrollbar */
+        /* Custom scrollbar – hidden by default, visible on hover */
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #020408; }
-        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: transparent; border-radius: 3px; }
+        body:hover::-webkit-scrollbar-thumb { background: rgba(148,163,184,0.35); }
+        body:hover::-webkit-scrollbar-thumb:hover { background: rgba(148,163,184,0.55); }
+        html { scrollbar-width: thin; scrollbar-color: transparent transparent; }
+        body:hover { scrollbar-color: rgba(148,163,184,0.35) transparent; }
+        /* Mobile: fully hidden */
+        @media (hover: none) {
+            ::-webkit-scrollbar { display: none; }
+            html { scrollbar-width: none; }
+        }
 
         /* Nav scroll (match across pages) */
         #main-nav {
@@ -111,6 +119,13 @@
             background-color: rgba(255,255,255,0.14) !important;
             border-color: rgba(147,197,253,0.55) !important;
         }
+        #main-nav.nav-scrolled #mobile-menu-btn { color: rgba(255,255,255,0.9) !important; }
+        #main-nav.nav-scrolled #mobile-menu {
+            background-color: rgba(11, 31, 58, 0.92) !important;
+            border-color: rgba(255,255,255,0.08) !important;
+        }
+        #main-nav.nav-scrolled #mobile-menu a { color: rgba(226,232,240,0.85) !important; }
+        #main-nav.nav-scrolled #mobile-menu a:hover { color: rgba(255,255,255,1) !important; }
     </style>
 </head>
 
@@ -157,15 +172,41 @@
 
             <!-- Actions -->
             <div class="flex items-center gap-6">
-                <button onclick="window.location.href='contact.html'" class="nav-btn group relative px-5 py-2 text-xs font-semibold tracking-[0.2em] uppercase text-slate-700 border border-slate-400/30 rounded-full bg-white/50 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-blue-300/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] hover:text-slate-900">
+                <button onclick="window.location.href='contact.html'" class="nav-btn hidden md:inline-flex group relative px-5 py-2 text-xs font-semibold tracking-[0.2em] uppercase text-slate-700 border border-slate-400/30 rounded-full bg-white/50 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-blue-300/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] hover:text-slate-900">
                     <div class="absolute inset-0 bg-gradient-to-t from-blue-100/40 to-transparent opacity-50"></div>
                     <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50 group-hover:opacity-100 group-hover:h-[2px] blur-[1px] transition-all duration-500"></div>
                     <span class="relative z-10">Contact</span>
+                </button>
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden w-9 h-9 flex items-center justify-center rounded-lg text-slate-700 hover:text-slate-900 transition-colors" aria-label="Toggle menu">
+                    <iconify-icon icon="lucide:menu" width="20" id="menu-icon-open"></iconify-icon>
+                    <iconify-icon icon="lucide:x" width="20" id="menu-icon-close" class="hidden"></iconify-icon>
                 </button>
             </div>
         </div>
     </div>
 </nav>
+
+<!-- Mobile Menu Overlay (Frosted Glass) -->
+<div id="mobile-menu" class="fixed inset-0 z-[999] pointer-events-none md:hidden" style="visibility:hidden;">
+    <!-- Backdrop -->
+    <div id="mobile-menu-backdrop" class="absolute inset-0 bg-slate-900/40 opacity-0 transition-opacity duration-300"></div>
+    <!-- Panel -->
+    <div id="mobile-menu-panel" class="absolute inset-0 flex flex-col items-center justify-center bg-white/20 backdrop-blur-2xl opacity-0 translate-y-4 transition-all duration-400 ease-out"
+         style="-webkit-backdrop-filter:blur(40px);backdrop-filter:blur(40px);border-bottom:1px solid rgba(255,255,255,0.18);">
+        <!-- Close button -->
+        <button id="mobile-menu-close" class="absolute top-5 right-6 w-10 h-10 flex items-center justify-center rounded-full bg-white/30 backdrop-blur-md text-slate-800 hover:bg-white/50 transition-colors" aria-label="Close menu">
+            <iconify-icon icon="lucide:x" width="22"></iconify-icon>
+        </button>
+        <!-- Links -->
+        <nav class="flex flex-col items-center gap-6">
+            <a href="research.html" class="mobile-menu-link text-lg font-semibold tracking-[0.15em] uppercase text-slate-800/90 hover:text-blue-600 transition-all duration-300 opacity-0 translate-y-3">Research</a>
+            <a href="cv.html" class="mobile-menu-link text-lg font-semibold tracking-[0.15em] uppercase text-slate-800/90 hover:text-blue-600 transition-all duration-300 opacity-0 translate-y-3">CV</a>
+            <a href="blog/" class="mobile-menu-link text-lg font-semibold tracking-[0.15em] uppercase text-slate-800/90 hover:text-blue-600 transition-all duration-300 opacity-0 translate-y-3">Blog</a>
+            <a href="contact.html" class="mobile-menu-link text-lg font-semibold tracking-[0.15em] uppercase text-slate-800/90 hover:text-blue-600 transition-all duration-300 opacity-0 translate-y-3">Contact</a>
+        </nav>
+    </div>
+</div>
 
 <!-- Hero Section -->
 <header class="relative min-h-screen flex items-center pt-24 pb-10" id="hero-section">
@@ -403,14 +444,14 @@
                     <div class="w-2 h-2 rounded-full bg-blue-600"></div>
                     <span class="text-base font-semibold tracking-tight text-slate-900 uppercase">Tianxiang Zheng</span>
                 </div>
-                <p class="text-xs text-slate-600 leading-relaxed font-light">Economist designing inclusive labour markets in the age of automation.</p>
+                <p class="text-xs lg:text-sm text-slate-600 lg:text-slate-700 leading-relaxed font-light lg:font-normal">Economist designing inclusive labour markets in the age of automation.</p>
                 <div class="mt-3 flex flex-col gap-1 text-sm text-slate-700 font-medium">
                     <a href="mailto:tianxiang.zheng.22@ucl.ac.uk" class="hover:text-slate-900 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:mail" width="14"></iconify-icon>tianxiang.zheng.22@ucl.ac.uk</a>
                     <a href="mailto:marxzheng@outlook.com" class="hover:text-slate-900 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:mail" width="14"></iconify-icon>marxzheng@outlook.com</a>
                 </div>
             </div>
 
-            <div class="flex gap-8 text-xs font-medium text-slate-600">
+            <div class="flex gap-8 text-xs lg:text-sm font-medium text-slate-600 lg:text-slate-700">
                 <a href="#" class="hover:text-slate-900 transition-colors">Research</a>
                 <a href="#" class="hover:text-slate-900 transition-colors">CV</a>
                 <a href="#" class="hover:text-slate-900 transition-colors">Contact</a>
@@ -418,7 +459,7 @@
         </div>
         
         <div class="border-t border-white/[0.06] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p class="text-[10px] text-slate-600 uppercase tracking-wider">© 2026 Tianxiang Zheng.</p>
+            <p class="text-[10px] lg:text-xs text-slate-600 lg:text-slate-700 uppercase tracking-wider lg:font-medium">© 2026 Tianxiang Zheng.</p>
             <div class="flex gap-6">
                 <a href="#" class="text-slate-600 hover:text-white transition-colors">
                     <iconify-icon icon="lucide:github" width="16"></iconify-icon>
@@ -458,6 +499,56 @@
         };
         window.addEventListener('scroll', handleNavScroll);
         handleNavScroll();
+
+        // Mobile menu toggle (frosted glass overlay)
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuBackdrop = document.getElementById('mobile-menu-backdrop');
+        const menuPanel = document.getElementById('mobile-menu-panel');
+        const menuClose = document.getElementById('mobile-menu-close');
+        const menuLinks = document.querySelectorAll('.mobile-menu-link');
+        const iconOpen = document.getElementById('menu-icon-open');
+        const iconClose = document.getElementById('menu-icon-close');
+
+        function openMobileMenu() {
+            mobileMenu.style.visibility = 'visible';
+            mobileMenu.classList.remove('pointer-events-none');
+            document.body.style.overflow = 'hidden';
+            requestAnimationFrame(() => {
+                menuBackdrop.classList.replace('opacity-0', 'opacity-100');
+                menuPanel.classList.remove('opacity-0', 'translate-y-4');
+                menuPanel.classList.add('opacity-100', 'translate-y-0');
+                menuLinks.forEach((link, i) => {
+                    setTimeout(() => {
+                        link.classList.remove('opacity-0', 'translate-y-3');
+                        link.classList.add('opacity-100', 'translate-y-0');
+                    }, 120 + i * 60);
+                });
+            });
+            iconOpen.classList.add('hidden');
+            iconClose.classList.remove('hidden');
+        }
+
+        function closeMobileMenu() {
+            menuBackdrop.classList.replace('opacity-100', 'opacity-0');
+            menuPanel.classList.remove('opacity-100', 'translate-y-0');
+            menuPanel.classList.add('opacity-0', 'translate-y-4');
+            menuLinks.forEach(link => {
+                link.classList.remove('opacity-100', 'translate-y-0');
+                link.classList.add('opacity-0', 'translate-y-3');
+            });
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                mobileMenu.style.visibility = 'hidden';
+                mobileMenu.classList.add('pointer-events-none');
+            }, 350);
+            iconOpen.classList.remove('hidden');
+            iconClose.classList.add('hidden');
+        }
+
+        if (menuBtn) menuBtn.addEventListener('click', openMobileMenu);
+        if (menuClose) menuClose.addEventListener('click', closeMobileMenu);
+        if (menuBackdrop) menuBackdrop.addEventListener('click', closeMobileMenu);
     });
 </script>
 
