@@ -1,0 +1,497 @@
+<html lang="en" class="scroll-smooth"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research | UCL Economics</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap');
+body {
+font-family: 'Inter', sans-serif;
+font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+/* Smooth Reveal Animation */
+.reveal {
+opacity: 0;
+transform: translateY(30px) scale(0.98);
+transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+filter: blur(10px);
+}
+.reveal.active {
+opacity: 1;
+transform: translateY(0) scale(1);
+filter: blur(0);
+}
+/* Stagger delays */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+/* Gradient Mask */
+.mask-linear {
+mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+-webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+/* Modal Animation */
+#contactModal { transition: opacity 0.3s ease, visibility 0.3s ease; }
+#contactModal.hidden-modal { opacity: 0; visibility: hidden; pointer-events: none; }
+#contactModal.visible-modal { opacity: 1; visibility: visible; pointer-events: auto; }
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #334155; }
+</style></head>
+<body class="bg-[#050505] text-slate-300 antialiased selection:bg-blue-500/30 selection:text-blue-200 overflow-x-hidden">
+
+<!-- Background added by Aura -->
+<div class="aura-background-component fixed top-0 w-full h-screen -z-10" data-alpha-mask="80" style="mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)"><div class="aura-background-component top-0 w-full -z-10 absolute h-full">
+  <div data-us-project="FixNvEwvWwbu3QX9qC3F" class="absolute w-full h-full left-0 top-0 -z-10"></div>
+  <script type="text/javascript">
+    !function(){if(!window.UnicornStudio){window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js",i.onload=function(){window.UnicornStudio.isInitialized||(UnicornStudio.init(),window.UnicornStudio.isInitialized=!0)},(document.head || document.body).appendChild(i)}}();
+  </script>
+</div></div>
+
+<!-- Navigation (Pill Style) -->
+<nav class="fixed top-6 inset-x-0 z-50 flex justify-center items-center pointer-events-none">
+    <div class="pointer-events-auto flex items-center gap-8 px-2 py-2 pl-6 bg-[#0A0A0A]/80 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl shadow-black/50 transition-all hover:border-white/20 hover:bg-[#0A0A0A]/90">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+            <div class="relative flex items-center justify-center w-5 h-5">
+                <div class="absolute inset-0 bg-blue-500 rounded-full opacity-20 group-hover:opacity-40 transition-opacity animate-pulse"></div>
+                <div class="w-2.5 h-2.5 bg-gradient-to-tr from-blue-400 to-blue-600 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+                <!-- Diagonal line through logo -->
+                <div class="absolute w-[120%] h-[1px] bg-[#0A0A0A] rotate-45 transform origin-center"></div>
+            </div>
+            <span class="text-sm font-medium tracking-tight text-white">Tianxiang Zheng</span>
+        </a>
+        
+        <!-- Links -->
+        <div class="hidden md:flex items-center gap-6 text-[13px] font-medium text-slate-400">
+            <a href="research.html" class="hover:text-white transition-colors duration-300">Research</a>
+            <a href="teaching.html" class="hover:text-white transition-colors duration-300">Teaching</a>
+            <a href="cv.html" class="hover:text-white transition-colors duration-300">CV</a>
+            <a href="blog.html" class="hover:text-white transition-colors duration-300">Blog</a>
+            <a href="contact.html" class="hover:text-white transition-colors duration-300">Contact</a>
+        </div>
+        
+        <!-- CTA -->
+        <button onclick="document.getElementById('domainInput').focus()" class="group px-5 py-2.5 bg-white text-black text-[13px] font-semibold rounded-full hover:bg-slate-100 transition-all flex items-center gap-1.5 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+            View Research
+            <iconify-icon icon="solar:alt-arrow-right-linear" class="text-black/60 group-hover:translate-x-0.5 transition-transform" width="16" height="16" stroke-width="1.5"></iconify-icon>
+        </button>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="relative pt-36 pb-20 md:pt-52 md:pb-32 overflow-hidden">
+    <!-- Ambient Glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-blue-900/10 blur-[120px] rounded-full pointer-events-none opacity-40 mix-blend-screen"></div>
+
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16 items-center">
+            <!-- Left: Text Content (3 cols) -->
+            <div class="md:col-span-3 text-left">
+                <!-- Badge -->
+                <div class="reveal delay-100 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/20 bg-blue-500/5 text-xs font-medium text-blue-200 mb-10 cursor-default">
+                    <span class="relative flex h-1.5 w-1.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></span>
+                    </span>
+                    PhD Candidate · UCL Economics
+                </div>
+
+                <!-- Title -->
+                <div class="reveal delay-200 mb-8">
+                    <p class="text-lg md:text-xl text-slate-300 font-light mb-3 tracking-wide">Hello, I'm</p>
+                    <h1 class="text-5xl md:text-7xl font-light tracking-tight leading-[1.05]" style="font-family: 'DM Sans', sans-serif;">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/60">Tianxiang Zheng</span>
+                        <br>
+                        <span class="text-slate-400 text-2xl md:text-3xl font-light">郑天翔</span>
+                    </h1>
+                </div>
+
+                <!-- Subtitle -->
+                <p class="reveal delay-300 text-lg md:text-xl text-slate-200 max-w-2xl mb-5 font-light leading-relaxed">
+                    Economist designing inclusive labour markets in the age of automation.
+                </p>
+                <p class="reveal delay-300 text-base text-slate-400 max-w-2xl mb-12 font-light leading-relaxed">
+                    I study how technological change reshapes firms, workers, and policy in emerging economies. My work bridges computational social science, labour economics, and development to help decision-makers build resilient labour markets.
+                </p>
+
+                <!-- Hero Buttons -->
+                <div class="reveal delay-300 flex flex-wrap items-center justify-start gap-5">
+                    <a href="research.html" class="group relative px-8 py-4 bg-[#080b12] text-white rounded-full border border-white/10 overflow-hidden transition-all hover:border-blue-500/30 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]">
+                        <div class="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent opacity-50"></div>
+                        <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-70 group-hover:opacity-100 group-hover:h-[2px] blur-[1px] transition-all duration-500"></div>
+                        <span class="relative z-10 text-sm font-medium flex items-center gap-2">
+                            Discover the Research
+                        </span>
+                    </a>
+
+                    <a href="cv.html" class="px-8 py-4 text-slate-300 rounded-full border border-white/5 bg-white/[0.02] hover:bg-white/[0.06] hover:text-white transition-all text-sm font-medium flex items-center gap-2">
+                        Download CV
+                        <iconify-icon icon="solar:arrow-right-linear" class="opacity-60" width="16" height="16"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: Photo Area (2 cols) -->
+            <div class="md:col-span-2 flex justify-center reveal delay-300">
+                <div class="relative">
+                    <div class="w-64 h-80 md:w-72 md:h-96 rounded-2xl overflow-hidden border border-white/10 bg-[#0A0A0A] shadow-2xl shadow-blue-900/10">
+                        <img src="assets/images/profile.jpg" alt="Portrait of Tianxiang Zheng" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Glow behind photo -->
+                    <div class="absolute -inset-4 bg-blue-500/5 rounded-3xl blur-2xl -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Research Areas Section -->
+<section id="research" class="py-24 border-y border-white/[0.06] bg-white/[0.01]">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <!-- Area I -->
+            <div class="reveal delay-100 group p-8 rounded-2xl bg-[#080808] border border-white/[0.06] hover:border-white/[0.12] transition-colors relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-[100px] -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+                <div class="relative z-10">
+                    <div class="h-10 w-10 flex items-center justify-center text-slate-200 mb-6 bg-white/[0.05] rounded-lg border border-white/[0.05]">
+                        <iconify-icon icon="solar:users-group-two-rounded-linear" width="20" height="20" stroke-width="1.5"></iconify-icon>
+                    </div>
+                    <h3 class="text-xl font-medium text-white tracking-tight mb-2">Labour Market Dynamics</h3>
+                    <p class="text-sm text-slate-400 font-light leading-relaxed">
+                        Analyzing worker mobility and wage inequality in transitional economies through administrative data.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Area II -->
+            <div class="reveal delay-200 group p-8 rounded-2xl bg-[#080808] border border-white/[0.06] hover:border-white/[0.12] transition-colors relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-[100px] -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+                <div class="relative z-10">
+                    <div class="h-10 w-10 flex items-center justify-center text-slate-200 mb-6 bg-white/[0.05] rounded-lg border border-white/[0.05]">
+                        <iconify-icon icon="solar:chip-linear" width="20" height="20" stroke-width="1.5"></iconify-icon>
+                    </div>
+                    <h3 class="text-xl font-medium text-white tracking-tight mb-2">Automation & Policy</h3>
+                    <p class="text-sm text-slate-400 font-light leading-relaxed">
+                        Measuring the causal impact of AI adoption on firm productivity and employment structure.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Area III -->
+            <div class="reveal delay-300 group p-8 rounded-2xl bg-[#080808] border border-white/[0.06] hover:border-white/[0.12] transition-colors relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-[100px] -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+                <div class="relative z-10">
+                    <div class="h-10 w-10 flex items-center justify-center text-slate-200 mb-6 bg-white/[0.05] rounded-lg border border-white/[0.05]">
+                        <iconify-icon icon="solar:global-linear" width="20" height="20" stroke-width="1.5"></iconify-icon>
+                    </div>
+                    <h3 class="text-xl font-medium text-white tracking-tight mb-2">Development Economics</h3>
+                    <p class="text-sm text-slate-400 font-light leading-relaxed">
+                        Bridging the gap between technological frontier and developing labor institutions.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Area IV -->
+            <div class="reveal delay-300 group p-8 rounded-2xl bg-[#080808] border border-white/[0.06] hover:border-white/[0.12] transition-colors relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-[100px] -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+                <div class="relative z-10">
+                    <div class="h-10 w-10 flex items-center justify-center text-slate-200 mb-6 bg-white/[0.05] rounded-lg border border-white/[0.05]">
+                        <iconify-icon icon="solar:graph-up-linear" width="20" height="20" stroke-width="1.5"></iconify-icon>
+                    </div>
+                    <h3 class="text-xl font-medium text-white tracking-tight mb-2">Computational Methods</h3>
+                    <p class="text-sm text-slate-400 font-light leading-relaxed">
+                        Developing novel structural models to simulate policy outcomes in complex adaptive systems.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Methodology Section -->
+<section id="methodology" class="py-32 relative">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="mb-20 md:mb-28 reveal">
+            <h2 class="text-3xl md:text-5xl font-semibold text-white tracking-tight mb-6">Research Agenda.</h2>
+            <div class="max-w-3xl">
+                <p class="text-xl text-slate-300 font-light leading-relaxed mb-6">
+                    My research combines rigorous econometric identification with structural modeling to provide actionable insights for policymakers.
+                </p>
+                <a href="#contact" onclick="document.getElementById('domainInput').focus()" class="inline-flex items-center gap-2 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors">
+                    View Methodology
+                    <iconify-icon icon="solar:arrow-down-linear" width="14" height="14"></iconify-icon>
+                </a>
+            </div>
+        </div>
+
+        <!-- Steps Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Step 1 -->
+            <div class="reveal delay-100 p-8 rounded-2xl border border-white/10 bg-[#0A0A0A] hover:border-white/20 transition-all">
+                <div class="text-xs font-mono text-blue-500 mb-4">01</div>
+                <h3 class="text-xl font-medium text-white tracking-tight mb-4">DATA COLLECTION</h3>
+                <p class="text-sm text-slate-400 leading-relaxed mb-6 italic">Leveraging administrative micro-data and large-scale surveys.</p>
+                <div class="text-sm text-slate-500 font-light leading-7 space-y-4">
+                    <p>Constructing comprehensive panel datasets to track individual worker trajectories across decades.</p>
+                    <ul class="list-disc pl-4 space-y-1 text-slate-400">
+                        <li>Matched employer-employee data</li>
+                        <li>Web-scraped job vacancy data</li>
+                        <li>Satellite imagery for regional development</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="reveal delay-200 p-8 rounded-2xl border border-white/10 bg-[#0A0A0A] hover:border-white/20 transition-all">
+                <div class="text-xs font-mono text-blue-500 mb-4">02</div>
+                <h3 class="text-xl font-medium text-white tracking-tight mb-4">CAUSAL INFERENCE</h3>
+                <p class="text-sm text-slate-400 leading-relaxed mb-6 italic">Isolating the effects of technological shocks.</p>
+                <div class="text-sm text-slate-500 font-light leading-7 space-y-4">
+                    <p>Utilizing natural experiments and instrumental variables to identify causal mechanisms driving inequality.</p>
+                    <ul class="list-disc pl-4 space-y-1 text-slate-400">
+                        <li>Difference-in-differences designs</li>
+                        <li>Regression discontinuity</li>
+                        <li>Shift-share instruments</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="reveal delay-100 p-8 rounded-2xl border border-white/10 bg-[#0A0A0A] hover:border-white/20 transition-all">
+                <div class="text-xs font-mono text-blue-500 mb-4">03</div>
+                <h3 class="text-xl font-medium text-white tracking-tight mb-4">STRUCTURAL MODELING</h3>
+                <p class="text-sm text-slate-400 leading-relaxed mb-6 italic">Micro-founding macroeconomic trends.</p>
+                <div class="text-sm text-slate-500 font-light leading-7 space-y-4">
+                    <p>Building equilibrium models to understand general equilibrium effects that reduced-form methods miss.</p>
+                    <ul class="list-disc pl-4 space-y-1 text-slate-400">
+                        <li>Heterogeneous agent models</li>
+                        <li>Search and matching frictions</li>
+                        <li>Task-based production functions</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="reveal delay-200 p-8 rounded-2xl border border-white/10 bg-[#0A0A0A] hover:border-white/20 transition-all">
+                <div class="text-xs font-mono text-blue-500 mb-4">04</div>
+                <h3 class="text-xl font-medium text-white tracking-tight mb-4">POLICY SIMULATION</h3>
+                <p class="text-sm text-slate-400 leading-relaxed mb-6 italic">From theory to practice.</p>
+                <div class="text-sm text-slate-500 font-light leading-7 space-y-4">
+                    <p>Using estimated parameters to simulate counterfactual policy scenarios for government advisories.</p>
+                    <ul class="list-disc pl-4 space-y-1 text-slate-400">
+                        <li>Minimum wage effects</li>
+                        <li>Retraining subsidy optimization</li>
+                        <li>Taxation of robots/automation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quote Section -->
+<section id="quote" class="py-24 border-t border-white/[0.06] bg-[#050505]">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="reveal">
+            <div class="mx-auto text-blue-500 mb-8 w-8 h-8 flex justify-center items-center">
+                <iconify-icon icon="solar:quote-up-square-linear" width="32" height="32"></iconify-icon>
+            </div>
+            <p class="text-2xl md:text-3xl font-light text-white leading-relaxed mb-8">
+                "The challenge of the 21st century is not just innovation, but <span class="text-blue-500 font-normal">inclusive adaptation</span>. We must design institutions that scale with technology."
+            </p>
+            <div class="flex items-center justify-center gap-3">
+                <div class="h-px w-8 bg-white/20"></div>
+                <p class="text-xs font-mono text-slate-500 uppercase tracking-widest">Research Philosophy</p>
+                <div class="h-px w-8 bg-white/20"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final Call to Action -->
+<section class="py-32 relative overflow-hidden border-t border-white/[0.06]">
+    <div class="absolute inset-0 bg-blue-900/5 mix-blend-overlay"></div>
+    <div class="max-w-3xl mx-auto px-6 relative z-10 text-center">
+        <h2 class="reveal text-4xl md:text-6xl font-semibold text-white tracking-tighter mb-8 leading-tight">
+            Collaborate on future<br>
+            <span class="text-slate-500">labour market research.</span>
+        </h2>
+        <button onclick="document.getElementById('domainInput').focus()" class="reveal delay-100 px-8 py-4 bg-white text-black text-sm font-semibold rounded-full hover:bg-slate-200 transition-all shadow-[0_0_30px_rgba(255,255,255,0.15)] inline-flex items-center gap-2">
+            Get in Touch
+            <iconify-icon icon="solar:arrow-right-linear" width="16" height="16"></iconify-icon>
+        </button>
+    </div>
+</section>
+
+<!-- Hidden Contact Modal -->
+<div id="contactModal" class="hidden-modal fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/80 backdrop-blur-md">
+    <div class="w-full max-w-md bg-[#0E0F14] border border-white/10 rounded-2xl shadow-2xl relative overflow-hidden">
+        <!-- Close Button -->
+        <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-500 hover:text-white transition-colors z-20">
+            <iconify-icon icon="solar:close-square-linear" width="20" height="20"></iconify-icon>
+        </button>
+
+        <div class="p-8 relative z-10">
+            <div class="mb-6">
+                <div class="text-xs font-mono text-blue-500 mb-2">ACCESS REQUEST</div>
+                <h3 class="text-xl font-semibold text-white">Access Working Papers</h3>
+                <p class="text-xs text-slate-400 mt-1">Email: <span id="modalDomainDisplay" class="text-white font-mono"></span></p>
+            </div>
+
+            <form class="space-y-4" onsubmit="event.preventDefault(); submitToAirtable();">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-1">
+                        <label class="text-[10px] font-semibold text-slate-500 uppercase">First Name</label>
+                        <input type="text" id="prenomInput" required class="w-full bg-[#050505] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500/50 transition-colors">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-[10px] font-semibold text-slate-500 uppercase">Last Name</label>
+                        <input type="text" id="nomInput" required class="w-full bg-[#050505] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500/50 transition-colors">
+                    </div>
+                </div>
+
+                <div class="space-y-1">
+                    <label class="text-[10px] font-semibold text-slate-500 uppercase">Institution / Organization</label>
+                    <input type="text" id="institutionInput" class="w-full bg-[#050505] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500/50 transition-colors">
+                </div>
+
+                <div class="space-y-1">
+                    <label class="text-[10px] font-semibold text-slate-500 uppercase">Email</label>
+                    <input type="email" id="domainInput" required class="w-full bg-[#050505] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500/50 transition-colors" placeholder="your@institution.edu">
+                </div>
+
+                <button type="submit" id="submitBtn" class="w-full mt-4 bg-blue-600 hover:bg-blue-500 text-white font-medium py-3 rounded text-sm transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] flex items-center justify-center gap-2">
+                    Request Access
+                </button>
+
+                <p id="submissionError" class="text-center text-blue-500 text-xs mt-2 hidden">Transmission Failed. Try again.</p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="border-t border-white/[0.06] bg-[#050505] pt-20 pb-10">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <iconify-icon icon="solar:atom-linear" class="text-white" width="20" height="20"></iconify-icon>
+                    <span class="text-base font-semibold tracking-tight text-white uppercase">UCL Economics</span>
+                </div>
+                <p class="text-xs text-slate-500 max-w-xs leading-relaxed font-light">
+                    Advancing the understanding of labor markets in the digital age.
+                </p>
+            </div>
+
+            <div class="flex gap-8 text-xs font-medium text-slate-500">
+                <a href="#" class="hover:text-white transition-colors">Working Papers</a>
+                <a href="#" class="hover:text-white transition-colors">Policy Briefs</a>
+                <a href="#" class="hover:text-white transition-colors">CV</a>
+            </div>
+        </div>
+
+        <div class="border-t border-white/[0.06] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-[10px] text-slate-600 uppercase tracking-wider">© 2024 Research.</p>
+            <div class="flex gap-6">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-white transition-colors">
+                    <iconify-icon icon="solar:link-circle-linear" width="16" height="16"></iconify-icon>
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-white transition-colors">
+                    <iconify-icon icon="solar:letter-linear" width="16" height="16"></iconify-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Modal Logic
+    function openModal() {
+        const input = document.getElementById('domainInput');
+        const modal = document.getElementById('contactModal');
+        const display = document.getElementById('modalDomainDisplay');
+        
+        display.textContent = input.value || 'your@institution.edu';
+        modal.classList.remove('hidden-modal');
+        modal.classList.add('visible-modal');
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('contactModal');
+        modal.classList.remove('visible-modal');
+        modal.classList.add('hidden-modal');
+        document.getElementById('submissionError').classList.add('hidden');
+    }
+
+    // Close on clicking outside
+    document.getElementById('contactModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+
+    // Airtable Submission Logic
+    async function submitToAirtable() {
+        const btn = document.getElementById('submitBtn');
+        const errorText = document.getElementById('submissionError');
+        const originalText = btn.innerHTML;
+        
+        // Set Loading State
+        btn.innerHTML = '<iconify-icon icon="solar:refresh-circle-linear" class="animate-spin" width="16" height="16"></iconify-icon> Processing...';
+        btn.disabled = true;
+        errorText.classList.add('hidden');
+        
+        const email = document.getElementById('domainInput').value;
+        const prenom = document.getElementById('prenomInput').value;
+        const nom = document.getElementById('nomInput').value;
+        const institution = document.getElementById('institutionInput').value;
+
+        // Mock submission for demo purposes
+        setTimeout(() => {
+            btn.innerHTML = '<iconify-icon icon="solar:check-circle-linear" width="16" height="16"></iconify-icon> Access Granted';
+            btn.classList.remove('bg-blue-600', 'hover:bg-blue-500');
+            btn.classList.add('bg-green-600', 'hover:bg-green-500');
+            
+            setTimeout(() => {
+                closeModal();
+                // Reset form
+                document.getElementById('prenomInput').value = '';
+                document.getElementById('nomInput').value = '';
+                document.getElementById('institutionInput').value = '';
+                document.getElementById('domainInput').value = '';
+                // Reset button style
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                btn.classList.remove('bg-green-600', 'hover:bg-green-500');
+                btn.classList.add('bg-blue-600', 'hover:bg-blue-500');
+            }, 2000);
+        }, 1000);
+    }
+
+    // Scroll Reveal Animation Logic
+    document.addEventListener('DOMContentLoaded', () => {
+        const reveals = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 100;
+            
+            reveals.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Trigger once on load
+    });
+</script>
+
+</body></html>

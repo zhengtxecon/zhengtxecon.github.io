@@ -1,444 +1,683 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Curriculum vitae of Tianxiang Zheng (éƒ‘å¤©ç¿?: education, research experience, teaching, awards, skills, and professional profiles.">
-	<title>Curriculum Vitae Â· Tianxiang Zheng (éƒ‘å¤©ç¿?</title>
-	<link rel="stylesheet" href="assets/css/style.css">
-	<link rel="stylesheet" href="assets/css/cv.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-	<script src="assets/js/main.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Curriculum vitae of Tianxiang Zheng: education, research experience, teaching, awards, skills, and professional profiles.">
+    <title>Curriculum Vitae Â· Tianxiang Zheng</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" />
+
+    <!-- Iconify -->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'forest': {
+                            50: '#eff6ff', 100: '#dbeafe', 300: '#93c5fd', 400: '#60a5fa',
+                            500: '#3b82f6', 800: '#1d4ed8', 900: '#1e40af', 950: '#0b1f3a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-dm-sans { font-family: 'DM Sans', sans-serif; }
+        .reveal { opacity: 0; transform: translateY(30px) scale(0.98); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); filter: blur(10px); }
+        .reveal.active { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #020408; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+        /* Grid Background (match homepage) */
+        .hero-grid {
+            background-image:
+                linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+                linear-gradient(rgba(37, 99, 235, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.025) 1px, transparent 1px);
+            background-size: 50px 50px, 50px 50px, 250px 250px, 250px 250px;
+            mask-image: radial-gradient(circle at 50% 0%, black, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at 50% 0%, black, transparent 80%);
+        }
+
+        /* Nav scroll (match homepage) */
+        #main-nav {
+            transition: background-color 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
+        }
+        #main-nav.nav-scrolled {
+            background-color: rgba(11, 31, 58, 0.75);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        #main-nav.nav-scrolled .nav-brand { color: rgba(255,255,255,0.95) !important; }
+        #main-nav.nav-scrolled .nav-link { color: rgba(226,232,240,0.78) !important; }
+        #main-nav.nav-scrolled .nav-link:hover { color: rgba(255,255,255,0.98) !important; }
+        #main-nav.nav-scrolled .nav-link.is-active { color: rgba(255,255,255,0.98) !important; }
+        #main-nav.nav-scrolled .nav-btn {
+            color: rgba(255,255,255,0.95) !important;
+            border-color: rgba(226,232,240,0.25) !important;
+            background-color: rgba(255,255,255,0.08) !important;
+        }
+        #main-nav.nav-scrolled .nav-btn:hover {
+            background-color: rgba(255,255,255,0.14) !important;
+            border-color: rgba(147,197,253,0.55) !important;
+        }
+
+        /* Timeline line */
+        .timeline-line { position: relative; }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #3b82f6, #93c5fd, transparent);
+        }
+    </style>
 </head>
-<body data-page="cv">
-	<div id="header-placeholder"></div>
 
-	<section class="page-header cv-page-header" data-animate="fade-up">
-		<div class="container cv-header">
-			<div class="cv-header-copy">
-				<span class="section-label"><i class="fas fa-id-badge" aria-hidden="true"></i> Curriculum Vitae</span>
-				<h1>Curriculum Vitae</h1>
-				<p>Economist and data scientist studying how automation and technological change reshape labour markets in emerging and advanced economies.</p>
+<body class="bg-forest-50 text-slate-800 antialiased selection:bg-blue-600/30 selection:text-white overflow-x-hidden relative">
 
-				<div class="breadcrumbs" aria-label="Breadcrumb">
-					<a href="index.html">Home</a>
-					<span aria-hidden="true">/</span>
-					<span class="current" aria-current="page">Curriculum Vitae</span>
-				</div>
+<!-- Background (match homepage) -->
+<div class="fixed inset-0 w-full h-full -z-10 pointer-events-none overflow-hidden">
+    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/0dd9b13b-ea30-4e17-8a26-53d1f9d1c6d3_3840w.webp" alt="" class="absolute inset-0 w-full h-full object-cover blur-md brightness-[0.52] saturate-[1.15] contrast-[1.05] scale-110" />
+    <div class="absolute inset-0 hero-grid"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-forest-100/90 via-forest-50/50 to-forest-100/55"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-forest-50/80 via-transparent to-forest-950/70"></div>
+</div>
 
-				<div class="cv-meta-grid">
-					<div class="cv-meta-item">
-						<i class="fas fa-university" aria-hidden="true"></i>
-						<div>
-							<strong>PhD Candidate</strong>
-							<span>University College London, Economics</span>
-						</div>
-					</div>
-					<div class="cv-meta-item">
-						<i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-						<div>
-							<strong>Based in</strong>
-							<span>London, United Kingdom</span>
-						</div>
-					</div>
-					<div class="cv-meta-item">
-						<i class="fas fa-envelope" aria-hidden="true"></i>
-						<div>
-							<strong>Email</strong>
-							<span>tianxiang.zheng.22@ucl.ac.uk</span>
-						</div>
-					</div>
-				</div>
+<!-- Nav (match homepage) -->
+<nav id="main-nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-150">
+    <div class="relative">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between relative">
+            <!-- Brand -->
+            <a href="index.html" class="flex items-center gap-3">
+                <span class="nav-brand text-sm font-semibold tracking-tight text-slate-900 transition-colors duration-300">Tianxiang Zheng</span>
+            </a>
 
-				<div class="cv-actions">
-					<a href="assets/files/Tianxiang_Zheng_CV.pdf" class="btn btn-primary" download><i class="fas fa-file-download" aria-hidden="true"></i> Download CV</a>
-					<a href="research.html" class="btn btn-ghost"><i class="fas fa-book-open" aria-hidden="true"></i> Research portfolio</a>
-					<a href="contact.html" class="btn btn-secondary"><i class="fas fa-handshake" aria-hidden="true"></i> Collaboration enquiry</a>
-				</div>
-			</div>
+            <!-- Links -->
+            <div class="hidden md:flex items-center gap-12 text-xs font-semibold tracking-[0.2em] text-slate-700 uppercase">
+                <a href="research.html" class="nav-link text-slate-700 hover:text-slate-900 transition-colors duration-300">Research</a>
+                <a href="cv.html" class="nav-link is-active text-slate-900 transition-colors duration-300">CV</a>
+                <a href="blog/" class="nav-link text-slate-700 hover:text-slate-900 transition-colors duration-300">Blog</a>
+            </div>
 
-			<aside class="cv-header-profile" aria-label="Profile links">
-				<div class="cv-portrait">
-					<img src="assets/images/profile.jpg" alt="Portrait of Tianxiang Zheng">
-				</div>
-				<div class="cv-download-card">
-					<h3>Let's connect</h3>
-					<ul>
-						<li><a href="mailto:tianxiang.zheng.22@ucl.ac.uk"><i class="fas fa-envelope" aria-hidden="true"></i> Email Tianxiang</a></li>
-						<li><a href="https://scholar.google.com/citations?user=yMayrcEAAAAJ" target="_blank" rel="noopener"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Google Scholar</a></li>
-						<li><a href="https://github.com/zhengtxecon" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
-						<li><a href="https://www.linkedin.com/in/tianxiang-marx-zheng-187ab0131/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></li>
-					</ul>
-				</div>
-			</aside>
-		</div>
-	</section>
+            <!-- Actions -->
+            <div class="flex items-center gap-6">
+                <button onclick="window.location.href='contact.html'" class="nav-btn px-5 py-2 text-xs font-semibold tracking-[0.2em] uppercase text-slate-900 border border-slate-300/70 rounded-full bg-white/40 hover:bg-white/60 transition-colors duration-300">
+                    Contact
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
 
-	<main class="cv-main">
-		<div class="container cv-content">
-			<section class="cv-overview surface" data-animate="fade-up">
-				<div class="cv-overview-grid">
-					<article>
-						<h2>Professional summary</h2>
-						<p>I am a 3rd-year PhD candidate in Economics at UCL. My research examines how automation and AI adoption transform firm organisation, worker trajectories, and policy design, with a particular focus on emerging economies. I combine structural modelling, causal inference, and computational social science to deliver evidence that travels from academic theory to applied impact.</p>
-						<p>Beyond research, I curate cross-disciplinary collaborations and mentor students building reproducible data pipelines through project clinics across UCL.</p>
-					</article>
-					<article class="cv-overview-cards">
-						<div class="cv-highlight">
-							<h3><i class="fas fa-robot" aria-hidden="true"></i> Research interests</h3>
-							<ul>
-								<li>Automation, labour markets, and organisational adaptation</li>
-								<li>Development and urban economics</li>
-								<li>Computational policy design &amp; causal inference</li>
-							</ul>
-						</div>
-						<div class="cv-highlight">
-							<h3><i class="fas fa-users" aria-hidden="true"></i> Academic leadership</h3>
-							<p>Organise UCL economics data clinics, coaching student teams on collaborative workflows, version control, and evidence translation.</p>
-						</div>
-					</article>
-				</div>
-			</section>
+<!-- Page Header -->
+<section class="pt-32 pb-16 relative">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="reveal flex flex-col lg:flex-row gap-12 items-start">
+            <!-- Header Copy -->
+            <div class="flex-1">
+                <h1 class="font-dm-sans text-5xl md:text-6xl font-light tracking-tight mb-6">
+                    <span class="bg-gradient-to-r from-slate-900 via-blue-900 to-blue-700 bg-clip-text text-transparent">Curriculum</span><br>
+                    <span class="bg-gradient-to-r from-blue-700 via-blue-500 to-blue-400 bg-clip-text text-transparent">Vitae</span>
+                </h1>
+                <p class="text-lg text-slate-600 leading-relaxed max-w-xl mb-8">
+                    Economist and data scientist studying how automation and technological change reshape labour markets in emerging and advanced economies.
+                </p>
 
-			<section id="profiles" class="cv-section" data-animate="fade-up">
-				<div class="cv-section-header">
-					<span class="section-label"><i class="fas fa-id-card" aria-hidden="true"></i> Profiles</span>
-					<h2>Where to find my work</h2>
-				</div>
-				<div class="cv-profile-grid">
-					<a href="https://scholar.google.com/citations?user=yMayrcEAAAAJ" target="_blank" rel="noopener" class="cv-profile-card">
-						<i class="fas fa-graduation-cap" aria-hidden="true"></i>
-						<span>Google Scholar</span>
-						<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
-					</a>
-					<a href="https://profiles.ucl.ac.uk/90065-tianxiang-zheng" target="_blank" rel="noopener" class="cv-profile-card">
-						<img src="assets/images/ucl-logo-icon-large.png" alt="UCL" class="cv-profile-icon">
-						<span>UCL Profile</span>
-						<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
-					</a>
-					<a href="https://orcid.org/0009-0004-1399-1146" target="_blank" rel="noopener" class="cv-profile-card">
-						<i class="fab fa-orcid" aria-hidden="true"></i>
-						<span>ORCID</span>
-						<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
-					</a>
-					<a href="https://www.researchgate.net/profile/Tianxiang-Zheng-5" target="_blank" rel="noopener" class="cv-profile-card">
-						<i class="fab fa-researchgate" aria-hidden="true"></i>
-						<span>ResearchGate</span>
-						<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
-					</a>
-					<a href="https://www.linkedin.com/in/tianxiang-marx-zheng-187ab0131/" target="_blank" rel="noopener" class="cv-profile-card">
-						<i class="fab fa-linkedin" aria-hidden="true"></i>
-						<span>LinkedIn</span>
-						<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
-					</a>
-				</div>
-			</section>
+                <!-- Meta chips -->
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <div class="flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-md rounded-full border border-slate-200/60 text-sm text-slate-700">
+                        <iconify-icon icon="lucide:building-2" width="16" class="text-blue-500"></iconify-icon>
+                        <span class="font-medium">PhD Candidate</span>
+                        <span class="text-slate-400">Â·</span>
+                        <span>UCL Economics</span>
+                    </div>
+                    <div class="flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-md rounded-full border border-slate-200/60 text-sm text-slate-700">
+                        <iconify-icon icon="lucide:map-pin" width="16" class="text-blue-500"></iconify-icon>
+                        <span>London, United Kingdom</span>
+                    </div>
+                    <div class="flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-md rounded-full border border-slate-200/60 text-sm text-slate-700">
+                        <iconify-icon icon="lucide:mail" width="16" class="text-blue-500"></iconify-icon>
+                        <span>tianxiang.zheng.22@ucl.ac.uk</span>
+                    </div>
+                </div>
 
-			<section id="education" class="cv-section" data-animate="fade-up" data-timeline>
-				<div class="cv-section-header">
-					<span class="section-label"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Education</span>
-					<h2>Academic formation</h2>
-				</div>
-				<div class="cv-timeline">
-					<article class="cv-timeline-item">
-						<div class="timeline-marker">
-							<span class="timeline-node" aria-hidden="true"></span>
-							<span class="timeline-date">2023 â€?Present</span>
-						</div>
-						<div class="timeline-card">
-							<h3>PhD in Economics</h3>
-							<p class="timeline-organization">University College London (UCL), London, UK</p>
-							<ul>
-								<li>Supervisors: <a href="https://sites.google.com/view/gabriel-ulyssea/home" target="_blank" rel="noopener">Prof. Gabriel Ulyssea</a>, <a href="https://sekhansen.github.io/" target="_blank" rel="noopener">Prof. Stephen Hansen</a></li>
-							</ul>
-						</div>
-					</article>
+                <!-- Action buttons -->
+                <div class="flex flex-wrap gap-4">
+                    <a href="assets/files/Tianxiang_Zheng_CV.pdf" download class="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-full overflow-hidden transition-all hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] hover:scale-[1.02]">
+                        <div class="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent"></div>
+                        <span class="relative z-10 text-sm font-semibold flex items-center gap-2">
+                            <iconify-icon icon="lucide:download" width="16"></iconify-icon>
+                            Download CV
+                        </span>
+                    </a>
+                    <a href="research.html" class="group relative px-8 py-4 bg-white/50 backdrop-blur-md text-slate-700 rounded-full border border-slate-400/30 overflow-hidden transition-all hover:border-blue-300/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] hover:text-slate-900">
+                        <div class="absolute inset-0 bg-gradient-to-t from-blue-100/40 to-transparent opacity-50"></div>
+                        <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50 group-hover:opacity-100 group-hover:h-[2px] blur-[1px] transition-all duration-500"></div>
+                        <span class="relative z-10 text-sm font-medium flex items-center gap-2">
+                            <iconify-icon icon="lucide:book-open" width="16"></iconify-icon>
+                            Research Portfolio
+                        </span>
+                    </a>
+                </div>
+            </div>
 
-					<article class="cv-timeline-item">
-						<div class="timeline-marker">
-							<span class="timeline-node" aria-hidden="true"></span>
-							<span class="timeline-date">2022 â€?2023</span>
-						</div>
-						<div class="timeline-card">
-							<h3>MRes in Economics</h3>
-							<p class="timeline-organization">University College London (UCL), London, UK</p>
-							<ul>
-								<li>Supervisor: <a href="https://sites.google.com/view/alan-olivi/home" target="_blank" rel="noopener">Prof. Alan Olivi</a></li>
-								<li><em>Dissertation:</em> Automation, Offshoring, and the Prospects for Inclusive Growth in Emerging Economies</li>
-							</ul>
-						</div>
-					</article>
+            <!-- Profile Sidebar Card -->
+            <aside class="reveal delay-200 w-full lg:w-80 flex-shrink-0">
+                <div class="bg-white/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 overflow-hidden">
+                    <div class="p-6 flex flex-col items-center">
+                        <img src="assets/images/profile.jpg" alt="Portrait of Tianxiang Zheng" class="w-36 h-36 rounded-full object-cover border-4 border-white shadow-lg mb-4">
+                        <h3 class="font-dm-sans text-lg font-bold text-slate-900 mb-1">Tianxiang Zheng</h3>
+                        <p class="text-sm text-slate-500 mb-4">PhD Candidate in Economics</p>
+                    </div>
+                    <div class="border-t border-slate-200/60 px-6 py-4 space-y-2">
+                        <a href="https://scholar.google.com/citations?user=yMayrcEAAAAJ" target="_blank" rel="noopener" class="flex items-center gap-3 text-sm text-slate-600 hover:text-blue-600 transition-colors py-1">
+                            <iconify-icon icon="lucide:graduation-cap" width="16" class="text-blue-500"></iconify-icon>
+                            Google Scholar
+                        </a>
+                        <a href="https://github.com/zhengtxecon" target="_blank" rel="noopener" class="flex items-center gap-3 text-sm text-slate-600 hover:text-blue-600 transition-colors py-1">
+                            <iconify-icon icon="lucide:github" width="16" class="text-blue-500"></iconify-icon>
+                            GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/tianxiang-marx-zheng-187ab0131/" target="_blank" rel="noopener" class="flex items-center gap-3 text-sm text-slate-600 hover:text-blue-600 transition-colors py-1">
+                            <iconify-icon icon="lucide:linkedin" width="16" class="text-blue-500"></iconify-icon>
+                            LinkedIn
+                        </a>
+                        <a href="https://profiles.ucl.ac.uk/90065-tianxiang-zheng" target="_blank" rel="noopener" class="flex items-center gap-3 text-sm text-slate-600 hover:text-blue-600 transition-colors py-1">
+                            <iconify-icon icon="lucide:user" width="16" class="text-blue-500"></iconify-icon>
+                            UCL Profile
+                        </a>
+                        <a href="https://orcid.org/0009-0004-1399-1146" target="_blank" rel="noopener" class="flex items-center gap-3 text-sm text-slate-600 hover:text-blue-600 transition-colors py-1">
+                            <iconify-icon icon="lucide:fingerprint" width="16" class="text-blue-500"></iconify-icon>
+                            ORCID
+                        </a>
+                        <a href="https://www.researchgate.net/profile/Tianxiang-Zheng-5" target="_blank" rel="noopener" class="flex items-center gap-3 text-sm text-slate-600 hover:text-blue-600 transition-colors py-1">
+                            <iconify-icon icon="lucide:flask-conical" width="16" class="text-blue-500"></iconify-icon>
+                            ResearchGate
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
 
-					<article class="cv-timeline-item">
-						<div class="timeline-marker">
-							<span class="timeline-node" aria-hidden="true"></span>
-							<span class="timeline-date">2020 â€?2022</span>
-						</div>
-						<div class="timeline-card">
-							<h3>MSc in Economics (2-year programme)</h3>
-							<p class="timeline-organization">London School of Economics (LSE), London, UK</p>
-							<ul>
-								<li>Supervisor: <a href="https://www.lse.ac.uk/economics/people/faculty/frank-cowell" target="_blank" rel="noopener">Prof. Frank Cowell</a></li>
-								<li><em>Dissertation:</em> A World without Jobs? The Joint Effect of Automation and Aging</li>
-							</ul>
-						</div>
-					</article>
+<!-- Professional Summary -->
+<section class="py-16 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="reveal bg-white/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 p-8 md:p-12">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-8 h-[2px] bg-gradient-to-r from-blue-500 to-blue-300"></div>
+                <span class="text-xs font-semibold tracking-[0.25em] uppercase text-blue-600">Professional Summary</span>
+            </div>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div>
+                    <p class="text-slate-700 leading-relaxed mb-4">
+                        I am a 3rd-year PhD candidate in Economics at UCL. My research examines how automation and AI adoption transform firm organisation, worker trajectories, and policy design, with a particular focus on emerging economies. I combine structural modelling, causal inference, and computational social science to deliver evidence that travels from academic theory to applied impact.
+                    </p>
+                    <p class="text-slate-700 leading-relaxed">
+                        Beyond research, I curate cross-disciplinary collaborations and mentor students building reproducible data pipelines through project clinics across UCL.
+                    </p>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-white/50 backdrop-blur-md rounded-xl border border-slate-200/40 p-5">
+                        <h3 class="flex items-center gap-2 text-sm font-semibold text-slate-900 mb-3">
+                            <iconify-icon icon="lucide:cpu" width="16" class="text-blue-500"></iconify-icon>
+                            Research Interests
+                        </h3>
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-blue-500 mt-2 flex-shrink-0"></span>Automation, labour markets, and organisational adaptation</li>
+                            <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-blue-500 mt-2 flex-shrink-0"></span>Development and urban economics</li>
+                            <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-blue-500 mt-2 flex-shrink-0"></span>Computational policy design &amp; causal inference</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/50 backdrop-blur-md rounded-xl border border-slate-200/40 p-5">
+                        <h3 class="flex items-center gap-2 text-sm font-semibold text-slate-900 mb-3">
+                            <iconify-icon icon="lucide:users" width="16" class="text-blue-500"></iconify-icon>
+                            Academic Leadership
+                        </h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">Organise UCL economics data clinics, coaching student teams on collaborative workflows, version control, and evidence translation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-					<article class="cv-timeline-item">
-						<div class="timeline-marker">
-							<span class="timeline-node" aria-hidden="true"></span>
-							<span class="timeline-date">2016 â€?2020</span>
-						</div>
-						<div class="timeline-card">
-							<h3>BSc (Hons) in International Economics &amp; Trade</h3>
-							<p class="timeline-organization">University of Nottingham Ningbo, China</p>
-							<ul>
-								<li>Supervisor: <a href="https://person.zju.edu.cn/en/Minghai_Zhou" target="_blank" rel="noopener">Prof. Minghai Zhou</a></li>
-								<li><em>Dissertation:</em> Artificial Intelligence, Population Aging and Labour Market Outcomes across Income Groups</li>
-							</ul>
-						</div>
-					</article>
-				</div>
-			</section>
+<!-- Profiles -->
+<section class="py-16 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="reveal mb-10">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-8 h-[2px] bg-gradient-to-r from-blue-500 to-blue-300"></div>
+                <span class="text-xs font-semibold tracking-[0.25em] uppercase text-blue-600">Profiles</span>
+            </div>
+            <h2 class="font-dm-sans text-3xl font-bold text-slate-900">Where to find my work</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+            <a href="https://scholar.google.com/citations?user=yMayrcEAAAAJ" target="_blank" rel="noopener" class="reveal delay-100 group bg-white/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 p-6 flex flex-col items-center gap-3 text-center hover:border-blue-300/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)] transition-all">
+                <iconify-icon icon="lucide:graduation-cap" width="28" class="text-blue-500 group-hover:scale-110 transition-transform"></iconify-icon>
+                <span class="text-sm font-medium text-slate-700 group-hover:text-slate-900 transition-colors">Google Scholar</span>
+                <iconify-icon icon="lucide:arrow-up-right" width="14" class="text-slate-400 group-hover:text-blue-500 transition-colors"></iconify-icon>
+            </a>
+            <a href="https://profiles.ucl.ac.uk/90065-tianxiang-zheng" target="_blank" rel="noopener" class="reveal delay-200 group bg-white/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 p-6 flex flex-col items-center gap-3 text-center hover:border-blue-300/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)] transition-all">
+                <iconify-icon icon="lucide:building-2" width="28" class="text-blue-500 group-hover:scale-110 transition-transform"></iconify-icon>
+                <span class="text-sm font-medium text-slate-700 group-hover:text-slate-900 transition-colors">UCL Profile</span>
+                <iconify-icon icon="lucide:arrow-up-right" width="14" class="text-slate-400 group-hover:text-blue-500 transition-colors"></iconify-icon>
+            </a>
+            <a href="https://orcid.org/0009-0004-1399-1146" target="_blank" rel="noopener" class="reveal delay-200 group bg-white/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 p-6 flex flex-col items-center gap-3 text-center hover:border-blue-300/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)] transition-all">
+                <iconify-icon icon="lucide:fingerprint" width="28" class="text-blue-500 group-hover:scale-110 transition-transform"></iconify-icon>
+                <span class="text-sm font-medium text-slate-700 group-hover:text-slate-900 transition-colors">ORCID</span>
+                <iconify-icon icon="lucide:arrow-up-right" width="14" class="text-slate-400 group-hover:text-blue-500 transition-colors"></iconify-icon>
+            </a>
+            <a href="https://www.researchgate.net/profile/Tianxiang-Zheng-5" target="_blank" rel="noopener" class="reveal delay-300 group bg-white/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 p-6 flex flex-col items-center gap-3 text-center hover:border-blue-300/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)] transition-all">
+                <iconify-icon icon="lucide:flask-conical" width="28" class="text-blue-500 group-hover:scale-110 transition-transform"></iconify-icon>
+                <span class="text-sm font-medium text-slate-700 group-hover:text-slate-900 transition-colors">ResearchGate</span>
+                <iconify-icon icon="lucide:arrow-up-right" width="14" class="text-slate-400 group-hover:text-blue-500 transition-colors"></iconify-icon>
+            </a>
+            <a href="https://www.linkedin.com/in/tianxiang-marx-zheng-187ab0131/" target="_blank" rel="noopener" class="reveal delay-300 group bg-white/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 p-6 flex flex-col items-center gap-3 text-center hover:border-blue-300/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)] transition-all">
+                <iconify-icon icon="lucide:linkedin" width="28" class="text-blue-500 group-hover:scale-110 transition-transform"></iconify-icon>
+                <span class="text-sm font-medium text-slate-700 group-hover:text-slate-900 transition-colors">LinkedIn</span>
+                <iconify-icon icon="lucide:arrow-up-right" width="14" class="text-slate-400 group-hover:text-blue-500 transition-colors"></iconify-icon>
+            </a>
+        </div>
+    </div>
+</section>
 
-			<section id="research-experience" class="cv-section" data-animate="fade-up" data-timeline>
-				<div class="cv-section-header">
-					<span class="section-label"><i class="fas fa-flask" aria-hidden="true"></i> Research experience</span>
-					<h2>Evidence-building roles</h2>
-				</div>
-				<div class="cv-timeline">
-					<article class="cv-timeline-item">
-						<div class="timeline-marker">
-							<span class="timeline-node" aria-hidden="true"></span>
-							<span class="timeline-date">2023 â€?Present</span>
-						</div>
-						<div class="timeline-card">
-							<h3>Postdoctoral Research Fellow</h3>
-							<p class="timeline-organization">Department of Economics, [University]</p>
-							<ul>
-								<li>Lead computational economics projects on market design and automation.</li>
-								<li>Co-design partnerships translating research into policy experiments.</li>
-							</ul>
-						</div>
-					</article>
+<!-- Education -->
+<section class="py-16 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="reveal mb-10">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-8 h-[2px] bg-gradient-to-r from-blue-500 to-blue-300"></div>
+                <span class="text-xs font-semibold tracking-[0.25em] uppercase text-blue-600">Education</span>
+            </div>
+            <h2 class="font-dm-sans text-3xl font-bold text-slate-900">Academic Formation</h2>
+        </div>
 
-					<article class="cv-timeline-item">
-						<div class="timeline-marker">
-							<span class="timeline-node" aria-hidden="true"></span>
-							<span class="timeline-date">2021 â€?2023</span>
-						</div>
-						<div class="timeline-card">
-							<h3>Research Assistant</h3>
-							<p class="timeline-organization">Centre for Economic Policy Research</p>
-							<ul>
-								<li>Built dynamic models to analyse labour-market transitions under technology shocks.</li>
-								<li>Developed simulation tools for scenario planning across policy regimes.</li>
-							</ul>
-						</div>
-					</article>
+        <div class="timeline-line pl-8 space-y-8">
+            <!-- PhD -->
+            <div class="reveal relative">
+                <div class="absolute -left-8 top-2 w-4 h-4 rounded-full bg-blue-500 border-4 border-forest-50 shadow-[0_0_10px_rgba(59,130,246,0.4)]"></div>
+                <div class="bg-white/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 p-6">
+                    <div class="flex flex-wrap items-center gap-3 mb-2">
+                        <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">2023 â€“ Present</span>
+                    </div>
+                    <h3 class="font-dm-sans text-xl font-bold text-slate-900 mb-1">PhD in Economics</h3>
+                    <p class="text-sm text-slate-500 mb-3">University College London (UCL), London, UK</p>
+                    <p class="text-sm text-slate-600">Supervisors: <a href="https://sites.google.com/view/gabriel-ulyssea/home" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 underline decoration-blue-300/50 underline-offset-2">Prof. Gabriel Ulyssea</a>, <a href="https://sekhansen.github.io/" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 underline decoration-blue-300/50 underline-offset-2">Prof. Stephen Hansen</a></p>
+                </div>
+            </div>
 
-					<article class="cv-timeline-item">
-						<div class="timeline-marker">
-							<span class="timeline-node" aria-hidden="true"></span>
-							<span class="timeline-date">Summer 2020</span>
-						</div>
-						<div class="timeline-card">
-							<h3>Research Intern</h3>
-							<p class="timeline-organization">Economic Research Department, Central Bank</p>
-							<ul>
-								<li>Applied machine learning to financial market microstructure data.</li>
-								<li>Co-authored policy brief on algorithmic trading and market stability.</li>
-							</ul>
-						</div>
-					</article>
-				</div>
-			</section>
+            <!-- MRes -->
+            <div class="reveal delay-100 relative">
+                <div class="absolute -left-8 top-2 w-4 h-4 rounded-full bg-blue-400 border-4 border-forest-50"></div>
+                <div class="bg-white/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 p-6">
+                    <div class="flex flex-wrap items-center gap-3 mb-2">
+                        <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">2022 â€“ 2023</span>
+                    </div>
+                    <h3 class="font-dm-sans text-xl font-bold text-slate-900 mb-1">MRes in Economics</h3>
+                    <p class="text-sm text-slate-500 mb-3">University College London (UCL), London, UK</p>
+                    <p class="text-sm text-slate-600 mb-1">Supervisor: <a href="https://sites.google.com/view/alan-olivi/home" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 underline decoration-blue-300/50 underline-offset-2">Prof. Alan Olivi</a></p>
+                    <p class="text-sm text-slate-600"><em class="text-slate-500">Dissertation:</em> Automation, Offshoring, and the Prospects for Inclusive Growth in Emerging Economies</p>
+                </div>
+            </div>
 
-			<section id="teaching" class="cv-section" data-animate="fade-up" data-timeline>
-				<div class="cv-section-header">
-					<span class="section-label"><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i> Teaching experience</span>
-					<h2>Courses &amp; student partnerships</h2>
-				</div>
-				<div class="cv-timeline">
-					<article class="cv-timeline-item">
-						<div class="timeline-marker">
-							<span class="timeline-node" aria-hidden="true"></span>
-							<span class="timeline-date">2024 â€?2025</span>
-						</div>
-						<div class="timeline-card">
-							<h3>Teaching Assistant</h3>
-							<p class="timeline-organization">University College London, Department of Economics</p>
-							<ul>
-								<li>ECON0042 Independent Research Project (Final Year) â€?Instructor: Ramin Nassehi</li>
-								<li>ECON0012 Advanced Economic Skills Lab (Final Year) â€?Instructor: Ramin Nassehi</li>
-							</ul>
-						</div>
-					</article>
+            <!-- MSc -->
+            <div class="reveal delay-200 relative">
+                <div class="absolute -left-8 top-2 w-4 h-4 rounded-full bg-blue-300 border-4 border-forest-50"></div>
+                <div class="bg-white/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 p-6">
+                    <div class="flex flex-wrap items-center gap-3 mb-2">
+                        <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">2020 â€“ 2022</span>
+                    </div>
+                    <h3 class="font-dm-sans text-xl font-bold text-slate-900 mb-1">MSc in Economics (2-year programme)</h3>
+                    <p class="text-sm text-slate-500 mb-3">London School of Economics (LSE), London, UK</p>
+                    <p class="text-sm text-slate-600 mb-1">Supervisor: <a href="https://www.lse.ac.uk/economics/people/faculty/frank-cowell" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 underline decoration-blue-300/50 underline-offset-2">Prof. Frank Cowell</a></p>
+                    <p class="text-sm text-slate-600"><em class="text-slate-500">Dissertation:</em> A World without Jobs? The Joint Effect of Automation and Aging</p>
+                </div>
+            </div>
 
-					<article class="cv-timeline-item">
-						<div class="timeline-marker">
-							<span class="timeline-node" aria-hidden="true"></span>
-							<span class="timeline-date">2023 â€?2024</span>
-						</div>
-						<div class="timeline-card">
-							<h3>Teaching Assistant</h3>
-							<p class="timeline-organization">University College London, Department of Economics</p>
-							<ul>
-								<li>ECON0001 Economics of Financial Markets (Final Year) â€?Instructor: <a href="https://www.ucl.ac.uk/economics/people/teaching-staff/paolo-zeppini" target="_blank" rel="noopener">Prof. Paolo Zeppini</a></li>
-								<li>ECON0063 Topics in Money and Finance (Masters) â€?Instructor: <a href="https://www.ucl.ac.uk/economics/people/academic-staff/ming-yang" target="_blank" rel="noopener">Prof. Ming Yang</a></li>
-							</ul>
-						</div>
-					</article>
+            <!-- BSc -->
+            <div class="reveal delay-300 relative">
+                <div class="absolute -left-8 top-2 w-4 h-4 rounded-full bg-blue-200 border-4 border-forest-50"></div>
+                <div class="bg-white/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 p-6">
+                    <div class="flex flex-wrap items-center gap-3 mb-2">
+                        <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">2016 â€“ 2020</span>
+                    </div>
+                    <h3 class="font-dm-sans text-xl font-bold text-slate-900 mb-1">BSc (Hons) in International Economics &amp; Trade</h3>
+                    <p class="text-sm text-slate-500 mb-3">University of Nottingham Ningbo, China</p>
+                    <p class="text-sm text-slate-600 mb-1">Supervisor: <a href="https://person.zju.edu.cn/en/Minghai_Zhou" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 underline decoration-blue-300/50 underline-offset-2">Prof. Minghai Zhou</a></p>
+                    <p class="text-sm text-slate-600"><em class="text-slate-500">Dissertation:</em> Artificial Intelligence, Population Aging and Labour Market Outcomes across Income Groups</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-					<article class="cv-timeline-item">
-						<div class="timeline-marker">
-							<span class="timeline-node" aria-hidden="true"></span>
-							<span class="timeline-date">2021 â€?2022</span>
-						</div>
-						<div class="timeline-card">
-							<h3>Teaching Assistant (Note Transcription)</h3>
-							<p class="timeline-organization">London School of Economics, Department of Economics</p>
-							<ul>
-								<li>EC402 Econometrics (Masters) â€?Instructor: <a href="https://www.lse.ac.uk/economics/people/faculty/vassilis-hajivassiliou" target="_blank" rel="noopener">Prof. Vassilis Hajivassiliou</a></li>
-							</ul>
-						</div>
-					</article>
-				</div>
-			</section>
+<!-- Research Experience -->
+<section class="py-16 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="reveal mb-10">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-8 h-[2px] bg-gradient-to-r from-blue-500 to-blue-300"></div>
+                <span class="text-xs font-semibold tracking-[0.25em] uppercase text-blue-600">Research Experience</span>
+            </div>
+            <h2 class="font-dm-sans text-3xl font-bold text-slate-900">Evidence-Building Roles</h2>
+        </div>
 
-			<section id="awards" class="cv-section" data-animate="fade-up">
-				<div class="cv-section-header">
-					<span class="section-label"><i class="fas fa-award" aria-hidden="true"></i> Awards &amp; scholarships</span>
-					<h2>Recognition for teaching &amp; research excellence</h2>
-				</div>
-				<div class="cv-awards-list">
-					<article class="cv-award">
-						<div class="cv-award-year">
-							<span class="award-year-badge">2024</span>
-						</div>
-						<div class="cv-award-content">
-							<h3>Best MSc optional modules TA</h3>
-							<p>UCL</p>
-						</div>
-					</article>
-					<article class="cv-award">
-						<div class="cv-award-year">
-							<span class="award-year-badge">2023 â€?Present</span>
-						</div>
-						<div class="cv-award-content">
-							<h3>Departmental Studentship</h3>
-							<p>UCL</p>
-						</div>
-					</article>
-					<article class="cv-award">
-						<div class="cv-award-year">
-							<span class="award-year-badge">2021</span>
-						</div>
-						<div class="cv-award-content">
-							<h3>Excellence in Macroeconomics Award for Outstanding Knowledge Sharing</h3>
-							<p>LSE</p>
-						</div>
-					</article>
-					<article class="cv-award">
-						<div class="cv-award-year">
-							<span class="award-year-badge">2020</span>
-						</div>
-						<div class="cv-award-content">
-							<h3>Excellence in Macroeconomics Award for Outstanding Knowledge Sharing</h3>
-							<p>LSE</p>
-						</div>
-					</article>
-					<article class="cv-award">
-						<div class="cv-award-year">
-							<span class="award-year-badge">2020</span>
-						</div>
-						<div class="cv-award-content">
-							<h3>Nottingham Advantage Award</h3>
-							<p>University of Nottingham Ningbo, China</p>
-						</div>
-					</article>
-					<article class="cv-award">
-						<div class="cv-award-year">
-							<span class="award-year-badge">2020</span>
-						</div>
-						<div class="cv-award-content">
-							<h3>Provincial Scholarship</h3>
-							<p>Zhejiang Province, China</p>
-						</div>
-					</article>
-					<article class="cv-award">
-						<div class="cv-award-year">
-							<span class="award-year-badge">2019</span>
-						</div>
-						<div class="cv-award-content">
-							<h3>Dean's Scholarship</h3>
-							<p>University of Nottingham Ningbo, China</p>
-						</div>
-					</article>
-					<article class="cv-award">
-						<div class="cv-award-year">
-							<span class="award-year-badge">2018</span>
-						</div>
-						<div class="cv-award-content">
-							<h3>Head's Scholarship</h3>
-							<p>University of Nottingham Ningbo, China</p>
-						</div>
-					</article>
-					<article class="cv-award">
-						<div class="cv-award-year">
-							<span class="award-year-badge">2017</span>
-						</div>
-						<div class="cv-award-content">
-							<h3>Provost's Scholarship</h3>
-							<p>University of Nottingham Ningbo, China</p>
-						</div>
-					</article>
-				</div>
-			</section>
+        <div class="timeline-line pl-8 space-y-8">
+            <div class="reveal relative">
+                <div class="absolute -left-8 top-2 w-4 h-4 rounded-full bg-blue-500 border-4 border-forest-50 shadow-[0_0_10px_rgba(59,130,246,0.4)]"></div>
+                <div class="bg-white/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 p-6">
+                    <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">2023 â€“ Present</span>
+                    <h3 class="font-dm-sans text-xl font-bold text-slate-900 mt-3 mb-1">Postdoctoral Research Fellow</h3>
+                    <p class="text-sm text-slate-500 mb-3">Department of Economics</p>
+                    <ul class="space-y-1 text-sm text-slate-600">
+                        <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-blue-400 mt-2 flex-shrink-0"></span>Lead computational economics projects on market design and automation.</li>
+                        <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-blue-400 mt-2 flex-shrink-0"></span>Co-design partnerships translating research into policy experiments.</li>
+                    </ul>
+                </div>
+            </div>
 
-			<section id="skills" class="cv-section" data-animate="fade-up">
-				<div class="cv-section-header">
-					<span class="section-label"><i class="fas fa-layer-group" aria-hidden="true"></i> Skills</span>
-					<h2>Toolbox for research &amp; teaching</h2>
-				</div>
-				<div class="cv-skills-grid">
-					<article class="cv-skills-card">
-						<h3>Technical</h3>
-						<div class="cv-skill-tags">
-							<span>Python</span>
-							<span>R</span>
-							<span>SQL</span>
-							<span>Stata</span>
-							<span>TensorFlow</span>
-							<span>PyTorch</span>
-							<span>Git</span>
-							<span>LaTeX</span>
-						</div>
-					</article>
-					<article class="cv-skills-card">
-						<h3>Economics &amp; analytics</h3>
-						<div class="cv-skill-tags">
-							<span>Applied microeconometrics</span>
-							<span>Causal inference</span>
-							<span>Structural modelling</span>
-							<span>Machine learning</span>
-							<span>Survey design</span>
-							<span>Data visualisation</span>
-						</div>
-					</article>
-					<article class="cv-skills-card">
-						<h3>Languages</h3>
-						<div class="cv-skill-tags">
-							<span>English (fluent)</span>
-							<span>Mandarin (native)</span>
-						</div>
-					</article>
-				</div>
-			</section>
-		</div>
-	</main>
+            <div class="reveal delay-100 relative">
+                <div class="absolute -left-8 top-2 w-4 h-4 rounded-full bg-blue-400 border-4 border-forest-50"></div>
+                <div class="bg-white/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 p-6">
+                    <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">2021 â€“ 2023</span>
+                    <h3 class="font-dm-sans text-xl font-bold text-slate-900 mt-3 mb-1">Research Assistant</h3>
+                    <p class="text-sm text-slate-500 mb-3">Centre for Economic Policy Research (CEPR)</p>
+                    <ul class="space-y-1 text-sm text-slate-600">
+                        <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-blue-400 mt-2 flex-shrink-0"></span>Built dynamic models to analyse labour-market transitions under technology shocks.</li>
+                        <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-blue-400 mt-2 flex-shrink-0"></span>Developed simulation tools for scenario planning across policy regimes.</li>
+                    </ul>
+                </div>
+            </div>
 
-	<div id="footer-placeholder"></div>
+            <div class="reveal delay-200 relative">
+                <div class="absolute -left-8 top-2 w-4 h-4 rounded-full bg-blue-300 border-4 border-forest-50"></div>
+                <div class="bg-white/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 p-6">
+                    <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">Summer 2020</span>
+                    <h3 class="font-dm-sans text-xl font-bold text-slate-900 mt-3 mb-1">Research Intern</h3>
+                    <p class="text-sm text-slate-500 mb-3">Economic Research Department, Central Bank</p>
+                    <ul class="space-y-1 text-sm text-slate-600">
+                        <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-blue-400 mt-2 flex-shrink-0"></span>Applied machine learning to financial market microstructure data.</li>
+                        <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-blue-400 mt-2 flex-shrink-0"></span>Co-authored policy brief on algorithmic trading and market stability.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Teaching Experience -->
+<section class="py-16 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="reveal mb-10">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-8 h-[2px] bg-gradient-to-r from-blue-500 to-blue-300"></div>
+                <span class="text-xs font-semibold tracking-[0.25em] uppercase text-blue-600">Teaching Experience</span>
+            </div>
+            <h2 class="font-dm-sans text-3xl font-bold text-slate-900">Courses &amp; Student Partnerships</h2>
+        </div>
+
+        <div class="timeline-line pl-8 space-y-8">
+            <div class="reveal relative">
+                <div class="absolute -left-8 top-2 w-4 h-4 rounded-full bg-blue-500 border-4 border-forest-50 shadow-[0_0_10px_rgba(59,130,246,0.4)]"></div>
+                <div class="bg-white/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 p-6">
+                    <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">2024 â€“ 2025</span>
+                    <h3 class="font-dm-sans text-xl font-bold text-slate-900 mt-3 mb-1">Teaching Assistant</h3>
+                    <p class="text-sm text-slate-500 mb-3">University College London, Department of Economics</p>
+                    <ul class="space-y-1 text-sm text-slate-600">
+                        <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-blue-400 mt-2 flex-shrink-0"></span>ECON0042 Independent Research Project (Final Year) â€” Instructor: Ramin Nassehi</li>
+                        <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-blue-400 mt-2 flex-shrink-0"></span>ECON0012 Advanced Economic Skills Lab (Final Year) â€” Instructor: Ramin Nassehi</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="reveal delay-100 relative">
+                <div class="absolute -left-8 top-2 w-4 h-4 rounded-full bg-blue-400 border-4 border-forest-50"></div>
+                <div class="bg-white/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 p-6">
+                    <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">2023 â€“ 2024</span>
+                    <h3 class="font-dm-sans text-xl font-bold text-slate-900 mt-3 mb-1">Teaching Assistant</h3>
+                    <p class="text-sm text-slate-500 mb-3">University College London, Department of Economics</p>
+                    <ul class="space-y-1 text-sm text-slate-600">
+                        <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-blue-400 mt-2 flex-shrink-0"></span>ECON0001 Economics of Financial Markets (Final Year) â€” Instructor: <a href="https://www.ucl.ac.uk/economics/people/teaching-staff/paolo-zeppini" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 underline decoration-blue-300/50 underline-offset-2">Prof. Paolo Zeppini</a></li>
+                        <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-blue-400 mt-2 flex-shrink-0"></span>ECON0063 Topics in Money and Finance (Masters) â€” Instructor: <a href="https://www.ucl.ac.uk/economics/people/academic-staff/ming-yang" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 underline decoration-blue-300/50 underline-offset-2">Prof. Ming Yang</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="reveal delay-200 relative">
+                <div class="absolute -left-8 top-2 w-4 h-4 rounded-full bg-blue-300 border-4 border-forest-50"></div>
+                <div class="bg-white/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 p-6">
+                    <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">2021 â€“ 2022</span>
+                    <h3 class="font-dm-sans text-xl font-bold text-slate-900 mt-3 mb-1">Teaching Assistant (Note Transcription)</h3>
+                    <p class="text-sm text-slate-500 mb-3">London School of Economics, Department of Economics</p>
+                    <ul class="space-y-1 text-sm text-slate-600">
+                        <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-blue-400 mt-2 flex-shrink-0"></span>EC402 Econometrics (Masters) â€” Instructor: <a href="https://www.lse.ac.uk/economics/people/faculty/vassilis-hajivassiliou" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 underline decoration-blue-300/50 underline-offset-2">Prof. Vassilis Hajivassiliou</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Awards (dark section) -->
+<section class="py-24 relative z-10">
+    <div class="absolute inset-0 bg-forest-950/70 backdrop-blur-sm"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="reveal mb-10">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-8 h-[2px] bg-gradient-to-r from-blue-400 to-blue-300"></div>
+                <span class="text-xs font-semibold tracking-[0.25em] uppercase text-blue-400">Awards &amp; Scholarships</span>
+            </div>
+            <h2 class="font-dm-sans text-3xl font-bold text-white">Recognition for Teaching &amp; Research Excellence</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+            <div class="reveal delay-100 flex items-center gap-4 bg-white/[0.06] backdrop-blur-md rounded-xl border border-white/[0.08] p-5 hover:bg-white/[0.1] transition-all">
+                <span class="text-xs font-bold text-blue-400 bg-blue-500/10 px-3 py-1.5 rounded-full whitespace-nowrap">2024</span>
+                <div>
+                    <h3 class="text-sm font-semibold text-white">Best MSc optional modules TA</h3>
+                    <p class="text-xs text-slate-400 mt-0.5">UCL</p>
+                </div>
+            </div>
+            <div class="reveal delay-200 flex items-center gap-4 bg-white/[0.06] backdrop-blur-md rounded-xl border border-white/[0.08] p-5 hover:bg-white/[0.1] transition-all">
+                <span class="text-xs font-bold text-blue-400 bg-blue-500/10 px-3 py-1.5 rounded-full whitespace-nowrap">2023 â€“</span>
+                <div>
+                    <h3 class="text-sm font-semibold text-white">Departmental Studentship</h3>
+                    <p class="text-xs text-slate-400 mt-0.5">UCL</p>
+                </div>
+            </div>
+            <div class="reveal delay-100 flex items-center gap-4 bg-white/[0.06] backdrop-blur-md rounded-xl border border-white/[0.08] p-5 hover:bg-white/[0.1] transition-all">
+                <span class="text-xs font-bold text-blue-400 bg-blue-500/10 px-3 py-1.5 rounded-full whitespace-nowrap">2021</span>
+                <div>
+                    <h3 class="text-sm font-semibold text-white">Excellence in Macroeconomics Award for Outstanding Knowledge Sharing</h3>
+                    <p class="text-xs text-slate-400 mt-0.5">LSE</p>
+                </div>
+            </div>
+            <div class="reveal delay-200 flex items-center gap-4 bg-white/[0.06] backdrop-blur-md rounded-xl border border-white/[0.08] p-5 hover:bg-white/[0.1] transition-all">
+                <span class="text-xs font-bold text-blue-400 bg-blue-500/10 px-3 py-1.5 rounded-full whitespace-nowrap">2020</span>
+                <div>
+                    <h3 class="text-sm font-semibold text-white">Excellence in Macroeconomics Award for Outstanding Knowledge Sharing</h3>
+                    <p class="text-xs text-slate-400 mt-0.5">LSE</p>
+                </div>
+            </div>
+            <div class="reveal delay-100 flex items-center gap-4 bg-white/[0.06] backdrop-blur-md rounded-xl border border-white/[0.08] p-5 hover:bg-white/[0.1] transition-all">
+                <span class="text-xs font-bold text-blue-400 bg-blue-500/10 px-3 py-1.5 rounded-full whitespace-nowrap">2020</span>
+                <div>
+                    <h3 class="text-sm font-semibold text-white">Nottingham Advantage Award</h3>
+                    <p class="text-xs text-slate-400 mt-0.5">University of Nottingham Ningbo, China</p>
+                </div>
+            </div>
+            <div class="reveal delay-200 flex items-center gap-4 bg-white/[0.06] backdrop-blur-md rounded-xl border border-white/[0.08] p-5 hover:bg-white/[0.1] transition-all">
+                <span class="text-xs font-bold text-blue-400 bg-blue-500/10 px-3 py-1.5 rounded-full whitespace-nowrap">2020</span>
+                <div>
+                    <h3 class="text-sm font-semibold text-white">Provincial Scholarship</h3>
+                    <p class="text-xs text-slate-400 mt-0.5">Zhejiang Province, China</p>
+                </div>
+            </div>
+            <div class="reveal delay-100 flex items-center gap-4 bg-white/[0.06] backdrop-blur-md rounded-xl border border-white/[0.08] p-5 hover:bg-white/[0.1] transition-all">
+                <span class="text-xs font-bold text-blue-400 bg-blue-500/10 px-3 py-1.5 rounded-full whitespace-nowrap">2019</span>
+                <div>
+                    <h3 class="text-sm font-semibold text-white">Dean's Scholarship</h3>
+                    <p class="text-xs text-slate-400 mt-0.5">University of Nottingham Ningbo, China</p>
+                </div>
+            </div>
+            <div class="reveal delay-200 flex items-center gap-4 bg-white/[0.06] backdrop-blur-md rounded-xl border border-white/[0.08] p-5 hover:bg-white/[0.1] transition-all">
+                <span class="text-xs font-bold text-blue-400 bg-blue-500/10 px-3 py-1.5 rounded-full whitespace-nowrap">2018</span>
+                <div>
+                    <h3 class="text-sm font-semibold text-white">Head's Scholarship</h3>
+                    <p class="text-xs text-slate-400 mt-0.5">University of Nottingham Ningbo, China</p>
+                </div>
+            </div>
+            <div class="reveal delay-100 flex items-center gap-4 bg-white/[0.06] backdrop-blur-md rounded-xl border border-white/[0.08] p-5 hover:bg-white/[0.1] transition-all">
+                <span class="text-xs font-bold text-blue-400 bg-blue-500/10 px-3 py-1.5 rounded-full whitespace-nowrap">2017</span>
+                <div>
+                    <h3 class="text-sm font-semibold text-white">Provost's Scholarship</h3>
+                    <p class="text-xs text-slate-400 mt-0.5">University of Nottingham Ningbo, China</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills -->
+<section class="py-16 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="reveal mb-10">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-8 h-[2px] bg-gradient-to-r from-blue-500 to-blue-300"></div>
+                <span class="text-xs font-semibold tracking-[0.25em] uppercase text-blue-600">Skills</span>
+            </div>
+            <h2 class="font-dm-sans text-3xl font-bold text-slate-900">Toolbox for Research &amp; Teaching</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Technical -->
+            <div class="reveal delay-100 bg-white/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 p-6">
+                <h3 class="flex items-center gap-2 font-dm-sans text-lg font-bold text-slate-900 mb-5">
+                    <iconify-icon icon="lucide:code-2" width="20" class="text-blue-500"></iconify-icon>
+                    Technical
+                </h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1.5 text-xs font-medium text-slate-700 bg-blue-50/80 border border-blue-200/50 rounded-full">Python</span>
+                    <span class="px-3 py-1.5 text-xs font-medium text-slate-700 bg-blue-50/80 border border-blue-200/50 rounded-full">R</span>
+                    <span class="px-3 py-1.5 text-xs font-medium text-slate-700 bg-blue-50/80 border border-blue-200/50 rounded-full">SQL</span>
+                    <span class="px-3 py-1.5 text-xs font-medium text-slate-700 bg-blue-50/80 border border-blue-200/50 rounded-full">Stata</span>
+                    <span class="px-3 py-1.5 text-xs font-medium text-slate-700 bg-blue-50/80 border border-blue-200/50 rounded-full">TensorFlow</span>
+                    <span class="px-3 py-1.5 text-xs font-medium text-slate-700 bg-blue-50/80 border border-blue-200/50 rounded-full">PyTorch</span>
+                    <span class="px-3 py-1.5 text-xs font-medium text-slate-700 bg-blue-50/80 border border-blue-200/50 rounded-full">Git</span>
+                    <span class="px-3 py-1.5 text-xs font-medium text-slate-700 bg-blue-50/80 border border-blue-200/50 rounded-full">LaTeX</span>
+                </div>
+            </div>
+
+            <!-- Economics & Analytics -->
+            <div class="reveal delay-200 bg-white/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 p-6">
+                <h3 class="flex items-center gap-2 font-dm-sans text-lg font-bold text-slate-900 mb-5">
+                    <iconify-icon icon="lucide:bar-chart-3" width="20" class="text-blue-500"></iconify-icon>
+                    Economics &amp; Analytics
+                </h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1.5 text-xs font-medium text-slate-700 bg-blue-50/80 border border-blue-200/50 rounded-full">Applied microeconometrics</span>
+                    <span class="px-3 py-1.5 text-xs font-medium text-slate-700 bg-blue-50/80 border border-blue-200/50 rounded-full">Causal inference</span>
+                    <span class="px-3 py-1.5 text-xs font-medium text-slate-700 bg-blue-50/80 border border-blue-200/50 rounded-full">Structural modelling</span>
+                    <span class="px-3 py-1.5 text-xs font-medium text-slate-700 bg-blue-50/80 border border-blue-200/50 rounded-full">Machine learning</span>
+                    <span class="px-3 py-1.5 text-xs font-medium text-slate-700 bg-blue-50/80 border border-blue-200/50 rounded-full">Survey design</span>
+                    <span class="px-3 py-1.5 text-xs font-medium text-slate-700 bg-blue-50/80 border border-blue-200/50 rounded-full">Data visualisation</span>
+                </div>
+            </div>
+
+            <!-- Languages -->
+            <div class="reveal delay-300 bg-white/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 p-6">
+                <h3 class="flex items-center gap-2 font-dm-sans text-lg font-bold text-slate-900 mb-5">
+                    <iconify-icon icon="lucide:languages" width="20" class="text-blue-500"></iconify-icon>
+                    Languages
+                </h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1.5 text-xs font-medium text-slate-700 bg-blue-50/80 border border-blue-200/50 rounded-full">English (fluent)</span>
+                    <span class="px-3 py-1.5 text-xs font-medium text-slate-700 bg-blue-50/80 border border-blue-200/50 rounded-full">Mandarin (native)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="border-t border-white/[0.06] bg-white/30 pt-20 pb-10 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                    <span class="text-base font-semibold tracking-tight text-slate-900 uppercase">Tianxiang Zheng</span>
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed font-light">Economist designing inclusive labour markets in the age of automation.</p>
+                <div class="mt-3 flex flex-col gap-1 text-sm text-slate-700 font-medium">
+                    <a href="mailto:tianxiang.zheng.22@ucl.ac.uk" class="hover:text-slate-900 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:mail" width="14"></iconify-icon>tianxiang.zheng.22@ucl.ac.uk</a>
+                    <a href="mailto:marxzheng@outlook.com" class="hover:text-slate-900 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:mail" width="14"></iconify-icon>marxzheng@outlook.com</a>
+                </div>
+            </div>
+            <div class="flex gap-8 text-xs font-medium text-slate-600">
+                <a href="research.html" class="hover:text-slate-900 transition-colors">Research</a>
+                <a href="cv.html" class="hover:text-slate-900 transition-colors">CV</a>
+                <a href="contact.html" class="hover:text-slate-900 transition-colors">Contact</a>
+            </div>
+        </div>
+        <div class="border-t border-white/[0.06] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-[10px] text-slate-600 uppercase tracking-wider">&copy; 2026 Tianxiang Zheng.</p>
+            <div class="flex gap-6">
+                <a href="https://github.com/zhengtxecon" class="text-slate-600 hover:text-slate-900 transition-colors"><iconify-icon icon="lucide:github" width="16"></iconify-icon></a>
+                <a href="https://scholar.google.com/citations?user=yMayrcEAAAAJ" class="text-slate-600 hover:text-slate-900 transition-colors"><iconify-icon icon="lucide:graduation-cap" width="16"></iconify-icon></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Reveal Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            reveals.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) reveal.classList.add('active');
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // Nav scroll effect (match homepage)
+        const nav = document.getElementById('main-nav');
+        const handleNavScroll = () => {
+            if (!nav) return;
+            nav.classList.toggle('nav-scrolled', window.scrollY > 10);
+        };
+        window.addEventListener('scroll', handleNavScroll);
+        handleNavScroll();
+    });
+</script>
+
 </body>
 </html>
-

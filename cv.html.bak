@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Curriculum vitae of Tianxiang Zheng (éƒ‘å¤©ç¿?: education, research experience, teaching, awards, skills, and professional profiles.">
+	<title>Curriculum Vitae Â· Tianxiang Zheng (éƒ‘å¤©ç¿?</title>
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/cv.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<script src="assets/js/main.js" defer></script>
+</head>
+<body data-page="cv">
+	<div id="header-placeholder"></div>
+
+	<section class="page-header cv-page-header" data-animate="fade-up">
+		<div class="container cv-header">
+			<div class="cv-header-copy">
+				<span class="section-label"><i class="fas fa-id-badge" aria-hidden="true"></i> Curriculum Vitae</span>
+				<h1>Curriculum Vitae</h1>
+				<p>Economist and data scientist studying how automation and technological change reshape labour markets in emerging and advanced economies.</p>
+
+				<div class="breadcrumbs" aria-label="Breadcrumb">
+					<a href="index.html">Home</a>
+					<span aria-hidden="true">/</span>
+					<span class="current" aria-current="page">Curriculum Vitae</span>
+				</div>
+
+				<div class="cv-meta-grid">
+					<div class="cv-meta-item">
+						<i class="fas fa-university" aria-hidden="true"></i>
+						<div>
+							<strong>PhD Candidate</strong>
+							<span>University College London, Economics</span>
+						</div>
+					</div>
+					<div class="cv-meta-item">
+						<i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+						<div>
+							<strong>Based in</strong>
+							<span>London, United Kingdom</span>
+						</div>
+					</div>
+					<div class="cv-meta-item">
+						<i class="fas fa-envelope" aria-hidden="true"></i>
+						<div>
+							<strong>Email</strong>
+							<span>tianxiang.zheng.22@ucl.ac.uk</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="cv-actions">
+					<a href="assets/files/Tianxiang_Zheng_CV.pdf" class="btn btn-primary" download><i class="fas fa-file-download" aria-hidden="true"></i> Download CV</a>
+					<a href="research.html" class="btn btn-ghost"><i class="fas fa-book-open" aria-hidden="true"></i> Research portfolio</a>
+					<a href="contact.html" class="btn btn-secondary"><i class="fas fa-handshake" aria-hidden="true"></i> Collaboration enquiry</a>
+				</div>
+			</div>
+
+			<aside class="cv-header-profile" aria-label="Profile links">
+				<div class="cv-portrait">
+					<img src="assets/images/profile.jpg" alt="Portrait of Tianxiang Zheng">
+				</div>
+				<div class="cv-download-card">
+					<h3>Let's connect</h3>
+					<ul>
+						<li><a href="mailto:tianxiang.zheng.22@ucl.ac.uk"><i class="fas fa-envelope" aria-hidden="true"></i> Email Tianxiang</a></li>
+						<li><a href="https://scholar.google.com/citations?user=yMayrcEAAAAJ" target="_blank" rel="noopener"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Google Scholar</a></li>
+						<li><a href="https://github.com/zhengtxecon" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
+						<li><a href="https://www.linkedin.com/in/tianxiang-marx-zheng-187ab0131/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></li>
+					</ul>
+				</div>
+			</aside>
+		</div>
+	</section>
+
+	<main class="cv-main">
+		<div class="container cv-content">
+			<section class="cv-overview surface" data-animate="fade-up">
+				<div class="cv-overview-grid">
+					<article>
+						<h2>Professional summary</h2>
+						<p>I am a 3rd-year PhD candidate in Economics at UCL. My research examines how automation and AI adoption transform firm organisation, worker trajectories, and policy design, with a particular focus on emerging economies. I combine structural modelling, causal inference, and computational social science to deliver evidence that travels from academic theory to applied impact.</p>
+						<p>Beyond research, I curate cross-disciplinary collaborations and mentor students building reproducible data pipelines through project clinics across UCL.</p>
+					</article>
+					<article class="cv-overview-cards">
+						<div class="cv-highlight">
+							<h3><i class="fas fa-robot" aria-hidden="true"></i> Research interests</h3>
+							<ul>
+								<li>Automation, labour markets, and organisational adaptation</li>
+								<li>Development and urban economics</li>
+								<li>Computational policy design &amp; causal inference</li>
+							</ul>
+						</div>
+						<div class="cv-highlight">
+							<h3><i class="fas fa-users" aria-hidden="true"></i> Academic leadership</h3>
+							<p>Organise UCL economics data clinics, coaching student teams on collaborative workflows, version control, and evidence translation.</p>
+						</div>
+					</article>
+				</div>
+			</section>
+
+			<section id="profiles" class="cv-section" data-animate="fade-up">
+				<div class="cv-section-header">
+					<span class="section-label"><i class="fas fa-id-card" aria-hidden="true"></i> Profiles</span>
+					<h2>Where to find my work</h2>
+				</div>
+				<div class="cv-profile-grid">
+					<a href="https://scholar.google.com/citations?user=yMayrcEAAAAJ" target="_blank" rel="noopener" class="cv-profile-card">
+						<i class="fas fa-graduation-cap" aria-hidden="true"></i>
+						<span>Google Scholar</span>
+						<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+					</a>
+					<a href="https://profiles.ucl.ac.uk/90065-tianxiang-zheng" target="_blank" rel="noopener" class="cv-profile-card">
+						<img src="assets/images/ucl-logo-icon-large.png" alt="UCL" class="cv-profile-icon">
+						<span>UCL Profile</span>
+						<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+					</a>
+					<a href="https://orcid.org/0009-0004-1399-1146" target="_blank" rel="noopener" class="cv-profile-card">
+						<i class="fab fa-orcid" aria-hidden="true"></i>
+						<span>ORCID</span>
+						<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+					</a>
+					<a href="https://www.researchgate.net/profile/Tianxiang-Zheng-5" target="_blank" rel="noopener" class="cv-profile-card">
+						<i class="fab fa-researchgate" aria-hidden="true"></i>
+						<span>ResearchGate</span>
+						<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+					</a>
+					<a href="https://www.linkedin.com/in/tianxiang-marx-zheng-187ab0131/" target="_blank" rel="noopener" class="cv-profile-card">
+						<i class="fab fa-linkedin" aria-hidden="true"></i>
+						<span>LinkedIn</span>
+						<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+					</a>
+				</div>
+			</section>
+
+			<section id="education" class="cv-section" data-animate="fade-up" data-timeline>
+				<div class="cv-section-header">
+					<span class="section-label"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Education</span>
+					<h2>Academic formation</h2>
+				</div>
+				<div class="cv-timeline">
+					<article class="cv-timeline-item">
+						<div class="timeline-marker">
+							<span class="timeline-node" aria-hidden="true"></span>
+							<span class="timeline-date">2023 â€?Present</span>
+						</div>
+						<div class="timeline-card">
+							<h3>PhD in Economics</h3>
+							<p class="timeline-organization">University College London (UCL), London, UK</p>
+							<ul>
+								<li>Supervisors: <a href="https://sites.google.com/view/gabriel-ulyssea/home" target="_blank" rel="noopener">Prof. Gabriel Ulyssea</a>, <a href="https://sekhansen.github.io/" target="_blank" rel="noopener">Prof. Stephen Hansen</a></li>
+							</ul>
+						</div>
+					</article>
+
+					<article class="cv-timeline-item">
+						<div class="timeline-marker">
+							<span class="timeline-node" aria-hidden="true"></span>
+							<span class="timeline-date">2022 â€?2023</span>
+						</div>
+						<div class="timeline-card">
+							<h3>MRes in Economics</h3>
+							<p class="timeline-organization">University College London (UCL), London, UK</p>
+							<ul>
+								<li>Supervisor: <a href="https://sites.google.com/view/alan-olivi/home" target="_blank" rel="noopener">Prof. Alan Olivi</a></li>
+								<li><em>Dissertation:</em> Automation, Offshoring, and the Prospects for Inclusive Growth in Emerging Economies</li>
+							</ul>
+						</div>
+					</article>
+
+					<article class="cv-timeline-item">
+						<div class="timeline-marker">
+							<span class="timeline-node" aria-hidden="true"></span>
+							<span class="timeline-date">2020 â€?2022</span>
+						</div>
+						<div class="timeline-card">
+							<h3>MSc in Economics (2-year programme)</h3>
+							<p class="timeline-organization">London School of Economics (LSE), London, UK</p>
+							<ul>
+								<li>Supervisor: <a href="https://www.lse.ac.uk/economics/people/faculty/frank-cowell" target="_blank" rel="noopener">Prof. Frank Cowell</a></li>
+								<li><em>Dissertation:</em> A World without Jobs? The Joint Effect of Automation and Aging</li>
+							</ul>
+						</div>
+					</article>
+
+					<article class="cv-timeline-item">
+						<div class="timeline-marker">
+							<span class="timeline-node" aria-hidden="true"></span>
+							<span class="timeline-date">2016 â€?2020</span>
+						</div>
+						<div class="timeline-card">
+							<h3>BSc (Hons) in International Economics &amp; Trade</h3>
+							<p class="timeline-organization">University of Nottingham Ningbo, China</p>
+							<ul>
+								<li>Supervisor: <a href="https://person.zju.edu.cn/en/Minghai_Zhou" target="_blank" rel="noopener">Prof. Minghai Zhou</a></li>
+								<li><em>Dissertation:</em> Artificial Intelligence, Population Aging and Labour Market Outcomes across Income Groups</li>
+							</ul>
+						</div>
+					</article>
+				</div>
+			</section>
+
+			<section id="research-experience" class="cv-section" data-animate="fade-up" data-timeline>
+				<div class="cv-section-header">
+					<span class="section-label"><i class="fas fa-flask" aria-hidden="true"></i> Research experience</span>
+					<h2>Evidence-building roles</h2>
+				</div>
+				<div class="cv-timeline">
+					<article class="cv-timeline-item">
+						<div class="timeline-marker">
+							<span class="timeline-node" aria-hidden="true"></span>
+							<span class="timeline-date">2023 â€?Present</span>
+						</div>
+						<div class="timeline-card">
+							<h3>Postdoctoral Research Fellow</h3>
+							<p class="timeline-organization">Department of Economics, [University]</p>
+							<ul>
+								<li>Lead computational economics projects on market design and automation.</li>
+								<li>Co-design partnerships translating research into policy experiments.</li>
+							</ul>
+						</div>
+					</article>
+
+					<article class="cv-timeline-item">
+						<div class="timeline-marker">
+							<span class="timeline-node" aria-hidden="true"></span>
+							<span class="timeline-date">2021 â€?2023</span>
+						</div>
+						<div class="timeline-card">
+							<h3>Research Assistant</h3>
+							<p class="timeline-organization">Centre for Economic Policy Research</p>
+							<ul>
+								<li>Built dynamic models to analyse labour-market transitions under technology shocks.</li>
+								<li>Developed simulation tools for scenario planning across policy regimes.</li>
+							</ul>
+						</div>
+					</article>
+
+					<article class="cv-timeline-item">
+						<div class="timeline-marker">
+							<span class="timeline-node" aria-hidden="true"></span>
+							<span class="timeline-date">Summer 2020</span>
+						</div>
+						<div class="timeline-card">
+							<h3>Research Intern</h3>
+							<p class="timeline-organization">Economic Research Department, Central Bank</p>
+							<ul>
+								<li>Applied machine learning to financial market microstructure data.</li>
+								<li>Co-authored policy brief on algorithmic trading and market stability.</li>
+							</ul>
+						</div>
+					</article>
+				</div>
+			</section>
+
+			<section id="teaching" class="cv-section" data-animate="fade-up" data-timeline>
+				<div class="cv-section-header">
+					<span class="section-label"><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i> Teaching experience</span>
+					<h2>Courses &amp; student partnerships</h2>
+				</div>
+				<div class="cv-timeline">
+					<article class="cv-timeline-item">
+						<div class="timeline-marker">
+							<span class="timeline-node" aria-hidden="true"></span>
+							<span class="timeline-date">2024 â€?2025</span>
+						</div>
+						<div class="timeline-card">
+							<h3>Teaching Assistant</h3>
+							<p class="timeline-organization">University College London, Department of Economics</p>
+							<ul>
+								<li>ECON0042 Independent Research Project (Final Year) â€?Instructor: Ramin Nassehi</li>
+								<li>ECON0012 Advanced Economic Skills Lab (Final Year) â€?Instructor: Ramin Nassehi</li>
+							</ul>
+						</div>
+					</article>
+
+					<article class="cv-timeline-item">
+						<div class="timeline-marker">
+							<span class="timeline-node" aria-hidden="true"></span>
+							<span class="timeline-date">2023 â€?2024</span>
+						</div>
+						<div class="timeline-card">
+							<h3>Teaching Assistant</h3>
+							<p class="timeline-organization">University College London, Department of Economics</p>
+							<ul>
+								<li>ECON0001 Economics of Financial Markets (Final Year) â€?Instructor: <a href="https://www.ucl.ac.uk/economics/people/teaching-staff/paolo-zeppini" target="_blank" rel="noopener">Prof. Paolo Zeppini</a></li>
+								<li>ECON0063 Topics in Money and Finance (Masters) â€?Instructor: <a href="https://www.ucl.ac.uk/economics/people/academic-staff/ming-yang" target="_blank" rel="noopener">Prof. Ming Yang</a></li>
+							</ul>
+						</div>
+					</article>
+
+					<article class="cv-timeline-item">
+						<div class="timeline-marker">
+							<span class="timeline-node" aria-hidden="true"></span>
+							<span class="timeline-date">2021 â€?2022</span>
+						</div>
+						<div class="timeline-card">
+							<h3>Teaching Assistant (Note Transcription)</h3>
+							<p class="timeline-organization">London School of Economics, Department of Economics</p>
+							<ul>
+								<li>EC402 Econometrics (Masters) â€?Instructor: <a href="https://www.lse.ac.uk/economics/people/faculty/vassilis-hajivassiliou" target="_blank" rel="noopener">Prof. Vassilis Hajivassiliou</a></li>
+							</ul>
+						</div>
+					</article>
+				</div>
+			</section>
+
+			<section id="awards" class="cv-section" data-animate="fade-up">
+				<div class="cv-section-header">
+					<span class="section-label"><i class="fas fa-award" aria-hidden="true"></i> Awards &amp; scholarships</span>
+					<h2>Recognition for teaching &amp; research excellence</h2>
+				</div>
+				<div class="cv-awards-list">
+					<article class="cv-award">
+						<div class="cv-award-year">
+							<span class="award-year-badge">2024</span>
+						</div>
+						<div class="cv-award-content">
+							<h3>Best MSc optional modules TA</h3>
+							<p>UCL</p>
+						</div>
+					</article>
+					<article class="cv-award">
+						<div class="cv-award-year">
+							<span class="award-year-badge">2023 â€?Present</span>
+						</div>
+						<div class="cv-award-content">
+							<h3>Departmental Studentship</h3>
+							<p>UCL</p>
+						</div>
+					</article>
+					<article class="cv-award">
+						<div class="cv-award-year">
+							<span class="award-year-badge">2021</span>
+						</div>
+						<div class="cv-award-content">
+							<h3>Excellence in Macroeconomics Award for Outstanding Knowledge Sharing</h3>
+							<p>LSE</p>
+						</div>
+					</article>
+					<article class="cv-award">
+						<div class="cv-award-year">
+							<span class="award-year-badge">2020</span>
+						</div>
+						<div class="cv-award-content">
+							<h3>Excellence in Macroeconomics Award for Outstanding Knowledge Sharing</h3>
+							<p>LSE</p>
+						</div>
+					</article>
+					<article class="cv-award">
+						<div class="cv-award-year">
+							<span class="award-year-badge">2020</span>
+						</div>
+						<div class="cv-award-content">
+							<h3>Nottingham Advantage Award</h3>
+							<p>University of Nottingham Ningbo, China</p>
+						</div>
+					</article>
+					<article class="cv-award">
+						<div class="cv-award-year">
+							<span class="award-year-badge">2020</span>
+						</div>
+						<div class="cv-award-content">
+							<h3>Provincial Scholarship</h3>
+							<p>Zhejiang Province, China</p>
+						</div>
+					</article>
+					<article class="cv-award">
+						<div class="cv-award-year">
+							<span class="award-year-badge">2019</span>
+						</div>
+						<div class="cv-award-content">
+							<h3>Dean's Scholarship</h3>
+							<p>University of Nottingham Ningbo, China</p>
+						</div>
+					</article>
+					<article class="cv-award">
+						<div class="cv-award-year">
+							<span class="award-year-badge">2018</span>
+						</div>
+						<div class="cv-award-content">
+							<h3>Head's Scholarship</h3>
+							<p>University of Nottingham Ningbo, China</p>
+						</div>
+					</article>
+					<article class="cv-award">
+						<div class="cv-award-year">
+							<span class="award-year-badge">2017</span>
+						</div>
+						<div class="cv-award-content">
+							<h3>Provost's Scholarship</h3>
+							<p>University of Nottingham Ningbo, China</p>
+						</div>
+					</article>
+				</div>
+			</section>
+
+			<section id="skills" class="cv-section" data-animate="fade-up">
+				<div class="cv-section-header">
+					<span class="section-label"><i class="fas fa-layer-group" aria-hidden="true"></i> Skills</span>
+					<h2>Toolbox for research &amp; teaching</h2>
+				</div>
+				<div class="cv-skills-grid">
+					<article class="cv-skills-card">
+						<h3>Technical</h3>
+						<div class="cv-skill-tags">
+							<span>Python</span>
+							<span>R</span>
+							<span>SQL</span>
+							<span>Stata</span>
+							<span>TensorFlow</span>
+							<span>PyTorch</span>
+							<span>Git</span>
+							<span>LaTeX</span>
+						</div>
+					</article>
+					<article class="cv-skills-card">
+						<h3>Economics &amp; analytics</h3>
+						<div class="cv-skill-tags">
+							<span>Applied microeconometrics</span>
+							<span>Causal inference</span>
+							<span>Structural modelling</span>
+							<span>Machine learning</span>
+							<span>Survey design</span>
+							<span>Data visualisation</span>
+						</div>
+					</article>
+					<article class="cv-skills-card">
+						<h3>Languages</h3>
+						<div class="cv-skill-tags">
+							<span>English (fluent)</span>
+							<span>Mandarin (native)</span>
+						</div>
+					</article>
+				</div>
+			</section>
+		</div>
+	</main>
+
+	<div id="footer-placeholder"></div>
+</body>
+</html>
+
