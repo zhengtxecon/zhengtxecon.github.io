@@ -274,7 +274,7 @@ git push origin feature/new-page-name
 
 **Solution**: Ensure `<body data-page="page-name">` matches your navigation link pattern.
 
-### Issue: Chinese characters display as �
+### Issue: Chinese characters display as replacement boxes
 
 **Cause**: File not saved as UTF-8.
 

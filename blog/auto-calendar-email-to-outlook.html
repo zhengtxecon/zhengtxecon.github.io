@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Step-by-step notes on converting recurring project update emails into structured Outlook calendars using lightweight automation and human review.">
-    <meta name="author" content="Tianxiang Zheng (郑天�?">
+    <meta name="author" content="Tianxiang Zheng (郑天翔)">
     <title>Auto Calendar: Converting Emails into Outlook Schedules · How I (Almost) AI Everything · Tianxiang Zheng</title>
-    <link rel="canonical" href="https://zhengtxecon.github.io/auto-calendar-email-to-outlook.html">
+    <link rel="canonical" href="https://zhengtxecon.github.io/blog/auto-calendar-email-to-outlook.html">
     <meta property="og:title" content="Auto Calendar: Converting Emails into Outlook Schedules">
     <meta property="og:description" content="How I turn weekly project update emails into ready-to-share Outlook calendars using prompt-classified summaries, Microsoft Graph, and human-in-the-loop checks.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://zhengtxecon.github.io/auto-calendar-email-to-outlook.html">
+    <meta property="og:url" content="https://zhengtxecon.github.io/blog/auto-calendar-email-to-outlook.html">
     <meta property="og:image" content="https://zhengtxecon.github.io/assets/images/profile.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Auto Calendar: Converting Emails into Outlook Schedules">
@@ -90,7 +90,7 @@
             <section class="blog-post-body">
                 <div class="container blog-post-body-grid">
                     <div class="blog-post-content" itemprop="articleBody">
-                        <p>Every Friday my partners send dense recap emails—action items, field visit schedules, and a cascade of “please confirm�?threads. Even with labels, the real planning lived in my head. This iterative build logs how I translate those messages into an Outlook calendar that updates itself overnight.</p>
+                        <p>Every Friday my partners send dense recap emails—action items, field visit schedules, and a cascade of “please confirm” threads. Even with labels, the real planning lived in my head. This iterative build logs how I translate those messages into an Outlook calendar that updates itself overnight.</p>
 
                         <h2>Why email-to-calendar mattered</h2>
                         <p>We coordinate interviews across three time zones, with staff cycling in and out of the thread. Outlook calendars already power our resource planning, but only after I manually retyped each agreed slot. I needed an automation that could:</p>
@@ -107,7 +107,7 @@
                             <li><strong>Prompt-classifier:</strong> A temperature-stable GPT-4o-mini call that identifies agenda lines, time expressions, and participants, returning structured JSON.</li>
                             <li><strong>Validation layer:</strong> Simple Python checks ensure date formats, time zones, and participant identifiers align with our staff directory. Misfits trigger a Teams alert instead of touching the calendar.</li>
                             <li><strong>Microsoft Graph writer:</strong> Confirmed events are inserted into a dedicated Outlook calendar, tagged by project and workstream.</li>
-                            <li><strong>Digest email:</strong> A final HTML summary—generated from the same JSON feed—lands in my inbox for a one-click “approve�?before the Graph call runs.</li>
+                            <li><strong>Digest email:</strong> A final HTML summary—generated from the same JSON feed—lands in my inbox for a one-click “approve” before the Graph call runs.</li>
                         </ol>
                         <p>This design keeps the base infrastructure low-code but adds enough frictionless oversight to trust the output.</p>
 

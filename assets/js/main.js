@@ -73,7 +73,7 @@ const FOOTER_FALLBACK = `
                     <li><a href="research.html">Research Portfolio</a></li>
                     <li><a href="teaching.html">Teaching Resources</a></li>
                     <li><a href="blog.html#tags">Blog Categories</a></li>
-                    <li><a href="series-how-i-almost-ai-everything.html">How I (Almost) AI Everything</a></li>
+                    <li><a href="blog/series-how-i-almost-ai-everything.html">How I (Almost) AI Everything</a></li>
                     <li><a href="blog.html">Insights & Blog</a></li>
                 </ul>
             </div>

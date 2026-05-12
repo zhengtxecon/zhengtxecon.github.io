@@ -162,7 +162,7 @@
 
 ## HTML Issues
 
-### Issue: Chinese characters displaying as ���
+### Issue: Chinese characters displaying as replacement boxes
 
 **Symptom**: Chinese text shows as garbled characters or question marks.
 

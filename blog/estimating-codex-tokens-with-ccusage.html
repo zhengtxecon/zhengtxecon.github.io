@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="OpenAI's subscription dashboard only shows remaining percentage—no token counts or spend. Here's how I use ccusage to estimate daily and monthly Codex usage.">
-    <meta name="author" content="Tianxiang Zheng (郑天�?">
+    <meta name="author" content="Tianxiang Zheng (郑天翔)">
     <title>Beyond the Usage Bar: Estimating Codex Tokens with ccusage · How I (Almost) AI Everything · Tianxiang Zheng
     </title>
-    <link rel="canonical" href="https://zhengtxecon.github.io/estimating-codex-tokens-with-ccusage.html">
+    <link rel="canonical" href="https://zhengtxecon.github.io/blog/estimating-codex-tokens-with-ccusage.html">
     <meta property="og:title" content="Beyond the Usage Bar: Estimating Codex Tokens with ccusage">
     <meta property="og:description"
         content="When OpenAI only shows a percentage bar, here's a practical way to approximate Codex tokens and spend with ccusage CLI.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://zhengtxecon.github.io/estimating-codex-tokens-with-ccusage.html">
+    <meta property="og:url" content="https://zhengtxecon.github.io/blog/estimating-codex-tokens-with-ccusage.html">
     <meta property="og:image" content="https://zhengtxecon.github.io/assets/images/profile.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Beyond the Usage Bar: Estimating Codex Tokens with ccusage">
@@ -154,8 +154,11 @@
                         <h2>Sample output</h2>
                         <p>Here's what monthly view looks like across a few months. Scroll horizontally to view the full
                             table:</p>
-                        <pre
-                            class="terminal"><code>┌──────────┬──────────────────────────────────────────────────────────────────────────────┬──────────────┬─────────────┬─────────────┬────────────────┬────────────────┬─────────────�?�?Month    �?Models                                                                       �?       Input �?     Output �?  Reasoning �?    Cache Read �?  Total Tokens �? Cost (USD) �?├──────────┼──────────────────────────────────────────────────────────────────────────────┼──────────────┼─────────────┼─────────────┼────────────────┼────────────────┼─────────────�?�?Nov 2025 �?- gpt-5 (fallback)                                                           �?  42,481,412 �?  6,513,939 �?  3,721,112 �?   599,235,584 �?   648,230,935 �?    $193.15 �?�?         �?- gpt-5-codex                                                                �?             �?            �?            �?               �?               �?            �?�?         �?- gpt-5.1                                                                    �?             �?            �?            �?               �?               �?            �?�?         �?- gpt-5.1-codex                                                              �?             �?            �?            �?               �?               �?            �?�?         �?- gpt-5.1-codex-max                                                          �?             �?            �?            �?               �?               �?            �?├──────────┼──────────────────────────────────────────────────────────────────────────────┼──────────────┼─────────────┼─────────────┼────────────────┼────────────────┼─────────────�?�?Dec 2025 �?- gpt-5 (fallback)                                                           �?  80,588,823 �? 17,188,254 �? 12,464,088 �? 1,268,957,056 �? 1,366,734,133 �?    $563.02 �?�?         �?- gpt-5.1-codex                                                              �?             �?            �?            �?               �?               �?            �?�?         �?- gpt-5.1-codex-max                                                          �?             �?            �?            �?               �?               �?            �?�?         �?- gpt-5.2                                                                    �?             �?            �?            �?               �?               �?            �?�?         �?- gpt-5.2-codex                                                              �?             �?            �?               �?               �?            �?├──────────┼──────────────────────────────────────────────────────────────────────────────┼──────────────┼─────────────┼─────────────┼────────────────┼────────────────┼─────────────�?�?Jan 2026 �?- gpt-5 (fallback)                                                           �?  24,301,712 �?  6,781,770 �?  5,006,316 �?   484,759,936 �?   515,843,418 �?    $185.55 �?�?         �?- gpt-5.1-codex-max                                                          �?             �?            �?            �?               �?               �?            �?�?         �?- gpt-5.2                                                                    �?             �?            �?            �?               �?               �?            �?�?         �?- gpt-5.2-codex                                                              �?             �?            �?               �?               �?            �?├──────────┼──────────────────────────────────────────────────────────────────────────────┼──────────────┼─────────────┼─────────────┼────────────────┼────────────────┼─────────────�?�?Total    �?                                                                             �? 147,371,947 �? 30,483,963 �? 21,191,516 �? 2,352,952,576 �? 2,530,808,486 �?    $941.71 �?└──────────┴──────────────────────────────────────────────────────────────────────────────┴──────────────┴─────────────┴─────────────┴────────────────┴────────────────┴─────────────�?/code></pre>
+                        <pre class="terminal"><code>Month     Models                 Input        Output     Reasoning    Cache Read      Total Tokens    Cost (USD)
+Nov 2025  gpt-5 (fallback)      42,481,412   6,513,939   3,721,112    599,235,584     648,230,935     $193.15
+Dec 2025  gpt-5 (fallback)      80,588,823  17,188,254  12,464,088  1,268,957,056   1,366,734,133     $563.02
+Jan 2026  gpt-5 (fallback)      24,301,712   6,781,770   5,006,316    484,759,936     515,843,418     $185.55
+Total                         147,371,947  30,483,963  21,191,516  2,352,952,576   2,530,808,486     $941.71</code></pre>
 
                         <h2>How I use the numbers</h2>
                         <p>Most days I glance at the daily view to check whether current work is drifting toward a
@@ -165,7 +168,7 @@
                                 months.</li>
                             <li><strong>Flag outliers:</strong> Spot months with reasoning or cache read spikes that
                                 might indicate repeated refinements or re-runs.</li>
-                            <li><strong>Rough budgeting:</strong> Get a sense of what a “typical�?month costs before
+                            <li><strong>Rough budgeting:</strong> Get a sense of what a “typical” month costs before
                                 seeing the actual bill.</li>
                         </ul>
 
