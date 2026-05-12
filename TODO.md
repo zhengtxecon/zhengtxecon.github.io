@@ -3,8 +3,8 @@
 ## Critical Fixes
 - [x] Restore the correct Chinese characters for the author’s name across HTML templates and fallbacks (`index.html`, `blog.html`, `includes/footer.html`, `assets/js/main.js`, etc.) and verify no tracked text file contains U+FFFD replacement characters.
 - [ ] Replace the client-side include pattern in `assets/js/main.js` with a build-time solution (e.g., Eleventy, Astro, or a lightweight Node script) so header/footer markup is present in the source HTML for SEO, accessibility, and static hosting without CORS issues.
-- [ ] Update `README.md` to describe the current site structure (blog collections, series hub, CV, teaching resources) and remove stale references to pages that no longer exist (`about.html`, `portfolio.html`, etc.).
-- [ ] Decide whether `package.json` is needed; if so, populate accurate metadata (name, author, MIT licence) plus useful scripts (`dev`, `lint`, `build`). Otherwise delete it to avoid confusion.
+- [x] Update `README.md` to describe the current site structure (blog collections, series hub, CV, teaching resources) and remove stale references to pages that no longer exist (`about.html`, `portfolio.html`, etc.).
+- [x] Decide whether `package.json` is needed; no package file is currently needed because the site has no build step.
 
 ## Content & Information Architecture
 - [ ] Flesh out placeholder copy (e.g., `how-i-built-an-ai-calendar-generator.html`) with real narratives, calls to action, and resources before promoting the pages.

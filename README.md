@@ -1,80 +1,73 @@
-# Tianxiang Zheng's Personal Website
+# Tianxiang Zheng Personal Website
 
-This is a personal website project for Tianxiang Zheng (郑天翔) that showcases work, provides information, and allows visitors to get in touch. The website consists of several HTML pages, CSS for styling, and JavaScript for interactivity.
+Personal academic website for Tianxiang Zheng (郑天翔), published at
+`https://zhengtxecon.github.io`.
 
-## Project Structure
+The site is a pure static GitHub Pages project: HTML, CSS, JavaScript, images,
+and downloadable files only. There is no build step and no `package.json`.
 
-```
-personal-website/
+## Structure
+
+```text
+/
+├── index.html                  # Homepage
+├── cv.html                     # Curriculum vitae
+├── research.html               # Research portfolio
+├── teaching.html               # Teaching portfolio and resources
+├── blog.html                   # Blog landing page
+├── blog-research.html          # Research update collection
+├── blog-teaching.html          # Teaching update collection
+├── blog-tools.html             # Tools / workflow collection
+├── contact.html                # Contact form
+├── thank-you.html              # Form submission return page
+├── blog/                       # Long-form posts and series pages
+├── includes/                   # Header and footer partials loaded by JS
 ├── assets/
-│   ├── css/
-│   │   ├── style.css          # Main CSS styles
-│   │   └── cursor-fix.css     # CSS to fix cursor issues
-│   ├── js/
-│   │   └── main.js            # JavaScript functionality
-│   └── images/                # Directory for website images
-├── includes/
-│   ├── header.html            # Common header component
-│   └── footer.html            # Common footer component
-├── index.html                 # Homepage
-├── about.html                 # About page
-├── portfolio.html             # Portfolio/projects page
-├── contact.html               # Contact form page
-├── package.json               # Project metadata
-└── README.md                  # Project documentation
+│   ├── css/                    # Base and page-specific styles
+│   ├── js/                     # Site interactions and partial hydration
+│   ├── images/                 # Site images
+│   └── files/                  # PDFs and downloadable assets
+├── docs/                       # Agent workflows, patterns, and references
+├── feed.xml                    # RSS feed
+├── sitemap.xml                 # Search index sitemap
+├── TODO.md                     # Active backlog
+└── AGENTS.md                   # Agent operating guide
 ```
 
-## Features
+## Local Development
 
-- **Responsive Design**: The website adapts to different screen sizes
-- **Component-Based Structure**: Header and footer components reduce code duplication
-- **Project Filtering**: Interactive filtering of portfolio projects by category
-- **Contact Form**: Form with client-side validation
-- **Optimized Performance**: Deferred script loading and optimized CSS
+Serve the site through HTTP rather than opening files directly. The shared
+header and footer use `fetch()`, so `file://` previews can give misleading
+results.
 
-## Setup Instructions
+```powershell
+python -m http.server 8000 --bind 127.0.0.1
+```
 
-1. Clone the repository:
-   ```
-   git clone <repository-url>
-   ```
+Then open `http://127.0.0.1:8000/`.
 
-2. Navigate to the project directory:
-   ```
-   cd personal-website
-   ```
+## Editing Notes
 
-3. Open `index.html` in your web browser to view the website.
+- Update shared navigation and footer content in `includes/`.
+- Keep page-specific styles in the matching file under `assets/css/`.
+- Use existing CSS variables in `assets/css/style.css` before adding new colors.
+- Blog posts live under `blog/`; collection pages and metadata must stay in sync
+  with `feed.xml` and `sitemap.xml`.
+- Blog pages under `blog/` should use `data-root="../"` so shared partials and
+  fallback links resolve correctly.
 
-## Development
+## Validation
 
-For local development with live reload, you can use a simple HTTP server:
+Before committing content or layout changes:
 
-1. Install Node.js if you haven't already
-2. Install a simple HTTP server:
-   ```
-   npm install -g live-server
-   ```
-3. Run the server:
-   ```
-   live-server
-   ```
+- Run a local HTTP server and spot-check changed pages.
+- Check that active local links resolve.
+- Confirm `sitemap.xml` and `feed.xml` are updated for new public pages or posts.
+- Test the shared header/footer on a root page and a `blog/` page.
+- Run `git diff --check` before committing.
 
-## Customization
+## Deployment
 
-- Replace placeholder images in the `assets/images/` directory
-- Update personal information in each page
-- Modify the color scheme by changing CSS variables in `style.css`
-- Add your own projects to the portfolio page
-
-## Browser Support
-
-This website is designed to work with modern browsers:
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+The repository remote is `zhengtxecon/zhengtxecon.github.io`; the current active
+branch is `master`. GitHub Pages publishes from the repository's configured Pages
+source after changes are pushed.
