@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tianxiang Zheng · Blog & Updates</title>
+    <title>Tianxiang Zheng · Blog &amp; Updates</title>
     <link>https://zhengtxecon.github.io/</link>
     <atom:link href="https://zhengtxecon.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <description>Thoughts, updates, and tools from Tianxiang Zheng on automation, teaching, and collaborative research.</description>
+    <description>Thoughts, updates, and tools from Tianxiang Zheng on applied microeconomics, labour, development, teaching, and AI workflows.</description>
     <language>en-GB</language>
-    <lastBuildDate>Sun, 11 Jan 2026 08:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 May 2026 04:00:00 +0000</lastBuildDate>
 
     <item>
       <title>Beyond the Usage Bar: Estimating Codex Tokens with ccusage</title>
@@ -53,13 +53,13 @@
     </item>
 
     <item>
-      <title>Designing labour transitions for inclusive automation</title>
-      <link>https://zhengtxecon.github.io/research.html#automation</link>
-      <guid isPermaLink="false">research-updates-automation</guid>
-      <pubDate>Wed, 08 Jan 2025 09:00:00 +0000</pubDate>
+      <title>Data, Technology, and Firm Dynamics: An LLM-Based Analysis</title>
+      <link>https://zhengtxecon.github.io/assets/files/data_tech_extended.pdf</link>
+      <guid isPermaLink="false">research-data-technology-firm-dynamics</guid>
+      <pubDate>Fri, 28 Feb 2025 09:00:00 +0000</pubDate>
       <category>Research Updates</category>
-      <category>Automation policy</category>
-      <description><![CDATA[An extended brief on the policy design principles guiding automation transition programmes in São Paulo and Ho Chi Minh City.]]></description>
+      <category>Firm technology adoption</category>
+      <description><![CDATA[An extended abstract using LLM-based MD&A text extraction to study data usage, technology adoption, and firm dynamics among Chinese listed firms.]]></description>
     </item>
 
     <item>
@@ -72,14 +72,5 @@
       <description><![CDATA[A teaching lab note on bringing software-engineering rituals to student research projects with manageable guardrails.]]></description>
     </item>
 
-    <item>
-      <title>Municipal automation dashboard playbook</title>
-      <link>https://zhengtxecon.github.io/research.html#working-papers</link>
-      <guid isPermaLink="false">research-dashboard-playbook</guid>
-      <pubDate>Thu, 12 Dec 2024 09:00:00 +0000</pubDate>
-      <category>Research Updates</category>
-      <category>Data infrastructure</category>
-      <description><![CDATA[Documentation and governance checklist for the automation exposure dashboards developed with labour ministries.]]></description>
-    </item>
   </channel>
 </rss>
