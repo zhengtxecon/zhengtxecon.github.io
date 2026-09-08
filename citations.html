@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Citation history for Tianxiang Zheng, combining Google Scholar and CNKI with cross-source duplicates removed.">
+    <title>Citation history · Tianxiang Zheng (郑天翔)</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" />
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'forest': {
+                            50: '#eff6ff', 100: '#dbeafe', 300: '#93c5fd', 400: '#60a5fa',
+                            500: '#3b82f6', 800: '#1d4ed8', 900: '#1e40af', 950: '#0b1f3a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-dm-sans { font-family: 'DM Sans', sans-serif; }
+        .reveal { opacity: 0; transform: translateY(30px) scale(0.98); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); filter: blur(10px); }
+        .reveal.active { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        /* Custom scrollbar – hidden by default, visible on hover */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: transparent; border-radius: 3px; }
+        body:hover::-webkit-scrollbar-thumb { background: rgba(148,163,184,0.35); }
+        body:hover::-webkit-scrollbar-thumb:hover { background: rgba(148,163,184,0.55); }
+        html { scrollbar-width: thin; scrollbar-color: transparent transparent; }
+        body:hover { scrollbar-color: rgba(148,163,184,0.35) transparent; }
+        @media (hover: none) {
+            ::-webkit-scrollbar { display: none; }
+            html { scrollbar-width: none; }
+        }
+        .contact-honeypot { display: none !important; }
+
+        .hero-grid {
+            background-image:
+                linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+                linear-gradient(rgba(37, 99, 235, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.025) 1px, transparent 1px);
+            background-size: 50px 50px, 50px 50px, 250px 250px, 250px 250px;
+            mask-image: radial-gradient(circle at 50% 0%, black, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at 50% 0%, black, transparent 80%);
+        }
+
+        #main-nav { transition: background-color 250ms ease, border-color 250ms ease, box-shadow 250ms ease; }
+        #main-nav.nav-scrolled {
+            background-color: rgba(11, 31, 58, 0.75);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        }
+        #main-nav.nav-scrolled .nav-brand { color: rgba(255,255,255,0.95) !important; }
+        #main-nav.nav-scrolled .nav-link { color: rgba(226,232,240,0.78) !important; }
+        #main-nav.nav-scrolled .nav-link:hover { color: rgba(255,255,255,0.98) !important; }
+        #main-nav.nav-scrolled .nav-link.is-active { color: rgba(255,255,255,0.98) !important; }
+        #main-nav.nav-scrolled .nav-btn {
+            color: rgba(255,255,255,0.95) !important; border-color: rgba(226,232,240,0.25) !important;
+            background-color: rgba(255,255,255,0.08) !important;
+        }
+        #main-nav.nav-scrolled .nav-btn:hover {
+            background-color: rgba(255,255,255,0.14) !important; border-color: rgba(147,197,253,0.55) !important;
+        }
+        #main-nav.nav-scrolled #mobile-menu-btn { color: rgba(255,255,255,0.9) !important; }
+        #main-nav.nav-scrolled #mobile-menu {
+            background-color: rgba(11, 31, 58, 0.92) !important;
+            border-color: rgba(255,255,255,0.08) !important;
+        }
+        #main-nav.nav-scrolled #mobile-menu a { color: rgba(226,232,240,0.85) !important; }
+        #main-nav.nav-scrolled #mobile-menu a:hover { color: rgba(255,255,255,1) !important; }
+    </style>
+<link rel="stylesheet" href="assets/css/citations.css">
+<script src="assets/js/citations.js?v=20260908-3" defer></script>
+</head>
+<body class="bg-forest-50 text-slate-800 antialiased selection:bg-blue-600/30 selection:text-white overflow-x-hidden relative">
+
+<!-- Background -->
+<div class="fixed inset-0 w-full h-full -z-10 pointer-events-none overflow-hidden">
+    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/0dd9b13b-ea30-4e17-8a26-53d1f9d1c6d3_3840w.webp" alt="" class="absolute inset-0 w-full h-full object-cover blur-md brightness-[0.52] saturate-[1.15] contrast-[1.05] scale-110" />
+    <div class="absolute inset-0 hero-grid"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-forest-100/90 via-forest-50/50 to-forest-100/55"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-forest-50/80 via-transparent to-forest-950/70"></div>
+</div>
+
+<!-- Navigation -->
+<nav id="main-nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-150">
+    <div class="relative">
+        <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between relative">
+            <a href="index.html" class="flex items-center gap-3">
+                <span class="nav-brand text-sm font-semibold tracking-tight text-slate-900 transition-colors duration-300">Tianxiang Zheng</span>
+            </a>
+            <div class="hidden md:flex items-center gap-12 text-xs font-semibold tracking-[0.2em] uppercase">
+                <a href="research.html" class="nav-link text-slate-700 hover:text-slate-900 transition-colors duration-300">Research</a>
+                <a href="cv.html" class="nav-link text-slate-700 hover:text-slate-900 transition-colors duration-300">CV</a>
+                <a href="blog/" class="nav-link text-slate-700 hover:text-slate-900 transition-colors duration-300">Blog</a>
+            </div>
+            <div class="flex items-center gap-6">
+                <button onclick="window.location.href='contact.html'" class="nav-btn hidden md:inline-flex group relative px-5 py-2 text-xs font-semibold tracking-[0.2em] uppercase text-slate-700 border border-slate-400/30 rounded-full bg-white/50 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-blue-300/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] hover:text-slate-900">
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-100/40 to-transparent opacity-50"></div>
+                    <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50 group-hover:opacity-100 group-hover:h-[2px] blur-[1px] transition-all duration-500"></div>
+                    <span class="relative z-10">Contact</span>
+                </button>
+                <button id="mobile-menu-btn" class="md:hidden w-9 h-9 flex items-center justify-center rounded-lg text-slate-700 hover:text-slate-900 transition-colors" aria-label="Toggle menu">
+                    <iconify-icon icon="lucide:menu" width="20" id="menu-icon-open"></iconify-icon>
+                    <iconify-icon icon="lucide:x" width="20" id="menu-icon-close" class="hidden"></iconify-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white/90 backdrop-blur-2xl border-t border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-3">
+            <a href="research.html" class="text-sm font-semibold tracking-[0.1em] uppercase text-slate-700 hover:text-blue-600 py-2 transition-colors">Research</a>
+            <a href="cv.html" class="text-sm font-semibold tracking-[0.1em] uppercase text-slate-700 hover:text-blue-600 py-2 transition-colors">CV</a>
+            <a href="blog/" class="text-sm font-semibold tracking-[0.1em] uppercase text-slate-700 hover:text-blue-600 py-2 transition-colors">Blog</a>
+            <a href="contact.html" class="text-sm font-semibold tracking-[0.1em] uppercase text-slate-700 hover:text-blue-600 py-2 transition-colors">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<div id="header-placeholder" hidden></div>
+  <main class="citation-page max-w-7xl mx-auto px-6 relative z-10">
+    <a href="index.html">← Home</a>
+    <p class="eyebrow">Research impact</p>
+    <h1 class="font-dm-sans">Citation <span>history</span></h1>
+    <p class="intro">Research citations across Google Scholar and CNKI.</p>
+    <p id="updated">Last updated · 8 September 2026</p>
+    <div class="citation-stats" id="stats"></div>
+    <section aria-labelledby="trend-heading">
+      <h2 id="trend-heading">Cumulative citations</h2>
+      <div class="legend"><span class="scholar">■ Google Scholar</span><span class="cnki">■ CNKI</span></div>
+      <div id="chart"></div>
+    </section>
+    <p id="load-error" hidden>Unable to load citation data. Please reload this page.</p>
+    <noscript><p>Enable JavaScript to view the chart. <a href="assets/data/citations.json">Download citation data</a>.</p></noscript>
+  </main>
+<div id="footer-placeholder"><footer class="border-t border-white/[0.06] bg-white/30 pt-20 pb-10 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-2 h-2 rounded-full bg-blue-600"></div>
+                    <span class="text-base font-semibold tracking-tight text-slate-900 uppercase">Tianxiang Zheng</span>
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed font-light">Economist designing inclusive labour markets in the age of automation.</p>
+                <div class="mt-3 flex flex-col gap-1 text-sm text-slate-700 font-medium">
+                    <a href="mailto:tianxiang.zheng.22@ucl.ac.uk" class="hover:text-slate-900 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:mail" width="14"></iconify-icon>tianxiang.zheng.22@ucl.ac.uk</a>
+                    <a href="mailto:marxzheng@outlook.com" class="hover:text-slate-900 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:mail" width="14"></iconify-icon>marxzheng@outlook.com</a>
+                </div>
+            </div>
+            <div class="flex gap-8 text-xs font-medium text-slate-600">
+                <a href="research.html" class="hover:text-slate-900 transition-colors">Research</a>
+                <a href="cv.html" class="hover:text-slate-900 transition-colors">CV</a>
+                <a href="contact.html" class="hover:text-slate-900 transition-colors">Contact</a>
+            </div>
+        </div>
+        <div class="border-t border-white/[0.06] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-[10px] text-slate-600 uppercase tracking-wider">&copy; 2026 Tianxiang Zheng.</p>
+            <div class="flex gap-6">
+                <a href="https://github.com/zhengtxecon" class="text-slate-600 hover:text-slate-900 transition-colors"><iconify-icon icon="lucide:github" width="16"></iconify-icon></a>
+                <a href="https://scholar.google.com/citations?user=yMayrcEAAAAJ" class="text-slate-600 hover:text-slate-900 transition-colors"><iconify-icon icon="lucide:graduation-cap" width="16"></iconify-icon></a>
+            </div>
+        </div>
+    </div>
+</footer></div>
+</body>
+</html>

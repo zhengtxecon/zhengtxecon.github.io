@@ -1,0 +1,47 @@
+:root {
+    --font-sans: 'Inter', sans-serif;
+    --color-brand: #2563eb;
+    --color-accent: #0891b2;
+    --color-text-muted: #64748b;
+    --text-primary: #0f172a;
+    --color-border: rgba(148, 163, 184, .25);
+    --color-surface: rgba(255, 255, 255, .6);
+    --color-background: #eff6ff;
+    --radius-sm: 16px;
+}
+.citation-page { padding-top: 8rem; padding-bottom: 5rem; }
+.citation-page > a { font-size: .75rem; color: var(--color-text-muted); }
+.eyebrow { margin-top: 2.5rem; font-size: .65rem; text-transform: uppercase; letter-spacing: .2em; color: var(--color-brand); font-weight: 600; }
+.citation-page h1 { margin: .6rem 0 1rem; font-size: clamp(3rem, 6vw, 4.5rem); line-height: 1.1; font-weight: 300; letter-spacing: -.045em; color: var(--text-primary); }
+.citation-page h1 span { color: var(--color-brand); }
+.citation-page .intro { font-size: 1rem; font-weight: 300; margin-bottom: 1rem; }
+.citation-page #updated, .caption { color: var(--color-text-muted); font-size: .9rem; }
+.citation-page section { margin-top: 1.5rem; padding: clamp(1rem, 3vw, 2rem); border-radius: 24px; border: 1px solid var(--color-border); background: var(--color-surface); backdrop-filter: blur(20px); }
+.citation-page h2 { margin-bottom: 1rem; font-family: 'DM Sans', sans-serif; font-size: 1.5rem; font-weight: 400; letter-spacing: -.025em; }
+.citation-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 2rem 0; }
+.citation-stat { padding: 1.5rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface); backdrop-filter: blur(16px); font-size: .65rem; font-weight: 500; text-transform: uppercase; letter-spacing: .12em; color: var(--color-text-muted); }
+.citation-stat strong { display: block; font-family: 'DM Sans', sans-serif; font-size: 2.5rem; font-weight: 400; letter-spacing: -.04em; color: var(--text-primary); margin-bottom: .3rem; }
+.citation-stat:first-child { background: var(--text-primary); color: var(--color-background); }
+.citation-stat:first-child strong { color: var(--color-background); }
+.legend { display: flex; flex-wrap: wrap; gap: 1rem; font-size: .9rem; }
+.total { color: var(--color-brand); } .scholar { color: var(--color-accent); } .cnki { color: var(--color-text-muted); }
+#chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+#chart text { fill: var(--color-text-muted); font-size: 13px; font-family: var(--font-sans); }
+#chart .grid { stroke: var(--color-border); }
+#chart .series { fill: none; stroke: currentColor; stroke-width: 3; }
+#chart .observed { fill: var(--color-background); stroke: currentColor; stroke-width: 2.5; }
+.caption { line-height: 1.7; margin-top: 1rem; }
+.method p { margin-bottom: 1rem; font-size: .875rem; line-height: 1.8; }
+.method a { color: var(--color-brand); }
+@media(max-width: 480px) { .citation-stats { gap: .4rem; } .citation-stat { padding: .65rem; font-size: .75rem; } }
+
+@media(max-width: 480px) { .citation-stat { font-size: .55rem; letter-spacing: .06em; overflow-wrap: anywhere; } .citation-stat strong { font-size: 2rem; } }
+
+#chart .area { fill: currentColor; fill-opacity: .23; }
+.cnki { color: var(--color-brand); }
+#chart { position: relative; }
+#chart #hover-guide { stroke: var(--color-text-muted); stroke-width: 1.5; pointer-events: none; }
+#chart #hover-markers { pointer-events: none; }
+.chart-tooltip { position: absolute; top: 12px; width: 190px; padding: 12px 16px; border-radius: 12px; background: var(--text-primary); color: var(--color-background); font-size: 12px; pointer-events: none; }
+.chart-tooltip strong { display: block; margin-bottom: 8px; }
+.chart-tooltip span { display: flex; justify-content: space-between; gap: 16px; line-height: 1.8; }

@@ -1,0 +1,771 @@
+{
+  "observed_date": "2026-09-08",
+  "total": 59,
+  "google_scholar_raw": 23,
+  "cnki_raw": 39,
+  "chinese_union": 39,
+  "scholar_chinese_records": 3,
+  "scholar_chinese_unique": 2,
+  "scholar_chinese_additional": 0,
+  "english_total": 20,
+  "annual_allocated_total": 58,
+  "unallocated_year_count": 1,
+  "matches": [
+    {
+      "scholar_title": "智能制造对劳动收入份额的影响研究——基于就业结构转型的视角",
+      "cnki_title": "智能制造对劳动收入份额的影响研究——基于就业结构转型的视角",
+      "doi": "10.16060/j.cnki.issn2095-8072.2024.05.002",
+      "year": 2024,
+      "method": "exact title, authors, year"
+    },
+    {
+      "scholar_title": "机器人应用，产业结构转型与劳动收入份额变动",
+      "cnki_title": "机器人应用、产业结构转型与劳动收入份额变动",
+      "doi": "10.16382/j.cnki.1000-5579.2026.01.013",
+      "year": 2026,
+      "method": "DOI"
+    },
+    {
+      "scholar_title": "Robot Application, Industrial Structure Transformation and the Changes in the Labor Income Share",
+      "cnki_title": "机器人应用、产业结构转型与劳动收入份额变动",
+      "doi": "10.16382/j.cnki.1000-5579.2026.01.013",
+      "year": 2026,
+      "method": "DOI"
+    }
+  ],
+  "annual": [
+    {
+      "year": 2020,
+      "cnki": 0,
+      "english_scholar": 1,
+      "deduplicated_annual": 1,
+      "cumulative": 1,
+      "scholar": 1,
+      "scholar_internal_duplicates": 0
+    },
+    {
+      "year": 2021,
+      "cnki": 0,
+      "english_scholar": 1,
+      "deduplicated_annual": 1,
+      "cumulative": 2,
+      "scholar": 1,
+      "scholar_internal_duplicates": 0
+    },
+    {
+      "year": 2022,
+      "cnki": 9,
+      "english_scholar": 1,
+      "deduplicated_annual": 10,
+      "cumulative": 12,
+      "scholar": 1,
+      "scholar_internal_duplicates": 0
+    },
+    {
+      "year": 2023,
+      "cnki": 16,
+      "english_scholar": 1,
+      "deduplicated_annual": 17,
+      "cumulative": 29,
+      "scholar": 1,
+      "scholar_internal_duplicates": 0
+    },
+    {
+      "year": 2024,
+      "cnki": 5,
+      "english_scholar": 5,
+      "deduplicated_annual": 10,
+      "cumulative": 39,
+      "scholar": 6,
+      "scholar_internal_duplicates": 0
+    },
+    {
+      "year": 2025,
+      "cnki": 6,
+      "english_scholar": 4,
+      "deduplicated_annual": 10,
+      "cumulative": 49,
+      "scholar": 4,
+      "scholar_internal_duplicates": 0
+    },
+    {
+      "year": 2026,
+      "cnki": 3,
+      "english_scholar": 6,
+      "deduplicated_annual": 9,
+      "cumulative": 58,
+      "scholar": 8,
+      "scholar_internal_duplicates": 1
+    }
+  ],
+  "limitations": [
+    "English per-paper counts accepted as supplied by Scholar; full English citing lists not audited.",
+    "Numbers Game total10 differs from annual sum9; one citation not allocated to year.",
+    "Cross-source dedup applies to citations of the Chinese paper. Distinct cited papers count as distinct citation relationships."
+  ],
+  "snapshots": [
+    {
+      "date": "2026-09-08",
+      "scholar": 23,
+      "cnki": 39,
+      "total": 59,
+      "scholar_internal_duplicates": 1
+    }
+  ],
+  "cnki_evidence": {
+    "observed_date": "2026-09-08",
+    "source": "CNKI overseas citation network",
+    "profile_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxRBZXC2h2o6y6B69QIiDkJi_PL3tuFZ_t9QjvFnpE8DB5eIgYqilVELLE1p_fieDmtWZzD1smFCyOizvLjYYbeKVMR8gZu1EvCuhqNJTOKY_ZeS1Nq0yh9yk0frz5EGkVAVsg6b--WIpSK-S5GH1opgNP2IeU7m9SJzx4K-w5yUjA==&uniplatform=OVERSEA&language=CHS",
+    "query_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxRBZXC2h2o6y6B69QIiDkJi_PL3tuFZ_t9QjvFnpE8DB5eIgYqilVELLE1p_fieDmtWZzD1smFCyOizvLjYYbeKVMR8gZu1EvCuhqNJTOKY_ZeS1Nq0yh9yk0frz5EGkVAVsg6b--WIpSK-S5GH1opgNP2IeU7m9SJzx4K-w5yUjA==&uniplatform=OVERSEA&language=CHS",
+    "target_paper": {
+      "title": "工业机器人应用的要素收入分配效应",
+      "authors": [
+        "周明海",
+        "郑天翔",
+        "王秋实"
+      ],
+      "year": 2021,
+      "doi": "10.14167/j.zjss.2021.06.005",
+      "cnki_record_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxRBZXC2h2o6y6B69QIiDkJi_PL3tuFZ_t9QjvFnpE8DB5eIgYqilVELLE1p_fieDmtWZzD1smFCyOizvLjYYbeKVMR8gZu1EvCuhqNJTOKY_ZeS1Nq0yh9yk0frz5EGkVAVsg6b--WIpSK-S5GH1opgNP2IeU7m9SJzx4K-w5yUjA==&uniplatform=OVERSEA&language=CHS"
+    },
+    "cited_by_count": 39,
+    "result_count": 39,
+    "records": [
+      {
+        "record_type": "journal",
+        "title": "生成式人工智能对劳动收入不平等的影响与对策",
+        "authors": [
+          "黄旭",
+          "董志强"
+        ],
+        "year": 2026,
+        "doi": "10.19667/j.cnki.cn23-1070/c.2026.02.008",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxQnmTrsDRpB0pzYJvVrQmLwv6mcZfepqwYpY6AnEtZFiJ4mf00uTKUDdOwY14NdCMhkf7SBxJ4sNWOTghbMNGryiK8qFlS0drGX3TYVK52QBujE9ob-Kn4Bv4duFSFdchSotOqAhAOmr5pUIejIjan6Lme17fiBqK5X8v9atjI6WeCRqb44qS7C&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "journal",
+        "title": "机器人应用、产业结构转型与劳动收入份额变动",
+        "authors": [
+          "盛垒",
+          "张玺"
+        ],
+        "year": 2026,
+        "doi": "10.16382/j.cnki.1000-5579.2026.01.013",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxQnmTrsDRpB0pzYJvVrQmLwv6mcZfepqwazoiJKtK4oxMLu54baU1txjKKwgOnBwLrDYURuCsyYzhOzYH1Cu2Bm6lR6R_0g_ms8hZro4nDjrKpsz8P2k0joeeAw_WJcYKm2OTf8d-TnT_HNm-eg58Xaaj_2bR-nMQJX7JzeYNquHTwgeV6rs9Pn&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "journal",
+        "title": "人工智能能否驱动经济平稳与平衡增长？——基于卡尔多特征事实的视角",
+        "authors": [
+          "杨光",
+          "任芃宇",
+          "尹艺霏",
+          "张云"
+        ],
+        "year": 2025,
+        "doi": "10.13894/j.cnki.jfet.2025.04.005",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxSH4dCb8x6PvlJMVcG_WlhJS3TiQOssuQqIqu7CwIJzmrM7LBx5GGt6xMyZuz79ib8rWo_R-t2F8r7kTg3YcoS3KWASignnUKuQ6KVfSlBUzdwK2lT9bEQ-asYOm5LA5HQeXjyU0kghD-E5PeirGOfnFpBvStxjv2jNwM5GitJr15FQX2kYN0hY&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "journal",
+        "title": "生成式人工智能如何重塑劳动力市场：研究综述与未来展望",
+        "authors": [
+          "曾晨语",
+          "魏下海",
+          "余玲铮"
+        ],
+        "year": 2025,
+        "doi": "10.19313/j.cnki.cn10-1223/f.20250428.002",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxSH4dCb8x6PvlJMVcG_WlhJS3TiQOssuQqTsoGrgVHLIpUtpdVZawQzKlnvdNAuoVdnAKX1CdD6hVPMDuleqOSdJtCmNlg4rv0dfL3kbGJK6kzCS3CiR-1s2c1GSviTilK4Te0H83ZDD8ixgm86vlRCVdPclL_QWTaTIZ5bMZ8E3WJ0JNzojUI5&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "journal",
+        "title": "中国省域人工智能渗透度时空分异及驱动因素",
+        "authors": [
+          "封珊",
+          "刘曙光",
+          "孔亚文"
+        ],
+        "year": 2025,
+        "doi": "10.13546/j.cnki.tjyjc.2025.06.007",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxSH4dCb8x6PvlJMVcG_WlhJS3TiQOssuQo5_VdmP3L_RaQYfF04upwfquG9-s31f7f4CuNzpu33JY9unVE4Pf98rth9vrbs-lJeA5T2EaytbQsU3GLJckfs8qeX6uePprkLArWsSWOGCKZxAaZfWE1vk2Ue0isvzb0X_Ja3O-XFV566BduY2o5h&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "journal",
+        "title": "从机器换人到人机协同——最低工资标准视角下企业出口国内增加值提升的机理与实证研究",
+        "authors": [
+          "刘维林",
+          "李雪家"
+        ],
+        "year": 2024,
+        "doi": "10.14116/j.nkes.2024.12.009",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxTLbd6AC-_ujGCKRCIq6pvvIt92-B97pT7tGjeIA7Jgea9Xvo-uLXh0KcpdZcv4EntqP4AZpIN7OZPpadPf6iWAEj8PS-eREN9o2VmBGK8uhMsLi9KuNBm7ePD9u6TKe28e1TM4oIhB757PQtbiGxgWgfM4fBUOcLwy04ghEREGzygEGbGF1dKK&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "journal",
+        "title": "智能制造对劳动收入份额的影响研究——基于就业结构转型的视角",
+        "authors": [
+          "张凤云",
+          "王希元"
+        ],
+        "year": 2024,
+        "doi": "10.16060/j.cnki.issn2095-8072.2024.05.002",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxTLbd6AC-_ujGCKRCIq6pvvIt92-B97pT5MGe8jKfHAp2OeRpqemreUdIjw46_tW0NyL0BPoMTRiPc5HPk5n10Mrfz_URI18o073lzbMN7eNuo3AvqVuu1I9sKFQgyGuDl2p-RNDTlQ58Rp-RyiB0fSSp3WxTWgrV_0FMPo-lQ4MDlF8q5tixJU&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "journal",
+        "title": "工业机器人应用型智能化对劳动收入份额的影响",
+        "authors": [
+          "王丽媛"
+        ],
+        "year": 2024,
+        "doi": "10.15981/j.cnki.dongyueluncong.2024.06.014",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxTLbd6AC-_ujGCKRCIq6pvvIt92-B97pT4UKwiDFtCYhoTuP13z0lyNUskSlY8u08N8eQ_pjoojQx7xJwynqPVCOb1kocXNYZo346od_GxfsCiZIcEz_v8ickR9WwRrLBZmcftJf6mRkGFSzauC31SJXV7h7-ynTLgmlbie7witR2kFN8-pgtXn&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "journal",
+        "title": "双循环战略背景下工业机器人对工业企业绩效影响的研究",
+        "authors": [
+          "何淼",
+          "陶海森"
+        ],
+        "year": 2023,
+        "doi": null,
+        "doi_exposed_via": null,
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxT84JCS3Vc2CEr8oQZvanTPmHciYcKEcS5AAtYMuRFVWueFkweppenN-OToEEYKcaokQYWMKklEphekyfTR6NlYt4ABTTL-qWIlrvsScYteZu8mk0PwHUJUYwQhid43r_HMF7CI_uNInc72_W-IOCk8FqHNwqmd9n0HGhon8NcrHvYCZS3RkWWu&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "journal",
+        "title": "工业机器人应用与劳动收入份额——来自中国工业企业的证据",
+        "authors": [
+          "何小钢",
+          "朱国悦",
+          "冯大威"
+        ],
+        "year": 2023,
+        "doi": "10.19581/j.cnki.ciejournal.2023.04.002",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxT84JCS3Vc2CEr8oQZvanTPmHciYcKEcS6NwIjZsvxG92cEmuBUfnmFsBXbOlrAzY9LHVSerbdVfXvcEfX2Dc9LoPa2BbvIyiXdJ0zMFo4l8rLDp2L4AafD3wffru93NeJXmR540IJhjdpl3-2rcWc2XC37E6whgR7i5MZNCm-XwniRDxN0IWLp&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "journal",
+        "title": "人工智能对中国区域经济高质量发展影响的理论机理与实证分析——以工业机器人为例",
+        "authors": [
+          "高志刚",
+          "田丰",
+          "韩延玲"
+        ],
+        "year": 2023,
+        "doi": null,
+        "doi_exposed_via": null,
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxTzXp5_B8tabc9w3LKRl6h8VfMSjaYJKuoQgrJmlvde73GAEq0mtzitLg7JK_uP_mWYvK-adZj52JCFsiiROYGI2dGxOTwXQAX-4ESAn8Bu5L1iMB4Yo9aq-hLmSnkz2FAIK8IOnuhaWKppKWBMlrCeDHC4OIsYuY98UZoRJQTMeTTUqe6Drj0b&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "journal",
+        "title": "人工智能一定会降低我国劳动收入份额吗?",
+        "authors": [
+          "丁建勋",
+          "罗润东",
+          "张鑫",
+          "沈羽"
+        ],
+        "year": 2022,
+        "doi": null,
+        "doi_exposed_via": null,
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxTzXp5_B8tabc9w3LKRl6h8d7GB75KJ88-bBosaN1VpEFAea6_A--ViDFKz0lmNXNgPKV6cb68BlYsvKmwaHFtDnxXs5rq_yRPeNoiZMS5yJIzAJzczFU2T3VBc-MVMzRkO5BTkCmv7dWtqDzL4g7RFwmixXTGTuBDVqmSJmhtJ7g==&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "doctoral",
+        "title": "政府采购的市场牵引机制对企业劳动力投资的影响",
+        "authors": [
+          "马丽伟"
+        ],
+        "year": 2024,
+        "doi": "10.27665/d.cnki.gzcju.2024.000108",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxS_lfcgEx3laBfDABzPU19zmWHI600YT4axg-HZPmRthGV0GMsGaJIrQClP4IZMXGClVQcxjgTWTALrQH7ar9ilJ7d_R-sIDeZRzkPhpg8Jp0ML3Lfkt4Ulpa60hLd-FVkYXr8u90aXavTbmEfANbiP6S5Er2svd7dL4lN0OdKUKOy0CFZEGPLn&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "doctoral",
+        "title": "数字经济对社会保险缴费的影响效应研究",
+        "authors": [
+          "宋经翔"
+        ],
+        "year": 2024,
+        "doi": "10.27209/d.cnki.glniu.2024.002405",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxS_lfcgEx3laBfDABzPU19zmWHI600YT4axg-HZPmRthBn4S55VoOHR1eMqnV8lPlCdvDA0AD1ZCOjZTJzVSVgZR-PNtt2FwQW5vQw34ggQWzmwXlepxz8FXBEZhQBg1CiOtqqhTSqzlA7ygN5coBOgd2jeRu7VWgnroNa1pVXqWNUUweeOYssp&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "doctoral",
+        "title": "基于产业划分视阈下的劳动报酬差异研究",
+        "authors": [
+          "王景圣"
+        ],
+        "year": 2023,
+        "doi": "10.27660/d.cnki.gzczu.2023.000085",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxRJWYaSKkoXnAqxxFfHvkERNT2e8qb9RUXc_n97i8j31l8y_vQG1a6HUillqZzx46HlS_iIbYSd6z6CJdMN9vD7ea2Wd8CjiP9ekJ2eFSlp8itRSv8JxCchZkNAMsH4jgK_0CkGlAEyxeW-eNjukdiwARZF6APCDShGSUcpNmbjyvT0HXC2eYq1&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "doctoral",
+        "title": "中国工业机器人应用对劳动力空间配置的影响研究",
+        "authors": [
+          "曹章露"
+        ],
+        "year": 2023,
+        "doi": "10.27149/d.cnki.ghdsu.2023.004988",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxRJWYaSKkoXnAqxxFfHvkERNT2e8qb9RUXc_n97i8j31vSbA5zhsExZ37p93FZujzrCV9iUNaJQt8tNbVSOqLn6vMxJrkYJlWRyceZD3xA4L4z9CKN-y9Y32_Vnx1P4DLNy4mhNQoShXfxcopJFfL7rEsHmQsYueopSWeMfqxCvESEQHmkAyjYV&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "doctoral",
+        "title": "中国工资极化问题研究——基于工业机器人应用和城市化视角",
+        "authors": [
+          "姚晓兵"
+        ],
+        "year": 2023,
+        "doi": "10.27456/d.cnki.gyndu.2023.000036",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxRJWYaSKkoXnAqxxFfHvkERNT2e8qb9RUXc_n97i8j31t_9KZMhBGp_rGQs5oOFv6-Bukmn02KOA4uHQzrKbZPA0P5AN_qVYszicQYiO5QWo29fsQvAlVycmu-cppFP1S0brsqsH0DY9pH1qnPfgmiG8mbPrimb63stcnyfCPgVeDEhjufllvVw&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "doctoral",
+        "title": "内部利益相关者视角下企业去杠杆的经济后果研究",
+        "authors": [
+          "王三法"
+        ],
+        "year": 2022,
+        "doi": "10.27006/d.cnki.gdbcu.2022.001271",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxSKwdeUs3JUTOQ_at7eqTW8Ni_WVUG78S7AuduV0ltilIVWeyrxR11D75O-g3-OsHtWJ-8tVzt-cPWIkiI-1GYfdrv_zfhpaMMBbLvBYzOwDfvGYWgtj9ZCRYZ7TbpWVPySlkSE39qMTuGRN1Ka9Cv4p5djYekoFjDVhuzg7sYlSjkZgYdjPZpL&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "doctoral",
+        "title": "人工智能对我国劳动收入份额的影响研究",
+        "authors": [
+          "芦婷婷"
+        ],
+        "year": 2022,
+        "doi": "10.27684/d.cnki.gxndx.2022.005477",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxSKwdeUs3JUTOQ_at7eqTW8Ni_WVUG78S7AuduV0ltilD8-RZk-2gyIDZANhktyn-DKzAF00LSi86Oe79fnS7z3U8IjfaRjHRQBkMb_3E778WYH_CBc-eQm5-n0ij9BCmhBYGgFhe7iumBRCIFkusrbVRGeB8MjF1qLCRAV8VDxfB0tLowv6Pnx&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "doctoral",
+        "title": "人工智能对劳动收入份额的影响研究",
+        "authors": [
+          "王丽媛"
+        ],
+        "year": 2022,
+        "doi": "10.27283/d.cnki.gsxcc.2022.000009",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxSKwdeUs3JUTOQ_at7eqTW8Ni_WVUG78S7AuduV0ltilJa8Owi1xjbDcjCoaoTSfmyaIotZSdqk8mAmkoqluHoSJvORdCOVK1u3SIJIhm4UsVcAhGA6ZxPxOy7u3D30wSBLDnUPrHxTBWkmN-0UzGAmA6dKt1VF2naWJ3jjpmdII6nUlcp-4ZMO&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "master",
+        "title": "人工智能对包容性增长的影响研究",
+        "authors": [
+          "张洁"
+        ],
+        "year": 2026,
+        "doi": "10.27347/d.cnki.gssdu.2026.001295",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxQsurheKS4m3X9o8YOFHgEX1aZcyG4EWiJYs-wn0lk0p0DCkTt00-ht0-A3aE6rB82H-GNNLHbwLZO2w7-N6Bm4IWThfTJFBMY3hLieUKusZ3fpgPVnO9DIvmdFSuzwBCNHIsEEwv-BsUSIWqBrTmxQHo7iqTuX6OTl0qLuRY94Hv8oqpFNdZnA&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "master",
+        "title": "人工智能对制造业企业OFDI的影响研究",
+        "authors": [
+          "张文芳"
+        ],
+        "year": 2025,
+        "doi": "10.27732/d.cnki.gnzsx.2025.000495",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxQsurheKS4m3X9o8YOFHgEX1aZcyG4EWiJYs-wn0lk0p3nIy3_2ltAG2Ray--dmlJ5AVkycKMwm3gi2PApBm3QREa_mNA-_7VIaC7SMIUbdSUa89vUtMOVaS4yq3h_rkyDt0tKiQAsoOOy_UzXgW51EjHs_9N-1QMSbVwTcNEcgMI3CqQUb8vcA&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "master",
+        "title": "人工智能对制造业高质量发展的影响研究",
+        "authors": [
+          "邓君君"
+        ],
+        "year": 2025,
+        "doi": "10.27075/d.cnki.ghzdc.2025.001230",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxRRuE_E6cETY08YRdDbq2G8w8BLcON2qKklXbinkr7PF6Ie5AiM9-R7svO4vH5jc7GgoH-O9myJkgTvMAu3ab0S4rFZsTef6rMCLaGx22njy1uGvljEE0VykW1foyFMzYjt8Gmudjw4jluXDfFPu-_jDu5ioiYQnl3rhvLXfcsF_vUzVpNdcztm&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "master",
+        "title": "人工智能影响企业社会责任的内在机制与边界条件",
+        "authors": [
+          "镇少轩"
+        ],
+        "year": 2025,
+        "doi": "10.27835/d.cnki.gnjsj.2025.000226",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxRRuE_E6cETY08YRdDbq2G8w8BLcON2qKklXbinkr7PF8Hr-hTVW9KTjWEEs-bVD-ygd2bkVQm8V0h15oOiZTHLdLh4heEOApR2Y09w_Gvidnz7uoxbnlhixMb_rsIHZ2sso523JspTxCBqQDY8-QK_dkUTMuFw6aHjR73XN8bD4RSS_V9NlF9G&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "master",
+        "title": "工业智能化对劳动力流动的影响研究",
+        "authors": [
+          "刘东升"
+        ],
+        "year": 2023,
+        "doi": "10.26916/d.cnki.gahcc.2023.000151",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxRRuE_E6cETY08YRdDbq2G8w8BLcON2qKklXbinkr7PFy6UNrq_XT3Z00LMaW6jRRUcU33lAKxxBX9wLN-4k3Nh8R3vXjrVdmvv0uH-VfGQxgSGjoPevMpggKoc4aWNWQ6r8HI2GxC5OcULhUcTpZfwbIvyz2zOpOpI_KL4JptsJbDiSn46ztOe&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "master",
+        "title": "居民部门杠杆率对居民收入差距的影响研究",
+        "authors": [
+          "李小妍"
+        ],
+        "year": 2023,
+        "doi": "10.27342/d.cnki.gscdu.2023.000238",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxQLHaDuCi6OXxTZozPyUPcUfXu5Nj1_axnecG3qIJqm2ejCBufE8IPX6qqpRWtGSlsY9YtPj-KDuhRRqcyLHrfYe2Wy6KK_ieyQKDubqPxcEj4WPqxmvn5aPNc2TgWWDCup_QiN_Tg7XyteIKudTayjlHU4IIFAoaQzLEocSzn5i2HD_0UJUT9b&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "master",
+        "title": "人工智能对我国劳动收入差距的影响研究",
+        "authors": [
+          "王楚祎"
+        ],
+        "year": 2023,
+        "doi": "10.27342/d.cnki.gscdu.2023.000482",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxQLHaDuCi6OXxTZozPyUPcUfXu5Nj1_axnecG3qIJqm2WDxrDXNrAJZZPTGOkJd3__TF4ooMijDffcg8uutpwxewdCl852c3qXpc2_kIpmkvFHI_pUMyGgmsFpNxRsPH6y_RoeINw2X0STGDK854yljzpZGBBnc4oyiTT5RZteRp6nIiwgANpFQ&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "master",
+        "title": "工业机器人应用对企业OFDI的影响",
+        "authors": [
+          "温慧"
+        ],
+        "year": 2023,
+        "doi": "10.27113/d.cnki.ghncc.2023.000570",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxQLHaDuCi6OXxTZozPyUPcUfXu5Nj1_axnecG3qIJqm2aQrX1r30zmd6lO0Pt5bkhGCWW6Na7smDY6tQIUrGUFv0V0qZpwvngjX9mvAcNVjqlL27k8bZZUS3AMZ8mLwmAjinIoijn3UyzwmAAZ8g9tH1BPlHAVpa6LvYFkzI1rpsDVv5a-DFEp6&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "master",
+        "title": "进口工业机器人对中国制造业企业技能溢价的影响",
+        "authors": [
+          "陈璎含"
+        ],
+        "year": 2023,
+        "doi": "10.27157/d.cnki.ghzku.2023.003310",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxRS-je-m8vxMBk2sOp9b41roh4nk_syMdf7rkpmWTE7HNa_LYoYmN9T9m8_yxxZpU9PrdrdUQWHIiAyFtX7lbklApc4A75HOHLXQjp3dzebhN_a_Yy-7T43mRXxZpjTFvgE3H35IQHJvrAN3ZDAs6krgurOdTQZLsJH8BtpAAldoAybJ-HE_yqu&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "master",
+        "title": "我国智能制造业人力资本存量的测度及对产业结构升级的影响",
+        "authors": [
+          "王依依"
+        ],
+        "year": 2023,
+        "doi": "10.27354/d.cnki.gtcjy.2023.000801",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxRS-je-m8vxMBk2sOp9b41roh4nk_syMdf7rkpmWTE7HClRFpkobGnt1HHIUsPQN3w-XZVGP1AlLAD6zD0zPh_8BardeW4_MPACVgtTfokOLmrMRVPc_XXGJH-n2gLilK9D7Z3wzW7A5dsoVPwOIg8U49Ti7WaIv_IC3R63EgiwsLYfrjBx4Y64&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "master",
+        "title": "机器人进口对企业劳动收入份额的影响——来自我国制造业上市公司的证据",
+        "authors": [
+          "王婧婧"
+        ],
+        "year": 2023,
+        "doi": "10.27149/d.cnki.ghdsu.2023.001338",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxSOAfpnH2GGQ2u8PHX_7dWMLQOVyREe3zu1XisxjETpD9x_FGYyN2nARvOyYYy9mIn9pMzafkc_KjPRbTWZMm7gfJMfXrj0eF86ZAU7J-ZJIhouO0CoSxpNvxI61SuutfJLTckE-D3k7gx9B1EdMY0D1Z5HYNorX1SY7Og97m2MigDfola_yQfZ&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "master",
+        "title": "产业智能化对我国劳动收入份额的影响研究",
+        "authors": [
+          "冯琳"
+        ],
+        "year": 2023,
+        "doi": "10.27412/d.cnki.gxncu.2023.001250",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxSOAfpnH2GGQ2u8PHX_7dWMLQOVyREe3zu1XisxjETpDzp-N1OE5KwSZkOC6k6X7rkKAokYWpEEEvpAryMZpC8zgXrXHPET8PUgSHFEjrzMdWOXFSGi-NEit0HbcK82BUO4RkJf3k2IC2pM0j2-Kcttx6yzzj3yTic7D_u7bf6BBH9AqHEPVoRi&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "master",
+        "title": "“政策工具-创新价值链”二维视域下中国AI产业政策评价研究",
+        "authors": [
+          "徐丹妮"
+        ],
+        "year": 2023,
+        "doi": "10.27766/d.cnki.gzjcj.2023.000158",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxQOUTU6FJskEQVOler-Tgvht60MpoP4bI4DHWpVSuHCW9z6rzOsHN1OWq6Mcg9jmrnLQ6hDEe4AfDaVFsrevOOeA4fI3tnZXUrw-pPTI0ZxyeikMqedNH6732SY_T2_fOw4QPendBowpJUFX8IJg4KaIj6hZYfMmUg47bELKdV_C0MOBEjnXzqr&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "master",
+        "title": "“双循环”背景下新经济产业参与价值链分工的特征及效应研究",
+        "authors": [
+          "殷真真"
+        ],
+        "year": 2023,
+        "doi": "10.27766/d.cnki.gzjcj.2023.000019",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxQOUTU6FJskEQVOler-Tgvht60MpoP4bI4DHWpVSuHCW-aH4y0e7n9h3muzSNQPVoFH-nW8pHGnTIU5A14fXYuis8kb3PuDl45IlXtd7Nz749Je3DPNp-G4Y3-rkPZ1JHqlmzmkyfOQn2Egrnor-E4XFwI2egTWZTjPjnU_ucHFGony6HyTcH71&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "master",
+        "title": "人口年龄结构老化、劳动力流动与机器换人",
+        "authors": [
+          "潘静楠"
+        ],
+        "year": 2022,
+        "doi": "10.27461/d.cnki.gzjdx.2022.000490",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxTKuHVRs24GMEQJPvDezRdAUtj097uYLc48cuEQHbQV0XrAe4ijFQSg99mcd_2PAM1XPyys0gIgVsB9N8Rxm-31_s01R_SV-JmnlIaWf1-H4wCuY_674ulmTNYGAZuZ-8DRAtfMUhsdfPcALHo9Qr1K0i-F-nLyEeQWvMUSFam0PDaEgJ_ytL1x&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "master",
+        "title": "外商直接投资对越南行业收入的影响与政策优化研究——以电力等六个行业为例",
+        "authors": [
+          "Pham Thi Thanh Hoa"
+        ],
+        "year": 2022,
+        "doi": "10.27151/d.cnki.ghnlu.2022.000439",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxTKuHVRs24GMEQJPvDezRdAUtj097uYLc48cuEQHbQV0TLoV6kOGO38YVsr2e0l1A3W9V4gONaCKdjsj653W_FwgMnwxen5gFCLYbEbU48E2_ju3xmvXUE0D74kQ_vKAtxNZRvw6DEwb7mc8tQqSEN1_H9RqPSmqsyYL2HRo9CUcXvBW0u4viOn&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "master",
+        "title": "人工智能对制造业企业劳动收入份额的影响——来自制造业上市公司的数据",
+        "authors": [
+          "杨思思"
+        ],
+        "year": 2022,
+        "doi": "10.27354/d.cnki.gtcjy.2022.000268",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxTKuHVRs24GMEQJPvDezRdAUtj097uYLc48cuEQHbQV0c2krmyKmciYnRR1KpaJt5ewcU9oFLtKaiwxm8bhX78BJL8Hf1-Q3KM31qzRnBoNDOVqd09fua_UnPkT4_RZLMz_0yiL-1T6kn4wpzNQ2rhnmlOFf6R9j7KfsI5THB5ni6j72fZrcd9k&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "master",
+        "title": "我国工业智能化对制造业出口竞争力的影响研究",
+        "authors": [
+          "张佳琪"
+        ],
+        "year": 2022,
+        "doi": "10.27151/d.cnki.ghnlu.2022.001946",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxTKuHVRs24GMEQJPvDezRdAUtj097uYLc48cuEQHbQV0bbJiQDwsRG4xdbMl4M0hv6WcLCxi7jLXguiOWkmW4Ru_-1m5-_NfirXdnUw8cwPr16TKgcvK6RdOpCZVzZ7xL0Xb8uLb3d7y9XqwQzrl_lU8UPMrJUXTVRUVtwWIl7dqx7zimHPkSX1&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "record_type": "master",
+        "title": "基于协同演化机制的多蚁群算法研究及应用",
+        "authors": [
+          "赵家波"
+        ],
+        "year": 2022,
+        "doi": "10.27715/d.cnki.gshgj.2022.000352",
+        "doi_exposed_via": "detail_page",
+        "source_url": "https://oversea.cnki.net/kcms2/article/abstract?v=tBI8TAhqnxS3eMlFEAk15vg2lr8G4KR5wePb0UK3GZB6eoGhuMjXrKiYdWdv9xXKNBH01eQ-cqfUQvvaBWqAUNJnZ6gUz3y1mRfWLusBZeMzN5NJOFTFMcs0CTxidA7cILEcRkzvjENGQZkLqfDkGJLScCBj6-WnKMcluaoUicMw8gL61-cTmWttPAlt-skJ&uniplatform=OVERSEA&language=CHS",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      }
+    ],
+    "completeness": {
+      "complete": true,
+      "page_text": "引证文献(39)；期刊共12篇、博士共8篇、硕士共19篇",
+      "records_collected": 39,
+      "records_reported": 39,
+      "difference": 0,
+      "breakdown": {
+        "journal": 12,
+        "doctoral": 8,
+        "master": 19
+      },
+      "scope": "仅采集 CNKI 海外版引证文献；国内期刊站显示的35条未混入。",
+      "notes": [
+        "期刊12条（第一页10条、第二页2条），博士8条，硕士19条（第一页10条、第二页9条）。",
+        "DOI仅在CNKI引证记录详情页明确暴露时填写；未暴露的保留null。",
+        "记录按CNKI引证分类分页采集并分组整理，未在本文件内按标题或DOI去重。"
+      ]
+    },
+    "access_status": {
+      "captcha": false,
+      "access_restriction": false,
+      "visual_verification": "CNKI海外引文网络与分页列表可正常显示；AX中残留的隐藏验证码节点未形成可见拦截，未执行验证码。"
+    },
+    "plan_fingerprint": "e1af83ff5a95d5a7ed8958fcb0e6e0a312341ec0ccc3e90e44a579212bf54e5c"
+  },
+  "scholar_evidence": {
+    "observed_date": "2026-09-08",
+    "source": "Google Scholar citation search",
+    "profile_url": "https://scholar.google.com/citations?user=yMayrcEAAAAJ",
+    "query_url": "https://scholar.google.com/scholar?oi=bibs&hl=zh-CN&cites=349453582541621809",
+    "target_paper": {
+      "title": "工业机器人应用的要素收入分配效应",
+      "authors": [
+        "周明海",
+        "郑天翔",
+        "王秋实"
+      ],
+      "year": 2021,
+      "doi": "10.14167/j.zjss.2021.06.005",
+      "scholar_record_url": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=yMayrcEAAAAJ&citation_for_view=yMayrcEAAAAJ:ULOm3_A8WrAC",
+      "scholar_cites_id": "349453582541621809"
+    },
+    "cited_by_count": 3,
+    "result_count": 3,
+    "records": [
+      {
+        "title": "智能制造对劳动收入份额的影响研究——基于就业结构转型的视角",
+        "authors": [
+          "张凤云",
+          "王希元"
+        ],
+        "year": 2024,
+        "doi": null,
+        "doi_exposed_via": null,
+        "source_url": "https://xuebao.suibe.edu.cn/shdwjmdxxb/article/html/20240502",
+        "scholar_cluster_url": "https://scholar.google.com/scholar?cluster=3543308994648635038&hl=zh-CN&as_sdt=2005&sciodt=0,5",
+        "scholar_result_id": "nnZ648FcLDEJ",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "title": "机器人应用，产业结构转型与劳动收入份额变动",
+        "authors": [
+          "盛垒",
+          "张玺"
+        ],
+        "year": 2026,
+        "doi": "10.16382/j.cnki.1000-5579.2026.01.013",
+        "doi_exposed_via": "source_url",
+        "source_url": "https://xbzs.ecnu.edu.cn/CN/10.16382/j.cnki.1000-5579.2026.01.013",
+        "scholar_cluster_url": "https://scholar.google.com/scholar?cluster=11568709929194719570&hl=zh-CN&as_sdt=2005&sciodt=0,5",
+        "scholar_result_id": "UokvD2NQjKAJ",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      },
+      {
+        "title": "Robot Application, Industrial Structure Transformation and the Changes in the Labor Income Share",
+        "authors": [
+          "L Sheng",
+          "X Zhang"
+        ],
+        "year": 2026,
+        "doi": "10.16382/j.cnki.1000-5579.2026.01.013",
+        "doi_exposed_via": "source_url",
+        "source_url": "https://xbzs.ecnu.edu.cn/EN/10.16382/j.cnki.1000-5579.2026.01.013",
+        "scholar_cluster_url": "https://scholar.google.com/scholar?cluster=383882409540583658&hl=zh-CN&as_sdt=2005&sciodt=0,5",
+        "scholar_result_id": "6gAwgATTUwUJ",
+        "cited_paper": "10.14167/j.zjss.2021.06.005"
+      }
+    ],
+    "completeness": {
+      "complete": true,
+      "page_text": "获得 3 条结果",
+      "records_collected": 3,
+      "records_reported": 3,
+      "difference": 0,
+      "scope": "仅采集该中文论文的 Google Scholar citing records；未采集另外两篇英文论文的完整引文名单。",
+      "notes": [
+        "第一条记录未在 Scholar 结果行或其来源 URL 中暴露 DOI，因此保留来源 URL 并将 DOI 记为 null。",
+        "后两条记录是同一 2026 论文的中文/英文 Scholar 记录，共享来源 URL 中暴露的 DOI；按 Scholar 返回的 3 条记录原样保留，未在本文件内去重。"
+      ]
+    },
+    "access_status": {
+      "captcha": false,
+      "access_restriction": false,
+      "visual_verification": "引用列表页面正常显示，无验证码或访问限制。"
+    },
+    "plan_fingerprint": "e1af83ff5a95d5a7ed8958fcb0e6e0a312341ec0ccc3e90e44a579212bf54e5c"
+  },
+  "english_evidence": {
+    "observed_date": "2026-09-08",
+    "source": "Google Scholar article detail annual charts",
+    "papers": [
+      {
+        "title": "The numbers game: effects of listing and counteroffer pricing format in housing bargaining",
+        "url": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=yMayrcEAAAAJ&citation_for_view=yMayrcEAAAAJ:Zph67rFs4hoC",
+        "total": 10,
+        "annual": {
+          "2024": 2,
+          "2025": 2,
+          "2026": 5
+        },
+        "annual_sum": 9,
+        "unallocated_difference": 1
+      },
+      {
+        "title": "How Housing Search and Bargaining Unfold: Evidence from Offer-Level Data",
+        "url": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=yMayrcEAAAAJ&citation_for_view=yMayrcEAAAAJ:_kc_bZDykSQC",
+        "total": 10,
+        "annual": {
+          "2020": 1,
+          "2021": 1,
+          "2022": 1,
+          "2023": 1,
+          "2024": 3,
+          "2025": 2,
+          "2026": 1
+        },
+        "annual_sum": 10
+      }
+    ],
+    "year_evidence": "Each chart bar links to citing search with as_ylo=year and as_yhi=year; this is citing record year filtering, not observation date. Version-year treatment not independently confirmed.",
+    "limits": [
+      "One unallocated citation in Numbers Game; no complete English citing-list collection per approved scope."
+    ],
+    "official_sources": [
+      "https://scholar.google.com/intl/en/scholar/citations.html",
+      "https://scholar.google.com/intl/en/scholar/help.html"
+    ],
+    "interpretation": "Official help describes Since Year as recently published papers; graph links filter by as_ylo/as_yhi. Annual figures reflect Scholar-indexed citing publication years; no verified guarantee that these always equal the latest working-paper version year. Preserve native series as requested."
+  }
+}
