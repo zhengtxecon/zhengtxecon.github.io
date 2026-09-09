@@ -21,19 +21,23 @@
     <link rel="alternate" type="application/rss+xml" title="Tianxiang Zheng · Blog feed" href="../feed.xml">
     <link rel="sitemap" type="application/xml" href="../sitemap.xml">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/blog.css">
     <link rel="stylesheet" href="../assets/css/blog-post.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="../assets/js/main.js" defer></script>
+    <script src="../assets/js/main.js?v=20260909-1" defer></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../assets/js/content-theme.js"></script>
+<link rel="stylesheet" href="../assets/css/content-shell.css">
+
 </head>
 
-<body data-root="../" data-page="blog-post" data-category="tools" data-series="how-i-almost-ai-everything">
+<body data-root="../" data-page="blog-post" data-category="tools" data-series="how-i-almost-ai-everything" class="content-page bg-forest-50 text-slate-800 antialiased selection:bg-blue-600/30 selection:text-white overflow-x-hidden relative">
     <div id="header-placeholder"></div>
 
     <main class="blog-post-main">
         <article class="blog-post" itemscope itemtype="https://schema.org/BlogPosting">
             <header class="blog-post-hero">
-                <div class="container blog-post-hero-inner">
+                <div class="shell blog-post-hero-inner">
                     <div class="hero-copy">
                         <div class="breadcrumbs" aria-label="Breadcrumb">
                             <a href="../index.html">Home</a>
@@ -49,7 +53,7 @@
                             <span class="current" aria-current="page">Configuration Log</span>
                         </div>
 
-                        <span class="section-label"><i class="fas fa-cog" aria-hidden="true"></i> Tools ·
+                        <span class="section-label"><iconify-icon icon="lucide:settings" aria-hidden="true"></iconify-icon> Tools ·
                             Documentation</span>
                         <h1 itemprop="headline">Codex Configuration Log</h1>
                         <p class="hero-subtitle" itemprop="description">A running list of configuration changes and
@@ -57,11 +61,11 @@
 
                         <dl class="hero-meta" aria-label="Post highlights">
                             <div class="meta-item">
-                                <dt><i class="fas fa-calendar-day" aria-hidden="true"></i> Updated</dt>
+                                <dt><iconify-icon icon="lucide:calendar-days" aria-hidden="true"></iconify-icon> Updated</dt>
                                 <dd><time itemprop="dateModified" datetime="2026-01-14">14 January 2026</time></dd>
                             </div>
                             <div class="meta-item">
-                                <dt><i class="fas fa-tools" aria-hidden="true"></i> Focus</dt>
+                                <dt><iconify-icon icon="lucide:wrench" aria-hidden="true"></iconify-icon> Focus</dt>
                                 <dd>System Settings & Tooling</dd>
                             </div>
                         </dl>
@@ -70,9 +74,9 @@
                     <aside class="hero-aside surface" aria-label="Quick Links">
                         <h2>Navigation</h2>
                         <ul class="series-key-points">
-                            <li><i class="fas fa-arrow-left" aria-hidden="true"></i> <a
+                            <li><iconify-icon icon="lucide:arrow-left" aria-hidden="true"></iconify-icon> <a
                                     href="codex-experience.html">Back to Codex Experience</a></li>
-                            <li><i class="fas fa-chart-line" aria-hidden="true"></i> <a
+                            <li><iconify-icon icon="lucide:trending-up" aria-hidden="true"></iconify-icon> <a
                                     href="estimating-codex-tokens-with-ccusage.html">Monitoring Usage</a></li>
                         </ul>
                     </aside>
@@ -80,7 +84,7 @@
             </header>
 
             <section class="blog-post-body">
-                <div class="container blog-post-body-grid">
+                <div class="shell blog-post-body-grid">
                     <div class="blog-post-content" itemprop="articleBody">
                         <p>This page documents the technical configurations and environment choices that power my
                             agentic coding workflow. Instead of a chronological log, settings are grouped by category to
@@ -129,10 +133,10 @@ web_search_request = true</code></pre>
                         <section class="sidebar-card surface">
                             <h3>Infrastructure</h3>
                             <ul>
-                                <li><i class="fas fa-file-code" aria-hidden="true"></i> Setup: <code>config.toml</code>
+                                <li><iconify-icon icon="lucide:file-code" aria-hidden="true"></iconify-icon> Setup: <code>config.toml</code>
                                 </li>
-                                <li><i class="fas fa-terminal" aria-hidden="true"></i> CLI: <code>codex</code></li>
-                                <li><i class="fas fa-plug" aria-hidden="true"></i> Environment: WSL / VS Code</li>
+                                <li><iconify-icon icon="lucide:terminal" aria-hidden="true"></iconify-icon> CLI: <code>codex</code></li>
+                                <li><iconify-icon icon="lucide:plug" aria-hidden="true"></iconify-icon> Environment: WSL / VS Code</li>
                             </ul>
                         </section>
                     </aside>

@@ -1,244 +1,263 @@
-/* Shared styles for blog category and series collection pages */
-
-.collection-hero {
-    position: relative;
-    padding: clamp(3.5rem, 5vw, 5rem) 0 clamp(3rem, 5vw, 4rem);
-    background: var(--page-hero-gradient), var(--page-hero-overlay);
-    color: var(--page-hero-body-color);
-}
-
-.collection-hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, color-mix(in srgb, var(--color-brand) 12%, transparent), transparent 80%);
-    opacity: 0.2;
-    pointer-events: none;
-}
+/* ==========================================================================
+   Series / collection layout: hero copy, flat meta line, card grid, roadmap.
+   Tokens and shared components come from style.css; hero spacing and the
+   gradient h1 come from content-shell.css.
+   ========================================================================== */
 
 .collection-hero-inner {
-    position: relative;
-    z-index: 1;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: clamp(2.2rem, 4vw, 3rem);
+    grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+    gap: clamp(2rem, 5vw, 3.5rem);
     align-items: start;
 }
 
 .collection-hero-copy {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 1.1rem;
+    min-width: 0;
 }
 
-.collection-hero-copy h1 {
-    color: var(--page-hero-heading-color);
-}
-
-.collection-meta {
-    list-style: none;
+/* Intro paragraph takes the same left-hairline treatment as hero-subtitle */
+.collection-hero-copy > p {
     margin: 0;
-    padding: 0;
+    max-width: 62ch;
+    padding-left: 1.5rem;
+    border-left: 1px solid rgba(71, 85, 105, 0.2);
+    font-size: 0.9375rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--slate-700);
+}
+
+/* Flat meta line — icons plus text under a hairline, no pill boxes */
+.collection-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.9rem;
-    font-size: 0.93rem;
+    gap: 0.8rem 2rem;
+    width: 100%;
+    margin: 0.75rem 0 0;
+    padding: 1.25rem 0 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.25);
+    list-style: none;
+    font-size: 0.8125rem;
+    color: var(--slate-600);
 }
 
 .collection-meta li {
     display: inline-flex;
     align-items: center;
-    gap: 0.55rem;
-    padding: 0.45rem 0.9rem;
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--color-surface) 70%, transparent);
-    color: var(--color-text);
+    gap: 0.5rem;
 }
+
+.collection-meta iconify-icon { color: var(--blue-600); }
 
 .collection-meta a {
     color: inherit;
     text-decoration: underline;
+    text-decoration-color: rgba(100, 116, 139, 0.4);
+    text-underline-offset: 3px;
 }
+
+.collection-meta a:hover { color: var(--blue-700); }
 
 .collection-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    margin-top: 0.3rem;
+    margin-top: 0.5rem;
 }
 
-.collection-hero-card {
-    display: grid;
-    gap: 0.85rem;
-    padding: 1.6rem;
-    border-radius: var(--radius-lg);
-    border: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
-}
+.collection-hero-card { padding: 1.5rem; }
 
 .collection-hero-card h2 {
-    margin: 0;
-    font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+    margin: 0 0 1rem;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate-900);
 }
 
 .collection-hero-card ul {
-    list-style: none;
+    display: grid;
+    gap: 0.65rem;
     margin: 0;
     padding: 0;
-    display: grid;
-    gap: 0.7rem;
-    color: color-mix(in srgb, var(--color-text) 85%, var(--color-text-muted) 15%);
+    list-style: none;
 }
 
 .collection-hero-card li {
-    display: inline-flex;
-    align-items: center;
+    display: flex;
+    align-items: flex-start;
     gap: 0.6rem;
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--slate-600);
+}
+
+.collection-hero-card li iconify-icon {
+    flex-shrink: 0;
+    margin-top: 0.2em;
+    color: var(--blue-600);
 }
 
 .collection-main {
-    padding: clamp(3.5rem, 5vw, 5rem) 0 clamp(5rem, 6vw, 6rem);
+    padding-bottom: clamp(3.5rem, 6vw, 5rem);
 }
 
-.collection-section {
-    padding: clamp(3rem, 5vw, 4rem) 0 0;
+.collection-section + .collection-section {
+    margin-top: clamp(3rem, 6vw, 4.5rem);
 }
 
 .collection-section-header {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
-    gap: 1.5rem;
-    margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+    gap: 1rem 1.5rem;
+    margin-bottom: clamp(1.5rem, 3vw, 2rem);
 }
 
 .collection-section-header h2 {
     margin: 0 0 0.4rem;
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    font-weight: 300;
 }
 
+.collection-section-header p {
+    margin: 0;
+    max-width: 60ch;
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--slate-600);
+}
+
+/* Status chip — same mono pill language as .tag */
 .collection-filter-pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.55rem;
-    padding: 0.6rem 1rem;
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--color-brand-soft) 70%, transparent);
-    color: var(--color-brand-strong);
-    font-weight: 600;
+    gap: 0.5rem;
+    padding: 0.45rem 0.95rem;
+    border-radius: var(--radius-full);
+    background: rgba(239, 246, 255, 0.9);
+    border: 1px solid rgba(191, 219, 254, 0.6);
+    color: var(--blue-700);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
 }
 
 .collection-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 560px), 1fr));
-    gap: clamp(1.75rem, 4vw, 2.75rem);
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+    gap: clamp(1.25rem, 3vw, 1.75rem);
 }
 
+/* Cards embedded in article copy (codex-experience) sit inside the flow */
+.blog-post-content .collection-grid { margin: 0 0 1.25rem; }
+
 .collection-card {
-    display: grid;
-    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
     padding: 1.5rem;
-    border-radius: var(--radius-lg);
-    border: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
 }
 
 .collection-card h3 {
     margin: 0;
+    font-size: 1.0625rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
 }
 
 .collection-card h3 a {
     color: inherit;
+    text-decoration: none;
 }
+
+.collection-card h3 a:hover { color: var(--blue-700); }
 
 .collection-card p {
     margin: 0;
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--slate-600);
 }
 
 .collection-card-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.45rem;
+    gap: 0.4rem;
 }
 
 .collection-card-facts {
-    list-style: none;
+    display: grid;
+    gap: 0.5rem;
     margin: 0;
     padding: 0;
-    display: grid;
-    gap: 0.55rem;
-    color: color-mix(in srgb, var(--color-text) 85%, var(--color-text-muted) 15%);
+    list-style: none;
+    font-size: 0.8125rem;
+    font-weight: 300;
+    color: var(--slate-500);
 }
 
 .collection-card-facts li {
-    display: inline-flex;
-    align-items: center;
+    display: flex;
+    align-items: flex-start;
     gap: 0.55rem;
 }
 
+.collection-card-facts li iconify-icon {
+    flex-shrink: 0;
+    margin-top: 0.15em;
+    color: var(--blue-600);
+}
+
+.collection-card .card-link {
+    margin-top: auto;
+    padding-top: 0.35rem;
+}
+
 .collection-card-placeholder {
-    background: color-mix(in srgb, var(--color-surface) 80%, transparent);
-    color: color-mix(in srgb, var(--color-text) 80%, var(--color-text-muted) 20%);
+    background: rgba(248, 250, 252, 0.45);
+    border-style: dashed;
+    border-color: rgba(148, 163, 184, 0.4);
+    box-shadow: none;
 }
 
 .collection-status {
     display: inline-flex;
     align-items: center;
-    gap: 0.45rem;
-    font-weight: 600;
-    color: color-mix(in srgb, var(--color-text-muted) 65%, var(--color-text) 35%);
-}
-
-.collection-roadmap {
-    padding: 1.8rem;
-    border-radius: var(--radius-lg);
-    border: 1px solid color-mix(in srgb, var(--color-border) 65%, transparent);
-    display: grid;
-    gap: 1rem;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    color: var(--slate-400);
 }
 
 .collection-roadmap ol {
-    margin: 0;
-    padding-left: 1.25rem;
     display: grid;
     gap: 0.8rem;
+    margin: 0;
+    padding-left: 1.4rem;
+    font-size: 0.9375rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--slate-700);
 }
 
-.tag-cloud {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
+.collection-roadmap li::marker {
+    color: var(--blue-600);
+    font-weight: 600;
 }
 
-.tag-cloud .topic-pill {
-    background: color-mix(in srgb, var(--color-brand-soft) 60%, transparent);
-    color: var(--color-brand-strong);
-}
-
-.tag-cloud .topic-pill:hover,
-.tag-cloud .topic-pill:focus-visible {
-    color: color-mix(in srgb, var(--color-brand-strong) 85%, var(--color-brand) 15%);
-}
-
-[data-theme="dark"] .collection-filter-pill,
-[data-theme="dark"] .tag-cloud .topic-pill {
-    background: color-mix(in srgb, var(--color-brand) 24%, var(--color-surface-alt) 76%);
-    color: var(--color-brand-contrast);
-}
-
-[data-theme="dark"] .tag-cloud .topic-pill:hover,
-[data-theme="dark"] .tag-cloud .topic-pill:focus-visible {
-    color: var(--color-brand-contrast);
-}
-
-@media (max-width: 780px) {
-    .collection-meta li {
-        width: 100%;
-    }
-
-    .collection-actions {
-        width: 100%;
-    }
-
-    .collection-actions .btn {
-        flex: 1;
-        justify-content: center;
-    }
+@media (max-width: 900px) {
+    .collection-hero-inner { grid-template-columns: minmax(0, 1fr); }
 }

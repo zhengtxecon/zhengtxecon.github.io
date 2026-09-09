@@ -1,44 +1,43 @@
-<header class="site-header" data-component="header">
-    <div class="container header-inner">
-        <a class="brand" href="index.html" aria-label="Tianxiang Zheng home">
-            <span class="brand-initials" aria-hidden="true">TZ</span>
-            <span class="brand-text">
-                <span class="brand-name">Tianxiang Zheng</span>
-                <span class="brand-role">Economist · Researcher · Educator</span>
-            </span>
-        </a>
+<!-- Background -->
+<div class="fixed inset-0 w-full h-full -z-10 pointer-events-none overflow-hidden">
+    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/0dd9b13b-ea30-4e17-8a26-53d1f9d1c6d3_3840w.webp" alt="" class="absolute inset-0 w-full h-full object-cover blur-md brightness-[0.52] saturate-[1.15] contrast-[1.05] scale-110" />
+    <div class="absolute inset-0 hero-grid"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-forest-100/90 via-forest-50/50 to-forest-100/55"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-forest-50/80 via-transparent to-forest-950/70"></div>
+</div>
 
-        <nav class="site-nav" aria-label="Primary">
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
-                <span class="nav-toggle-bar"></span>
-                <span class="nav-toggle-bar"></span>
-                <span class="nav-toggle-bar"></span>
-                <span class="sr-only">Menu</span>
-            </button>
-
-            <ul id="primary-navigation" class="nav-links">
-                <li><a class="nav-link" href="index.html">Home</a></li>
-                <li><a class="nav-link" href="cv.html">CV</a></li>
-                <li><a class="nav-link" href="research.html">Research</a></li>
-                <li><a class="nav-link" href="teaching.html">Teaching</a></li>
-                <li><a class="nav-link" href="blog.html">Blog</a></li>
-                <li><a class="nav-link" href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-
-        <div class="header-actions">
-            <button class="theme-toggle" type="button" data-theme-state="light" aria-pressed="false" aria-label="Switch to dark mode">
-                <span class="theme-toggle-track" aria-hidden="true">
-                    <span class="theme-toggle-thumb"></span>
-                    <i class="fas fa-sun theme-icon theme-icon-sun" aria-hidden="true"></i>
-                    <i class="fas fa-moon theme-icon theme-icon-moon" aria-hidden="true"></i>
-                </span>
-                <span class="theme-toggle-label" aria-hidden="true">
-                    <span class="theme-toggle-state theme-toggle-state-light">Light</span>
-                    <span class="theme-toggle-state theme-toggle-state-dark">Dark</span>
-                </span>
-            </button>
-            <a class="header-cta" href="contact.html">Let's Collaborate</a>
+<nav id="main-nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-150">
+    <div class="relative">
+        <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between relative">
+            <a href="index.html" class="flex items-center gap-3">
+                <span class="nav-brand text-sm font-semibold tracking-tight text-slate-900 transition-colors duration-300">Tianxiang Zheng</span>
+            </a>
+            <div class="hidden md:flex items-center gap-5 lg:gap-12 text-xs font-semibold tracking-[0.2em] uppercase">
+                <a href="research.html" class="nav-link text-slate-700 hover:text-slate-900 transition-colors duration-300">Research</a>
+                <a href="teaching.html" class="nav-link text-slate-700 hover:text-slate-900 transition-colors duration-300">Teaching</a>
+                <a href="cv.html" class="nav-link text-slate-700 hover:text-slate-900 transition-colors duration-300">CV</a>
+                <a href="blog/" class="nav-link text-slate-700 hover:text-slate-900 transition-colors duration-300">Blog</a>
+            </div>
+            <div class="flex items-center gap-6">
+                <button onclick="window.location.href='contact.html'" class="nav-btn hidden md:inline-flex group relative px-5 py-2 text-xs font-semibold tracking-[0.2em] uppercase text-slate-700 border border-slate-400/30 rounded-full bg-white/50 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-blue-300/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] hover:text-slate-900">
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-100/40 to-transparent opacity-50"></div>
+                    <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50 group-hover:opacity-100 group-hover:h-[2px] blur-[1px] transition-all duration-500"></div>
+                    <span class="relative z-10">Contact</span>
+                </button>
+                <button id="mobile-menu-btn" class="md:hidden w-9 h-9 flex items-center justify-center rounded-lg text-slate-700 hover:text-slate-900 transition-colors" aria-label="Toggle menu">
+                    <iconify-icon icon="lucide:menu" width="20" id="menu-icon-open"></iconify-icon>
+                    <iconify-icon icon="lucide:x" width="20" id="menu-icon-close" class="hidden"></iconify-icon>
+                </button>
+            </div>
         </div>
     </div>
-</header>
+    <div id="mobile-menu" class="hidden md:hidden bg-white/90 backdrop-blur-2xl border-t border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-3">
+            <a href="research.html" class="text-sm font-semibold tracking-[0.1em] uppercase text-slate-700 hover:text-blue-600 py-2 transition-colors">Research</a>
+            <a href="teaching.html" class="text-sm font-semibold tracking-[0.1em] uppercase text-slate-700 hover:text-blue-600 py-2 transition-colors">Teaching</a>
+            <a href="cv.html" class="text-sm font-semibold tracking-[0.1em] uppercase text-slate-700 hover:text-blue-600 py-2 transition-colors">CV</a>
+            <a href="blog/" class="text-sm font-semibold tracking-[0.1em] uppercase text-slate-700 hover:text-blue-600 py-2 transition-colors">Blog</a>
+            <a href="contact.html" class="text-sm font-semibold tracking-[0.1em] uppercase text-slate-700 hover:text-blue-600 py-2 transition-colors">Contact</a>
+        </div>
+    </div>
+</nav>

@@ -13,12 +13,12 @@
 
 ## Accessibility & UX
 - [ ] Add a “skip to main content” link and ensure focus styles are visible across all interactive elements.
-- [ ] Validate colour contrast for primary and accent palettes defined in `assets/css/style.css`; adjust tokens if they fall below WCAG AA.
+- [ ] Validate colour contrast for primary and accent palettes used across current landing pages and content-page tokens; adjust tokens if they fall below WCAG AA.
 - [ ] Confirm that the mobile navigation closes on focus loss / escape key and that scroll locking works for keyboard users.
 - [ ] Provide clear focus management when the contact form reports success or errors (currently handled purely by FormSubmit).
 
 ## Performance & Front-End Engineering
-- [ ] Self-host Google Fonts (or at least add `preconnect`/`font-display` hints) to reduce CLS and external blocking caused by the `@import` in `assets/css/style.css`.
+- [ ] Self-host Google Fonts (or at least add `preconnect`/`font-display` hints) to reduce CLS and external font loading.
 - [ ] Audit duplicated CSS between `style.css`, `blog.css`, `blog-post.css`, and `blog-collections.css`; consolidate shared utilities into a base layer and ship page-specific bundles only when needed.
 - [ ] Generate a critical CSS chunk for above-the-fold content on `index.html` to improve Largest Contentful Paint on slower connections.
 - [ ] Compress and provide modern image formats (WebP/AVIF) for `assets/images/profile.jpg` and any future media assets.

@@ -5,101 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Thank you for contacting Tianxiang Zheng (郑天翔)">
     <title>Thank You - Tianxiang Zheng (郑天翔)</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/content-theme.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/contact.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="assets/js/main.js" defer></script>
-    <style>
-        .thank-you-container {
-            text-align: center;
-            padding: 80px 20px;
-            min-height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .thank-you-icon {
-            font-size: 5rem;
-            color: var(--color-primary);
-            margin-bottom: 20px;
-            animation: bounce 1.5s ease infinite;
-        }
-        
-        .thank-you-title {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--color-text-dark);
-        }
-        
-        .thank-you-message {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            color: var(--color-text);
-        }
-        
-        .thank-you-actions {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .thank-you-actions .btn {
-            min-width: 180px;
-        }
-        
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .thank-you-title {
-                font-size: 2rem;
-            }
-            
-            .thank-you-message {
-                font-size: 1rem;
-            }
-            
-            .thank-you-actions .btn {
-                min-width: 140px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/content-shell.css">
+    <script src="assets/js/main.js?v=20260909-1" defer></script>
 </head>
-<body>
+<body class="content-page bg-forest-50 text-slate-800 antialiased selection:bg-blue-600/30 selection:text-white overflow-x-hidden relative">
     <!-- Include header using JavaScript -->
     <div id="header-placeholder"></div>
-    
-    <main class="thank-you-container">
-        <div class="thank-you-icon">
-            <i class="fas fa-check-circle"></i>
-        </div>
-        <h1 class="thank-you-title">Thank You for Your Message!</h1>
-        <p class="thank-you-message">
-            Thank you for your interest! Your message has been successfully submitted, and I will reply to you as soon as I can!
-        </p>
-        <div class="thank-you-actions">
-            <a href="index.html" class="btn btn-secondary">
-                <i class="fas fa-home"></i> Return to Homepage
-            </a>
-            <a href="research.html" class="btn btn-primary">
-                <i class="fas fa-flask"></i> Explore My Research
-            </a>
+
+    <main class="thank-you-main">
+        <div class="shell">
+            <div class="surface thank-you-card">
+                <iconify-icon icon="lucide:circle-check" class="thank-you-icon" aria-hidden="true"></iconify-icon>
+                <h1>Thank You for Your Message!</h1>
+                <p>Thank you for your interest! Your message has been successfully submitted, and I will reply to you as soon as I can!</p>
+                <div class="thank-you-actions">
+                    <a href="index.html" class="btn btn-secondary"><iconify-icon icon="lucide:home" aria-hidden="true"></iconify-icon> Return to Homepage</a>
+                    <a href="research.html" class="btn btn-primary"><iconify-icon icon="lucide:flask-conical" aria-hidden="true"></iconify-icon> Explore My Research</a>
+                </div>
+            </div>
         </div>
     </main>
-    
+
     <!-- Include footer using JavaScript -->
     <div id="footer-placeholder"></div>
 </body>

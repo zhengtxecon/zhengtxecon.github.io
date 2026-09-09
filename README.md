@@ -48,7 +48,8 @@ Then open `http://127.0.0.1:8000/`.
 
 ## Editing Notes
 
-- Update shared navigation and footer content in `includes/`.
+- Main landing pages contain inline navigation; content pages load the current shared navigation and footer from `includes/`. Keep both surfaces consistent.
+- Follow the current `index.html` / `contact.html` visual style. Alternate homepage URLs are redirects only; the old theme toggle and unused design assets have been removed.
 - Keep page-specific styles in the matching file under `assets/css/`.
 - Use existing CSS variables in `assets/css/style.css` before adding new colors.
 - Blog posts live under `blog/`; collection pages and metadata must stay in sync
