@@ -21,22 +21,22 @@
             const snapshots = data.snapshots;
             const latest = snapshots[snapshots.length - 1];
             document.getElementById('updated').textContent = 'Last updated · ' + new Date(latest.date + 'T12:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
-            document.getElementById('stats').innerHTML = [['Deduplicated total', latest.total], ['Google Scholar', latest.scholar], ['CNKI', latest.cnki]].map(([label, count]) => `<div class="citation-stat"><strong>${count}</strong>${label}</div>`).join('');
+            document.getElementById('stats').innerHTML = [['Total citations', latest.total], ['Google Scholar', latest.scholar], ['CNKI', latest.cnki]].map(([label, count]) => `<div class="citation-stat"><strong>${count}</strong>${label}</div>`).join('');
             const start = Date.UTC(data.annual[0].year, 11, 31);
             const end = Date.parse(latest.date);
             const x = date => 48 + (date - start) / (end - start) * 690;
             const ceiling = Math.ceil(Math.max(...snapshots.map(s => Math.max(s.total, s.scholar, s.cnki))) / 10) * 10;
             const y = n => 285 - n / ceiling * 240;
-            let svg = '<svg viewBox="0 0 800 335" role="img" aria-labelledby="chart-title chart-desc"><title id="chart-title">Cumulative citation history</title><desc id="chart-desc">Stacked areas: deduplicated Google Scholar below, additional CNKI citations above. The upper boundary is the deduplicated total. Annual history is followed by observed totals.</desc>';
+            let svg = '<svg viewBox="0 0 800 335" role="img" aria-labelledby="chart-title chart-desc"><title id="chart-title">Cumulative citation history</title><desc id="chart-desc">Stacked areas: raw Google Scholar citations below, raw CNKI citations above. The upper boundary is their sum. Annual history is followed by observed totals.</desc>';
             for (let n = 0; n <= ceiling; n += 10) svg += `<line class="grid" x1="48" x2="738" y1="${y(n)}" y2="${y(n)}"/><text x="35" y="${y(n) + 4}" text-anchor="end">${n}</text>`;
-            const dates = data.annual.map(r => Math.min(Date.UTC(r.year, 11, 31), Date.parse(data.observed_date)));
+            const dates = data.annual.map(r => Math.min(Date.UTC(r.year, 11, 31), Date.parse(data.annual_observed_date)));
             data.annual.forEach((r, i) => { svg += `<text x="${x(dates[i])}" y="310" text-anchor="middle">${r.year}</text>`; });
             let scholarSum = 0;
             const history = data.annual.map((r, i) => {
-                scholarSum += r.scholar - (r.scholar_internal_duplicates || 0);
+                scholarSum += r.scholar;
                 return { x: x(dates[i]), scholar: scholarSum, total: r.cumulative, label: `${r.year} · historical`, historical: true };
             });
-            const observed = snapshots.map(s => ({ x: x(Date.parse(s.date)), scholar: s.scholar - s.scholar_internal_duplicates, total: s.total, date: s.date }));
+            const observed = snapshots.map(s => ({ x: x(Date.parse(s.date)), scholar: s.scholar, total: s.total, date: s.date }));
             // At the baseline date, use the observed total as the plotted endpoint.
             // Keeping both values at the same x coordinate creates a vertical spike.
             const points = [...history.filter(p => !observed.some(s => s.x === p.x)), ...observed];

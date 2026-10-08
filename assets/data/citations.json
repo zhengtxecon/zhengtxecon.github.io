@@ -1,115 +1,83 @@
 {
-  "observed_date": "2026-09-08",
-  "total": 59,
+  "observed_date": "2026-10-08",
+  "total": 65,
   "google_scholar_raw": 23,
-  "cnki_raw": 39,
-  "chinese_union": 39,
-  "scholar_chinese_records": 3,
-  "scholar_chinese_unique": 2,
-  "scholar_chinese_additional": 0,
-  "english_total": 20,
-  "annual_allocated_total": 58,
+  "cnki_raw": 42,
+  "annual_allocated_total": 61,
   "unallocated_year_count": 1,
-  "matches": [
-    {
-      "scholar_title": "智能制造对劳动收入份额的影响研究——基于就业结构转型的视角",
-      "cnki_title": "智能制造对劳动收入份额的影响研究——基于就业结构转型的视角",
-      "doi": "10.16060/j.cnki.issn2095-8072.2024.05.002",
-      "year": 2024,
-      "method": "exact title, authors, year"
-    },
-    {
-      "scholar_title": "机器人应用，产业结构转型与劳动收入份额变动",
-      "cnki_title": "机器人应用、产业结构转型与劳动收入份额变动",
-      "doi": "10.16382/j.cnki.1000-5579.2026.01.013",
-      "year": 2026,
-      "method": "DOI"
-    },
-    {
-      "scholar_title": "Robot Application, Industrial Structure Transformation and the Changes in the Labor Income Share",
-      "cnki_title": "机器人应用、产业结构转型与劳动收入份额变动",
-      "doi": "10.16382/j.cnki.1000-5579.2026.01.013",
-      "year": 2026,
-      "method": "DOI"
-    }
-  ],
   "annual": [
     {
       "year": 2020,
-      "cnki": 0,
-      "english_scholar": 1,
-      "deduplicated_annual": 1,
-      "cumulative": 1,
       "scholar": 1,
-      "scholar_internal_duplicates": 0
+      "cnki": 0,
+      "total": 1,
+      "cumulative": 1
     },
     {
       "year": 2021,
-      "cnki": 0,
-      "english_scholar": 1,
-      "deduplicated_annual": 1,
-      "cumulative": 2,
       "scholar": 1,
-      "scholar_internal_duplicates": 0
+      "cnki": 0,
+      "total": 1,
+      "cumulative": 2
     },
     {
       "year": 2022,
-      "cnki": 9,
-      "english_scholar": 1,
-      "deduplicated_annual": 10,
-      "cumulative": 12,
       "scholar": 1,
-      "scholar_internal_duplicates": 0
+      "cnki": 9,
+      "total": 10,
+      "cumulative": 12
     },
     {
       "year": 2023,
-      "cnki": 16,
-      "english_scholar": 1,
-      "deduplicated_annual": 17,
-      "cumulative": 29,
       "scholar": 1,
-      "scholar_internal_duplicates": 0
+      "cnki": 16,
+      "total": 17,
+      "cumulative": 29
     },
     {
       "year": 2024,
-      "cnki": 5,
-      "english_scholar": 5,
-      "deduplicated_annual": 10,
-      "cumulative": 39,
       "scholar": 6,
-      "scholar_internal_duplicates": 0
+      "cnki": 5,
+      "total": 11,
+      "cumulative": 40
     },
     {
       "year": 2025,
-      "cnki": 6,
-      "english_scholar": 4,
-      "deduplicated_annual": 10,
-      "cumulative": 49,
       "scholar": 4,
-      "scholar_internal_duplicates": 0
+      "cnki": 6,
+      "total": 10,
+      "cumulative": 50
     },
     {
       "year": 2026,
-      "cnki": 3,
-      "english_scholar": 6,
-      "deduplicated_annual": 9,
-      "cumulative": 58,
       "scholar": 8,
-      "scholar_internal_duplicates": 1
+      "cnki": 3,
+      "total": 11,
+      "cumulative": 61
     }
   ],
   "limitations": [
-    "English per-paper counts accepted as supplied by Scholar; full English citing lists not audited.",
-    "Numbers Game total10 differs from annual sum9; one citation not allocated to year.",
-    "Cross-source dedup applies to citations of the Chinese paper. Distinct cited papers count as distinct citation relationships."
+    "Totals are the raw sum of Google Scholar and CNKI, without within-source or cross-source deduplication.",
+    "Annual history retains the source counts observed on 2026-09-08; one Google Scholar citation has no recorded publication year and is not allocated to a year.",
+    "The 2026-10-08 snapshot was confirmed by the user; the three additional CNKI citations have no recorded year breakdown.",
+    "Original deduplicated data and source evidence are retained for traceability."
   ],
   "snapshots": [
     {
       "date": "2026-09-08",
       "scholar": 23,
       "cnki": 39,
-      "total": 59,
-      "scholar_internal_duplicates": 1
+      "total": 62,
+      "counting_method": "raw_sum",
+      "source": "Previously recorded raw source counts; original deduplicated snapshot preserved in legacy_deduplicated."
+    },
+    {
+      "date": "2026-10-08",
+      "scholar": 23,
+      "cnki": 42,
+      "total": 65,
+      "counting_method": "raw_sum",
+      "source": "User-confirmed Google Scholar All citations and CNKI direct citations on 2026-10-08."
     }
   ],
   "cnki_evidence": {
@@ -767,5 +735,119 @@
       "https://scholar.google.com/intl/en/scholar/help.html"
     ],
     "interpretation": "Official help describes Since Year as recently published papers; graph links filter by as_ylo/as_yhi. Annual figures reflect Scholar-indexed citing publication years; no verified guarantee that these always equal the latest working-paper version year. Preserve native series as requested."
-  }
+  },
+  "legacy_deduplicated": {
+    "observed_date": "2026-09-08",
+    "total": 59,
+    "annual_allocated_total": 58,
+    "annual": [
+      {
+        "year": 2020,
+        "cnki": 0,
+        "english_scholar": 1,
+        "deduplicated_annual": 1,
+        "cumulative": 1,
+        "scholar": 1,
+        "scholar_internal_duplicates": 0
+      },
+      {
+        "year": 2021,
+        "cnki": 0,
+        "english_scholar": 1,
+        "deduplicated_annual": 1,
+        "cumulative": 2,
+        "scholar": 1,
+        "scholar_internal_duplicates": 0
+      },
+      {
+        "year": 2022,
+        "cnki": 9,
+        "english_scholar": 1,
+        "deduplicated_annual": 10,
+        "cumulative": 12,
+        "scholar": 1,
+        "scholar_internal_duplicates": 0
+      },
+      {
+        "year": 2023,
+        "cnki": 16,
+        "english_scholar": 1,
+        "deduplicated_annual": 17,
+        "cumulative": 29,
+        "scholar": 1,
+        "scholar_internal_duplicates": 0
+      },
+      {
+        "year": 2024,
+        "cnki": 5,
+        "english_scholar": 5,
+        "deduplicated_annual": 10,
+        "cumulative": 39,
+        "scholar": 6,
+        "scholar_internal_duplicates": 0
+      },
+      {
+        "year": 2025,
+        "cnki": 6,
+        "english_scholar": 4,
+        "deduplicated_annual": 10,
+        "cumulative": 49,
+        "scholar": 4,
+        "scholar_internal_duplicates": 0
+      },
+      {
+        "year": 2026,
+        "cnki": 3,
+        "english_scholar": 6,
+        "deduplicated_annual": 9,
+        "cumulative": 58,
+        "scholar": 8,
+        "scholar_internal_duplicates": 1
+      }
+    ],
+    "snapshots": [
+      {
+        "date": "2026-09-08",
+        "scholar": 23,
+        "cnki": 39,
+        "total": 59,
+        "scholar_internal_duplicates": 1
+      }
+    ],
+    "limitations": [
+      "English per-paper counts accepted as supplied by Scholar; full English citing lists not audited.",
+      "Numbers Game total10 differs from annual sum9; one citation not allocated to year.",
+      "Cross-source dedup applies to citations of the Chinese paper. Distinct cited papers count as distinct citation relationships."
+    ],
+    "matches": [
+      {
+        "scholar_title": "智能制造对劳动收入份额的影响研究——基于就业结构转型的视角",
+        "cnki_title": "智能制造对劳动收入份额的影响研究——基于就业结构转型的视角",
+        "doi": "10.16060/j.cnki.issn2095-8072.2024.05.002",
+        "year": 2024,
+        "method": "exact title, authors, year"
+      },
+      {
+        "scholar_title": "机器人应用，产业结构转型与劳动收入份额变动",
+        "cnki_title": "机器人应用、产业结构转型与劳动收入份额变动",
+        "doi": "10.16382/j.cnki.1000-5579.2026.01.013",
+        "year": 2026,
+        "method": "DOI"
+      },
+      {
+        "scholar_title": "Robot Application, Industrial Structure Transformation and the Changes in the Labor Income Share",
+        "cnki_title": "机器人应用、产业结构转型与劳动收入份额变动",
+        "doi": "10.16382/j.cnki.1000-5579.2026.01.013",
+        "year": 2026,
+        "method": "DOI"
+      }
+    ],
+    "chinese_union": 39,
+    "scholar_chinese_records": 3,
+    "scholar_chinese_unique": 2,
+    "scholar_chinese_additional": 0,
+    "english_total": 20
+  },
+  "counting_method": "raw_sum",
+  "annual_observed_date": "2026-09-08"
 }
